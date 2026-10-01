@@ -1,0 +1,834 @@
+[
+  {
+    "code": "INTERMEDIATE-SUBNET-001",
+    "title": "IPv4 Subnetting Mastery",
+    "slug": "ipv4-and-subnetting",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 30,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "A rigorous, calculation-driven exam evaluating your ability to determine network addresses, broadcast addresses, subnet masks, and usable host ranges for arbitrary CIDR prefixes.",
+    "instructions": "25 questions in 30 minutes. Programmatically verified mathematical subnetting questions. Requires 75% or higher to pass.",
+    "prerequisites": "IPv4 addressing and binary math fundamentals.",
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address",
+      "broadcast",
+      "host-range"
+    ],
+    "what_you_will_practice": [
+      "Calculate valid host ranges and broadcast addresses for /24 through /30 subnets",
+      "Identify which subnet an arbitrary host IP belongs to",
+      "Determine required prefix lengths for specified departmental host counts"
+    ],
+    "blueprint": {
+      "title": "Subnetting Mastery Blueprint",
+      "description": "Calculates and verifies host ranges, broadcast addresses, and CIDR masks.",
+      "topics": [
+        {
+          "topic_slug": "subnetting",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "cidr",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-address",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "broadcast-address",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "host-range",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "subnet-masks",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-CIDR-001",
+    "title": "CIDR & Variable Length Subnet Masking (VLSM)",
+    "slug": "cidr-and-vlsm",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 25,
+    "total_questions": 18,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Master Classless Inter-Domain Routing (CIDR) and Variable Length Subnet Masking (VLSM). Practice optimizing IP allocations across multi-tier networks without address wastage.",
+    "instructions": "18 questions, 25 minutes. 75% pass mark.",
+    "prerequisites": "IPv4 subnetting.",
+    "tags": [
+      "cidr",
+      "vlsm",
+      "route-aggregation",
+      "efficiency"
+    ],
+    "what_you_will_practice": [
+      "Design VLSM hierarchical subnet plans minimizing address depletion",
+      "Perform route summarization (supernetting) across contiguous CIDR blocks",
+      "Allocate /30 and /31 point-to-point router transit links"
+    ],
+    "blueprint": {
+      "title": "CIDR and VLSM Blueprint",
+      "description": "Assesses hierarchical subnet planning and route summarization.",
+      "topics": [
+        {
+          "topic_slug": "cidr",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "vlsm",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "subnet-masks",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "host-range",
+          "question_count": 6,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-TCP-UDP-001",
+    "title": "TCP & UDP Transport Protocol Mechanics",
+    "slug": "intermediate-tcp-and-udp",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 25,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Deep dive into Layer 4 mechanics: TCP flags (SYN, ACK, FIN, RST, PSH, URG), sequence and acknowledgment number calculation, 3-way handshakes, 4-step teardowns, and socket states.",
+    "instructions": "25 questions in 25 minutes. 75% passing threshold.",
+    "prerequisites": "Transport layer basics.",
+    "tags": [
+      "tcp",
+      "handshake",
+      "flags",
+      "sequence-numbers",
+      "sockets"
+    ],
+    "what_you_will_practice": [
+      "Track sequence and acknowledgment number increments across TCP sessions",
+      "Identify control flags set in connection establishment, data flow, and resets",
+      "Analyze TCP state transitions: SYN_SENT, ESTABLISHED, FIN_WAIT, and TIME_WAIT"
+    ],
+    "blueprint": {
+      "title": "TCP Protocol Mechanics Blueprint",
+      "description": "Detailed evaluation of transport layer connection state and flow control.",
+      "topics": [
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 10,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-three-way-handshake",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-flags",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-connection-termination",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "udp-communication",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-DNS-DHCP-001",
+    "title": "DNS & DHCP Network Services",
+    "slug": "dns-and-dhcp-services",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 14,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess core infrastructure network services. Covers recursive DNS resolution, zone transfer concepts, authoritativeness, DHCP relay agents, and lease option configuration.",
+    "instructions": "14 questions in 20 minutes.",
+    "prerequisites": "Application layer and IP configuration.",
+    "tags": [
+      "dns",
+      "dhcp",
+      "services",
+      "dora",
+      "relay-agent"
+    ],
+    "what_you_will_practice": [
+      "Analyze recursive vs iterative DNS resolution workflows",
+      "Understand DHCP Relay Agent (IP Helper) mechanics across subnets",
+      "Interpret nslookup and dig query diagnostics"
+    ],
+    "blueprint": {
+      "title": "DNS & DHCP Services Blueprint",
+      "description": "Evaluates enterprise domain resolution and automated host configuration.",
+      "topics": [
+        {
+          "topic_slug": "dns-resolution",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "dns-record-types",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "dhcp-process",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nslookup-dig-concepts",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-WEB-001",
+    "title": "HTTP, HTTPS & TLS Encryption",
+    "slug": "http-https-and-tls",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test understanding of web application transport: HTTP/1.1 vs HTTP/2, idempotent methods (GET, PUT, DELETE), header analysis, TLS cryptographic handshakes, and certificate verification.",
+    "instructions": "15 questions, 20 minutes.",
+    "prerequisites": "Application layer and basic security.",
+    "tags": [
+      "http",
+      "https",
+      "tls",
+      "certificates",
+      "crypto"
+    ],
+    "what_you_will_practice": [
+      "Explain the TLS handshake: ClientHello, ServerHello, and key exchange",
+      "Identify safe and idempotent HTTP request methods",
+      "Understand PKI certificate authorities and digital signature validation"
+    ],
+    "blueprint": {
+      "title": "HTTP and TLS Security Blueprint",
+      "description": "Assesses web protocols and transport layer cryptographic security.",
+      "topics": [
+        {
+          "topic_slug": "http-methods",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "http-status-codes",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "https-intermediate",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tls-basics",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-ROUTING-001",
+    "title": "Routing Principles & Protocol Concepts",
+    "slug": "routing-fundamentals",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Evaluate routing logic: longest prefix match, administrative distance, metric calculation, static vs dynamic routing, default routes (0.0.0.0/0), and link-state vs distance-vector.",
+    "instructions": "15 questions, 20 minutes.",
+    "prerequisites": "IPv4 subnetting and Layer 3 basics.",
+    "tags": [
+      "routing",
+      "static-routing",
+      "dynamic-routing",
+      "longest-prefix-match"
+    ],
+    "what_you_will_practice": [
+      "Perform routing table lookups using the Longest Prefix Match rule",
+      "Compare Administrative Distance between Static, OSPF, and EIGRP routes",
+      "Configure default gateway static routes (0.0.0.0/0)"
+    ],
+    "blueprint": {
+      "title": "Routing Fundamentals Blueprint",
+      "description": "Tests packet forwarding decisions and routing table analysis.",
+      "topics": [
+        {
+          "topic_slug": "routing",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "static-routing",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "dynamic-routing-concepts",
+          "question_count": 6,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "default-routes",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-SWITCHING-001",
+    "title": "Switching Mechanics & MAC Learning",
+    "slug": "switching-and-mac-tables",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess Layer 2 switch forwarding operations: MAC address table aging and learning, unknown unicast flooding, broadcast forwarding, and basic loop prevention.",
+    "instructions": "15 questions in 20 minutes.",
+    "prerequisites": "Ethernet and MAC addressing.",
+    "tags": [
+      "switching",
+      "mac-table",
+      "flooding",
+      "layer2",
+      "cams"
+    ],
+    "what_you_will_practice": [
+      "Track how a switch populates its CAM/MAC address table from ingress source MACs",
+      "Analyze switch behavior when handling unknown unicast vs broadcast frames",
+      "Understand why Layer 2 forwarding loops cause catastrophic broadcast storms"
+    ],
+    "blueprint": {
+      "title": "Switching Mechanics Blueprint",
+      "description": "Evaluates switch frame processing and forwarding table operations.",
+      "topics": [
+        {
+          "topic_slug": "switching",
+          "question_count": 10,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "mac-address-table",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "trunking",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-VLAN-001",
+    "title": "VLAN Segmentation & Trunking",
+    "slug": "vlan-and-trunking",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 15,
+    "total_questions": 10,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test your mastery of Virtual Local Area Networks (VLANs), IEEE 802.1Q trunk tagging, native VLANs, access ports, and inter-VLAN routing (Router-on-a-Stick).",
+    "instructions": "10 questions, 15 minutes.",
+    "prerequisites": "Switching mechanics.",
+    "tags": [
+      "vlan",
+      "802.1q",
+      "trunking",
+      "segmentation",
+      "native-vlan"
+    ],
+    "what_you_will_practice": [
+      "Explain the role of IEEE 802.1Q tags in multiplexing VLAN traffic across trunks",
+      "Differentiate access ports from trunk ports on enterprise switches",
+      "Identify security risks associated with the default native VLAN 1"
+    ],
+    "blueprint": {
+      "title": "VLAN Architecture Blueprint",
+      "description": "Assesses broadcast segmentation and multi-switch trunking.",
+      "topics": [
+        {
+          "topic_slug": "vlan",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "trunking",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "switching",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-ARP-ICMP-001",
+    "title": "ARP & ICMP Diagnostic Protocols",
+    "slug": "arp-and-icmp-protocols",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 15,
+    "total_questions": 10,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Evaluate protocols that enable IP connectivity and diagnostic tools: ARP request/reply cycles, gratuitous ARP, ICMP Echo Request/Reply (Type 8/0), and Time Exceeded (Type 11).",
+    "instructions": "10 questions, 15 minutes.",
+    "prerequisites": "IPv4 and Layer 2.",
+    "tags": [
+      "arp",
+      "icmp",
+      "ping",
+      "traceroute",
+      "diagnostics"
+    ],
+    "what_you_will_practice": [
+      "Analyze ICMP message types used by ping and traceroute",
+      "Understand the security implications of unauthenticated ARP broadcasts",
+      "Diagnose host-unreachable vs timeout response codes"
+    ],
+    "blueprint": {
+      "title": "ARP and ICMP Blueprint",
+      "description": "Tests connectivity resolution and control message diagnostics.",
+      "topics": [
+        {
+          "topic_slug": "ping",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "traceroute",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "arp",
+          "question_count": 1,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "netstat-ss",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-NAT-001",
+    "title": "NAT & Port Address Translation (PAT)",
+    "slug": "network-address-translation",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 15,
+    "total_questions": 8,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess Network Address Translation (RFC 1631): Static 1:1 NAT, Dynamic Pool NAT, and Port Address Translation (PAT / NAT Overload) using Layer 4 source port multiplexing.",
+    "instructions": "8 questions, 15 minutes.",
+    "prerequisites": "Public vs Private IP addresses.",
+    "tags": [
+      "nat",
+      "pat",
+      "nat-overload",
+      "translation",
+      "firewall"
+    ],
+    "what_you_will_practice": [
+      "Differentiate Static NAT, Dynamic NAT, and PAT (NAT Overload)",
+      "Explain how PAT tracks state to map many private IPs to one public IP",
+      "Identify when port forwarding (destination NAT) is required for inbound hosting"
+    ],
+    "blueprint": {
+      "title": "NAT and PAT Blueprint",
+      "description": "Assesses address translation mechanics and state tracking.",
+      "topics": [
+        {
+          "topic_slug": "nat",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nat-security",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-segmentation",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-TROUBLESHOOT-001",
+    "title": "Network Troubleshooting & CLI Tools",
+    "slug": "network-troubleshooting",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Scenario-driven network diagnostic examination: isolate failures across physical, link, IP, and DNS layers using ping, traceroute, ipconfig/ifconfig, netstat/ss, and dig.",
+    "instructions": "15 questions, 20 minutes.",
+    "prerequisites": "Networking tools and protocol knowledge.",
+    "tags": [
+      "troubleshooting",
+      "cli",
+      "ping",
+      "traceroute",
+      "netstat",
+      "dig"
+    ],
+    "what_you_will_practice": [
+      "Differentiate DNS failures from Layer 3 IP routing failures",
+      "Analyze traceroute hop asterisks and identify upstream drop points",
+      "Use netstat/ss to determine active listening ports and established sockets"
+    ],
+    "blueprint": {
+      "title": "Network Troubleshooting Blueprint",
+      "description": "Tests systematic fault isolation using command-line diagnostic tools.",
+      "topics": [
+        {
+          "topic_slug": "ping",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "traceroute",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "netstat-ss",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nslookup-dig-concepts",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "routing",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-SECURITY-001",
+    "title": "Intermediate Network Defense & ACLs",
+    "slug": "network-security",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 20,
+    "total_questions": 14,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Evaluate Access Control List (ACL) rule processing, top-to-bottom matching, implicit deny, stateful vs stateless filtering, and network microsegmentation principles.",
+    "instructions": "14 questions, 20 minutes.",
+    "prerequisites": "Basic security and transport ports.",
+    "tags": [
+      "acl",
+      "firewall",
+      "security",
+      "segmentation",
+      "defense"
+    ],
+    "what_you_will_practice": [
+      "Analyze firewall ACL top-down rule ordering and identify shadow rules",
+      "Explain the role of the implicit deny at the end of access lists",
+      "Contrast stateful connection tracking with stateless packet filters"
+    ],
+    "blueprint": {
+      "title": "Network Security and ACL Blueprint",
+      "description": "Assesses access filtering, stateful tracking, and segmentation.",
+      "topics": [
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "firewall-basics",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-segmentation",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "stateful-vs-stateless-filtering",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "ids",
+          "question_count": 1,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "ips",
+          "question_count": 1,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-FIREWALLS-001",
+    "title": "Firewalls & Rule Evaluation",
+    "slug": "firewalls",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 15,
+    "total_questions": 10,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Detailed examination of firewall architectures, state table inspection, egress filtering policies, and Layer 7 Web Application Firewalls (WAF).",
+    "instructions": "10 questions, 15 minutes.",
+    "prerequisites": "Firewall and port fundamentals.",
+    "tags": [
+      "firewall",
+      "state-table",
+      "egress-filtering",
+      "rules"
+    ],
+    "what_you_will_practice": [
+      "Analyze state table entry creation and teardown for TCP/UDP",
+      "Understand why egress filtering is critical to prevent malware C2 beaconing",
+      "Contrast Layer 4 packet filters with Layer 7 application inspection"
+    ],
+    "blueprint": {
+      "title": "Firewall Rule Evaluation Blueprint",
+      "description": "Tests firewall policy design and packet filtering behavior.",
+      "topics": [
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "firewall-basics",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "stateful-vs-stateless-filtering",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-IDS-001",
+    "title": "IDS & IPS Intrusion Detection",
+    "slug": "ids-ips",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "DRAFT",
+    "description": "Assess intrusion detection (NIDS) vs intrusion prevention (NIPS), inline vs span/tap deployment, signature-based detection, and false positive tuning.",
+    "instructions": "20 questions, 25 minutes. Note: Currently in draft status pending intermediate sensor question staging.",
+    "prerequisites": "Network security basics.",
+    "tags": [
+      "ids",
+      "ips",
+      "nids",
+      "suricata",
+      "snort"
+    ],
+    "what_you_will_practice": [
+      "Differentiate out-of-band monitoring (SPAN/TAP) from inline blocking (IPS)",
+      "Identify signature vs anomaly behavioral detection techniques"
+    ],
+    "blueprint": {
+      "title": "IDS and IPS Fundamentals Blueprint",
+      "description": "Tests intrusion detection architecture and deployment modes.",
+      "topics": [
+        {
+          "topic_slug": "ids-ips-advanced",
+          "question_count": 20,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-PACKET-001",
+    "title": "Packet Analysis Fundamentals",
+    "slug": "packet-analysis-fundamentals",
+    "test_type": "TOPIC",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "DRAFT",
+    "description": "Introduction to packet dissection, Wireshark capture display filters, and protocol field identification.",
+    "instructions": "20 questions, 25 minutes. Currently in draft status.",
+    "prerequisites": "Protocol and packet basics.",
+    "tags": [
+      "pcap",
+      "wireshark",
+      "packets",
+      "filters"
+    ],
+    "what_you_will_practice": [
+      "Construct Wireshark display filters by IP, port, and protocol",
+      "Dissect Ethernet frame and IPv4 packet header fields"
+    ],
+    "blueprint": {
+      "title": "Packet Analysis Fundamentals Blueprint",
+      "description": "Tests packet header extraction and filter authoring.",
+      "topics": [
+        {
+          "topic_slug": "wireshark-filtering-concepts",
+          "question_count": 20,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  },
+  {
+    "code": "INTERMEDIATE-COMPREHENSIVE-001",
+    "title": "Intermediate Comprehensive Networking Exam",
+    "slug": "intermediate-comprehensive",
+    "test_type": "COMPREHENSIVE",
+    "difficulty": "INTERMEDIATE",
+    "duration_minutes": 40,
+    "total_questions": 35,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "A comprehensive examination covering the full Intermediate syllabus: advanced subnetting, TCP/UDP states, VLANs, static/dynamic routing, NAT, firewall filtering, and diagnostic CLI tools.",
+    "instructions": "35 questions in 40 minutes. Simulates associate-level networking certification examinations (CCNA / Network+).",
+    "prerequisites": "Completion of all Intermediate learning modules.",
+    "tags": [
+      "comprehensive",
+      "intermediate",
+      "certification-prep",
+      "ccna",
+      "exam"
+    ],
+    "what_you_will_practice": [
+      "Synthesize subnet calculations with practical routing and switching scenarios",
+      "Analyze protocol handshakes, transport flags, and socket lifecycles",
+      "Diagnose multi-hop network outages and evaluate security boundary rules"
+    ],
+    "blueprint": {
+      "title": "Intermediate Comprehensive Blueprint",
+      "description": "Full-spectrum assessment across all intermediate networking domains.",
+      "topics": [
+        {
+          "topic_slug": "subnetting",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-address",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 5,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-flags",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "switching",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "routing",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nat",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "ping",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        }
+      ]
+    }
+  }
+]

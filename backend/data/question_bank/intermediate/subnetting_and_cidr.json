@@ -1,0 +1,1632 @@
+[
+  {
+    "code": "SUBNET-001",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 192.168.10.64/26, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 192.168.10.64/26, the network address is 192.168.10.64 and the broadcast address is 192.168.10.127 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "192.168.10.127",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 192.168.10.64/26 has all host bits set to 1, yielding 192.168.10.127."
+      },
+      {
+        "option_text": "192.168.10.64",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.10.64 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "192.168.10.126",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.10.126 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "192.168.10.128",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.10.128 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.10.64/26",
+      "property": "broadcast_address",
+      "expected": "192.168.10.127"
+    }
+  },
+  {
+    "code": "SUBNET-002",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 192.168.1.128/25, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 192.168.1.128/25, the network address is 192.168.1.128 and the broadcast address is 192.168.1.255 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "192.168.1.255",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 192.168.1.128/25 has all host bits set to 1, yielding 192.168.1.255."
+      },
+      {
+        "option_text": "192.168.1.128",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.1.128 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "192.168.1.254",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.1.254 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "192.168.2.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.2.0 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.128/25",
+      "property": "broadcast_address",
+      "expected": "192.168.1.255"
+    }
+  },
+  {
+    "code": "SUBNET-003",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 10.0.0.0/27, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 10.0.0.0/27, the network address is 10.0.0.0 and the broadcast address is 10.0.0.31 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "10.0.0.31",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 10.0.0.0/27 has all host bits set to 1, yielding 10.0.0.31."
+      },
+      {
+        "option_text": "10.0.0.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.0.0.0 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "10.0.0.30",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "10.0.0.30 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "10.0.0.32",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.0.0.32 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "10.0.0.0/27",
+      "property": "broadcast_address",
+      "expected": "10.0.0.31"
+    }
+  },
+  {
+    "code": "SUBNET-004",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 172.16.50.192/28, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 172.16.50.192/28, the network address is 172.16.50.192 and the broadcast address is 172.16.50.207 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "172.16.50.207",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 172.16.50.192/28 has all host bits set to 1, yielding 172.16.50.207."
+      },
+      {
+        "option_text": "172.16.50.192",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "172.16.50.192 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "172.16.50.206",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "172.16.50.206 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "172.16.50.208",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "172.16.50.208 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "172.16.50.192/28",
+      "property": "broadcast_address",
+      "expected": "172.16.50.207"
+    }
+  },
+  {
+    "code": "SUBNET-005",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 192.168.100.248/29, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 192.168.100.248/29, the network address is 192.168.100.248 and the broadcast address is 192.168.100.255 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "192.168.100.255",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 192.168.100.248/29 has all host bits set to 1, yielding 192.168.100.255."
+      },
+      {
+        "option_text": "192.168.100.248",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.100.248 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "192.168.100.254",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.100.254 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "192.168.101.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.101.0 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.100.248/29",
+      "property": "broadcast_address",
+      "expected": "192.168.100.255"
+    }
+  },
+  {
+    "code": "SUBNET-006",
+    "topic_slug": "broadcast-address",
+    "question_text": "Given the IPv4 network 10.10.10.0/30, what is the directed broadcast address?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the subnet 10.10.10.0/30, the network address is 10.10.10.0 and the broadcast address is 10.10.10.3 (all host bits set to binary 1).",
+    "learning_objective": "Calculate the broadcast address for a given CIDR network prefix.",
+    "options": [
+      {
+        "option_text": "10.10.10.3",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The broadcast address for 10.10.10.0/30 has all host bits set to 1, yielding 10.10.10.3."
+      },
+      {
+        "option_text": "10.10.10.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.10.10.0 is the network address (all host bits 0), not the broadcast address."
+      },
+      {
+        "option_text": "10.10.10.2",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "10.10.10.2 is the last usable host IP address in the subnet."
+      },
+      {
+        "option_text": "10.10.10.4",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.10.10.4 is the network address of the adjacent following subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "calculation"
+    ],
+    "calculation_metadata": {
+      "cidr": "10.10.10.0/30",
+      "property": "broadcast_address",
+      "expected": "10.10.10.3"
+    }
+  },
+  {
+    "code": "SUBNET-007",
+    "topic_slug": "network-address",
+    "question_text": "A host workstation is assigned the IPv4 address 192.168.1.155/26. What is the network address of the subnet to which it belongs?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Applying the /26 mask to host IP 192.168.1.155 zeroes out all host bits, producing the network address 192.168.1.128.",
+    "learning_objective": "Determine the network address for a given host IP and prefix length.",
+    "options": [
+      {
+        "option_text": "192.168.1.128",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bitwise ANDing 192.168.1.155 with /26 mask clears all host bits to 0, yielding 192.168.1.128."
+      },
+      {
+        "option_text": "192.168.1.129",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.1.129 is the first usable host IP address, not the network identifier."
+      },
+      {
+        "option_text": "192.168.1.191",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.1.191 is the broadcast address for this subnet."
+      },
+      {
+        "option_text": "192.168.1.190",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.1.190 is the last usable host address in this subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.155/26",
+      "property": "network_address",
+      "expected": "192.168.1.128"
+    }
+  },
+  {
+    "code": "SUBNET-008",
+    "topic_slug": "network-address",
+    "question_text": "A host workstation is assigned the IPv4 address 10.20.30.77/27. What is the network address of the subnet to which it belongs?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Applying the /27 mask to host IP 10.20.30.77 zeroes out all host bits, producing the network address 10.20.30.64.",
+    "learning_objective": "Determine the network address for a given host IP and prefix length.",
+    "options": [
+      {
+        "option_text": "10.20.30.64",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bitwise ANDing 10.20.30.77 with /27 mask clears all host bits to 0, yielding 10.20.30.64."
+      },
+      {
+        "option_text": "10.20.30.65",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.20.30.65 is the first usable host IP address, not the network identifier."
+      },
+      {
+        "option_text": "10.20.30.95",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "10.20.30.95 is the broadcast address for this subnet."
+      },
+      {
+        "option_text": "10.20.30.94",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.20.30.94 is the last usable host address in this subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address"
+    ],
+    "calculation_metadata": {
+      "cidr": "10.20.30.77/27",
+      "property": "network_address",
+      "expected": "10.20.30.64"
+    }
+  },
+  {
+    "code": "SUBNET-009",
+    "topic_slug": "network-address",
+    "question_text": "A host workstation is assigned the IPv4 address 172.16.85.201/28. What is the network address of the subnet to which it belongs?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Applying the /28 mask to host IP 172.16.85.201 zeroes out all host bits, producing the network address 172.16.85.192.",
+    "learning_objective": "Determine the network address for a given host IP and prefix length.",
+    "options": [
+      {
+        "option_text": "172.16.85.192",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bitwise ANDing 172.16.85.201 with /28 mask clears all host bits to 0, yielding 172.16.85.192."
+      },
+      {
+        "option_text": "172.16.85.193",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "172.16.85.193 is the first usable host IP address, not the network identifier."
+      },
+      {
+        "option_text": "172.16.85.207",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "172.16.85.207 is the broadcast address for this subnet."
+      },
+      {
+        "option_text": "172.16.85.206",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "172.16.85.206 is the last usable host address in this subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address"
+    ],
+    "calculation_metadata": {
+      "cidr": "172.16.85.201/28",
+      "property": "network_address",
+      "expected": "172.16.85.192"
+    }
+  },
+  {
+    "code": "SUBNET-010",
+    "topic_slug": "network-address",
+    "question_text": "A host workstation is assigned the IPv4 address 192.168.5.250/29. What is the network address of the subnet to which it belongs?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Applying the /29 mask to host IP 192.168.5.250 zeroes out all host bits, producing the network address 192.168.5.248.",
+    "learning_objective": "Determine the network address for a given host IP and prefix length.",
+    "options": [
+      {
+        "option_text": "192.168.5.248",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bitwise ANDing 192.168.5.250 with /29 mask clears all host bits to 0, yielding 192.168.5.248."
+      },
+      {
+        "option_text": "192.168.5.249",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.5.249 is the first usable host IP address, not the network identifier."
+      },
+      {
+        "option_text": "192.168.5.255",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.5.255 is the broadcast address for this subnet."
+      },
+      {
+        "option_text": "192.168.5.254",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.5.254 is the last usable host address in this subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.5.250/29",
+      "property": "network_address",
+      "expected": "192.168.5.248"
+    }
+  },
+  {
+    "code": "SUBNET-011",
+    "topic_slug": "network-address",
+    "question_text": "A host workstation is assigned the IPv4 address 10.1.1.25/30. What is the network address of the subnet to which it belongs?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Applying the /30 mask to host IP 10.1.1.25 zeroes out all host bits, producing the network address 10.1.1.24.",
+    "learning_objective": "Determine the network address for a given host IP and prefix length.",
+    "options": [
+      {
+        "option_text": "10.1.1.24",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bitwise ANDing 10.1.1.25 with /30 mask clears all host bits to 0, yielding 10.1.1.24."
+      },
+      {
+        "option_text": "10.1.1.25",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.1.1.25 is the first usable host IP address, not the network identifier."
+      },
+      {
+        "option_text": "10.1.1.27",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "10.1.1.27 is the broadcast address for this subnet."
+      },
+      {
+        "option_text": "10.1.1.26",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.1.1.26 is the last usable host address in this subnet."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "network-address"
+    ],
+    "calculation_metadata": {
+      "cidr": "10.1.1.25/30",
+      "property": "network_address",
+      "expected": "10.1.1.24"
+    }
+  },
+  {
+    "code": "SUBNET-012",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /25 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /25, there are 7 host bits. The total address pool is 2^7 = 128. Subtracting 2 (for network and broadcast) leaves 126 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "126",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /25 mask has 7 host bits. 2^7 - 2 = 126 usable hosts."
+      },
+      {
+        "option_text": "128",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "128 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "124",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "124 subtracts too many addresses."
+      },
+      {
+        "option_text": "254",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/25",
+      "property": "usable_hosts",
+      "expected": 126
+    }
+  },
+  {
+    "code": "SUBNET-013",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /26 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /26, there are 6 host bits. The total address pool is 2^6 = 64. Subtracting 2 (for network and broadcast) leaves 62 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "62",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /26 mask has 6 host bits. 2^6 - 2 = 62 usable hosts."
+      },
+      {
+        "option_text": "64",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "64 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "60",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "60 subtracts too many addresses."
+      },
+      {
+        "option_text": "126",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/26",
+      "property": "usable_hosts",
+      "expected": 62
+    }
+  },
+  {
+    "code": "SUBNET-014",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /27 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /27, there are 5 host bits. The total address pool is 2^5 = 32. Subtracting 2 (for network and broadcast) leaves 30 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "30",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /27 mask has 5 host bits. 2^5 - 2 = 30 usable hosts."
+      },
+      {
+        "option_text": "32",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "32 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "28",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "28 subtracts too many addresses."
+      },
+      {
+        "option_text": "62",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/27",
+      "property": "usable_hosts",
+      "expected": 30
+    }
+  },
+  {
+    "code": "SUBNET-015",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /28 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /28, there are 4 host bits. The total address pool is 2^4 = 16. Subtracting 2 (for network and broadcast) leaves 14 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "14",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /28 mask has 4 host bits. 2^4 - 2 = 14 usable hosts."
+      },
+      {
+        "option_text": "16",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "16 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "12",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "12 subtracts too many addresses."
+      },
+      {
+        "option_text": "30",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/28",
+      "property": "usable_hosts",
+      "expected": 14
+    }
+  },
+  {
+    "code": "SUBNET-016",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /29 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /29, there are 3 host bits. The total address pool is 2^3 = 8. Subtracting 2 (for network and broadcast) leaves 6 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "6",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /29 mask has 3 host bits. 2^3 - 2 = 6 usable hosts."
+      },
+      {
+        "option_text": "8",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "8 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "4",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "4 subtracts too many addresses."
+      },
+      {
+        "option_text": "14",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/29",
+      "property": "usable_hosts",
+      "expected": 6
+    }
+  },
+  {
+    "code": "SUBNET-017",
+    "topic_slug": "host-range",
+    "question_text": "How many usable host IPv4 addresses can be assigned to devices on a /30 subnet?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "With prefix length /30, there are 2 host bits. The total address pool is 2^2 = 4. Subtracting 2 (for network and broadcast) leaves 2 usable host addresses.",
+    "learning_objective": "Calculate usable host capacity from IPv4 prefix length.",
+    "options": [
+      {
+        "option_text": "2",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /30 mask has 2 host bits. 2^2 - 2 = 2 usable hosts."
+      },
+      {
+        "option_text": "4",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "4 is the total number of IP addresses before subtracting network and broadcast."
+      },
+      {
+        "option_text": "0",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "0 subtracts too many addresses."
+      },
+      {
+        "option_text": "6",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This corresponds to a subnet with one additional host bit."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "cidr",
+      "host-capacity"
+    ],
+    "calculation_metadata": {
+      "cidr": "192.168.1.0/30",
+      "property": "usable_hosts",
+      "expected": 2
+    }
+  },
+  {
+    "code": "SUBNET-018",
+    "topic_slug": "host-range",
+    "question_text": "What is the valid usable host IP address range for the subnet 192.168.10.64/26?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For 192.168.10.64/26, the network address is 192.168.10.64 and the broadcast address is 192.168.10.127. Therefore, the assignable host range is 192.168.10.65 through 192.168.10.126.",
+    "learning_objective": "Determine the usable host IP address range for a given subnet.",
+    "options": [
+      {
+        "option_text": "192.168.10.65 - 192.168.10.126",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The first usable host is network+1 (192.168.10.65) and the last usable host is broadcast-1 (192.168.10.126)."
+      },
+      {
+        "option_text": "192.168.10.64 - 192.168.10.127",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This includes the reserved network (192.168.10.64) and broadcast (192.168.10.127) addresses."
+      },
+      {
+        "option_text": "192.168.10.64 - 192.168.10.126",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The network address (192.168.10.64) cannot be assigned to an endpoint."
+      },
+      {
+        "option_text": "192.168.10.65 - 192.168.10.127",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The broadcast address (192.168.10.127) cannot be assigned to an endpoint."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "host-range",
+      "cidr"
+    ]
+  },
+  {
+    "code": "SUBNET-019",
+    "topic_slug": "host-range",
+    "question_text": "What is the valid usable host IP address range for the subnet 10.5.5.128/28?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For 10.5.5.128/28, the network address is 10.5.5.128 and the broadcast address is 10.5.5.143. Therefore, the assignable host range is 10.5.5.129 through 10.5.5.142.",
+    "learning_objective": "Determine the usable host IP address range for a given subnet.",
+    "options": [
+      {
+        "option_text": "10.5.5.129 - 10.5.5.142",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The first usable host is network+1 (10.5.5.129) and the last usable host is broadcast-1 (10.5.5.142)."
+      },
+      {
+        "option_text": "10.5.5.128 - 10.5.5.143",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This includes the reserved network (10.5.5.128) and broadcast (10.5.5.143) addresses."
+      },
+      {
+        "option_text": "10.5.5.128 - 10.5.5.142",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The network address (10.5.5.128) cannot be assigned to an endpoint."
+      },
+      {
+        "option_text": "10.5.5.129 - 10.5.5.143",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The broadcast address (10.5.5.143) cannot be assigned to an endpoint."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "host-range",
+      "cidr"
+    ]
+  },
+  {
+    "code": "SUBNET-020",
+    "topic_slug": "host-range",
+    "question_text": "What is the valid usable host IP address range for the subnet 172.20.1.240/29?",
+    "question_type": "SUBNETTING",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For 172.20.1.240/29, the network address is 172.20.1.240 and the broadcast address is 172.20.1.247. Therefore, the assignable host range is 172.20.1.241 through 172.20.1.246.",
+    "learning_objective": "Determine the usable host IP address range for a given subnet.",
+    "options": [
+      {
+        "option_text": "172.20.1.241 - 172.20.1.246",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The first usable host is network+1 (172.20.1.241) and the last usable host is broadcast-1 (172.20.1.246)."
+      },
+      {
+        "option_text": "172.20.1.240 - 172.20.1.247",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This includes the reserved network (172.20.1.240) and broadcast (172.20.1.247) addresses."
+      },
+      {
+        "option_text": "172.20.1.240 - 172.20.1.246",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The network address (172.20.1.240) cannot be assigned to an endpoint."
+      },
+      {
+        "option_text": "172.20.1.241 - 172.20.1.247",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The broadcast address (172.20.1.247) cannot be assigned to an endpoint."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "host-range",
+      "cidr"
+    ]
+  },
+  {
+    "code": "SUBNET-021",
+    "topic_slug": "subnet-masks",
+    "question_text": "What is the dotted-decimal subnet mask corresponding to a /27 prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A /27 prefix has 27 ones: 11111111.11111111.11111111.11100000. The last octet has bits 128+64+32 = 224, giving 255.255.255.224.",
+    "learning_objective": "Convert /27 CIDR notation to dotted-decimal subnet mask.",
+    "options": [
+      {
+        "option_text": "255.255.255.224",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "27 network bits = 255.255.255.224."
+      },
+      {
+        "option_text": "255.255.255.192",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.192 is /26 (128+64)."
+      },
+      {
+        "option_text": "255.255.255.240",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.240 is /28 (128+64+32+16)."
+      },
+      {
+        "option_text": "255.255.255.248",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.248 is /29."
+      }
+    ],
+    "tags": [
+      "subnet-masks",
+      "cidr",
+      "conversion"
+    ]
+  },
+  {
+    "code": "SUBNET-022",
+    "topic_slug": "subnet-masks",
+    "question_text": "What is the dotted-decimal subnet mask corresponding to a /28 prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A /28 prefix has 28 ones: 11111111.11111111.11111111.11110000. In the fourth octet, 128+64+32+16 = 240, yielding 255.255.255.240.",
+    "learning_objective": "Convert /28 CIDR notation to dotted-decimal subnet mask.",
+    "options": [
+      {
+        "option_text": "255.255.255.240",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "28 network bits = 255.255.255.240."
+      },
+      {
+        "option_text": "255.255.255.224",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.224 is /27."
+      },
+      {
+        "option_text": "255.255.255.248",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.248 is /29."
+      },
+      {
+        "option_text": "255.255.255.252",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.252 is /30."
+      }
+    ],
+    "tags": [
+      "subnet-masks",
+      "cidr",
+      "conversion"
+    ]
+  },
+  {
+    "code": "SUBNET-023",
+    "topic_slug": "subnet-masks",
+    "question_text": "What is the dotted-decimal subnet mask corresponding to a /29 prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A /29 prefix has 29 ones: 11111111.11111111.11111111.11111000. In the fourth octet, 128+64+32+16+8 = 248, yielding 255.255.255.248.",
+    "learning_objective": "Convert /29 CIDR notation to dotted-decimal subnet mask.",
+    "options": [
+      {
+        "option_text": "255.255.255.248",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "29 network bits = 255.255.255.248."
+      },
+      {
+        "option_text": "255.255.255.240",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.240 is /28."
+      },
+      {
+        "option_text": "255.255.255.252",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.252 is /30."
+      },
+      {
+        "option_text": "255.255.255.192",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.192 is /26."
+      }
+    ],
+    "tags": [
+      "subnet-masks",
+      "cidr",
+      "conversion"
+    ]
+  },
+  {
+    "code": "SUBNET-024",
+    "topic_slug": "subnet-masks",
+    "question_text": "What is the dotted-decimal subnet mask corresponding to a /30 prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A /30 prefix has 30 ones: 11111111.11111111.11111111.11111100. In the fourth octet, 128+64+32+16+8+4 = 252, yielding 255.255.255.252.",
+    "learning_objective": "Convert /30 CIDR notation to dotted-decimal subnet mask.",
+    "options": [
+      {
+        "option_text": "255.255.255.252",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "30 network bits = 255.255.255.252."
+      },
+      {
+        "option_text": "255.255.255.248",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.248 is /29."
+      },
+      {
+        "option_text": "255.255.255.254",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.254 is /31."
+      },
+      {
+        "option_text": "255.255.255.240",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.240 is /28."
+      }
+    ],
+    "tags": [
+      "subnet-masks",
+      "cidr",
+      "conversion"
+    ]
+  },
+  {
+    "code": "SUBNET-025",
+    "topic_slug": "vlsm",
+    "question_text": "An enterprise needs to create a point-to-point link between two core routers. Which subnet mask minimizes wasted IPv4 addresses while following standard RFC host reservation rules?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A /30 subnet mask provides 4 total addresses: 1 network address, 1 broadcast address, and exactly 2 usable host addresses for the two router interfaces, minimizing address waste.",
+    "learning_objective": "Select the optimal subnet size for a point-to-point router link.",
+    "options": [
+      {
+        "option_text": "/30 (255.255.255.252)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /30 provides exactly 2 usable host IP addresses, perfectly sizing a point-to-point WAN link."
+      },
+      {
+        "option_text": "/29 (255.255.255.248)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A /29 provides 6 usable hosts, wasting 4 IP addresses on a point-to-point link."
+      },
+      {
+        "option_text": "/28 (255.255.255.240)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A /28 provides 14 usable hosts, wasting 12 IP addresses."
+      },
+      {
+        "option_text": "/24 (255.255.255.0)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A /24 provides 254 usable hosts, severely wasting public or corporate addresses."
+      }
+    ],
+    "tags": [
+      "vlsm",
+      "subnetting",
+      "point-to-point",
+      "optimization"
+    ]
+  },
+  {
+    "code": "SUBNET-026",
+    "topic_slug": "vlsm",
+    "question_text": "A network designer must allocate a subnet to support exactly 28 workstation hosts. Which prefix length should be selected to conserve address space?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Using formula 2^h - 2 >= 28: with 5 host bits, 2^5 - 2 = 32 - 2 = 30 usable hosts. 30 >= 28. Prefix length is 32 - 5 = /27. (A /28 only provides 14 usable hosts, which is insufficient).",
+    "learning_objective": "Determine the minimum subnet size required for a specified host count.",
+    "options": [
+      {
+        "option_text": "/27 (provides 30 usable hosts)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /27 provides 30 usable hosts (2^5 - 2 = 30), satisfying the 28-host requirement with minimal waste."
+      },
+      {
+        "option_text": "/28 (provides 14 usable hosts)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A /28 only provides 14 usable hosts (2^4 - 2 = 14), which cannot accommodate 28 hosts."
+      },
+      {
+        "option_text": "/26 (provides 62 usable hosts)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A /26 accommodates the hosts but wastes 34 addresses compared to /27."
+      },
+      {
+        "option_text": "/29 (provides 6 usable hosts)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A /29 only provides 6 usable hosts."
+      }
+    ],
+    "tags": [
+      "vlsm",
+      "subnetting",
+      "host-capacity",
+      "design"
+    ]
+  },
+  {
+    "code": "SUBNET-027",
+    "topic_slug": "vlsm",
+    "question_text": "A branch office requires a subnet supporting up to 55 employee laptops. What is the most efficient CIDR prefix that can accommodate this requirement?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Using 2^h - 2 >= 55: 6 host bits gives 2^6 - 2 = 64 - 2 = 62 usable hosts (62 >= 55). Prefix is 32 - 6 = /26. (A /27 only provides 30 usable hosts).",
+    "learning_objective": "Select the most efficient CIDR prefix for 55 hosts.",
+    "options": [
+      {
+        "option_text": "/26 (provides 62 usable hosts)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /26 provides 62 usable hosts, which accommodates 55 laptops with room for growth."
+      },
+      {
+        "option_text": "/27 (provides 30 usable hosts)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A /27 provides only 30 usable hosts, insufficient for 55 laptops."
+      },
+      {
+        "option_text": "/25 (provides 126 usable hosts)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A /25 provides 126 hosts, which wastes address space when /26 is sufficient."
+      },
+      {
+        "option_text": "/28 (provides 14 usable hosts)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A /28 provides only 14 usable hosts."
+      }
+    ],
+    "tags": [
+      "vlsm",
+      "subnetting",
+      "design"
+    ]
+  },
+  {
+    "code": "SUBNET-028",
+    "topic_slug": "cidr",
+    "question_text": "What is Classless Inter-Domain Routing (CIDR / RFC 1519) and why was it introduced?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "CIDR abolished the rigid Class A, B, and C boundary system, allowing arbitrary prefix lengths (like /21, /27) and route summarization (supernetting) to prevent IPv4 address exhaustion and routing table explosion.",
+    "learning_objective": "Explain the historical purpose of CIDR.",
+    "options": [
+      {
+        "option_text": "To replace rigid Class A, B, and C boundaries with arbitrary prefix lengths, slowing IPv4 exhaustion and routing table growth",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "CIDR replaced classful boundaries with variable prefix lengths, enabling efficient IP allocation."
+      },
+      {
+        "option_text": "To convert all wired Ethernet networks into satellite microwave links",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "CIDR is an IP routing and addressing standard, not physical wireless hardware."
+      },
+      {
+        "option_text": "To mandate that all computer passwords be exactly 32 characters long",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "CIDR has nothing to do with password authentication."
+      },
+      {
+        "option_text": "To permanently disable firewall state tables across the Internet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "CIDR governs routing and addressing; it does not disable firewall security."
+      }
+    ],
+    "tags": [
+      "cidr",
+      "history",
+      "routing",
+      "rfc1519"
+    ]
+  },
+  {
+    "code": "SUBNET-029",
+    "topic_slug": "cidr",
+    "question_text": "How many /24 subnets can be carved out of a single /22 IPv4 address block?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The difference in prefix lengths is 24 - 22 = 2 bits. The number of subnets created is 2^2 = 4 subnets of size /24.",
+    "learning_objective": "Calculate the number of subnets when dividing a CIDR block.",
+    "options": [
+      {
+        "option_text": "4 subnets",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "2^(24 - 22) = 2^2 = 4 subnets of size /24."
+      },
+      {
+        "option_text": "2 subnets",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "2 subnets would be created by a /23 prefix (2^(23-22) = 2)."
+      },
+      {
+        "option_text": "8 subnets",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "8 subnets would be created by dividing into /25 (2^(25-22) = 8)."
+      },
+      {
+        "option_text": "16 subnets",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "16 subnets would be created by dividing into /26."
+      }
+    ],
+    "tags": [
+      "cidr",
+      "subnetting",
+      "calculation"
+    ]
+  },
+  {
+    "code": "SUBNET-030",
+    "topic_slug": "cidr",
+    "question_text": "How many /24 subnets can be formed from a /20 network block?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The prefix difference is 24 - 20 = 4 bits. 2^4 = 16 subnets of size /24 can be created from a /20 block.",
+    "learning_objective": "Calculate the number of /24 subnets from a /20 prefix.",
+    "options": [
+      {
+        "option_text": "16 subnets",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "2^(24 - 20) = 2^4 = 16 subnets of size /24."
+      },
+      {
+        "option_text": "8 subnets",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "8 subnets corresponds to a /21 prefix."
+      },
+      {
+        "option_text": "32 subnets",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "32 subnets would be dividing into /25."
+      },
+      {
+        "option_text": "4 subnets",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "4 subnets corresponds to a /22 prefix."
+      }
+    ],
+    "tags": [
+      "cidr",
+      "subnetting",
+      "calculation"
+    ]
+  },
+  {
+    "code": "SUBNET-031",
+    "topic_slug": "subnet-masks",
+    "question_text": "What is the dotted-decimal subnet mask corresponding to a /22 prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A /22 prefix has 22 network bits: 8 + 8 + 6 + 0. In the third octet, 6 ones equals 128+64+32+16+8+4 = 252. Thus the mask is 255.255.252.0.",
+    "learning_objective": "Convert /22 prefix length to dotted-decimal mask.",
+    "options": [
+      {
+        "option_text": "255.255.252.0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "22 network bits converts to 255.255.252.0."
+      },
+      {
+        "option_text": "255.255.248.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.248.0 is /21 (5 ones in 3rd octet)."
+      },
+      {
+        "option_text": "255.255.254.0",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.254.0 is /23 (7 ones in 3rd octet)."
+      },
+      {
+        "option_text": "255.255.240.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.240.0 is /20 (4 ones in 3rd octet)."
+      }
+    ],
+    "tags": [
+      "subnet-masks",
+      "cidr",
+      "conversion"
+    ]
+  },
+  {
+    "code": "SUBNET-032",
+    "topic_slug": "host-range",
+    "question_text": "Two hosts are configured as follows:\nHost A: 192.168.1.62/26\nHost B: 192.168.1.65/26\nCan Host A communicate directly with Host B on Layer 2 without crossing a router?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 65,
+    "status": "PUBLISHED",
+    "explanation": "For a /26 network, subnets increment by 64: Subnet 0 is 192.168.1.0/26 (hosts .1 to .62). Subnet 1 is 192.168.1.64/26 (hosts .65 to .126). Host A (.62) is on Subnet 0, while Host B (.65) is on Subnet 1. Being on different subnets, they cannot communicate directly without a router.",
+    "learning_objective": "Analyze whether two hosts belong to the same IP subnet.",
+    "options": [
+      {
+        "option_text": "No, Host A is in the 192.168.1.0/26 subnet and Host B is in the 192.168.1.64/26 subnet, requiring a router to communicate",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Host A is in the first /26 subnet (.0-.63) while Host B is in the second /26 subnet (.64-.127)."
+      },
+      {
+        "option_text": "Yes, because both hosts share the same first three octets (192.168.1.x)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The /26 mask splits the fourth octet; sharing the first three octets does not guarantee the same subnet."
+      },
+      {
+        "option_text": "Yes, because all IPv4 addresses can communicate directly over switches without routers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hosts on different IP subnets require a Layer 3 router or switch to route traffic."
+      },
+      {
+        "option_text": "No, because Host A's IP address is an invalid broadcast address",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.1.62 is the valid last usable host in subnet 0; .63 is the broadcast address."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "troubleshooting",
+      "routing",
+      "analysis"
+    ]
+  },
+  {
+    "code": "SUBNET-033",
+    "topic_slug": "vlsm",
+    "question_text": "What is the primary benefit of Variable Length Subnet Masking (VLSM)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "VLSM allows an engineer to divide an address space into subnets of varying sizes (different prefix lengths), matching subnet size to the exact number of hosts required and eliminating address waste.",
+    "learning_objective": "Explain the primary benefit of VLSM.",
+    "options": [
+      {
+        "option_text": "It enables subnetting a subnet, allowing different subnets within an organization to use different prefix lengths based on host needs",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "VLSM allows tailored prefix lengths (e.g. /24 for users, /30 for point-to-point links) in the same network."
+      },
+      {
+        "option_text": "It eliminates the need for routers across enterprise networks",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "VLSM networks still require routers to forward traffic between subnets."
+      },
+      {
+        "option_text": "It doubles the physical electrical voltage of copper Ethernet cables",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "VLSM is a logical routing concept that has no effect on physical cable voltage."
+      },
+      {
+        "option_text": "It replaces all MAC addresses with 128-bit IPv6 addresses",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "VLSM is an IPv4 addressing design technique."
+      }
+    ],
+    "tags": [
+      "vlsm",
+      "subnetting",
+      "efficiency"
+    ]
+  },
+  {
+    "code": "SUBNET-034",
+    "topic_slug": "network-address",
+    "question_text": "A network administrator attempts to assign the IP address 192.168.10.128/25 to a desktop workstation's NIC. The operating system displays an error: 'The specified IP address is invalid'. Why?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "For the /25 mask on 192.168.10.128, .128 has all host bits set to 0, making it the network identifier address for the second /25 subnet (192.168.10.128 - .255). Network addresses cannot be assigned to host endpoints.",
+    "learning_objective": "Diagnose why an IP address assignment was rejected by the OS.",
+    "options": [
+      {
+        "option_text": "192.168.10.128 is the network address for the 192.168.10.128/25 subnet and cannot be assigned to a host",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "In a /25, the subnets are .0 and .128. .128 is the network ID for the second subnet."
+      },
+      {
+        "option_text": "192.168.10.128 is a reserved military satellite address",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.0.0/16 is RFC 1918 private space."
+      },
+      {
+        "option_text": "Desktop operating systems only support /24 subnet masks",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Operating systems support any valid CIDR mask from /1 to /32."
+      },
+      {
+        "option_text": "The IP address has already been encrypted by the DHCP server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IP addresses are assigned and validated as numbers, not encrypted."
+      }
+    ],
+    "tags": [
+      "subnetting",
+      "network-address",
+      "troubleshooting",
+      "validation"
+    ]
+  },
+  {
+    "code": "SUBNET-035",
+    "topic_slug": "broadcast-address",
+    "question_text": "Why is a directed broadcast address (such as 192.168.1.255/24) restricted from being configured on an endpoint host network adapter?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The broadcast address has all host bits set to binary 1 and is reserved for sending packets simultaneously to every host on that subnet. Assigning it to a single device would create routing ambiguity and packet delivery failures.",
+    "learning_objective": "Explain why broadcast addresses cannot be assigned to host interfaces.",
+    "options": [
+      {
+        "option_text": "It has all host bits set to 1 and is reserved to transmit packets to all hosts on the subnet simultaneously",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Broadcast addresses are reserved for one-to-all communications within the subnet."
+      },
+      {
+        "option_text": "It is a public IP address owned exclusively by the United States Department of Defense",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.1.255 is within RFC 1918 private address space."
+      },
+      {
+        "option_text": "It contains an odd number of bits that causes processor arithmetic errors",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "All IPv4 addresses contain exactly 32 bits."
+      },
+      {
+        "option_text": "It triggers automatic formatting of the host computer's hard drive",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Networking configurations do not format local disks."
+      }
+    ],
+    "tags": [
+      "broadcast-address",
+      "subnetting",
+      "rfc791"
+    ]
+  }
+]

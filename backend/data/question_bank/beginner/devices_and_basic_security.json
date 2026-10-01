@@ -1,0 +1,1114 @@
+[
+  {
+    "code": "DEV-SEC-001",
+    "topic_slug": "firewall-basics",
+    "question_text": "What is the primary function of a network firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A firewall inspects incoming and outgoing network traffic based on established security rules, permitting authorized communications while blocking unauthorized or potentially dangerous traffic.",
+    "learning_objective": "Explain the core purpose of a network firewall.",
+    "options": [
+      {
+        "option_text": "To filter incoming and outgoing traffic based on security policies, permitting or blocking packets",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Firewalls enforce access control policies at network perimeter boundaries."
+      },
+      {
+        "option_text": "To assign dynamic IP addresses to wireless laptops",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DHCP assigns IP addresses."
+      },
+      {
+        "option_text": "To amplify copper electrical signals over long distances",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Repeaters amplify electrical signals."
+      },
+      {
+        "option_text": "To convert PDF documents into raw ASCII binary code",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Document conversion is an application software function."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "firewall-basics",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-002",
+    "topic_slug": "firewall-basics",
+    "question_text": "What does a 'stateless' firewall examine when determining whether to allow or drop a packet?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A stateless firewall inspects each packet in isolation, examining only individual packet header fields (source/destination IP, source/destination port, protocol) without tracking prior connection state.",
+    "learning_objective": "Explain how stateless packet filtering functions.",
+    "options": [
+      {
+        "option_text": "It inspects individual packet headers (IP addresses, port numbers) in isolation without tracking connection state",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Stateless filtering evaluates each packet independently against static ACL rules."
+      },
+      {
+        "option_text": "It continuously monitors full application layer payloads across years of historical data",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Stateless firewalls do not inspect payloads or maintain state tables."
+      },
+      {
+        "option_text": "It monitors the physical temperature of the server room",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Firewalls evaluate network packets, not ambient room temperature."
+      },
+      {
+        "option_text": "It forces users to change their account passwords every 10 seconds",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Stateless firewalls do not manage user password policies."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "stateless",
+      "filtering"
+    ]
+  },
+  {
+    "code": "DEV-SEC-003",
+    "topic_slug": "firewall-basics",
+    "question_text": "What key capability distinguishes a 'stateful' firewall from a basic stateless packet filter?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A stateful firewall maintains a dynamic state table tracking active TCP and UDP connections. It automatically permits legitimate inbound response traffic belonging to an established outbound session.",
+    "learning_objective": "Contrast stateful firewalls with stateless filters.",
+    "options": [
+      {
+        "option_text": "It tracks the state of active network connections in a state table, automatically allowing return traffic for established sessions",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Stateful inspection recognizes established connection contexts and allows valid replies."
+      },
+      {
+        "option_text": "It operates without any electricity using quantum magnets",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls require standard electrical power."
+      },
+      {
+        "option_text": "It encrypts every file stored on all user desktop computers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Firewalls filter transit network packets, not local endpoint disk storage."
+      },
+      {
+        "option_text": "It only allows network traffic on alternate Thursdays",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Stateful firewalls operate continuously."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "stateful",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-004",
+    "topic_slug": "firewall-basics",
+    "question_text": "In firewall rule design, what does the security principle of 'Implicit Deny' mean?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Implicit Deny dictates that any network traffic not explicitly permitted by an authorized rule in the access control list (ACL) is automatically dropped by default at the end of the rule list.",
+    "learning_objective": "Define the principle of Implicit Deny in firewall security.",
+    "options": [
+      {
+        "option_text": "Any traffic that does not match an explicit 'allow' rule is automatically dropped by default",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Implicit Deny ensures that only explicitly approved traffic can traverse the firewall."
+      },
+      {
+        "option_text": "All traffic is permitted through the firewall unless a user files a formal written complaint",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Default permit (open by default) is insecure and contradicts Implicit Deny."
+      },
+      {
+        "option_text": "The firewall denies that it exists when queried by network administrators",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Implicit Deny is a packet filtering default rule, not device concealment."
+      },
+      {
+        "option_text": "Computers are forbidden from accessing web pages containing the letter 'E'",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Firewall rules filter based on addresses, ports, and protocols."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "implicit-deny",
+      "acl",
+      "defense"
+    ]
+  },
+  {
+    "code": "DEV-SEC-005",
+    "topic_slug": "authentication",
+    "question_text": "In cybersecurity, what are the three classic authentication factors typically combined for Multi-Factor Authentication (MFA)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The three core authentication factors are: 1. Something you know (password, PIN), 2. Something you have (smartcard, hardware token, phone authenticator), 3. Something you are (biometrics like fingerprint or retina).",
+    "learning_objective": "Identify the three core authentication factors.",
+    "options": [
+      {
+        "option_text": "Something you know, something you have, and something you are",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MFA combines knowledge, possession, and inherence factors."
+      },
+      {
+        "option_text": "Something you buy, something you sell, and something you trade",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are commercial financial transactions."
+      },
+      {
+        "option_text": "Your IP address, your MAC address, and your subnet mask",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network addresses identify network interfaces, not authenticated human identities."
+      },
+      {
+        "option_text": "Your CPU speed, your RAM capacity, and your monitor size",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These are hardware hardware specifications."
+      }
+    ],
+    "tags": [
+      "authentication",
+      "mfa",
+      "security-fundamentals"
+    ]
+  },
+  {
+    "code": "DEV-SEC-006",
+    "topic_slug": "encryption",
+    "question_text": "What is the primary difference between symmetric and asymmetric encryption?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Symmetric encryption uses the same single secret key for both encryption and decryption (e.g. AES). Asymmetric encryption uses a mathematically linked key pair: a public key for encryption and a private key for decryption (e.g. RSA).",
+    "learning_objective": "Contrast symmetric and asymmetric encryption.",
+    "options": [
+      {
+        "option_text": "Symmetric uses the same key for encryption and decryption; asymmetric uses a public key for encryption and a private key for decryption",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Symmetric is fast and uses one shared secret; asymmetric solves key exchange using public/private pairs."
+      },
+      {
+        "option_text": "Symmetric encryption only works on odd-numbered days; asymmetric works on even days",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Cryptographic algorithms function continuously without calendar dependencies."
+      },
+      {
+        "option_text": "Asymmetric encryption can only encrypt two words per day",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Asymmetric cryptography processes data blocks, though it is computationally heavier than symmetric."
+      },
+      {
+        "option_text": "Symmetric encryption does not require any mathematical algorithms",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "All digital encryption relies on rigorous mathematical foundations."
+      }
+    ],
+    "tags": [
+      "encryption",
+      "symmetric",
+      "asymmetric",
+      "cryptography"
+    ]
+  },
+  {
+    "code": "DEV-SEC-007",
+    "topic_slug": "encryption",
+    "question_text": "In asymmetric public-key cryptography, which key must ALWAYS be kept strictly confidential by the owner?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The private key must always be kept secret and protected by its owner. The public key can be freely distributed to anyone worldwide to encrypt messages destined for the owner or verify their digital signature.",
+    "learning_objective": "Understand public vs private key confidentiality.",
+    "options": [
+      {
+        "option_text": "The Private Key",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The private key must never be shared; compromising it allows adversaries to decrypt data or forge signatures."
+      },
+      {
+        "option_text": "The Public Key",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The public key is designed to be published openly to the world."
+      },
+      {
+        "option_text": "The MAC Address",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC addresses are hardware identifiers, not cryptographic keys."
+      },
+      {
+        "option_text": "The DNS Root Zone",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The DNS root zone is a public Internet database."
+      }
+    ],
+    "tags": [
+      "encryption",
+      "public-key",
+      "private-key",
+      "cryptography"
+    ]
+  },
+  {
+    "code": "DEV-SEC-008",
+    "topic_slug": "common-network-threats",
+    "question_text": "What type of attack involves an adversary flooding a target server with overwhelming volumes of traffic to exhaust its resources and take it offline?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A Denial of Service (DoS) or Distributed Denial of Service (DDoS) attack seeks to make a machine or network resource unavailable to legitimate users by overwhelming it with flood traffic.",
+    "learning_objective": "Define Denial of Service attacks.",
+    "options": [
+      {
+        "option_text": "Denial of Service (DoS / DDoS) attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DoS/DDoS exhausts system bandwidth, memory, or processing queues."
+      },
+      {
+        "option_text": "Man-in-the-Middle (MitM) attack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MitM intercepts and alters communications between two parties."
+      },
+      {
+        "option_text": "SQL Injection attack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SQL injection targets backend relational database queries via web inputs."
+      },
+      {
+        "option_text": "Cross-Site Scripting (XSS) attack",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "XSS injects malicious client-side scripts into web pages viewed by other users."
+      }
+    ],
+    "tags": [
+      "threats",
+      "dos",
+      "ddos",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-009",
+    "topic_slug": "common-network-threats",
+    "question_text": "What distinguishes a Distributed Denial of Service (DDoS) attack from a standard Denial of Service (DoS) attack?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A DoS attack originates from a single sending machine or IP. A DDoS attack uses a botnet of hundreds or thousands of compromised, geographically distributed devices to flood the victim simultaneously.",
+    "learning_objective": "Contrast DoS and DDoS attack architectures.",
+    "options": [
+      {
+        "option_text": "A DDoS attack uses multiple compromised endpoints (a botnet) distributed globally to flood the target simultaneously",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DDoS leverages distributed botnets to generate massive aggregate traffic volumes."
+      },
+      {
+        "option_text": "A DDoS attack only targets smartphones over 5G networks",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DDoS attacks target web servers, routers, DNS, and infrastructure across all network types."
+      },
+      {
+        "option_text": "A DoS attack is legal under international law, but DDoS is not",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both unauthorized DoS and DDoS attacks are illegal under computer crime statutes worldwide."
+      },
+      {
+        "option_text": "A DDoS attack requires physically cutting all underground fiber cables",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DDoS is a network traffic flood, not physical vandalism."
+      }
+    ],
+    "tags": [
+      "threats",
+      "ddos",
+      "botnet",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-010",
+    "topic_slug": "common-network-threats",
+    "question_text": "What type of attack occurs when an adversary secretly intercepts, reads, and potentially alters communications between two trusting parties?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A Man-in-the-Middle (MitM) attack occurs when an attacker positions themselves between a client and server (e.g., via ARP spoofing or rogue Wi-Fi) to eavesdrop or tamper with in-flight data.",
+    "learning_objective": "Define Man-in-the-Middle attacks.",
+    "options": [
+      {
+        "option_text": "Man-in-the-Middle (MitM) attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MitM intercepts and relays communications between two parties who believe they are talking directly."
+      },
+      {
+        "option_text": "Brute Force password attack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Brute force attempts password combinations sequentially."
+      },
+      {
+        "option_text": "Buffer Overflow attack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Buffer overflow exploits memory management bugs in native software applications."
+      },
+      {
+        "option_text": "Phishing email attack",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Phishing tricks users into revealing credentials or clicking malicious links."
+      }
+    ],
+    "tags": [
+      "threats",
+      "mitm",
+      "arp-spoofing",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-011",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is 'phishing' in the context of cybersecurity?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Phishing is a social engineering attack where fraudulent emails or messages disguise themselves as trustworthy entities (banks, IT departments) to trick victims into revealing sensitive credentials or downloading malware.",
+    "learning_objective": "Define phishing social engineering attacks.",
+    "options": [
+      {
+        "option_text": "Deceptive social engineering communications designed to trick users into divulging sensitive credentials or clicking malicious links",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Phishing exploits human trust to compromise credentials and endpoints."
+      },
+      {
+        "option_text": "Using a fishhook to pull Ethernet cables through wall conduits",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is physical cable installation slang, not cyber phishing."
+      },
+      {
+        "option_text": "A protocol used to synchronize clocks between offshore oil platforms",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That would be NTP over satellite."
+      },
+      {
+        "option_text": "A hardware tool that tests the electrical voltage of telephone jacks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is a voltmeter/multimeter."
+      }
+    ],
+    "tags": [
+      "threats",
+      "phishing",
+      "social-engineering"
+    ]
+  },
+  {
+    "code": "DEV-SEC-012",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is 'malware'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "Malware (Malicious Software) is an umbrella term encompassing viruses, worms, trojans, ransomware, spyware, and rootkits designed specifically to damage, disrupt, or gain unauthorized access to computer systems.",
+    "learning_objective": "Define malware.",
+    "options": [
+      {
+        "option_text": "An umbrella term for malicious software designed to disrupt, damage, or gain unauthorized access to computer systems",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Malware includes viruses, worms, ransomware, and spyware."
+      },
+      {
+        "option_text": "A hardware chip that speeds up 3D computer graphics processing",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is a Graphics Processing Unit (GPU)."
+      },
+      {
+        "option_text": "A software license agreement required to use open-source Linux",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Open-source software licenses are GPL, MIT, Apache, etc."
+      },
+      {
+        "option_text": "A type of optical fiber connector used in telecommunications",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Connectors include LC, SC, and ST."
+      }
+    ],
+    "tags": [
+      "threats",
+      "malware",
+      "security-fundamentals"
+    ]
+  },
+  {
+    "code": "DEV-SEC-013",
+    "topic_slug": "common-network-threats",
+    "question_text": "What distinguishes a 'worm' from a standard computer 'virus'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A traditional virus requires human action (such as executing an infected program or opening an attachment) to spread. A worm is self-replicating and propagates autonomously across networks by exploiting software vulnerabilities.",
+    "learning_objective": "Contrast computer viruses with autonomous worms.",
+    "options": [
+      {
+        "option_text": "A worm can self-replicate and spread automatically across networks without human intervention; a virus requires human execution",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Worms exploit network vulnerabilities to spread autonomously."
+      },
+      {
+        "option_text": "A virus only infects computers on Sundays; worms infect computers on Mondays",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Malware execution is independent of days of the week."
+      },
+      {
+        "option_text": "A worm is made of biological DNA; a virus is made of silicon",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both are digital software code executing on microprocessors."
+      },
+      {
+        "option_text": "Worms only target mechanical wristwatches",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Worms target network-connected computers and servers."
+      }
+    ],
+    "tags": [
+      "threats",
+      "worm",
+      "virus",
+      "malware"
+    ]
+  },
+  {
+    "code": "DEV-SEC-014",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is 'ransomware'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Ransomware is a malicious program that encrypts a victim's files, databases, or operating system and demands extortion payments (typically in cryptocurrency) in exchange for the decryption key.",
+    "learning_objective": "Explain ransomware operations.",
+    "options": [
+      {
+        "option_text": "Malware that encrypts victim files and demands an extortion payment in exchange for the decryption key",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Ransomware weaponizes encryption to deny access to organizational data."
+      },
+      {
+        "option_text": "A network monitoring utility that optimizes bandwidth usage during business hours",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Monitoring tools optimize performance; they do not hold data for ransom."
+      },
+      {
+        "option_text": "A free security patch released by Microsoft to fix operating system bugs",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Patches remediate vulnerabilities, while ransomware exploits them."
+      },
+      {
+        "option_text": "A protocol used to assign public IP addresses to cloud servers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DHCP/IPAM manages IP addresses."
+      }
+    ],
+    "tags": [
+      "threats",
+      "ransomware",
+      "malware"
+    ]
+  },
+  {
+    "code": "DEV-SEC-015",
+    "topic_slug": "network-devices",
+    "question_text": "What is an Intrusion Detection System (IDS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "An IDS is a passive security monitoring system that analyzes network traffic for known attack signatures or anomalous patterns, generating alerts when suspicious activity is detected without directly blocking packets.",
+    "learning_objective": "Define the role of an Intrusion Detection System.",
+    "options": [
+      {
+        "option_text": "A passive security sensor that monitors traffic for signatures or anomalies and alerts security analysts without in-line blocking",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "An IDS detects and alerts on threats out-of-band without disrupting traffic."
+      },
+      {
+        "option_text": "A physical metal lock installed on server rack cabinet doors",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "An IDS is a network traffic inspection system, not a mechanical padlock."
+      },
+      {
+        "option_text": "A software program that automatically deletes all user emails older than 24 hours",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Email retention policies manage mailboxes, not intrusion detection."
+      },
+      {
+        "option_text": "A device that converts 120V household electricity into solar energy",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Solar inverters manage solar power."
+      }
+    ],
+    "tags": [
+      "ids",
+      "network-monitoring",
+      "security-devices"
+    ]
+  },
+  {
+    "code": "DEV-SEC-016",
+    "topic_slug": "network-devices",
+    "question_text": "What is the primary difference between an Intrusion Detection System (IDS) and an Intrusion Prevention System (IPS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An IDS is deployed passively out-of-band and only generates alerts. An IPS is placed directly in-line with network traffic and actively drops or blocks malicious packets in real time.",
+    "learning_objective": "Contrast IDS passive monitoring with IPS active prevention.",
+    "options": [
+      {
+        "option_text": "An IDS passively detects and alerts; an IPS is placed in-line and actively blocks or drops malicious traffic in real time",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IDS detects out-of-band; IPS prevents in-line by dropping malicious packets."
+      },
+      {
+        "option_text": "An IDS works only on IPv6; an IPS works only on IPv4",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both systems inspect both IPv4 and IPv6 traffic."
+      },
+      {
+        "option_text": "An IPS requires all users to write their passwords on sticky notes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Writing passwords on sticky notes is an egregious security vulnerability."
+      },
+      {
+        "option_text": "An IDS can only detect traffic sent over satellite dishes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IDS monitors standard wired and wireless LAN/WAN traffic."
+      }
+    ],
+    "tags": [
+      "ids",
+      "ips",
+      "security-devices",
+      "comparison"
+    ]
+  },
+  {
+    "code": "DEV-SEC-017",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is a 'port scan' used for by network administrators and adversaries?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A port scan systematically probes a target host across a range of port numbers to discover which services are actively listening, which ports are open, and what applications/versions are running.",
+    "learning_objective": "Explain the purpose of a port scan.",
+    "options": [
+      {
+        "option_text": "To probe a host across port numbers to determine which network services are actively listening and open",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Port scans identify active services and potential entry points on a host."
+      },
+      {
+        "option_text": "To physically polish the brass contacts inside an Ethernet wall jack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Physical jack maintenance is unrelated to software port scanning."
+      },
+      {
+        "option_text": "To calculate the total electricity consumed by a computer monitor",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Electrical meters measure power consumption."
+      },
+      {
+        "option_text": "To automatically upgrade outdated RAM modules on a remote server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Hardware memory upgrades require physical component replacement."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "port-scanning",
+      "security"
+    ]
+  },
+  {
+    "code": "DEV-SEC-018",
+    "topic_slug": "firewall-basics",
+    "question_text": "Which network security concept places public-facing servers (such as web and email servers) in a semi-isolated zone between the untrusted Internet and the secure internal corporate LAN?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Demilitarized Zone (DMZ) or perimeter network is a subnet that isolates public-facing servers from the internal trusted network, ensuring that a compromised web server cannot directly access internal endpoints.",
+    "learning_objective": "Define the concept of a Demilitarized Zone (DMZ).",
+    "options": [
+      {
+        "option_text": "Demilitarized Zone (DMZ)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A DMZ buffers the private internal corporate network from public-facing external servers."
+      },
+      {
+        "option_text": "Wide Area Network (WAN)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A WAN connects geographically distant corporate sites."
+      },
+      {
+        "option_text": "Virtual Private Network (VPN)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A VPN provides encrypted tunneling across public infrastructure."
+      },
+      {
+        "option_text": "Personal Area Network (PAN)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A PAN connects personal peripherals like Bluetooth headphones."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "dmz",
+      "segmentation",
+      "architecture"
+    ]
+  },
+  {
+    "code": "DEV-SEC-019",
+    "topic_slug": "encryption",
+    "question_text": "What is a 'Virtual Private Network' (VPN) primarily used for?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A VPN creates an encrypted, secure tunnel over an untrusted public network (like the Internet), enabling remote workers or branch offices to securely access internal private network resources.",
+    "learning_objective": "Explain the primary security role of a VPN.",
+    "options": [
+      {
+        "option_text": "To establish an encrypted tunnel over a public network, securing communications between remote clients and private networks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "VPNs protect data confidentiality and integrity across untrusted public networks."
+      },
+      {
+        "option_text": "To increase the physical download bandwidth of an ISP connection by 1000%",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "VPN encryption adds small overhead and does not increase underlying line speed."
+      },
+      {
+        "option_text": "To replace all physical Ethernet cables with infrared laser pointers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "VPN is a logical software tunnel protocol."
+      },
+      {
+        "option_text": "To eliminate the need for computer power cords",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Computers still require electrical power."
+      }
+    ],
+    "tags": [
+      "vpn",
+      "encryption",
+      "tunneling",
+      "remote-access"
+    ]
+  },
+  {
+    "code": "DEV-SEC-020",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is 'social engineering' in cybersecurity?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Social engineering is the psychological manipulation of people into performing actions or divulging confidential information (such as passwords or financial access), bypassing technical defenses.",
+    "learning_objective": "Define social engineering manipulation tactics.",
+    "options": [
+      {
+        "option_text": "Psychological manipulation of individuals into divulging confidential information or granting unauthorized access",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Social engineering targets human vulnerabilities rather than software code."
+      },
+      {
+        "option_text": "Writing software programs that organize corporate employee dinner parties",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is event planning, not cyber social engineering."
+      },
+      {
+        "option_text": "Designing high-speed silicon microprocessor chips for server mainframes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is semiconductor hardware engineering."
+      },
+      {
+        "option_text": "Configuring OSPF routing metrics on enterprise core routers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is network engineering."
+      }
+    ],
+    "tags": [
+      "social-engineering",
+      "security-fundamentals",
+      "threats"
+    ]
+  },
+  {
+    "code": "DEV-SEC-021",
+    "topic_slug": "common-network-threats",
+    "question_text": "What is a 'Zero-Day' vulnerability in cybersecurity terminology?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A Zero-Day vulnerability is a security flaw that is unknown to the software vendor or for which no official security patch currently exists, leaving systems vulnerable to immediate exploitation.",
+    "learning_objective": "Define Zero-Day security vulnerabilities.",
+    "options": [
+      {
+        "option_text": "A software security flaw that is known to attackers but has no vendor security patch available yet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Zero-day means defenders have had zero days to patch the vulnerability."
+      },
+      {
+        "option_text": "A computer that has been powered off for exactly zero days",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Uptime metrics are unrelated to zero-day vulnerabilities."
+      },
+      {
+        "option_text": "A network cable that transmits zero packets per second",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A dead cable is a hardware fault, not a zero-day exploit."
+      },
+      {
+        "option_text": "A software license that is valid for zero days",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Software licensing terms are unrelated to cyber zero-days."
+      }
+    ],
+    "tags": [
+      "threats",
+      "zero-day",
+      "vulnerabilities"
+    ]
+  },
+  {
+    "code": "DEV-SEC-022",
+    "topic_slug": "encryption",
+    "question_text": "What is the primary objective of a cryptographic Hash Function (such as SHA-256)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A cryptographic hash function converts input data of arbitrary size into a fixed-length output string (digest) in a one-way mathematical operation, primarily used to verify data integrity.",
+    "learning_objective": "Explain the purpose of cryptographic hash functions.",
+    "options": [
+      {
+        "option_text": "To generate a unique fixed-length digital fingerprint of data to verify integrity (ensuring data has not been modified)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Hashes verify integrity; any change to the input completely alters the output digest."
+      },
+      {
+        "option_text": "To encrypt data so it can be easily decrypted using a password",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hashes are strictly one-way mathematical functions and cannot be decrypted."
+      },
+      {
+        "option_text": "To convert standard English text into Japanese audio files",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Text-to-speech translation is handled by audio synthesizer software."
+      },
+      {
+        "option_text": "To compress video files so they occupy zero bytes on a hard drive",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Compression cannot reduce files to zero bytes."
+      }
+    ],
+    "tags": [
+      "cryptography",
+      "hashing",
+      "integrity",
+      "sha256"
+    ]
+  },
+  {
+    "code": "DEV-SEC-023",
+    "topic_slug": "encryption",
+    "question_text": "Can a standard cryptographic hash (like SHA-256) be 'decrypted' back into its original input text?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "No. Cryptographic hash functions are strictly one-way mathematical operations. They produce a fixed-length digest from variable-length input and cannot be reversed or decrypted.",
+    "learning_objective": "Recognize the one-way nature of cryptographic hash functions.",
+    "options": [
+      {
+        "option_text": "No, cryptographic hash functions are strictly one-way functions that cannot be reversed or decrypted",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Hashing is one-way for integrity verification, unlike two-way encryption."
+      },
+      {
+        "option_text": "Yes, by using any standard online decryption key generator",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hashes discard information to produce fixed digests and cannot be decrypted."
+      },
+      {
+        "option_text": "Yes, but only on computers running the Linux operating system",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Mathematical properties of hash functions are operating system independent."
+      },
+      {
+        "option_text": "Yes, but only if the user types the hash backwards",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Typing a hash backwards does not reverse the mathematical hash algorithm."
+      }
+    ],
+    "tags": [
+      "cryptography",
+      "hashing",
+      "one-way"
+    ]
+  },
+  {
+    "code": "DEV-SEC-024",
+    "topic_slug": "authentication",
+    "question_text": "What is the principle of 'Least Privilege' in cybersecurity access control?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The principle of Least Privilege dictates that users, processes, and systems should only be granted the minimum necessary permissions and access rights required to perform their specific job responsibilities.",
+    "learning_objective": "Explain the principle of Least Privilege.",
+    "options": [
+      {
+        "option_text": "Users and systems should only be granted the minimum necessary permissions required to perform their authorized tasks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Least privilege minimizes damage if an account is compromised."
+      },
+      {
+        "option_text": "Every employee in an organization must be given full domain administrator rights on day one",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Granting everyone administrator access violates least privilege and is extremely dangerous."
+      },
+      {
+        "option_text": "Computers must be forbidden from accessing the Internet on weekends",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Access schedules are policy rules, not the principle of least privilege."
+      },
+      {
+        "option_text": "All user accounts must share the exact same single master password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Sharing passwords destroys individual accountability and audit trails."
+      }
+    ],
+    "tags": [
+      "security-fundamentals",
+      "least-privilege",
+      "access-control"
+    ]
+  },
+  {
+    "code": "DEV-SEC-025",
+    "topic_slug": "network-devices",
+    "question_text": "Which security appliance combines firewall, intrusion prevention, antivirus, web filtering, and spam inspection into a single integrated platform?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A Unified Threat Management (UTM) appliance or Next-Generation Firewall (NGFW) bundles multiple defensive security capabilities (firewall, IPS, antimalware, content filtering) into a centralized hardware/software appliance.",
+    "learning_objective": "Identify Unified Threat Management appliances.",
+    "options": [
+      {
+        "option_text": "Unified Threat Management (UTM) / Next-Generation Firewall (NGFW)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UTMs integrate diverse security functions into a single manageable appliance."
+      },
+      {
+        "option_text": "Unmanaged 8-port Ethernet switch",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Basic switches forward Layer 2 frames without security inspection features."
+      },
+      {
+        "option_text": "Coaxial cable splitter",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A cable splitter is passive analog television/cable wiring."
+      },
+      {
+        "option_text": "Analog landline telephone",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Analog phones have no cyber threat defense capabilities."
+      }
+    ],
+    "tags": [
+      "security-devices",
+      "utm",
+      "ngfw",
+      "defense"
+    ]
+  }
+]

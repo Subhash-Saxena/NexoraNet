@@ -1,0 +1,822 @@
+/* ==========================================================================
+   NexoraNet — PCAP & Packet Analysis Engine Styles
+   Wireshark-inspired Educational Dark UI Theme
+   ========================================================================== */
+
+:root {
+  --pcap-bg: #090d16;
+  --pcap-card-bg: #0f172a;
+  --pcap-border: #1e293b;
+  --pcap-border-focus: #38bdf8;
+  --pcap-text-primary: #f8fafc;
+  --pcap-text-secondary: #94a3b8;
+  --pcap-text-muted: #64748b;
+  
+  /* Protocol Badge Colors */
+  --proto-tcp: #0284c7;
+  --proto-tcp-bg: rgba(2, 132, 199, 0.15);
+  --proto-http: #10b981;
+  --proto-http-bg: rgba(16, 185, 129, 0.15);
+  --proto-dns: #06b6d4;
+  --proto-dns-bg: rgba(6, 182, 212, 0.15);
+  --proto-icmp: #ec4899;
+  --proto-icmp-bg: rgba(236, 72, 153, 0.15);
+  --proto-arp: #eab308;
+  --proto-arp-bg: rgba(234, 179, 8, 0.15);
+  --proto-udp: #8b5cf6;
+  --proto-udp-bg: rgba(139, 92, 246, 0.15);
+  --proto-tls: #6366f1;
+  --proto-tls-bg: rgba(99, 102, 241, 0.15);
+  --proto-dhcp: #f97316;
+  --proto-dhcp-bg: rgba(249, 115, 22, 0.15);
+
+  /* Row Highlights */
+  --row-hover: #1e293b;
+  --row-selected: #1e3a5f;
+  --row-selected-border: #38bdf8;
+}
+
+/* Master Layout Container */
+.pcap-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: var(--pcap-text-primary);
+}
+
+/* Safety & Disclaimer Banners */
+.pcap-notice-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+.pcap-notice-banner.safety {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.3);
+  color: #7dd3fc;
+}
+
+.pcap-notice-banner.warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+}
+
+.pcap-notice-banner.danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+/* Workbench Navigation Header */
+.pcap-workbench-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 10px;
+}
+
+.pcap-workbench-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.pcap-workbench-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.pcap-workbench-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pcap-workbench-badge.READY {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.pcap-workbench-badge.PARSING {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.pcap-workbench-badge.FAILED {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.pcap-workbench-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Tabs Navigation */
+.pcap-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--pcap-border);
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+}
+
+.pcap-tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+  color: var(--pcap-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.pcap-tab-button:hover {
+  color: var(--pcap-text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pcap-tab-button.active {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+  border-bottom-color: #38bdf8;
+}
+
+/* Filter Bar */
+.pcap-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.pcap-filter-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pcap-filter-input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.pcap-filter-input-icon {
+  position: absolute;
+  left: 0.85rem;
+  color: var(--pcap-text-muted);
+  pointer-events: none;
+}
+
+.pcap-filter-input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 2.5rem;
+  background: #090d16;
+  border: 1px solid var(--pcap-border);
+  border-radius: 6px;
+  color: #f1f5f9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pcap-filter-input:focus {
+  border-color: var(--pcap-border-focus);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+.pcap-filter-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15);
+}
+
+.pcap-filter-clear-btn {
+  position: absolute;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  color: var(--pcap-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.pcap-filter-clear-btn:hover {
+  color: #fff;
+}
+
+.pcap-filter-apply-btn {
+  padding: 0.6rem 1.25rem;
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.pcap-filter-apply-btn:hover {
+  background: #0369a1;
+}
+
+.pcap-filter-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.pcap-filter-chip-label {
+  color: var(--pcap-text-muted);
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.pcap-filter-chip {
+  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--pcap-border);
+  border-radius: 4px;
+  color: var(--pcap-text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.pcap-filter-chip:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.pcap-filter-error-msg {
+  color: #f87171;
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  padding-left: 0.25rem;
+}
+
+/* Master Packet Table Layout */
+.pcap-table-wrapper {
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pcap-table-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #0b1120;
+  border-bottom: 1px solid var(--pcap-border);
+  font-size: 0.8125rem;
+  color: var(--pcap-text-secondary);
+}
+
+.pcap-table-scroll {
+  overflow-x: auto;
+  max-height: 520px;
+}
+
+.pcap-packet-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.8125rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.pcap-packet-table th {
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+  color: var(--pcap-text-secondary);
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--pcap-border);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 10;
+}
+
+.pcap-packet-table td {
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  color: #cbd5e1;
+}
+
+.pcap-packet-table tr {
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.pcap-packet-table tr:hover {
+  background: var(--row-hover);
+}
+
+.pcap-packet-table tr.selected {
+  background: var(--row-selected) !important;
+  color: #fff;
+  border-left: 3px solid var(--row-selected-border);
+}
+
+.pcap-packet-table tr.bookmarked td:first-child {
+  border-left: 3px solid #eab308;
+}
+
+/* Protocol Badges */
+.proto-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  min-width: 48px;
+}
+
+.proto-badge.TCP { background: var(--proto-tcp-bg); color: var(--proto-tcp); }
+.proto-badge.HTTP { background: var(--proto-http-bg); color: var(--proto-http); }
+.proto-badge.DNS { background: var(--proto-dns-bg); color: var(--proto-dns); }
+.proto-badge.ICMP { background: var(--proto-icmp-bg); color: var(--proto-icmp); }
+.proto-badge.ARP { background: var(--proto-arp-bg); color: var(--proto-arp); }
+.proto-badge.UDP { background: var(--proto-udp-bg); color: var(--proto-udp); }
+.proto-badge.TLS { background: var(--proto-tls-bg); color: var(--proto-tls); }
+.proto-badge.DHCP { background: var(--proto-dhcp-bg); color: var(--proto-dhcp); }
+.proto-badge.OTHER { background: rgba(255, 255, 255, 0.08); color: #94a3b8; }
+
+/* Table Pagination Bar */
+.pcap-pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: #0b1120;
+  border-top: 1px solid var(--pcap-border);
+  font-size: 0.8125rem;
+}
+
+.pcap-page-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.pcap-page-btn {
+  padding: 0.35rem 0.7rem;
+  background: #1e293b;
+  border: 1px solid var(--pcap-border);
+  border-radius: 4px;
+  color: var(--pcap-text-primary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.pcap-page-btn:hover:not(:disabled) {
+  background: #334155;
+  border-color: #475569;
+}
+
+.pcap-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Layer Tree Inspector */
+.pcap-details-card {
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.pcap-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--pcap-border);
+  padding-bottom: 0.75rem;
+}
+
+.pcap-layer-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pcap-layer-node {
+  border: 1px solid var(--pcap-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0b1120;
+}
+
+.pcap-layer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.875rem;
+  background: #131c31;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.pcap-layer-header:hover {
+  background: #1a2542;
+}
+
+.pcap-layer-body {
+  padding: 0.75rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8125rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.5rem 1.5rem;
+  background: #090d16;
+}
+
+.pcap-layer-prop {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+
+.pcap-layer-key {
+  color: var(--pcap-text-muted);
+  min-width: 110px;
+}
+
+.pcap-layer-val {
+  color: #38bdf8;
+  word-break: break-all;
+}
+
+/* TCP Flags */
+.pcap-flags-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.pcap-flag-tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pcap-flag-tag.SYN { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+.pcap-flag-tag.ACK { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.pcap-flag-tag.FIN { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.pcap-flag-tag.RST { background: rgba(239, 68, 68, 0.25); color: #f87171; }
+.pcap-flag-tag.PSH { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+.pcap-flag-tag.URG { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+
+/* Conversation Flows & Ladder Diagram */
+.pcap-conv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .pcap-conv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pcap-conv-card {
+  padding: 0.875rem 1rem;
+  background: #0b1120;
+  border: 1px solid var(--pcap-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pcap-conv-card:hover {
+  border-color: #38bdf8;
+  background: #111a2f;
+}
+
+.pcap-conv-card.active {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.pcap-handshake-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pcap-handshake-badge.COMPLETE { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.pcap-handshake-badge.INCOMPLETE { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.pcap-handshake-badge.RESET { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.pcap-handshake-badge.UNKNOWN { background: rgba(255, 255, 255, 0.06); color: #94a3b8; }
+
+/* Ladder Diagram */
+.pcap-ladder-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  background: #090d16;
+  border: 1px solid var(--pcap-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.pcap-ladder-endpoints {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #131c31;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8125rem;
+}
+
+.pcap-ladder-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.pcap-ladder-step:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pcap-ladder-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: #38bdf8;
+  position: relative;
+}
+
+.pcap-ladder-arrow-line.reverse {
+  background: #a855f7;
+}
+
+.pcap-ladder-meta {
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  color: var(--pcap-text-secondary);
+}
+
+/* Observation Engine Anomaly Cards */
+.pcap-obs-card {
+  padding: 1rem 1.25rem;
+  background: #0f172a;
+  border-radius: 8px;
+  border-left: 4px solid #38bdf8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pcap-obs-card.INFO { border-left-color: #38bdf8; }
+.pcap-obs-card.LOW { border-left-color: #10b981; }
+.pcap-obs-card.MEDIUM { border-left-color: #f59e0b; }
+.pcap-obs-card.HIGH { border-left-color: #ef4444; }
+
+.pcap-obs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pcap-obs-severity {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pcap-obs-severity.INFO { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.pcap-obs-severity.LOW { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.pcap-obs-severity.MEDIUM { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.pcap-obs-severity.HIGH { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+.pcap-evidence-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.pcap-evidence-btn {
+  padding: 0.15rem 0.45rem;
+  background: #1e293b;
+  border: 1px solid var(--pcap-border);
+  border-radius: 3px;
+  color: #38bdf8;
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.pcap-evidence-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Statistics Visuals */
+.pcap-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.pcap-metric-card {
+  padding: 1rem;
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pcap-metric-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: ui-monospace, monospace;
+}
+
+.pcap-metric-label {
+  font-size: 0.75rem;
+  color: var(--pcap-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Timeline Histogram */
+.pcap-timeline-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 90px;
+  background: #090d16;
+  border: 1px solid var(--pcap-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.pcap-timeline-bar {
+  flex: 1;
+  background: #0284c7;
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+  transition: all 0.12s ease;
+  position: relative;
+}
+
+.pcap-timeline-bar:hover {
+  background: #38bdf8;
+}
+
+/* Upload Dropzone */
+.pcap-dropzone {
+  border: 2px dashed var(--pcap-border);
+  border-radius: 10px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.5);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pcap-dropzone:hover,
+.pcap-dropzone.dragging {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.05);
+}
+
+/* Sample Library Cards Grid */
+.pcap-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.pcap-sample-card {
+  background: var(--pcap-card-bg);
+  border: 1px solid var(--pcap-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.15s ease;
+}
+
+.pcap-sample-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pcap-inspect-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.pcap-inspect-btn:hover {
+  background: #0369a1;
+}

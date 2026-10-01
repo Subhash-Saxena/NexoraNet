@@ -1,0 +1,1600 @@
+[
+  {
+    "code": "DET-001",
+    "topic_slug": "detection-rules",
+    "question_text": "Given the following Snort rule:\n`alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:\"SSH Brute Force Attempt\"; flags:S; threshold:type threshold, track by_src, count 5, seconds 30; sid:1000001; rev:1;)`\nWhat traffic pattern triggers this alert?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "This rule triggers an alert when an external source IP sends 5 or more TCP SYN packets (flags:S) to port 22 (SSH) on the internal network within a 30-second window, detecting rapid connection attempts characteristic of brute force.",
+    "learning_objective": "Analyze Snort detection rule syntax and thresholds.",
+    "options": [
+      {
+        "option_text": "An external IP sends 5 or more TCP SYN packets to port 22 on the internal network within 30 seconds",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The rule tracks by_src and requires a count of 5 SYN packets to port 22 within 30 seconds."
+      },
+      {
+        "option_text": "An internal user successfully downloads an encrypted file over HTTPS port 443",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The rule inspects port 22 (SSH), not 443."
+      },
+      {
+        "option_text": "A DNS server resolves 5 domain names in 30 seconds",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The rule inspects TCP port 22, not UDP port 53."
+      },
+      {
+        "option_text": "A computer is powered off for 30 seconds",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Snort rules inspect live network packets."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "threshold",
+      "ssh",
+      "brute-force"
+    ]
+  },
+  {
+    "code": "DET-002",
+    "topic_slug": "indicators-of-compromise",
+    "question_text": "What is the difference between an Atomic Indicator and a Behavioral Indicator in cybersecurity threat detection?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An Atomic Indicator is a static piece of data that cannot be broken down (e.g. a specific malicious IP address, domain name, or file hash). A Behavioral Indicator describes patterns of adversarial behavior (e.g. process injection followed by rapid outbound connections on non-standard ports).",
+    "learning_objective": "Contrast atomic indicators and behavioral indicators.",
+    "options": [
+      {
+        "option_text": "Atomic indicators are static data points (IPs, hashes, domains); behavioral indicators describe patterns of adversarial activity",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Adversaries can easily change atomic indicators (Pyramid of Pain); behavioral patterns are much harder to alter."
+      },
+      {
+        "option_text": "Atomic indicators only exist in nuclear facilities; behavioral indicators exist in schools",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Atomic refers to indivisible data elements in threat intelligence terminology."
+      },
+      {
+        "option_text": "Atomic indicators are strictly encrypted; behavioral indicators are unencrypted",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both can be shared in threat intelligence feeds (STIX/TAXII)."
+      },
+      {
+        "option_text": "Atomic indicators only apply to smartphones",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Threat indicators apply across all digital systems."
+      }
+    ],
+    "tags": [
+      "threat-intelligence",
+      "iocs",
+      "atomic-indicators",
+      "behavioral-detection",
+      "pyramid-of-pain"
+    ]
+  },
+  {
+    "code": "DET-003",
+    "topic_slug": "network-indicators",
+    "question_text": "In network threat hunting, what is 'Beaconing' behavior and what mathematical metric is used by defenders to detect it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Beaconing is regular, periodic outbound communication from a compromised host to an attacker's C2 server. Defenders calculate the time interval Delta between connections and analyze variance/jitter; low variance (consistent intervals) reveals automated beaconing.",
+    "learning_objective": "Analyze C2 beaconing detection through delta timing and jitter.",
+    "options": [
+      {
+        "option_text": "Periodic outbound communication to a C2 server, detected by analyzing low timing variance (jitter) between connection intervals",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Automated malware beacons on fixed or low-jitter intervals (e.g. every 60 seconds +/- 5%), creating recognizable timing patterns."
+      },
+      {
+        "option_text": "A physical light flashing on the server equipment chassis",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Beaconing in threat hunting refers to outbound network command-and-control polling."
+      },
+      {
+        "option_text": "A user typing an essay into a word processing application",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Manual typing produces erratic, non-periodic network behavior."
+      },
+      {
+        "option_text": "The operating system installing an official security patch",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Patch installations are one-off or scheduled maintenance downloads."
+      }
+    ],
+    "tags": [
+      "c2",
+      "beaconing",
+      "threat-hunting",
+      "jitter",
+      "network-indicators",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-004",
+    "topic_slug": "network-indicators",
+    "question_text": "Why do sophisticated threat actors intentionally introduce 'Jitter' (random timing variance) into their malware beaconing intervals?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Malware introduces jitter (e.g. 20% random variance around a 60-second base interval) to disrupt static mathematical regularity, evading simple frequency-based anomaly detection rules that search for exact recurring timestamps.",
+    "learning_objective": "Explain the purpose of jitter in command-and-control beaconing.",
+    "options": [
+      {
+        "option_text": "To vary connection timing and defeat security monitoring rules that look for rigid, perfectly recurring periodic intervals",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Jitter blurs the periodic pattern, making automated beacons look more like random human web browsing."
+      },
+      {
+        "option_text": "To make the computer's monitor physically vibrate",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Jitter in C2 refers to timing variance, not physical display vibration."
+      },
+      {
+        "option_text": "To increase the download speed of large video files",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Jitter is an operational stealth technique, not a throughput optimizer."
+      },
+      {
+        "option_text": "To bypass physical security checkpoints at office doorways",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Jitter is a software timing algorithm."
+      }
+    ],
+    "tags": [
+      "c2",
+      "jitter",
+      "beaconing",
+      "evasion",
+      "threat-hunting"
+    ]
+  },
+  {
+    "code": "DET-005",
+    "topic_slug": "detection-rules",
+    "question_text": "In a Suricata / Snort rule, what does the 'nocase' modifier do when appended to a content match string (e.g. `content:\"malware\"; nocase;`)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The 'nocase' modifier specifies that the content search must be case-insensitive, matching 'malware', 'Malware', 'MALWARE', or any combination of uppercase and lowercase letters.",
+    "learning_objective": "Recall the function of the nocase rule modifier.",
+    "options": [
+      {
+        "option_text": "It makes the string match case-insensitive, matching any combination of uppercase and lowercase letters",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "nocase ensures variations in letter casing do not evade the rule."
+      },
+      {
+        "option_text": "It disables the rule so that it never generates an alert",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "nocase modifies string evaluation; it does not disable the rule."
+      },
+      {
+        "option_text": "It encrypts the alert message before sending it to the SIEM",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Rule modifiers alter pattern matching logic, not alert transport encryption."
+      },
+      {
+        "option_text": "It forces the packet to be dropped immediately",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Dropping traffic requires the 'drop' rule action, not the nocase modifier."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "nocase",
+      "rule-syntax"
+    ]
+  },
+  {
+    "code": "DET-006",
+    "topic_slug": "alert-creation",
+    "question_text": "What is a 'True Positive' in SOC alert triage?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A True Positive occurs when a security alert correctly identifies genuine malicious activity or a real security incident that actually took place on the network.",
+    "learning_objective": "Define True Positive in alert analysis.",
+    "options": [
+      {
+        "option_text": "An alert that correctly identifies genuine malicious activity or a real security threat",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "True Positives are legitimate alerts requiring investigative triage and response."
+      },
+      {
+        "option_text": "An alert that mistakenly flags legitimate business activity as an attack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is a False Positive."
+      },
+      {
+        "option_text": "An attack that occurs with zero alerts generated by security tools",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is a False Negative."
+      },
+      {
+        "option_text": "A routine software backup that completes without errors",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is normal operations, not a security threat alert."
+      }
+    ],
+    "tags": [
+      "soc",
+      "triage",
+      "true-positive",
+      "alert-classification"
+    ]
+  },
+  {
+    "code": "DET-007",
+    "topic_slug": "false-positives",
+    "question_text": "What is the primary cause of 'Alert Fatigue' among SOC analysts, and what is its operational consequence?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Alert fatigue is caused by overwhelming volumes of low-fidelity, noisy False Positive alerts. It causes analysts to become desensitized and exhausted, drastically increasing the likelihood of missing or ignoring critical True Positive breach alerts.",
+    "learning_objective": "Analyze the operational impact of alert fatigue in security operations.",
+    "options": [
+      {
+        "option_text": "Overwhelming volumes of noisy false positives that exhaust analysts, causing real breach alerts to be overlooked",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "High false positive rates degrade human triage effectiveness, leading to missed intrusions."
+      },
+      {
+        "option_text": "Analysts drinking too much coffee during night shifts",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Alert fatigue is an operational detection engineering flaw, not diet."
+      },
+      {
+        "option_text": "Server hard drives running out of disk space",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Alert fatigue is human cognitive exhaustion caused by noisy rules."
+      },
+      {
+        "option_text": "The operating system changing its desktop wallpaper every hour",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Desktop UI settings are unrelated to SOC alert volume."
+      }
+    ],
+    "tags": [
+      "soc",
+      "alert-fatigue",
+      "false-positives",
+      "detection-engineering"
+    ]
+  },
+  {
+    "code": "DET-008",
+    "topic_slug": "detection-tuning",
+    "question_text": "When tuning a noisy detection rule in a SIEM or NIDS, what is an 'Exception' or 'Suppression' filter?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An exception or suppression filter explicitly excludes verified, benign business activities (such as an authorized vulnerability scanner IP or scheduled backup script) from triggering the alert, preserving rule sensitivity for real attacks.",
+    "learning_objective": "Explain alert suppression and rule tuning.",
+    "options": [
+      {
+        "option_text": "Excluding verified, legitimate business activities (like authorized vulnerability scanners) from triggering the alert",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Tuning suppresses known benign triggers, drastically increasing the rule's signal-to-noise ratio."
+      },
+      {
+        "option_text": "Permanently turning off all firewalls across the entire enterprise",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Suppression targets specific known benign triggers, not complete security disabling."
+      },
+      {
+        "option_text": "Deleting all audit logs older than 5 seconds",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Audit logs must be preserved for compliance and forensics."
+      },
+      {
+        "option_text": "Allowing all external hackers to log into the database without passwords",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Suppression filters benign internal sources, not external adversaries."
+      }
+    ],
+    "tags": [
+      "detection-tuning",
+      "suppression",
+      "alert-fidelity",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-009",
+    "topic_slug": "indicators-of-compromise",
+    "question_text": "According to David Bianco's 'Pyramid of Pain', which Indicator of Compromise (IOC) category causes the greatest difficulty and cost for an adversary when defenders detect and block it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "At the top of the Pyramid of Pain are TTPs (Tactics, Techniques, and Procedures). Blocking an IP or hash is trivial for an attacker to change; forcing an adversary to abandon and reinvent their core attack techniques causes maximum operational pain.",
+    "learning_objective": "Identify the most impactful IOC tier in the Pyramid of Pain.",
+    "options": [
+      {
+        "option_text": "Tactics, Techniques, and Procedures (TTPs)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TTPs sit at the apex of the Pyramid of Pain; disrupting them forces adversaries to redesign their entire operational methodology."
+      },
+      {
+        "option_text": "Hash Values (MD5 / SHA-256)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hashes sit at the bottom of the pyramid; changing a single byte in malware creates a new hash trivially."
+      },
+      {
+        "option_text": "IP Addresses",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IP addresses are near the bottom; attackers easily rotate IPs via proxies and cloud instances."
+      },
+      {
+        "option_text": "Domain Names",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Domain names are easily generated via DGAs or purchased cheaply."
+      }
+    ],
+    "tags": [
+      "pyramid-of-pain",
+      "ttps",
+      "threat-intelligence",
+      "defense"
+    ]
+  },
+  {
+    "code": "DET-010",
+    "topic_slug": "detection-rules",
+    "question_text": "What is a 'Sigma' rule in modern detection engineering?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Sigma is an open, vendor-agnostic signature format for log events (written in YAML). It allows detection engineers to write detection rules once and convert them into queries for any SIEM or log platform (Splunk, Elastic, QRadar, Microsoft Sentinel).",
+    "learning_objective": "Define the role of Sigma rules in detection engineering.",
+    "options": [
+      {
+        "option_text": "An open, generic YAML-based detection format that can be converted into queries for any SIEM platform",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Sigma provides a standardized, portable signature language for log analysis across diverse SIEM vendors."
+      },
+      {
+        "option_text": "A mathematical formula used to measure physical copper cable thickness",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Sigma rules are cyber detection definitions, not cable manufacturing specs."
+      },
+      {
+        "option_text": "A proprietary Microsoft software license required to boot Windows",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sigma is an open-source, vendor-neutral detection community project."
+      },
+      {
+        "option_text": "A tool that automatically formats operating system drives",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Sigma rules define detection logic for security logs."
+      }
+    ],
+    "tags": [
+      "sigma",
+      "detection-engineering",
+      "siem",
+      "yaml"
+    ]
+  },
+  {
+    "code": "DET-011",
+    "topic_slug": "network-indicators",
+    "question_text": "In network traffic logs, an analyst observes periodic HTTP POST requests containing an uncharacteristically short, fixed-length User-Agent string: 'Mozilla/4.0'. Why is this considered an indicator of interest?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Modern legitimate web browsers send detailed, multi-token User-Agent strings. Bare, obsolete strings like 'Mozilla/4.0' often indicate basic, uncustomized HTTP libraries used by malware, automated scripts, or legacy C2 implants.",
+    "learning_objective": "Analyze anomalous User-Agent strings in proxy logs.",
+    "options": [
+      {
+        "option_text": "Outdated or minimal User-Agent strings often reveal automated malware libraries or unrefined C2 beaconing scripts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Malware developers often hardcode minimal User-Agent strings that stand out from legitimate browser traffic."
+      },
+      {
+        "option_text": "It proves the user is running an authorized update of Google Chrome",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Modern Chrome uses detailed multi-platform strings."
+      },
+      {
+        "option_text": "It indicates the server has exceeded its physical electrical power quota",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "User-Agent is an HTTP request header."
+      },
+      {
+        "option_text": "It proves the packet was generated by an authorized DNS root server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS servers do not generate HTTP POST requests."
+      }
+    ],
+    "tags": [
+      "network-indicators",
+      "user-agent",
+      "proxy-logs",
+      "c2",
+      "threat-hunting"
+    ]
+  },
+  {
+    "code": "DET-012",
+    "topic_slug": "detection-rules",
+    "question_text": "In a Snort/Suricata rule, what is the purpose of the 'sid' (Signature ID) keyword?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The 'sid' uniquely identifies each rule. Standard convention reserves SIDs under 1,000,000 for official rules, while SIDs 1,000,000 and above are reserved for local, custom-authored enterprise rules.",
+    "learning_objective": "Recall the purpose of the Snort sid keyword.",
+    "options": [
+      {
+        "option_text": "A unique numeric identifier for the rule (SIDs >= 1,000,000 are reserved for custom local rules)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "sid uniquely tracks rules; rev tracks version revisions of that rule."
+      },
+      {
+        "option_text": "The speed limit in miles per hour of the network cable",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "sid is a rule identifier, not physical speed."
+      },
+      {
+        "option_text": "The password required to log into the sensor operating system",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "sid is a signature index."
+      },
+      {
+        "option_text": "The total number of packets dropped by the firewall",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "sid is a static rule configuration identifier."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "sid"
+    ]
+  },
+  {
+    "code": "DET-013",
+    "topic_slug": "network-indicators",
+    "question_text": "An analyst observes an internal Windows workstation suddenly sending thousands of outbound SMB packets (TCP 445) to every other workstation on its local /24 subnet. What threat phase does this behavior indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Rapid outbound SMB connection sweeps across neighboring workstations indicate Lateral Movement / Internal Worm Propagation (e.g. attempting PsExec, WMI execution, or exploiting EternalBlue / SMB vulnerabilities).",
+    "learning_objective": "Identify network indicators of lateral movement via SMB.",
+    "options": [
+      {
+        "option_text": "Lateral movement / internal malware propagation attempting to compromise neighboring hosts via SMB",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Spreading via SMB port 445 is standard lateral movement behavior seen in ransomware and worms."
+      },
+      {
+        "option_text": "A user printing a single black-and-white text document to a USB printer",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "USB printing does not generate network sweeps across 254 workstations."
+      },
+      {
+        "option_text": "Normal background updating of the local computer clock",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Clock updates use NTP port 123."
+      },
+      {
+        "option_text": "The router testing optical fiber link attenuation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Layer 3/4 host sweeps originate from compromised endpoints, not router testing."
+      }
+    ],
+    "tags": [
+      "lateral-movement",
+      "smb",
+      "ransomware",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-014",
+    "topic_slug": "alert-creation",
+    "question_text": "What information should a high-quality security alert include to enable rapid, effective triage by a Tier 1 SOC analyst?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A high-quality alert must provide context: Source IP/host, Destination IP/host, Timestamp, Threat description, Severity score, specific triggering evidence (matching packet/log snippet), and recommended triage steps.",
+    "learning_objective": "Identify essential components of actionable SOC alerts.",
+    "options": [
+      {
+        "option_text": "Contextual data: Source/Destination, Timestamp, Severity, triggered evidence, and recommended investigation steps",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Rich contextual alerts enable rapid triage and reduce time-to-respond (MTTR)."
+      },
+      {
+        "option_text": "Only the single word 'ERROR' with no other text",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Vague alerts create confusion and delay triage."
+      },
+      {
+        "option_text": "A complete copy of the company's annual financial tax returns",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Alerts must contain technical incident telemetry."
+      },
+      {
+        "option_text": "The personal home address of the software engineer who wrote the rule",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Author contact is not part of incident telemetry."
+      }
+    ],
+    "tags": [
+      "alert-creation",
+      "soc",
+      "triage",
+      "best-practices"
+    ]
+  },
+  {
+    "code": "DET-015",
+    "topic_slug": "detection-tuning",
+    "question_text": "When should a detection engineer adjust an alert rule from 'Low Severity' to 'High / Critical Severity'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Severity should be escalated to High/Critical when the detected activity represents an imminent, high-impact threat to organizational operations or core crown-jewel assets (e.g. ransomware encryption active, domain controller compromise, active data exfiltration).",
+    "learning_objective": "Apply severity classification principles in detection engineering.",
+    "options": [
+      {
+        "option_text": "When the activity indicates active compromise of critical assets, ransomware deployment, or confirmed data exfiltration",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Critical severity is reserved for active threats requiring immediate operational containment."
+      },
+      {
+        "option_text": "When an employee forgets their password on a Monday morning",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Password resets are routine IT helpdesk tickets, not critical security incidents."
+      },
+      {
+        "option_text": "When an email contains an image that loads slowly",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Slow loading is an application performance issue."
+      },
+      {
+        "option_text": "When a computer has been powered on for more than 24 hours",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Server uptime is normal and desirable."
+      }
+    ],
+    "tags": [
+      "detection-engineering",
+      "severity-scoring",
+      "soc",
+      "risk-assessment"
+    ]
+  },
+  {
+    "code": "DET-016",
+    "topic_slug": "network-indicators",
+    "question_text": "What is 'Living off the Land' (LotL) and why does it make network and endpoint detection challenging?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Living off the Land involves adversaries using legitimate, built-in administrative tools (like PowerShell, WMI, certutil, netsh, ssh) rather than dropping custom malware, making their activity blend in with normal administrative operations.",
+    "learning_objective": "Explain Living off the Land tactics.",
+    "options": [
+      {
+        "option_text": "Adversaries use legitimate built-in administrative tools (PowerShell, certutil, WMI) to blend in with normal traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "LotL avoids dropping suspicious executable binaries, requiring behavioral and contextual detection."
+      },
+      {
+        "option_text": "Adversaries physically camping in agricultural fields near datacenters",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is literal wordplay, not a cybersecurity tactic."
+      },
+      {
+        "option_text": "Adversaries replacing all software on a computer with agricultural farming simulators",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "LotL weaponizes native operating system utilities."
+      },
+      {
+        "option_text": "Adversaries transmitting network traffic exclusively over analog telephone lines",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "LotL tools execute on modern operating systems."
+      }
+    ],
+    "tags": [
+      "lotl",
+      "powershell",
+      "wmi",
+      "evasion",
+      "threat-hunting"
+    ]
+  },
+  {
+    "code": "DET-017",
+    "topic_slug": "detection-rules",
+    "question_text": "In Snort/Suricata, what is the purpose of the 'flow:established,to_server' option?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "This option ensures that the rule only evaluates traffic matching an active, ESTABLISHED TCP connection traveling in the direction of client to server, ignoring dropped or uncompleted SYN packets and drastically reducing false positives.",
+    "learning_objective": "Explain the flow keyword in Snort rules.",
+    "options": [
+      {
+        "option_text": "It restricts inspection to established TCP sessions traveling from client to server, eliminating unestablished scan noise",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "flow:established ensures the rule only inspects genuine ongoing sessions, not rejected SYN packets."
+      },
+      {
+        "option_text": "It converts the packet stream into a video recording",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "flow manages TCP session tracking state."
+      },
+      {
+        "option_text": "It deletes all logs from the sensor hard drive",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "flow is an inspection filter."
+      },
+      {
+        "option_text": "It requires all users to write their passwords in capital letters",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "flow evaluates transport-layer session state."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "flow",
+      "alert-tuning"
+    ]
+  },
+  {
+    "code": "DET-018",
+    "topic_slug": "network-indicators",
+    "question_text": "What is a 'DGA-Generated Domain' and what visual characteristic often distinguishes it from legitimate domain names?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Domain Generation Algorithms (DGAs) generate domains programmatically using random seed algorithms, producing long, unpronounceable strings with high character entropy (e.g. 'qx7k9p2m3w1v.biz') that stand out from human-registered brand names.",
+    "learning_objective": "Identify visual and mathematical characteristics of DGA domains.",
+    "options": [
+      {
+        "option_text": "High character entropy, unpronounceable random strings of consonants/numbers, and unusual top-level domains",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DGAs produce randomized strings lacking standard linguistic word patterns, with elevated Shannon entropy."
+      },
+      {
+        "option_text": "Domain names that always end in the letters '.gov'",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": ".gov domains are strictly restricted to verified government entities."
+      },
+      {
+        "option_text": "Domain names that are exactly 3 letters long and spell common dictionary words",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Short dictionary domains are premium brand domains, not DGAs."
+      },
+      {
+        "option_text": "Domain names printed in blue ink on physical paper",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DGA domains are digital DNS records."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dga",
+      "entropy",
+      "c2",
+      "threat-hunting"
+    ]
+  },
+  {
+    "code": "DET-019",
+    "topic_slug": "false-positives",
+    "question_text": "A newly deployed NIDS rule generates 10,000 alerts per hour because a vulnerability scanner runs authorized scans every night. What detection engineering action should be taken?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The detection engineer should tune the rule by adding an exception filter for the authorized vulnerability scanner's source IP address (or dedicated management subnet), silencing the noise without disabling the rule for unauthorized external scanners.",
+    "learning_objective": "Apply detection tuning to resolve vulnerability scanner alert noise.",
+    "options": [
+      {
+        "option_text": "Add a suppression or exception filter for the authorized vulnerability scanner's source IP address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Filtering the authorized scanner IP preserves the rule's capability while eliminating 10,000 false alerts."
+      },
+      {
+        "option_text": "Permanently delete the NIDS sensor and unplug all power cords",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Deleting monitoring leaves the network completely blind to real threats."
+      },
+      {
+        "option_text": "Disable the vulnerability scanner permanently and never scan for security bugs again",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Vulnerability scanning is a vital defensive hygiene practice."
+      },
+      {
+        "option_text": "Ignore all alerts and delete the SIEM database every morning",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ignoring alerts guarantees undetected breaches."
+      }
+    ],
+    "tags": [
+      "detection-tuning",
+      "vulnerability-scanner",
+      "suppression",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-020",
+    "topic_slug": "indicators-of-compromise",
+    "question_text": "Why are IP addresses considered 'Low' value (easy to change) on the Pyramid of Pain?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Threat actors can effortlessly rotate IP addresses within seconds using dynamic cloud VPS instances, Tor exit nodes, residential proxy networks, or infected botnet hosts, making simple IP blacklisting easy for attackers to overcome.",
+    "learning_objective": "Explain why IP addresses are low-tier indicators on the Pyramid of Pain.",
+    "options": [
+      {
+        "option_text": "Attackers can rapidly rotate IP addresses using proxies, Tor, and cloud infrastructure with minimal effort and cost",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IP blacklisting provides short-term defense because adversaries switch source IPs effortlessly."
+      },
+      {
+        "option_text": "Because IP addresses can only be owned by government agencies",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Anyone can obtain and lease IP addresses."
+      },
+      {
+        "option_text": "Because IP addresses are encrypted with military-grade AES-256",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IP addresses in packet headers are public, unencrypted routing data."
+      },
+      {
+        "option_text": "Because IPv4 has an infinite number of addresses",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IPv4 is limited to 4.3 billion addresses."
+      }
+    ],
+    "tags": [
+      "pyramid-of-pain",
+      "ip-addresses",
+      "threat-intelligence",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-021",
+    "topic_slug": "network-indicators",
+    "question_text": "What is an 'Unusual Port' indicator in perimeter firewall logs?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Traffic utilizing non-standard or high-numbered ports for standard protocols (e.g. HTTP/HTTPS running over port 8443 or port 4444, or SSH running over port 53) often indicates an adversary attempting to bypass port-based egress filters.",
+    "learning_objective": "Explain unusual port usage indicators.",
+    "options": [
+      {
+        "option_text": "Standard protocols running on non-standard ports, or unexpected outbound connections on unassigned high ports",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Adversaries often bind C2 listeners to ports like 4444 or run non-DNS traffic over port 53 to evade egress blocks."
+      },
+      {
+        "option_text": "A computer port physically painted yellow instead of black",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port indicators refer to Layer 4 TCP/UDP numbers, not physical paint colors."
+      },
+      {
+        "option_text": "An Ethernet cable plugged into the wall upside down",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "RJ-45 jacks only insert in one physical orientation."
+      },
+      {
+        "option_text": "A printer that prints pages in reverse order",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Unusual port refers to network transport numbers."
+      }
+    ],
+    "tags": [
+      "network-indicators",
+      "non-standard-ports",
+      "egress-filtering",
+      "c2"
+    ]
+  },
+  {
+    "code": "DET-022",
+    "topic_slug": "detection-rules",
+    "question_text": "In detection engineering, what is the role of 'Offset' and 'Depth' keywords in content matching rules?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "'Offset' tells the inspection engine how many bytes into the payload to skip before beginning the search. 'Depth' limits how many bytes to search beyond the offset. Restricting the search window dramatically improves inspection performance.",
+    "learning_objective": "Explain the optimization provided by offset and depth keywords.",
+    "options": [
+      {
+        "option_text": "They constrain the payload search to a specific byte window, accelerating inspection and preventing full-payload scans",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Offset and depth optimize performance by checking headers or protocols at predictable byte positions."
+      },
+      {
+        "option_text": "They specify the physical depth underground where cables are buried",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Offset and depth are byte boundaries in packet memory buffers."
+      },
+      {
+        "option_text": "They calculate the electrical voltage running through the processor",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These are pattern matching bounds."
+      },
+      {
+        "option_text": "They dictate how many hours a security analyst must work per day",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "They are signature configuration parameters."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "optimization",
+      "offset-depth"
+    ]
+  },
+  {
+    "code": "DET-023",
+    "topic_slug": "network-indicators",
+    "question_text": "What does a sudden, sustained spike in outbound ICMP traffic with large payload byte sizes (e.g. 1000 bytes per ping) suggest?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Standard ping packets carry small, static payloads (e.g. 32 to 64 bytes). Sustained high-volume pings with large, variable payloads are indicative of ICMP Tunneling / Data Exfiltration, where an adversary encapsulates stolen data inside ICMP Echo Requests.",
+    "learning_objective": "Identify ICMP tunneling and data exfiltration patterns.",
+    "options": [
+      {
+        "option_text": "ICMP Tunneling / Data Exfiltration concealing stolen data inside ICMP Echo Request payloads",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ICMP tunnels bypass basic port blocks by encoding arbitrary data inside ping payload fields."
+      },
+      {
+        "option_text": "A user rapidly clicking the refresh button on a web browser",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Browser refresh generates HTTP/HTTPS requests, not large ICMP payloads."
+      },
+      {
+        "option_text": "The operating system installing an official security update",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "OS updates download over HTTPS, not ICMP."
+      },
+      {
+        "option_text": "A switch port automatically recovering from an err-disable state",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Err-disable recovery does not generate large external ping bursts."
+      }
+    ],
+    "tags": [
+      "icmp",
+      "tunneling",
+      "exfiltration",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-024",
+    "topic_slug": "alert-creation",
+    "question_text": "In a Security Information and Event Management (SIEM) system, what is 'Correlation'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Correlation links multiple disparate security events occurring across firewalls, endpoints, DNS, and authentication servers over time, synthesizing them into a single high-confidence incident (e.g. failed logins followed by successful login and immediate large outbound transfer).",
+    "learning_objective": "Explain event correlation in SIEM platforms.",
+    "options": [
+      {
+        "option_text": "Connecting multiple related log events across different systems and timeframes to identify multi-stage attack patterns",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Correlation combines weak individual signals into strong composite attack detections."
+      },
+      {
+        "option_text": "Deleting all logs that contain the letter 'S'",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Correlation analyzes data; it does not delete logs."
+      },
+      {
+        "option_text": "Physically soldering two server motherboards together",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SIEM correlation is software log analysis."
+      },
+      {
+        "option_text": "Setting all computer desktop screens to identical brightness levels",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Correlation is event log analysis."
+      }
+    ],
+    "tags": [
+      "siem",
+      "correlation",
+      "soc",
+      "detection-engineering"
+    ]
+  },
+  {
+    "code": "DET-025",
+    "topic_slug": "detection-tuning",
+    "question_text": "What is 'Alert Throttling' or 'Rate Limiting' in SOC monitoring systems?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Throttling limits the frequency at which an alert fires for identical criteria (e.g. only generating one alert per source IP every 15 minutes, even if 10,000 matches occur), preventing inbox flooding and SIEM pipeline saturation.",
+    "learning_objective": "Explain alert throttling.",
+    "options": [
+      {
+        "option_text": "Suppressing duplicate alerts for the same source/threat within a time window to prevent alert flooding",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Throttling prevents a single ongoing scan or flood from creating thousands of redundant tickets."
+      },
+      {
+        "option_text": "Physically choking the Ethernet cable to reduce data flow",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Throttling is a software notification control."
+      },
+      {
+        "option_text": "Deleting user email accounts that receive spam",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Throttling manages monitoring notifications."
+      },
+      {
+        "option_text": "Restricting employee lunch breaks to 10 minutes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Throttling governs alerting frequency."
+      }
+    ],
+    "tags": [
+      "alert-tuning",
+      "throttling",
+      "soc",
+      "siem"
+    ]
+  },
+  {
+    "code": "DET-026",
+    "topic_slug": "indicators-of-compromise",
+    "question_text": "What is an 'IoA' (Indicator of Attack) compared to an 'IoC' (Indicator of Compromise)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "An IoC is forensic evidence that an attack HAS ALREADY occurred (after the fact, e.g. malware hash on disk). An IoA focuses on the attacker's active intent and behavior IN PROGRESS (e.g. unauthorized privilege escalation, living-off-the-land activity), enabling proactive intervention.",
+    "learning_objective": "Differentiate Indicators of Attack from Indicators of Compromise.",
+    "options": [
+      {
+        "option_text": "An IoC is historical evidence of a past breach; an IoA detects active adversarial intent and behavior in real time",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IoCs ask 'What was compromised?'; IoAs ask 'What is the attacker doing right now?'"
+      },
+      {
+        "option_text": "IoAs are used only in outer space; IoCs are used on Earth",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both are cybersecurity threat detection models."
+      },
+      {
+        "option_text": "IoCs are legally binding contracts signed with banks",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both are technical cybersecurity telemetry concepts."
+      },
+      {
+        "option_text": "There is zero difference; they are exact identical synonyms",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "They represent fundamentally different reactive vs proactive paradigms."
+      }
+    ],
+    "tags": [
+      "ioa",
+      "ioc",
+      "proactive-defense",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-027",
+    "topic_slug": "network-indicators",
+    "question_text": "An analyst reviews proxy logs and notices recurring connections to an external IP with an exact 5-minute interval ($300$ seconds) with $0\\%$ jitter lasting for 72 hours. What does this suggest?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A rigid, exact 300-second interval with zero jitter running continuously for days is undeniably automated machine behavior. It could represent an unjittered malware C2 beacon or an automated legitimate software health check/telemetry agent.",
+    "learning_objective": "Analyze exact periodic connection timing in proxy logs.",
+    "options": [
+      {
+        "option_text": "Automated machine polling (either an unjittered malware C2 beacon or a routine software health check)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Zero jitter indicates automated programmatic scheduling, warranting process verification."
+      },
+      {
+        "option_text": "A human user manually typing website addresses every 300 seconds without sleeping for 3 days",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Humans cannot type with microsecond precision for 72 continuous hours."
+      },
+      {
+        "option_text": "A physical failure of the fiber-optic transceivers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The connection is succeeding reliably every 5 minutes."
+      },
+      {
+        "option_text": "A computer running without any operating system installed",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Executing network sockets requires an operating system stack."
+      }
+    ],
+    "tags": [
+      "c2",
+      "beaconing",
+      "threat-hunting",
+      "proxy-logs",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-028",
+    "topic_slug": "detection-rules",
+    "question_text": "What is the function of the 'classtype' keyword in Snort/Suricata rules?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The 'classtype' keyword assigns the rule to a standardized attack category (e.g. 'trojan-activity', 'attempted-admin', 'web-application-attack') and automatically assigns a default priority/severity level.",
+    "learning_objective": "Recall the function of the classtype keyword.",
+    "options": [
+      {
+        "option_text": "It categorizes the alert into a standard threat classification and assigns default priority/severity",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "classtype standardizes alert taxonomies and default priority levels in Snort."
+      },
+      {
+        "option_text": "It classifies which programming language was used to compile the operating system",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "classtype classifies attack categories."
+      },
+      {
+        "option_text": "It sets the physical dimensions of the equipment rack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "classtype is an alert metadata keyword."
+      },
+      {
+        "option_text": "It encrypts the packet before writing to disk",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "classtype does not perform cryptographic operations."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "classtype",
+      "metadata"
+    ]
+  },
+  {
+    "code": "DET-029",
+    "topic_slug": "detection-tuning",
+    "question_text": "What is 'Baseline Drift' in anomaly detection systems and how must security engineers address it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Baseline drift occurs as legitimate business network behavior naturally changes over time (new software deployments, business growth, seasonal traffic shifts). If the baseline is not periodically updated, false positives will rise or real anomalies will be missed.",
+    "learning_objective": "Explain baseline drift in behavioral detection systems.",
+    "options": [
+      {
+        "option_text": "Legitimate network traffic patterns evolve over time, requiring periodic baseline updates to prevent false alerts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Dynamic networks evolve; static baselines become obsolete and noisy without periodic recalibration."
+      },
+      {
+        "option_text": "Cables slowly shifting their physical position inside wall conduits",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Baseline drift refers to statistical traffic models, not cable movement."
+      },
+      {
+        "option_text": "The operating system clock running backward",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Drift refers to changing behavioral statistical norms."
+      },
+      {
+        "option_text": "The computer screen slowly moving to the left",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Baseline drift is a telemetry profiling concept."
+      }
+    ],
+    "tags": [
+      "anomaly-detection",
+      "baseline-drift",
+      "detection-tuning",
+      "machine-learning"
+    ]
+  },
+  {
+    "code": "DET-030",
+    "topic_slug": "indicators-of-compromise",
+    "question_text": "Why is sharing threat intelligence in standardized formats (such as STIX/TAXII and MISP) advantageous for SOC teams?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Structured formats (STIX) and automated transport protocols (TAXII) allow security tools (SIEMs, firewalls, EDRs) to ingest, share, and operationalize machine-readable threat intelligence automatically without manual analyst data entry.",
+    "learning_objective": "Explain the benefits of standardized threat intelligence sharing.",
+    "options": [
+      {
+        "option_text": "It enables automated machine-to-machine ingestion and enforcement of threat intelligence across diverse security tools",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "STIX/TAXII automates threat indicator sharing and ingestion into defensive sensors."
+      },
+      {
+        "option_text": "It makes all computer passwords publicly visible on the dark web",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Threat intelligence sharing aims to protect organizational assets."
+      },
+      {
+        "option_text": "It forces all computers to use the same operating system",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Standards are platform-independent."
+      },
+      {
+        "option_text": "It eliminates the need for software firewalls",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Firewalls ingest threat intelligence feeds to block malicious IPs/domains."
+      }
+    ],
+    "tags": [
+      "threat-intelligence",
+      "stix",
+      "taxii",
+      "misp",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-031",
+    "topic_slug": "network-indicators",
+    "question_text": "In DNS telemetry, what does an abnormally high ratio of TXT record queries compared to standard A/AAAA queries from a single host suggest?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "TXT records can carry large arbitrary payloads (up to 255 bytes per string). A disproportionate volume of TXT queries often indicates DNS tunneling used by malware for command-and-control payloads or stage payload downloads.",
+    "learning_objective": "Analyze anomalous DNS TXT record query ratios.",
+    "options": [
+      {
+        "option_text": "DNS Tunneling used for command-and-control payload delivery or data exfiltration",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TXT records carry large payloads, making them a preferred mechanism for DNS-based C2 channels."
+      },
+      {
+        "option_text": "A user verifying their email password with Active Directory",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Active Directory authentication uses Kerberos/LDAP, not public TXT queries."
+      },
+      {
+        "option_text": "The computer installing a printer ink cartridge",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Printer maintenance does not generate heavy external TXT queries."
+      },
+      {
+        "option_text": "Normal web browsing to news websites",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Web browsing primarily queries A and AAAA records."
+      }
+    ],
+    "tags": [
+      "dns",
+      "txt-record",
+      "dns-tunneling",
+      "c2",
+      "threat-hunting"
+    ]
+  },
+  {
+    "code": "DET-032",
+    "topic_slug": "detection-rules",
+    "question_text": "In Snort/Suricata, what is the role of the 'byte_test' rule option?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "'byte_test' extracts a specified number of bytes from a given offset in the packet payload, converts them to an integer, and performs a mathematical comparison (e.g. greater than, equal to, less than) against an expected numeric value.",
+    "learning_objective": "Explain the function of byte_test in Snort rules.",
+    "options": [
+      {
+        "option_text": "It extracts numeric bytes from a payload offset and performs a mathematical comparison against a value",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "byte_test enables validating binary protocol fields, length parameters, or numeric exploit triggers."
+      },
+      {
+        "option_text": "It measures the physical weight in bytes of the computer hard drive",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "byte_test inspects packet payloads in memory."
+      },
+      {
+        "option_text": "It deletes all emails containing more than 100 bytes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "byte_test is a packet inspection evaluation condition."
+      },
+      {
+        "option_text": "It tests the electrical battery level of the router",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "byte_test evaluates digital protocol bytes."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "byte-test",
+      "packet-inspection"
+    ]
+  },
+  {
+    "code": "DET-033",
+    "topic_slug": "network-indicators",
+    "question_text": "What does a 'Port Knocking' sequence indicate when observed in firewall connection logs?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Port knocking is a stealth authentication method where a client sends connection attempts to a specific secret sequence of closed ports (e.g. 7000, 8000, 9000). A daemon monitoring the firewall logs recognizes the sequence and dynamically opens a firewall port (e.g. SSH).",
+    "learning_objective": "Explain the mechanics of port knocking.",
+    "options": [
+      {
+        "option_text": "A client attempts connections to a secret sequence of closed ports to dynamically open a hidden firewall port (e.g. SSH)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Port knocking keeps services completely concealed from port scans until the secret sequence is knocked."
+      },
+      {
+        "option_text": "A physical intruder knocking on the server room door with their knuckles",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port knocking is a software firewall authentication mechanism."
+      },
+      {
+        "option_text": "A network loop causing switches to crash",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port knocking is an intentional authentication technique."
+      },
+      {
+        "option_text": "A router rebooting due to a power outage",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port knocking involves deliberate client connection packets."
+      }
+    ],
+    "tags": [
+      "port-knocking",
+      "firewall",
+      "stealth",
+      "authentication"
+    ]
+  },
+  {
+    "code": "DET-034",
+    "topic_slug": "detection-tuning",
+    "question_text": "What is a 'Canary Rule' in detection engineering?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A canary rule is a newly authored detection rule deployed in 'test' or 'alert-only' mode (without triggering automated blocking or pager alerts) to evaluate its performance, measure false positive rates, and tune logic before promoting it to production.",
+    "learning_objective": "Explain the purpose of canary detection rules.",
+    "options": [
+      {
+        "option_text": "A newly authored rule deployed in test/silent mode to validate accuracy and false-positive rates before production promotion",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Canary deployment ensures new detection rules do not trigger unexpected false-positive floods or service outages."
+      },
+      {
+        "option_text": "A rule that monitors the health of pet birds kept in datacenters",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Canary rule is a software testing metaphor derived from coal mine canaries."
+      },
+      {
+        "option_text": "A rule that formats computer drives after 30 days",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Canary rules monitor packet streams silently."
+      },
+      {
+        "option_text": "A rule that increases the speed of optical fiber lasers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Canary rules evaluate detection logic accuracy."
+      }
+    ],
+    "tags": [
+      "detection-engineering",
+      "canary-rule",
+      "testing",
+      "alert-tuning",
+      "soc"
+    ]
+  },
+  {
+    "code": "DET-035",
+    "topic_slug": "network-indicators",
+    "question_text": "Why is monitoring outbound SMTP traffic (TCP port 25) originating from general employee desktop subnets critically important in network defense?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "General workstations have zero legitimate reason to initiate direct outbound connections on port 25 (email clients send mail to authorized corporate relays via port 587). Outbound port 25 traffic from desktops is a classic indicator of a spam botnet infection.",
+    "learning_objective": "Analyze the security risk of outbound SMTP port 25 from client workstations.",
+    "options": [
+      {
+        "option_text": "Client endpoints should never connect directly to external mail servers on port 25; doing so indicates a spam botnet or malware",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Legitimate email uses internal submission relays (port 587); direct port 25 from workstations indicates botnet spamming."
+      },
+      {
+        "option_text": "Port 25 is strictly reserved for high-definition 4K video streaming",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port 25 is SMTP mail transport."
+      },
+      {
+        "option_text": "Port 25 traffic causes optical fiber cables to burn out",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port 25 is standard digital network traffic."
+      },
+      {
+        "option_text": "Port 25 is required for users to view websites in Google Chrome",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Web browsing uses ports 80 and 443, not port 25."
+      }
+    ],
+    "tags": [
+      "smtp",
+      "egress-filtering",
+      "botnet",
+      "spam",
+      "network-indicators",
+      "soc"
+    ]
+  }
+]

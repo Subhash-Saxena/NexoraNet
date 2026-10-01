@@ -1,0 +1,479 @@
+/* ==========================================================================
+   NexoraNet — Step 11 Network Detection Engine Styles
+   Defensive Cyber Analysis & SOC Triage Dark Theme
+   ========================================================================== */
+
+:root {
+  --det-bg: #090d16;
+  --det-card-bg: #0f172a;
+  --det-card-hover: #17233c;
+  --det-border: #1e293b;
+  --det-border-accent: #334155;
+  --det-border-focus: #38bdf8;
+  --det-text-primary: #f8fafc;
+  --det-text-secondary: #94a3b8;
+  --det-text-muted: #64748b;
+
+  /* Severities */
+  --sev-critical: #ef4444;
+  --sev-critical-bg: rgba(239, 68, 68, 0.15);
+  --sev-high: #f97316;
+  --sev-high-bg: rgba(249, 115, 22, 0.15);
+  --sev-medium: #eab308;
+  --sev-medium-bg: rgba(234, 179, 8, 0.15);
+  --sev-low: #38bdf8;
+  --sev-low-bg: rgba(56, 189, 248, 0.15);
+  --sev-info: #94a3b8;
+  --sev-info-bg: rgba(148, 163, 184, 0.15);
+
+  /* Statuses */
+  --status-new: #6366f1;
+  --status-new-bg: rgba(99, 102, 241, 0.15);
+  --status-ack: #f59e0b;
+  --status-ack-bg: rgba(245, 158, 11, 0.15);
+  --status-inv: #a855f7;
+  --status-inv-bg: rgba(168, 85, 247, 0.15);
+  --status-closed: #10b981;
+  --status-closed-bg: rgba(16, 185, 129, 0.15);
+  --status-fp: #64748b;
+  --status-fp-bg: rgba(100, 116, 139, 0.15);
+}
+
+.detection-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: var(--det-text-primary);
+  font-family: inherit;
+}
+
+/* Banner */
+.detection-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #7dd3fc;
+}
+
+.detection-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Header & Controls */
+.detection-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.detection-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.detection-header-title h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--det-text-primary);
+}
+
+.detection-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Primary / Outline Buttons */
+.det-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.det-btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+.det-btn-primary:hover:not(:disabled) {
+  background: #0369a1;
+}
+
+.det-btn-secondary {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+.det-btn-secondary:hover:not(:disabled) {
+  background: #334155;
+}
+
+.det-btn-danger {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.det-btn-danger:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.det-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Stat Cards Grid */
+.det-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.det-stat-card {
+  background: var(--det-card-bg);
+  border: 1px solid var(--det-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.det-stat-label {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--det-text-muted);
+  font-weight: 600;
+}
+
+.det-stat-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--det-text-primary);
+  line-height: 1;
+}
+
+.det-stat-sub {
+  font-size: 0.8125rem;
+  color: var(--det-text-secondary);
+}
+
+/* Badges */
+.sev-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sev-badge.CRITICAL {
+  background: var(--sev-critical-bg);
+  color: var(--sev-critical);
+  border: 1px solid var(--sev-critical);
+}
+
+.sev-badge.HIGH {
+  background: var(--sev-high-bg);
+  color: var(--sev-high);
+  border: 1px solid var(--sev-high);
+}
+
+.sev-badge.MEDIUM {
+  background: var(--sev-medium-bg);
+  color: var(--sev-medium);
+  border: 1px solid var(--sev-medium);
+}
+
+.sev-badge.LOW {
+  background: var(--sev-low-bg);
+  color: var(--sev-low);
+  border: 1px solid var(--sev-low);
+}
+
+.sev-badge.INFO {
+  background: var(--sev-info-bg);
+  color: var(--sev-info);
+  border: 1px solid var(--sev-info);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.NEW {
+  background: var(--status-new-bg);
+  color: var(--status-new);
+  border: 1px solid var(--status-new);
+}
+
+.status-badge.ACKNOWLEDGED {
+  background: var(--status-ack-bg);
+  color: var(--status-ack);
+  border: 1px solid var(--status-ack);
+}
+
+.status-badge.INVESTIGATING {
+  background: var(--status-inv-bg);
+  color: var(--status-inv);
+  border: 1px solid var(--status-inv);
+}
+
+.status-badge.CLOSED {
+  background: var(--status-closed-bg);
+  color: var(--status-closed);
+  border: 1px solid var(--status-closed);
+}
+
+.status-badge.FALSE_POSITIVE {
+  background: var(--status-fp-bg);
+  color: var(--status-fp);
+  border: 1px solid var(--status-fp);
+}
+
+.conf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: rgba(14, 165, 233, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.mitre-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-family: monospace;
+}
+
+/* Filters & Search Toolbar */
+.det-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--det-card-bg);
+  border: 1px solid var(--det-border);
+  border-radius: 8px;
+}
+
+.det-input,
+.det-select {
+  background: #090d16;
+  border: 1px solid var(--det-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--det-text-primary);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.det-input:focus,
+.det-select:focus {
+  border-color: var(--det-border-focus);
+}
+
+/* Tables */
+.det-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--det-border);
+  border-radius: 8px;
+  background: var(--det-card-bg);
+}
+
+.det-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.det-table th {
+  background: #090d16;
+  padding: 0.75rem 1rem;
+  color: var(--det-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--det-border);
+}
+
+.det-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--det-border);
+  vertical-align: middle;
+}
+
+.det-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.det-row-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Cards & Sections in Detail View */
+.det-card {
+  background: var(--det-card-bg);
+  border: 1px solid var(--det-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.det-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--det-text-primary);
+}
+
+/* Investigation Checklist */
+.det-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.det-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: #090d16;
+  border: 1px solid var(--det-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.det-check-item:hover {
+  border-color: var(--det-border-focus);
+}
+
+.det-check-item.completed {
+  opacity: 0.65;
+  text-decoration: line-through;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.det-check-item input[type='checkbox'] {
+  margin-top: 0.2rem;
+  cursor: pointer;
+  accent-color: #0284c7;
+}
+
+/* Flow Context Box */
+.det-flow-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.25rem;
+  background: #090d16;
+  border: 1px solid var(--det-border);
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.det-flow-node {
+  text-align: center;
+}
+
+.det-flow-arrow {
+  color: #38bdf8;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Notes & Timeline */
+.det-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.det-note-item {
+  padding: 0.85rem 1rem;
+  background: #090d16;
+  border: 1px solid var(--det-border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.det-note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--det-text-muted);
+}
+
+.det-empty {
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--det-text-muted);
+  font-size: 0.875rem;
+}

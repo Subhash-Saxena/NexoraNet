@@ -1,0 +1,1591 @@
+[
+  {
+    "code": "SEC-DEF-001",
+    "topic_slug": "vlan-security",
+    "question_text": "In Private VLAN (PVLAN) architecture, what is the behavior of an 'Isolated' port?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An Isolated port has complete Layer 2 separation: it can communicate ONLY with promiscuous ports (such as the default gateway router). It cannot communicate with any other isolated port or community port on the same switch.",
+    "learning_objective": "Explain Private VLAN Isolated port behavior.",
+    "options": [
+      {
+        "option_text": "It can only communicate with Promiscuous ports; it cannot communicate with any other isolated or community ports in the VLAN",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Isolated ports prevent lateral communication between servers within the same subnet, enforcing microsegmentation."
+      },
+      {
+        "option_text": "It can communicate with all devices on the Internet without a router",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Isolated ports restrict Layer 2 traffic, requiring a router to reach other subnets."
+      },
+      {
+        "option_text": "It automatically encrypts all hard drives on connected servers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PVLAN is a Layer 2 switch forwarding control, not disk encryption."
+      },
+      {
+        "option_text": "It is a port that has been physically severed with wire cutters",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Isolated is a logical switch configuration mode."
+      }
+    ],
+    "tags": [
+      "vlan-security",
+      "private-vlans",
+      "isolated-ports",
+      "microsegmentation"
+    ]
+  },
+  {
+    "code": "SEC-DEF-002",
+    "topic_slug": "vlan-security",
+    "question_text": "In Private VLAN (PVLAN) architecture, what is the role of a 'Promiscuous' port?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Promiscuous port connects to an upstream device (such as a default gateway router, firewall, or shared backup server) and can communicate bidirectionally with all ports in the PVLAN: isolated, community, and promiscuous.",
+    "learning_objective": "Explain Private VLAN Promiscuous port behavior.",
+    "options": [
+      {
+        "option_text": "It can communicate with all ports in the Private VLAN, typically connected to default gateway routers or firewalls",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Promiscuous ports serve as the gateway exit for all isolated and community ports."
+      },
+      {
+        "option_text": "It secretly transmits user passwords to public advertising companies",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Promiscuous ports forward authorized network traffic."
+      },
+      {
+        "option_text": "It converts copper cabling into fiber-optic lasers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PVLAN is a switch software forwarding rule."
+      },
+      {
+        "option_text": "It automatically shuts down the switch when an alert is detected",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Promiscuous ports operate continuously."
+      }
+    ],
+    "tags": [
+      "vlan-security",
+      "private-vlans",
+      "promiscuous-port",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-003",
+    "topic_slug": "stateful-vs-stateless-filtering",
+    "question_text": "How does a stateful firewall protect against TCP out-of-sequence or unexpected ACK scanning attacks?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A stateful firewall tracks sequence numbers and connection state in its state table. If an incoming packet has an ACK flag but does not correspond to an established session in its state table, the firewall immediately drops the packet.",
+    "learning_objective": "Explain how stateful inspection neutralizes unsolicited ACK packets.",
+    "options": [
+      {
+        "option_text": "It drops incoming ACK packets that do not match an existing, established session in its state table",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Stateful tracking prevents ACK scanning and session spoofing by verifying prior handshake state."
+      },
+      {
+        "option_text": "It converts the ACK packet into an email attachment",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls filter transit packets."
+      },
+      {
+        "option_text": "It increases the physical download speed of the server",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Stateful filtering performs security checks, not bandwidth acceleration."
+      },
+      {
+        "option_text": "It shuts down all switch ports across the entire building",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Stateful drops are executed per-packet without affecting switch hardware."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "stateful-inspection",
+      "tcp-ack-scan",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-004",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is the difference between Signature-Based detection and Anomaly-Based (Behavioral) detection in an NIDS/NIPS?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Signature-based detection matches traffic against a database of known attack patterns/rules (like antivirus signatures). Anomaly-based detection compares traffic against a statistical baseline of normal network behavior, alerting on deviations.",
+    "learning_objective": "Contrast signature-based and anomaly-based intrusion detection.",
+    "options": [
+      {
+        "option_text": "Signature-based matches known attack patterns; anomaly-based detects statistical deviations from a baseline of normal behavior",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Signatures catch known threats with low false positives; anomaly detection can identify unknown zero-day attacks."
+      },
+      {
+        "option_text": "Signature-based requires physical paper signatures; anomaly-based uses digital computers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both are digital software algorithms executing on network sensors."
+      },
+      {
+        "option_text": "Anomaly-based only works on computers located in Antarctica",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both detection modes are deployed globally across enterprise networks."
+      },
+      {
+        "option_text": "Signature-based is illegal under modern cybersecurity regulations",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Signature-based detection (e.g. Snort/Suricata) is an industry foundation."
+      }
+    ],
+    "tags": [
+      "ids",
+      "ips",
+      "signature-detection",
+      "anomaly-detection",
+      "detection-engineering"
+    ]
+  },
+  {
+    "code": "SEC-DEF-005",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is a major limitation of Signature-Based detection in enterprise intrusion defense?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Signature-based detection cannot detect zero-day attacks, new attack variants, or polymorphic malware for which no pre-existing signature has been written and loaded into the detection engine.",
+    "learning_objective": "Identify limitations of signature-based detection.",
+    "options": [
+      {
+        "option_text": "It cannot detect novel zero-day attacks or polymorphic threats that lack pre-authored signatures",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Signatures require prior knowledge of the threat; zero-days bypass signature matching."
+      },
+      {
+        "option_text": "It requires servers to operate without electrical power",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Security sensors require standard server power."
+      },
+      {
+        "option_text": "It formats the user's hard drive whenever an alert triggers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sensors log alerts; they do not format drives."
+      },
+      {
+        "option_text": "It can only run on Windows 98",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Modern detection engines execute on Linux, BSD, and specialized network OS appliances."
+      }
+    ],
+    "tags": [
+      "ids",
+      "signatures",
+      "zero-day",
+      "limitations"
+    ]
+  },
+  {
+    "code": "SEC-DEF-006",
+    "topic_slug": "network-segmentation-advanced",
+    "question_text": "What is a 'Jump Box' (or Bastion Host) in secure network architecture?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Jump Box is a hardened, highly monitored intermediate server that administrators must log into first (via MFA) before they are permitted to access sensitive servers in isolated internal management zones or production datacenters.",
+    "learning_objective": "Explain the architectural role of a Jump Box.",
+    "options": [
+      {
+        "option_text": "A hardened, audited server used as a single secure gateway for administrators to access sensitive internal networks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Jump boxes centralize administrative access, enforce MFA, and record comprehensive audit session logs."
+      },
+      {
+        "option_text": "A trampoline installed in the datacenter for physical exercise",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A jump box is a hardened server, not gym equipment."
+      },
+      {
+        "option_text": "A router that automatically changes its IP address every 5 seconds",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Jump boxes have static IP addresses and strict DNS records."
+      },
+      {
+        "option_text": "A tool used to download cracked software games from the Internet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Jump boxes are core enterprise defense infrastructure."
+      }
+    ],
+    "tags": [
+      "network-segmentation",
+      "bastion-host",
+      "jump-box",
+      "access-control"
+    ]
+  },
+  {
+    "code": "SEC-DEF-007",
+    "topic_slug": "network-segmentation-advanced",
+    "question_text": "What is the 'Zero Trust' network architecture model (NIST SP 800-207) primarily founded upon?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Zero Trust operates on the principle of 'Never Trust, Always Verify': no user, device, or workload inside or outside the perimeter is implicitly trusted. Every access request must be explicitly authenticated, authorized, and encrypted.",
+    "learning_objective": "Explain the core philosophy of Zero Trust architecture.",
+    "options": [
+      {
+        "option_text": "'Never Trust, Always Verify' \u2014 treating internal network traffic as untrusted and requiring continuous authentication and microsegmentation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Zero Trust eliminates implicit trust based on physical location behind a firewall."
+      },
+      {
+        "option_text": "Trusting all internal employees completely and removing all corporate passwords",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Zero Trust strictly enforces continuous verification and least privilege."
+      },
+      {
+        "option_text": "Disconnecting all computers from the Internet permanently",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Zero Trust enables secure cloud and mobile operations across untrusted networks."
+      },
+      {
+        "option_text": "Replacing all software firewalls with physical concrete barriers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Zero Trust is an identity- and context-aware security architecture."
+      }
+    ],
+    "tags": [
+      "zero-trust",
+      "nist-800-207",
+      "security-architecture",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-008",
+    "topic_slug": "ipv6-security",
+    "question_text": "What security risk is introduced by Rogue IPv6 Router Advertisements (RA) on a dual-stack local network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "In IPv6 Neighbor Discovery Protocol (NDP), rogue Router Advertisements can cause dual-stack clients to automatically configure an attacker's rogue IPv6 gateway and DNS, silently hijacking all client traffic via IPv6 Man-in-the-Middle.",
+    "learning_objective": "Analyze the threat of rogue IPv6 Router Advertisements.",
+    "options": [
+      {
+        "option_text": "Attackers can broadcast false IPv6 RAs, causing dual-stack hosts to route traffic through an attacker-controlled IPv6 gateway (MitM)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Rogue RAs exploit default IPv6 auto-configuration (SLAAC) to hijack traffic even on networks thought to be IPv4-only."
+      },
+      {
+        "option_text": "Rogue RAs immediately delete all files from the victim's hard drive",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Rogue RAs alter network gateway routes, not local disk files."
+      },
+      {
+        "option_text": "Rogue RAs cause optical fiber cables to turn into copper wires",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Protocol advertisements do not alter physical cabling material."
+      },
+      {
+        "option_text": "Rogue RAs permanently damage the computer's CPU chip",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "RAs are standard Layer 3 ICMPv6 messages."
+      }
+    ],
+    "tags": [
+      "ipv6-security",
+      "rogue-ra",
+      "slaac",
+      "ndp-spoofing",
+      "mitm"
+    ]
+  },
+  {
+    "code": "SEC-DEF-009",
+    "topic_slug": "ipv6-security",
+    "question_text": "Which switch security feature mitigates Rogue IPv6 Router Advertisements by dropping unauthorized RA messages from untrusted switch access ports?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "IPv6 RA Guard (RFC 6105) is a Layer 2 switch security feature that inspects incoming ICMPv6 Router Advertisement messages on untrusted access ports and blocks them, permitting RAs only on authorized router trunk ports.",
+    "learning_objective": "Identify switch defensive features against rogue IPv6 RAs.",
+    "options": [
+      {
+        "option_text": "IPv6 RA Guard",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPv6 RA Guard drops unauthorized Router Advertisement messages on access ports."
+      },
+      {
+        "option_text": "Dynamic ARP Inspection (DAI)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DAI protects IPv4 ARP, not IPv6 NDP."
+      },
+      {
+        "option_text": "BGP Flowspec",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "BGP Flowspec is for WAN DDoS mitigation on core routers."
+      },
+      {
+        "option_text": "Port Fast",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "PortFast bypasses listening/learning states in STP for immediate access."
+      }
+    ],
+    "tags": [
+      "ipv6-security",
+      "ra-guard",
+      "switch-security",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-010",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is 'Traffic Normalization' performed by an inline Intrusion Prevention System (IPS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Traffic normalization reassembles packet fragments, resolves overlapping TCP sequence segments, strips invalid flags, and normalizes protocols so that the IPS and the destination target interpret the packet stream identically, neutralizing evasion attacks.",
+    "learning_objective": "Explain traffic normalization in inline IPS engines.",
+    "options": [
+      {
+        "option_text": "Reassembling fragments and resolving protocol ambiguities so the sensor and target interpret traffic identically, defeating evasion",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Normalization strips evasion tricks like overlapping TCP segments or malformed headers before inspection."
+      },
+      {
+        "option_text": "Converting all video files into low-resolution black-and-white graphics",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Normalization refers to protocol header and fragment standardization."
+      },
+      {
+        "option_text": "Automatically paying the company's electricity utility bill",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Normalization is a cryptographic and protocol inspection process."
+      },
+      {
+        "option_text": "Replacing all user passwords with random numbers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Normalization does not alter user credentials."
+      }
+    ],
+    "tags": [
+      "ips",
+      "normalization",
+      "evasion-defense",
+      "detection-engineering"
+    ]
+  },
+  {
+    "code": "SEC-DEF-011",
+    "topic_slug": "firewall-architecture",
+    "question_text": "In enterprise network firewall architecture, what is a 'Screened Subnet' design?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Screened Subnet (DMZ) architecture uses two firewall tiers (an external perimeter firewall and an internal core firewall) or a three-legged firewall to isolate DMZ public servers from both the untrusted Internet and the secure internal corporate network.",
+    "learning_objective": "Define the Screened Subnet firewall design.",
+    "options": [
+      {
+        "option_text": "A DMZ isolated by firewalls from both the public Internet and the internal trusted network",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Screened subnets ensure an attacker who breaches a DMZ server must penetrate a second firewall to reach internal LANs."
+      },
+      {
+        "option_text": "A room where computer screens are cleaned with microfiber cloths",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Screened subnet is an architectural security design, not janitorial cleaning."
+      },
+      {
+        "option_text": "A subnet where all laptops must turn their monitors off",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Screening refers to packet filtering, not visual display hardware."
+      },
+      {
+        "option_text": "A network that can only transmit text messages without images",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Screened subnets support full multi-protocol data services."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "dmz",
+      "screened-subnet",
+      "architecture"
+    ]
+  },
+  {
+    "code": "SEC-DEF-012",
+    "topic_slug": "network-monitoring",
+    "question_text": "What is the difference between NetFlow / IPFIX flow monitoring and full packet capture (PCAP)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "NetFlow/IPFIX records flow metadata (source/destination IP, ports, protocol, bytes, duration, TCP flags) without recording payload data, enabling scalable long-term storage. Full PCAP captures every single bit including complete application payloads.",
+    "learning_objective": "Contrast NetFlow metadata monitoring with full PCAP capture.",
+    "options": [
+      {
+        "option_text": "NetFlow records session metadata (IPs, ports, byte counts) for scalable storage; PCAP captures complete packet payloads",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "NetFlow is like a phone billing record (who called who and for how long); PCAP is like a full voice recording of the conversation."
+      },
+      {
+        "option_text": "NetFlow only works on copper cables; PCAP only works on Wi-Fi",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both monitoring technologies function across all network physical media."
+      },
+      {
+        "option_text": "NetFlow encrypts all web traffic; PCAP permanently deletes all packets",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both are telemetry and diagnostic collection tools."
+      },
+      {
+        "option_text": "NetFlow is illegal in modern enterprise networks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NetFlow/IPFIX is an industry-standard monitoring framework."
+      }
+    ],
+    "tags": [
+      "netflow",
+      "ipfix",
+      "pcap",
+      "monitoring",
+      "telemetry"
+    ]
+  },
+  {
+    "code": "SEC-DEF-013",
+    "topic_slug": "dns-security",
+    "question_text": "What is 'DNS Sinkholing' in enterprise threat defense?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "DNS sinkholing intercepts DNS queries for known malicious domains (such as C2 servers or malware distribution sites) and returns a benign, internal loopback or sinkhole IP address, preventing compromised hosts from communicating with the attacker.",
+    "learning_objective": "Explain the defensive technique of DNS sinkholing.",
+    "options": [
+      {
+        "option_text": "Configuring internal DNS resolvers to return a benign internal IP for known malicious domains, blocking C2 communication",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Sinkholing prevents compromised endpoints from reaching C2 infrastructure and alerts the SOC to infected hosts."
+      },
+      {
+        "option_text": "Throwing defective DNS servers into a physical water sinkhole",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Sinkholing is a DNS routing interception technique, not geological destruction."
+      },
+      {
+        "option_text": "Deleting all .com domain names from the global Internet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sinkholing targets specific verified threat actor domains."
+      },
+      {
+        "option_text": "Allowing all internal users to visit phishing sites without warnings",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Sinkholing blocks access to phishing and C2 domains."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dns-sinkholing",
+      "c2-mitigation",
+      "threat-hunting",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-014",
+    "topic_slug": "vlan-security",
+    "question_text": "What is 'Dynamic ARP Inspection' (DAI) and how does it prevent ARP Spoofing on an enterprise switch?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "DAI intercepts all ARP requests and replies on untrusted switch ports and validates them against the trusted DHCP Snooping binding database (IP-to-MAC mappings), immediately dropping forged or gratuitous ARP packets that attempt to spoof IP mappings.",
+    "learning_objective": "Explain Dynamic ARP Inspection operation.",
+    "options": [
+      {
+        "option_text": "It inspects ARP packets on untrusted ports, validating IP-to-MAC bindings against the DHCP Snooping database to block spoofing",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DAI validates ARP traffic against trusted binding tables, completely neutralizing ARP cache poisoning."
+      },
+      {
+        "option_text": "It physically welds Ethernet cables into switch ports",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DAI is a switch software security feature."
+      },
+      {
+        "option_text": "It deletes all IP addresses on the network every 10 minutes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DAI validates ARP traffic without deleting host IPs."
+      },
+      {
+        "option_text": "It forces all computers to use static IP addresses without DHCP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DAI works directly in tandem with DHCP Snooping databases."
+      }
+    ],
+    "tags": [
+      "dai",
+      "arp-spoofing",
+      "dhcp-snooping",
+      "switch-security",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-015",
+    "topic_slug": "vlan-security",
+    "question_text": "What is 'IP Source Guard' (IPSG) on an enterprise access switch?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "IP Source Guard uses the DHCP Snooping binding table to restrict IP traffic on untrusted Layer 2 ports, dropping any packet whose source IP address does not match the IP address assigned by DHCP to that specific MAC/port, preventing IP spoofing.",
+    "learning_objective": "Explain the function of IP Source Guard.",
+    "options": [
+      {
+        "option_text": "It filters traffic on untrusted ports, permitting only packets whose source IP matches the legitimate DHCP Snooping binding table",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPSG prevents malicious hosts from spoofing legitimate IP addresses to impersonate servers or bypass ACLs."
+      },
+      {
+        "option_text": "It assigns a public IP address to every employee's personal smartphone",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "IPSG is a defensive Layer 2 packet filter, not an address allocator."
+      },
+      {
+        "option_text": "It shuts down the switch when the temperature reaches 30 degrees Celsius",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IPSG monitors IP packet headers, not hardware thermals."
+      },
+      {
+        "option_text": "It encrypts all Ethernet cables with AES-256",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IPSG is an IP anti-spoofing filter."
+      }
+    ],
+    "tags": [
+      "ipsg",
+      "ip-spoofing",
+      "dhcp-snooping",
+      "switch-security"
+    ]
+  },
+  {
+    "code": "SEC-DEF-016",
+    "topic_slug": "stateful-vs-stateless-filtering",
+    "question_text": "What is a 'TCP State Exhaustion' Denial of Service attack against a stateful firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Stateful firewalls maintain connection tables in RAM. A state exhaustion attack floods the firewall with thousands of new opening connections, filling the state table to capacity and causing the firewall to drop all subsequent legitimate new connections.",
+    "learning_objective": "Analyze state exhaustion attacks targeting firewall memory.",
+    "options": [
+      {
+        "option_text": "Flooding the firewall with connection setups to fill its state table RAM capacity, dropping all legitimate new connections",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "State exhaustion targets firewall connection tracking tables rather than raw network bandwidth."
+      },
+      {
+        "option_text": "Physically draining the battery backup of the server rack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "State exhaustion is a network protocol resource exhaustion attack."
+      },
+      {
+        "option_text": "Sending emails with fonts that are too large for the screen",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "State exhaustion operates at Layer 4 transport tracking."
+      },
+      {
+        "option_text": "Deleting all firewall rules from flash memory",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The attack exhausts active RAM state tables, not configuration rules."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "state-table",
+      "dos",
+      "resource-exhaustion",
+      "soc"
+    ]
+  },
+  {
+    "code": "SEC-DEF-017",
+    "topic_slug": "vlan-security",
+    "question_text": "Why is leaving the default Native VLAN set to VLAN 1 considered a security risk on enterprise 802.1Q trunks?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "VLAN 1 is the default management VLAN on most switches. Leaving the native VLAN as VLAN 1 exposes trunks to double-tagging attacks, unauthorized control plane access, and accidental cross-VLAN leaks.",
+    "learning_objective": "Explain security risks of default Native VLAN 1.",
+    "options": [
+      {
+        "option_text": "VLAN 1 is the default management VLAN; leaving native traffic on VLAN 1 facilitates VLAN hopping and unauthorized control access",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Best practice mandates assigning native VLAN to an unused, isolated dummy VLAN ID (e.g. VLAN 999)."
+      },
+      {
+        "option_text": "VLAN 1 packets can only travel 10 meters before dissolving",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "VLAN IDs do not alter physical electrical propagation."
+      },
+      {
+        "option_text": "VLAN 1 causes all switch passwords to be printed on public printers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "VLAN 1 is simply a default logical grouping."
+      },
+      {
+        "option_text": "VLAN 1 is banned by federal telecommunications law",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "VLAN 1 is standard default IEEE configuration."
+      }
+    ],
+    "tags": [
+      "vlan-security",
+      "native-vlan",
+      "switch-hardening"
+    ]
+  },
+  {
+    "code": "SEC-DEF-018",
+    "topic_slug": "firewall-architecture",
+    "question_text": "What is 'SSL/TLS Inspection' (TLS Decryption / Break-and-Inspect) on a Next-Generation Firewall (NGFW)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Because most modern malware and C2 communications use HTTPS, an NGFW performs forward proxy TLS inspection by terminating the TLS session from the client, decrypting and inspecting the payload for threats, and re-encrypting it before sending to the external server.",
+    "learning_objective": "Explain TLS decryption and inspection on firewalls.",
+    "options": [
+      {
+        "option_text": "The firewall acts as a forward proxy, decrypting HTTPS traffic to inspect payloads for malware before re-encrypting it to the destination",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TLS inspection eliminates encryption blind spots, allowing firewalls and IPS to detect threats inside HTTPS."
+      },
+      {
+        "option_text": "The firewall posts all user passwords to a public company bulletin board",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TLS inspection is a confidential security gateway inspection process."
+      },
+      {
+        "option_text": "The firewall converts all encrypted websites into unencrypted plain text forever",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Traffic is re-encrypted before leaving the firewall."
+      },
+      {
+        "option_text": "The firewall deletes all images from user web pages",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TLS inspection inspects malware signatures and malicious scripts."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "tls-inspection",
+      "ngfw",
+      "ssl-decryption",
+      "defense"
+    ]
+  },
+  {
+    "code": "SEC-DEF-019",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is a 'Heuristic' detection engine in advanced network security systems?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Heuristic detection uses rule-based algorithms and experience-based decision trees to identify suspicious characteristics and behaviors (e.g. unusual port/protocol combinations, high entropy, rapid execution), rather than requiring an exact signature match.",
+    "learning_objective": "Explain heuristic detection methodologies.",
+    "options": [
+      {
+        "option_text": "An algorithm that evaluates behavioral characteristics and probability metrics to identify suspicious activity without exact signatures",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Heuristics detect suspicious characteristics (like odd packet ratios or encrypted payload anomalies) indicative of attacks."
+      },
+      {
+        "option_text": "A tool that tests the physical tension of optical fiber cables",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Heuristics is an algorithmic detection methodology, not mechanical cable testing."
+      },
+      {
+        "option_text": "An automated system that orders new hardware parts when servers crash",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Heuristics inspects network traffic patterns."
+      },
+      {
+        "option_text": "A protocol used to stream audio recordings across Bluetooth",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Heuristics is a cybersecurity analysis methodology."
+      }
+    ],
+    "tags": [
+      "ids",
+      "heuristics",
+      "detection-engineering",
+      "anomaly-detection"
+    ]
+  },
+  {
+    "code": "SEC-DEF-020",
+    "topic_slug": "network-monitoring",
+    "question_text": "In network security monitoring, what is the 'Signal-to-Noise Ratio' (SNR) of an alert rule?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "SNR measures the proportion of genuine, actionable security alerts (signal) compared to false positives and benign alerts (noise) produced by a rule. Detection engineers tune rules to maximize SNR and eliminate analyst fatigue.",
+    "learning_objective": "Explain Signal-to-Noise ratio in detection engineering.",
+    "options": [
+      {
+        "option_text": "The proportion of genuine actionable security threats (signal) compared to benign false positives (noise) produced by an alert rule",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "High SNR rules produce high-confidence, actionable alerts that allow SOC analysts to focus on real attacks."
+      },
+      {
+        "option_text": "The volume in decibels of sound produced by the server room ventilation fans",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "In detection engineering, SNR refers to alert fidelity, not acoustic decibels."
+      },
+      {
+        "option_text": "The physical ratio of copper wires to glass fiber strands in an office",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SNR in monitoring evaluates detection rule precision."
+      },
+      {
+        "option_text": "The number of words in an email message",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SNR measures alert fidelity."
+      }
+    ],
+    "tags": [
+      "detection-engineering",
+      "snr",
+      "alert-tuning",
+      "soc",
+      "false-positives"
+    ]
+  },
+  {
+    "code": "SEC-DEF-021",
+    "topic_slug": "network-detection",
+    "question_text": "What is a 'Honeytoken' or 'Canary Service' deployed on an internal enterprise network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Honeytoken or canary is an intentionally placed bogus asset (a fake database credential, unused subnet IP, or fake share) that has zero legitimate business purpose. Any access attempt immediately triggers a high-fidelity alert indicating unauthorized internal reconnaissance.",
+    "learning_objective": "Explain the use of honeytokens and canary assets.",
+    "options": [
+      {
+        "option_text": "An intentionally fake asset with zero legitimate use, where any interaction triggers a high-fidelity alert of malicious activity",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Because canaries have no legitimate business traffic, any interaction has near 100% true positive alert fidelity."
+      },
+      {
+        "option_text": "A sweet snack provided to technicians working overtime in datacenters",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is literal wordplay, not a cybersecurity deception asset."
+      },
+      {
+        "option_text": "A cryptographic key that automatically grants root access to all employees",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Canary tokens are deception tripwires."
+      },
+      {
+        "option_text": "An automated script that formats the local router every evening",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Canary assets generate alerts upon unauthorized access."
+      }
+    ],
+    "tags": [
+      "deception-technology",
+      "honeytoken",
+      "canary",
+      "soc",
+      "high-fidelity"
+    ]
+  },
+  {
+    "code": "SEC-DEF-022",
+    "topic_slug": "dns-security",
+    "question_text": "What is 'DNS-over-HTTPS' (DoH / RFC 8484) and what operational challenge does it create for enterprise security teams?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "DoH encrypts DNS queries inside HTTPS sessions over TCP port 443. While protecting user privacy on public Wi-Fi, it conceals DNS traffic from enterprise firewalls, NIDS, and DNS filtering controls, blinding SOC analysts to malicious domain requests.",
+    "learning_objective": "Analyze the security implications of DNS-over-HTTPS in enterprise environments.",
+    "options": [
+      {
+        "option_text": "It encrypts DNS inside HTTPS (port 443), preventing enterprise firewalls and SOC monitoring tools from inspecting and filtering domain queries",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DoH blinds enterprise perimeter security controls to DNS tunneling and C2 queries unless internal DoH is enforced or external DoH is blocked."
+      },
+      {
+        "option_text": "It causes optical fiber cables to burn out after 100 queries",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DoH is standard application software over HTTPS."
+      },
+      {
+        "option_text": "It permanently disables the user's computer keyboard",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DoH encrypts DNS lookups without affecting hardware peripherals."
+      },
+      {
+        "option_text": "It requires all domain names to be written in binary code",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DoH resolves standard human-readable domain names."
+      }
+    ],
+    "tags": [
+      "dns",
+      "doh",
+      "dns-security",
+      "encryption-blinds",
+      "soc"
+    ]
+  },
+  {
+    "code": "SEC-DEF-023",
+    "topic_slug": "network-segmentation-advanced",
+    "question_text": "What is an 'Out-of-Band' (OOB) network management infrastructure?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "OOB management provides a dedicated, physically or logically isolated network segment used exclusively by administrators to manage networking gear (via console ports, iDRAC, iLO), ensuring management access even if the production data plane collapses or is under attack.",
+    "learning_objective": "Explain Out-of-Band network management.",
+    "options": [
+      {
+        "option_text": "A dedicated, isolated network used exclusively for administering network hardware, separate from production data traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "OOB ensures that administrative control of switches, routers, and firewalls remains accessible even during major production network outages."
+      },
+      {
+        "option_text": "A musical band performing outside the corporate office building",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is wordplay on the term band."
+      },
+      {
+        "option_text": "A network that can only transmit traffic when disconnected from electrical power",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "All networking equipment requires power."
+      },
+      {
+        "option_text": "An unencrypted public Wi-Fi network for corporate guests",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "OOB management is strictly secured internal infrastructure."
+      }
+    ],
+    "tags": [
+      "network-segmentation",
+      "oob-management",
+      "console",
+      "infrastructure"
+    ]
+  },
+  {
+    "code": "SEC-DEF-024",
+    "topic_slug": "stateful-vs-stateless-filtering",
+    "question_text": "How does a Next-Generation Firewall (NGFW) with App-ID identify applications compared to a traditional port-based stateful firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Traditional firewalls assume port 80 is HTTP and port 443 is HTTPS. An NGFW inspects the actual protocol signatures, packet behaviors, and payloads across all ports regardless of port number, preventing evasive malware from hiding non-web traffic over port 443.",
+    "learning_objective": "Explain application identification (App-ID) in NGFWs.",
+    "options": [
+      {
+        "option_text": "It inspects protocol signatures and payload characteristics regardless of port number, stopping traffic hiding on non-standard ports",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "App-ID prevents protocols (like BitTorrent or C2 beacons) from evading policies by simply listening on port 443."
+      },
+      {
+        "option_text": "It checks the color of the Ethernet cable plugged into the wall",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Cable colors do not indicate protocol signatures."
+      },
+      {
+        "option_text": "It requires the software developer to sign a paper contract with the firewall company",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "App-ID uses algorithmic signature inspection on live packet streams."
+      },
+      {
+        "option_text": "It deletes all applications that consume more than 10 MB of RAM",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Firewalls filter network packets, not local RAM allocation."
+      }
+    ],
+    "tags": [
+      "ngfw",
+      "app-id",
+      "deep-packet-inspection",
+      "firewall-architecture"
+    ]
+  },
+  {
+    "code": "SEC-DEF-025",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is the function of an 'Evasion Technique' such as TCP overlapping fragments when targeting an IDS?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "An attacker sends fragments with overlapping offsets containing conflicting data. If the IDS reassembles the fragments differently than the destination target OS (e.g. favoring the first fragment while the OS favors the second), the IDS misses the malicious payload.",
+    "learning_objective": "Analyze fragmentation evasion against intrusion detection systems.",
+    "options": [
+      {
+        "option_text": "Exploiting differences between how the IDS and the target OS reassemble overlapping fragments to hide malicious payloads from detection",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "If the IDS reassembly logic does not match target host OS reassembly (BSD vs Linux vs Windows), attacks slip through undetected."
+      },
+      {
+        "option_text": "Accelerating packet transmission to twice the speed of light",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Evasion techniques exploit software implementation differences, not physics violations."
+      },
+      {
+        "option_text": "Physically unplugging the sensor from the equipment rack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Overlapping fragments are software protocol evasion techniques."
+      },
+      {
+        "option_text": "Forcing the target server to restart into safe mode",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Evasion conceals payloads from security sensors."
+      }
+    ],
+    "tags": [
+      "ids",
+      "evasion",
+      "overlapping-fragments",
+      "tcp",
+      "soc"
+    ]
+  },
+  {
+    "code": "SEC-DEF-026",
+    "topic_slug": "vlan-security",
+    "question_text": "What is '802.1X' Network Access Control (NAC) and where is it enforced?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "IEEE 802.1X is a port-based authentication framework where an endpoint (supplicant) must authenticate (via EAP against a RADIUS server) before the switch or WAP (authenticator) opens the port to permit regular network traffic.",
+    "learning_objective": "Explain IEEE 802.1X port-based access control.",
+    "options": [
+      {
+        "option_text": "A port-based authentication protocol where endpoints must authenticate via RADIUS before the switch port permits network access",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "802.1X ensures that rogue unauthorized devices plugged into enterprise wall jacks are quarantined until authenticated."
+      },
+      {
+        "option_text": "A wireless standard that enables Wi-Fi transmission over 500 kilometers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "802.1X is an authentication framework, not a long-distance wireless radio standard."
+      },
+      {
+        "option_text": "A protocol used to format Linux operating systems over the network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PXE boots operating systems; 802.1X enforces authentication."
+      },
+      {
+        "option_text": "An encryption cipher that protects files stored on floppy disks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "802.1X is a Layer 2 network admission control framework."
+      }
+    ],
+    "tags": [
+      "802.1x",
+      "nac",
+      "radius",
+      "access-control",
+      "switch-security"
+    ]
+  },
+  {
+    "code": "SEC-DEF-027",
+    "topic_slug": "network-monitoring",
+    "question_text": "In network security operations, what is a 'Promiscuous Mode' configuration on a network interface card (NIC)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Standard NICs discard frames whose destination MAC does not match their own hardware MAC (or broadcast/multicast). In Promiscuous Mode, the NIC passes ALL captured frames on the wire directly to the OS kernel, enabling packet sniffing and NIDS monitoring.",
+    "learning_objective": "Define Promiscuous Mode on network interface cards.",
+    "options": [
+      {
+        "option_text": "A mode where the NIC passes all received frames on the wire to the OS, regardless of destination MAC address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Promiscuous mode allows packet sniffers (like Wireshark) and NIDS sensors to inspect all passing traffic on a mirrored port."
+      },
+      {
+        "option_text": "A mode that allows the network card to operate without any electrical power",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hardware requires electrical power."
+      },
+      {
+        "option_text": "A mode that deletes all packets passing through the interface",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Promiscuous mode captures frames; it does not drop them."
+      },
+      {
+        "option_text": "A mode that automatically sets all user passwords to 'password123'",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Hardware NIC modes have no connection to user password policies."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "promiscuous-mode",
+      "nic",
+      "wireshark",
+      "nids"
+    ]
+  },
+  {
+    "code": "SEC-DEF-028",
+    "topic_slug": "routing-protocol-concepts",
+    "question_text": "What is 'BGP Hijacking' and what threat does it pose to global network routing?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "BGP hijacking occurs when a malicious or misconfigured Autonomous System (AS) falsely advertises IP prefixes it does not own. Global routers adopt the falsified routes, redirecting massive volumes of Internet traffic through the attacker's AS for interception or blackholing.",
+    "learning_objective": "Analyze BGP route hijacking attacks.",
+    "options": [
+      {
+        "option_text": "Falsely advertising ownership of an IP prefix over BGP, redirecting legitimate Internet traffic through an attacker-controlled network",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "BGP hijacking allows nation-state actors and cybercriminals to intercept, spy on, or drop global Internet traffic."
+      },
+      {
+        "option_text": "Physically stealing router chassis from an ISP datacenter",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "BGP hijacking is a routing protocol announcement attack, not physical equipment theft."
+      },
+      {
+        "option_text": "A protocol that converts IPv4 addresses into Morse code",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "BGP is the core exterior gateway routing protocol of the Internet."
+      },
+      {
+        "option_text": "An attack that causes computer monitors to flicker",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "BGP hijacking manipulates global IP packet forwarding paths."
+      }
+    ],
+    "tags": [
+      "routing",
+      "bgp",
+      "bgp-hijacking",
+      "internet-security",
+      "threats"
+    ]
+  },
+  {
+    "code": "SEC-DEF-029",
+    "topic_slug": "routing-protocol-concepts",
+    "question_text": "Which cryptographic framework was developed to secure BGP routing by validating that an Autonomous System is authorized to originate a specific IP prefix?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Resource Public Key Infrastructure (RPKI) uses cryptographic Route Origin Authorizations (ROAs) to verify that an AS is legitimate and authorized to announce an IP prefix, mitigating BGP prefix hijacking.",
+    "learning_objective": "Identify the cryptographic framework securing BGP origin announcements.",
+    "options": [
+      {
+        "option_text": "Resource Public Key Infrastructure (RPKI / ROA)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RPKI validates Route Origin Authorizations to stop unauthorized BGP prefix announcements."
+      },
+      {
+        "option_text": "Dynamic Trunking Protocol (DTP)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DTP negotiates switch VLAN trunks on local Ethernet links."
+      },
+      {
+        "option_text": "DHCP Snooping",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP snooping protects local switches from rogue DHCP."
+      },
+      {
+        "option_text": "Spanning Tree Protocol (STP)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "STP prevents Layer 2 switching loops."
+      }
+    ],
+    "tags": [
+      "bgp",
+      "rpki",
+      "roa",
+      "routing-security"
+    ]
+  },
+  {
+    "code": "SEC-DEF-030",
+    "topic_slug": "dns-security",
+    "question_text": "What is a 'Fast Flux' DNS network and why is it employed by advanced cybercrime botnets?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Fast Flux rapidly changes the IP addresses associated with a domain name (using extremely short TTLs and round-robin A records pointing to thousands of compromised bot hosts), making it exceptionally difficult for defenders to block the C2 infrastructure via static IP blacklisting.",
+    "learning_objective": "Analyze Fast Flux DNS evasion techniques.",
+    "options": [
+      {
+        "option_text": "Rapidly cycling IP addresses in DNS records using extremely short TTLs across a botnet to evade IP-based blocking",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Fast Flux conceals the true backend server by routing requests through a constantly rotating front-end proxy pool."
+      },
+      {
+        "option_text": "A technique that accelerates download speeds by 500%",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Fast Flux is a botnet evasion technique, not a download accelerator."
+      },
+      {
+        "option_text": "A protocol that enables satellites to transmit Internet data across solar flares",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Fast Flux operates on standard public DNS infrastructure."
+      },
+      {
+        "option_text": "A physical fan installation that cools server power supplies",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Fast Flux is an adversarial DNS management technique."
+      }
+    ],
+    "tags": [
+      "dns",
+      "fast-flux",
+      "botnet",
+      "c2",
+      "evasion",
+      "soc"
+    ]
+  },
+  {
+    "code": "SEC-DEF-031",
+    "topic_slug": "firewall-architecture",
+    "question_text": "What is a 'Bastion Host' and what key hardening measures should be applied to it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Bastion Host is a publicly exposed server (or management gateway) specifically hardened to withstand attacks by disabling all unnecessary services, enforcing strict MFA authentication, applying minimal firewall rules, and enabling verbose audit logging.",
+    "learning_objective": "Explain Bastion Host hardening requirements.",
+    "options": [
+      {
+        "option_text": "A security-hardened server running minimal necessary services, enforced with MFA and rigorous logging to withstand direct attacks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bastion hosts are stripped of all unneeded packages and services to minimize exploitable attack surface."
+      },
+      {
+        "option_text": "A server placed in a swimming pool to prevent overheating",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Bastion hosts are mounted in standard secure server racks."
+      },
+      {
+        "option_text": "A server that automatically sends all user emails to public websites",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Bastion hosts protect private networks."
+      },
+      {
+        "option_text": "A wireless printer that connects without passwords",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Bastion hosts enforce strict authentication controls."
+      }
+    ],
+    "tags": [
+      "bastion-host",
+      "system-hardening",
+      "security-architecture"
+    ]
+  },
+  {
+    "code": "SEC-DEF-032",
+    "topic_slug": "network-monitoring",
+    "question_text": "What is 'Traffic Baselining' and why is it vital for network anomaly detection?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Traffic baselining establishes a statistical profile of normal network metrics (bandwidth volume, connection counts, protocol distributions, active hours). Anomaly detection relies on this baseline to identify unusual spikes (e.g. off-hours data exfiltration).",
+    "learning_objective": "Explain the role of traffic baselining in anomaly detection.",
+    "options": [
+      {
+        "option_text": "Measuring normal operational network metrics over time so statistical anomalies (such as data exfiltration) can be identified",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Without an accurate baseline of normal behavior, identifying anomalous intrusions is impossible."
+      },
+      {
+        "option_text": "Drawing lines on the floor of the server room with white chalk",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Baselining is mathematical telemetry profiling, not floor painting."
+      },
+      {
+        "option_text": "Testing the physical tensile strength of copper wires",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Baselining evaluates logical packet volumes and protocol distributions."
+      },
+      {
+        "option_text": "Formatting all corporate hard drives on the first day of every month",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Baselining is passive traffic telemetry collection."
+      }
+    ],
+    "tags": [
+      "monitoring",
+      "baselining",
+      "anomaly-detection",
+      "soc"
+    ]
+  },
+  {
+    "code": "SEC-DEF-033",
+    "topic_slug": "vlan-security",
+    "question_text": "What is 'Double Tagging' in 802.1Q VLAN hopping attacks, and what condition must exist for it to succeed?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "In double tagging, an attacker sends a frame with two 802.1Q tags. The first switch strips the outer tag because it matches the Native VLAN of the trunk. The second switch inspects the remaining inner tag, delivering the frame into the target victim VLAN.",
+    "learning_objective": "Analyze Double Tagging VLAN hopping mechanics.",
+    "options": [
+      {
+        "option_text": "The outer tag matches the trunk's Native VLAN and is stripped by the first switch; the second switch forwards using the inner tag",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Double tagging requires the attacker to reside on the same VLAN configured as the native VLAN on the inter-switch trunk."
+      },
+      {
+        "option_text": "The attacker physically attaches two Ethernet cables to one network card",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Double tagging operates logically inside the 802.1Q frame headers."
+      },
+      {
+        "option_text": "The switch operating system is running in Spanish language mode",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Switch language has no bearing on 802.1Q encapsulation."
+      },
+      {
+        "option_text": "The user's computer monitor has two power supplies",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Double tagging is a Layer 2 frame manipulation attack."
+      }
+    ],
+    "tags": [
+      "vlan-security",
+      "double-tagging",
+      "native-vlan",
+      "vlan-hopping"
+    ]
+  },
+  {
+    "code": "SEC-DEF-034",
+    "topic_slug": "firewall-architecture",
+    "question_text": "In enterprise network security, what is a 'Forward Proxy' compared to a 'Reverse Proxy'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Forward Proxy sits in front of internal clients to monitor, filter, and cache their outbound requests to external Internet servers. A Reverse Proxy sits in front of backend web servers to load-balance, terminate TLS, and shield internal servers from external clients.",
+    "learning_objective": "Differentiate Forward Proxies and Reverse Proxies.",
+    "options": [
+      {
+        "option_text": "A Forward Proxy protects and filters outbound client requests to the Internet; a Reverse Proxy protects and load-balances inbound requests to internal servers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Forward proxies face outbound clients; reverse proxies face inbound external traffic to protect server pools."
+      },
+      {
+        "option_text": "A Forward Proxy only works in moving vehicles; a Reverse Proxy only works when backing up",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are topological architectural proxies, not vehicular mechanisms."
+      },
+      {
+        "option_text": "A Forward Proxy encrypts data; a Reverse Proxy permanently deletes data",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both proxies inspect and forward application traffic."
+      },
+      {
+        "option_text": "Forward proxies are strictly illegal in North America",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Forward proxies are standard enterprise web filtering infrastructure."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "forward-proxy",
+      "reverse-proxy",
+      "architecture"
+    ]
+  },
+  {
+    "code": "SEC-DEF-035",
+    "topic_slug": "network-monitoring",
+    "question_text": "What is 'Data Exfiltration' in cybersecurity and what network behaviors typically characterize it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Data exfiltration is the unauthorized transfer of sensitive organizational data to an external server. It is characterized by abnormal outbound bandwidth surges, large file transfers over non-standard ports, sustained DNS tunneling, or unusual cloud uploads off-hours.",
+    "learning_objective": "Analyze network telemetry indicators of data exfiltration.",
+    "options": [
+      {
+        "option_text": "Unauthorized transfer of sensitive internal data to external destinations, characterized by large outbound transfers or tunneling",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Exfiltration manifests as anomalous outbound data spikes, unusual destinations, or encoded protocol tunnels."
+      },
+      {
+        "option_text": "Routine printing of office spreadsheets to a local USB printer",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Local USB printing is not network data exfiltration."
+      },
+      {
+        "option_text": "Upgrading a laptop's operating system with an official patch",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Software updates are legitimate inbound data streams."
+      },
+      {
+        "option_text": "Replacing a blown lightbulb in the server room ceiling",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Exfiltration is an adversarial data theft attack, not building maintenance."
+      }
+    ],
+    "tags": [
+      "exfiltration",
+      "threat-hunting",
+      "network-monitoring",
+      "soc"
+    ]
+  }
+]

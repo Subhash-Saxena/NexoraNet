@@ -1,0 +1,1331 @@
+[
+  {
+    "code": "OSI-001",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "How many layers are defined in the standard ISO/IEC 7498-1 Open Systems Interconnection (OSI) reference model?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "The standard OSI reference model defines exactly seven abstract layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application.",
+    "learning_objective": "Recall the structure of the OSI 7-layer model.",
+    "options": [
+      {
+        "option_text": "7 layers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The OSI model consists of 7 hierarchical layers."
+      },
+      {
+        "option_text": "4 layers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The TCP/IP model has 4 layers, whereas OSI has 7."
+      },
+      {
+        "option_text": "5 layers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The hybrid pedagogical model often uses 5 layers, but OSI strictly defines 7."
+      },
+      {
+        "option_text": "9 layers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "No standard networking model defines 9 layers."
+      }
+    ],
+    "tags": [
+      "osi",
+      "seven-osi-layers",
+      "conceptual"
+    ]
+  },
+  {
+    "code": "OSI-002",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer is directly responsible for converting digital bits into physical signals (electrical voltages, light pulses, or radio waves)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Layer 1 (Physical Layer) defines electrical, mechanical, optical, and timing specifications for transmitting raw bit streams over a physical communication medium.",
+    "learning_objective": "Identify the role of OSI Layer 1.",
+    "options": [
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The Physical layer encodes bits into physical media signals."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Data Link organizes bits into frames and handles local MAC addressing."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network handles logical IP addressing and path routing."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Transport handles end-to-end process communication and segmentation."
+      }
+    ],
+    "tags": [
+      "osi",
+      "physical-layer",
+      "signals"
+    ]
+  },
+  {
+    "code": "OSI-003",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "What is the Protocol Data Unit (PDU) at the OSI Data Link layer (Layer 2)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "At Layer 2 (Data Link), the Protocol Data Unit is called a Frame. Frames encapsulate network packets and include header fields like source and destination MAC addresses.",
+    "learning_objective": "Identify Layer 2 Protocol Data Units.",
+    "options": [
+      {
+        "option_text": "Frame",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Layer 2 encapsulates packets into frames."
+      },
+      {
+        "option_text": "Packet",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Packets are the PDU of Layer 3 (Network)."
+      },
+      {
+        "option_text": "Segment",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Segments are the PDU of Layer 4 (Transport)."
+      },
+      {
+        "option_text": "Bit",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Bits are the transmission unit of Layer 1 (Physical)."
+      }
+    ],
+    "tags": [
+      "osi",
+      "data-link",
+      "pdu",
+      "frames"
+    ]
+  },
+  {
+    "code": "OSI-004",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "What is the Protocol Data Unit (PDU) at the OSI Network layer (Layer 3)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "At Layer 3 (Network), the Protocol Data Unit is called a Packet (or datagram). It contains source and destination logical IP addresses and routing control information.",
+    "learning_objective": "Identify Layer 3 Protocol Data Units.",
+    "options": [
+      {
+        "option_text": "Packet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Layer 3 PDUs are packets (or datagrams)."
+      },
+      {
+        "option_text": "Frame",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Frames are Layer 2 PDUs."
+      },
+      {
+        "option_text": "Segment",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Segments are Layer 4 PDUs."
+      },
+      {
+        "option_text": "Bit",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Bits are Layer 1 units."
+      }
+    ],
+    "tags": [
+      "osi",
+      "network-layer",
+      "pdu",
+      "packets"
+    ]
+  },
+  {
+    "code": "OSI-005",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "What is the Protocol Data Unit (PDU) at the OSI Transport layer (Layer 4) when using TCP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "At Layer 4 (Transport), data encapsulated with a TCP header is called a Segment. (When UDP is used, it is commonly called a Datagram).",
+    "learning_objective": "Identify Layer 4 Protocol Data Units.",
+    "options": [
+      {
+        "option_text": "Segment",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP PDUs at Layer 4 are known as segments."
+      },
+      {
+        "option_text": "Frame",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Frames are Layer 2 PDUs."
+      },
+      {
+        "option_text": "Packet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Packets are Layer 3 PDUs."
+      },
+      {
+        "option_text": "Payload",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Payload refers to the encapsulated data within a PDU."
+      }
+    ],
+    "tags": [
+      "osi",
+      "transport-layer",
+      "pdu",
+      "tcp"
+    ]
+  },
+  {
+    "code": "OSI-006",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer provides logical addressing (IP addresses) and path determination across interconnected networks?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Layer 3 (Network Layer) is responsible for logical addressing (IPv4/IPv6) and routing packets across intermediate routers to their ultimate destination network.",
+    "learning_objective": "Define the primary role of the OSI Network layer.",
+    "options": [
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Layer 3 handles logical IP addressing and routing."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Layer 2 uses physical MAC addresses within a single local segment."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Layer 4 uses port numbers to multiplex process communication."
+      },
+      {
+        "option_text": "Layer 5 \u2014 Session",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Layer 5 manages session dialogues between applications."
+      }
+    ],
+    "tags": [
+      "osi",
+      "network-layer",
+      "ip",
+      "routing"
+    ]
+  },
+  {
+    "code": "OSI-007",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer is responsible for establishing, maintaining, and synchronizing dialogues between two communicating applications?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Layer 5 (Session Layer) controls dialogues (connections) between computers, establishing, managing, and terminating sessions between local and remote applications.",
+    "learning_objective": "Recall the function of the Session layer.",
+    "options": [
+      {
+        "option_text": "Layer 5 \u2014 Session",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Session layer coordinates dialogue establishment and checkpointing."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Data link manages hop-to-hop frame transmission."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network manages end-to-end packet delivery."
+      },
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Physical layer transmits raw unstructured bit streams."
+      }
+    ],
+    "tags": [
+      "osi",
+      "session-layer",
+      "dialogue"
+    ]
+  },
+  {
+    "code": "OSI-008",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer handles data formatting, compression, and cryptographic encryption/decryption (such as ASCII, JPEG, and TLS presentations)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Layer 6 (Presentation Layer) ensures that data passed from the application layer is formatted, translated, compressed, or encrypted into a standardized syntax the receiver can interpret.",
+    "learning_objective": "Recall the responsibilities of the Presentation layer.",
+    "options": [
+      {
+        "option_text": "Layer 6 \u2014 Presentation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Presentation layer handles data representation, encryption, and compression."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Transport handles end-to-end transport and flow control."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network handles packet forwarding and addressing."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Data Link handles frame delimiters and MAC media access."
+      }
+    ],
+    "tags": [
+      "osi",
+      "presentation-layer",
+      "encryption",
+      "formatting"
+    ]
+  },
+  {
+    "code": "OSI-009",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer interfaces directly with end-user software applications (such as web browsers and email clients)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Layer 7 (Application Layer) provides network services directly to software applications, hosting protocols like HTTP, DNS, SMTP, and SSH.",
+    "learning_objective": "Identify the role of the Application layer.",
+    "options": [
+      {
+        "option_text": "Layer 7 \u2014 Application",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Application layer protocols interact directly with software processes."
+      },
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Physical layer deals with hardware cables and electrical signals."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport layer delivers data to port sockets, not directly to UI applications."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Data link layer interacts with network interface hardware."
+      }
+    ],
+    "tags": [
+      "osi",
+      "application-layer",
+      "protocols"
+    ]
+  },
+  {
+    "code": "OSI-010",
+    "topic_slug": "encapsulation",
+    "question_text": "What happens during the network encapsulation process as data travels DOWN the protocol stack from the sender?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "As data travels down the stack, each lower layer adds its own protocol header (and sometimes trailer, like Layer 2 FCS) containing control information needed by that layer.",
+    "learning_objective": "Explain the encapsulation mechanism.",
+    "options": [
+      {
+        "option_text": "Each layer prepends its own header containing metadata to the payload passed from the layer above",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Encapsulation wraps higher-layer data with lower-layer headers."
+      },
+      {
+        "option_text": "Each layer strips away headers to make the packet as small as possible before transmission",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Stripping headers is decapsulation, which occurs on the receiver."
+      },
+      {
+        "option_text": "The application data is permanently erased and replaced with random hex characters",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Encapsulation preserves payload data intact inside headers."
+      },
+      {
+        "option_text": "All IP addresses are permanently converted into website domain names",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Encapsulation adds protocol headers; it does not replace addresses with domain names."
+      }
+    ],
+    "tags": [
+      "encapsulation",
+      "protocol-stack",
+      "osi"
+    ]
+  },
+  {
+    "code": "OSI-011",
+    "topic_slug": "decapsulation",
+    "question_text": "What happens during the decapsulation process when a destination computer receives an incoming Ethernet frame?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Decapsulation occurs on the receiver: each layer unpacks the PDU, verifies the header for errors and addressing, strips that header off, and passes the remaining payload UP to the next higher layer.",
+    "learning_objective": "Describe the decapsulation workflow on receiving endpoints.",
+    "options": [
+      {
+        "option_text": "Each layer inspects and removes its corresponding header, passing the unpackaged payload up to the layer above",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Decapsulation unwraps headers progressively as data moves up to Layer 7."
+      },
+      {
+        "option_text": "The receiver adds three extra layers of encryption before saving the file to disk",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Decapsulation removes transport and framing headers; it does not add encryption layers."
+      },
+      {
+        "option_text": "The frame is immediately broadcast out to every other host on the Internet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Unicast decapsulation is processed locally by the intended recipient host."
+      },
+      {
+        "option_text": "The receiver converts all IP addresses into MAC addresses",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Decapsulation reads existing MAC and IP headers without altering them."
+      }
+    ],
+    "tags": [
+      "decapsulation",
+      "protocol-stack",
+      "osi"
+    ]
+  },
+  {
+    "code": "OSI-012",
+    "topic_slug": "tcp-ip-layers",
+    "question_text": "How many layers are in the original DARPA / DoD TCP/IP architectural model (RFC 1122)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The standard TCP/IP model defines four layers: Network Access (Link), Internet, Transport (Host-to-Host), and Application.",
+    "learning_objective": "State the number of layers in the TCP/IP model.",
+    "options": [
+      {
+        "option_text": "4 layers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The TCP/IP model defines 4 layers: Link/Network Access, Internet, Transport, and Application."
+      },
+      {
+        "option_text": "7 layers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "7 layers corresponds to the OSI reference model."
+      },
+      {
+        "option_text": "3 layers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP/IP has 4 layers."
+      },
+      {
+        "option_text": "6 layers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "6 layers does not correspond to standard networking models."
+      }
+    ],
+    "tags": [
+      "tcp-ip-layers",
+      "tcp-ip",
+      "conceptual"
+    ]
+  },
+  {
+    "code": "OSI-013",
+    "topic_slug": "tcp-ip-layers",
+    "question_text": "Which TCP/IP model layer corresponds to OSI Layer 3 (Network Layer)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The Internet Layer of the TCP/IP model corresponds directly to Layer 3 (Network Layer) of the OSI model, hosting IP (IPv4/IPv6), ICMP, and ARP.",
+    "learning_objective": "Map TCP/IP layers to OSI equivalents.",
+    "options": [
+      {
+        "option_text": "Internet Layer",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The TCP/IP Internet Layer performs the same role as OSI Layer 3 Network."
+      },
+      {
+        "option_text": "Network Access Layer",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Network Access corresponds to OSI Layers 1 and 2."
+      },
+      {
+        "option_text": "Transport Layer",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport corresponds to OSI Layer 4."
+      },
+      {
+        "option_text": "Application Layer",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Application corresponds to OSI Layers 5, 6, and 7."
+      }
+    ],
+    "tags": [
+      "tcp-ip-layers",
+      "osi-vs-tcp-ip",
+      "mapping"
+    ]
+  },
+  {
+    "code": "OSI-014",
+    "topic_slug": "tcp-ip-layers",
+    "question_text": "Which OSI model layers are consolidated into the single 'Application' layer within the 4-layer TCP/IP model?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The TCP/IP Application layer encompasses the functionality of OSI Layers 5 (Session), 6 (Presentation), and 7 (Application).",
+    "learning_objective": "Explain layer consolidation between OSI and TCP/IP.",
+    "options": [
+      {
+        "option_text": "Session, Presentation, and Application layers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP/IP consolidates OSI Layers 5, 6, and 7 into its Application layer."
+      },
+      {
+        "option_text": "Physical and Data Link layers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Physical and Data Link are combined into the Network Access layer."
+      },
+      {
+        "option_text": "Network and Transport layers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Internet and Transport are separate layers in TCP/IP."
+      },
+      {
+        "option_text": "Data Link, Network, and Transport layers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These represent separate functionalities across both models."
+      }
+    ],
+    "tags": [
+      "tcp-ip-layers",
+      "osi-vs-tcp-ip",
+      "architecture"
+    ]
+  },
+  {
+    "code": "OSI-015",
+    "topic_slug": "osi-troubleshooting",
+    "question_text": "A technician troubleshoots network connectivity using the 'bottom-up' approach. Which component should be checked first?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Bottom-up troubleshooting begins at Layer 1 (Physical). The technician first checks physical cables, link indicator lights, power supplies, and transceiver connections before moving to higher layers.",
+    "learning_objective": "Apply bottom-up troubleshooting methodology.",
+    "options": [
+      {
+        "option_text": "Physical cables, port link lights, and cable integrity",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Bottom-up starts at Layer 1 Physical before checking IP addresses or applications."
+      },
+      {
+        "option_text": "The web browser cache and cookie settings",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Checking web browser cache is a top-down application layer check."
+      },
+      {
+        "option_text": "DNS A records on the corporate authoritative nameserver",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DNS checking is a higher-layer (Layer 7) troubleshooting step."
+      },
+      {
+        "option_text": "The user's Active Directory group policy permissions",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "User permissions represent an application/administrative layer issue."
+      }
+    ],
+    "tags": [
+      "osi-troubleshooting",
+      "bottom-up",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "OSI-016",
+    "topic_slug": "osi-troubleshooting",
+    "question_text": "A technician uses a 'top-down' troubleshooting approach for a user reporting that an internal website will not load. What should be verified first?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Top-down troubleshooting starts at Layer 7 (Application). The technician checks application-level configurations first (URL accuracy, web browser, application service status) before checking physical cables.",
+    "learning_objective": "Apply top-down troubleshooting methodology.",
+    "options": [
+      {
+        "option_text": "The application configuration, URL spelling, and browser settings",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Top-down starts at Layer 7 Application."
+      },
+      {
+        "option_text": "Whether the copper patch cable is seated properly in the wall jack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Checking the patch cable is a bottom-up Layer 1 check."
+      },
+      {
+        "option_text": "The electrical voltage running through the building conduit",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is an electrician's physical infrastructure test."
+      },
+      {
+        "option_text": "The router's BGP routing table entries",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Checking BGP routing tables is an intermediate Layer 3 check."
+      }
+    ],
+    "tags": [
+      "osi-troubleshooting",
+      "top-down",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "OSI-017",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "At which OSI layer do port numbers (such as TCP port 80 or UDP port 53) function?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Port numbers are Layer 4 (Transport Layer) identifiers used by TCP and UDP to direct communication streams to the correct application process on a host.",
+    "learning_objective": "Identify the layer where port numbers operate.",
+    "options": [
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Port numbers reside in TCP and UDP headers at the Transport layer."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Data link uses MAC addresses."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network layer uses IP addresses."
+      },
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Physical layer operates on bits and signals."
+      }
+    ],
+    "tags": [
+      "osi",
+      "transport-layer",
+      "ports"
+    ]
+  },
+  {
+    "code": "OSI-018",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer uses MAC (Media Access Control) addresses to direct traffic within a local broadcast domain?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "MAC addresses are hardware-burned Layer 2 (Data Link Layer) addresses used by network interface cards (NICs) and switches to deliver frames across a local link.",
+    "learning_objective": "Identify the layer of MAC addresses.",
+    "options": [
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MAC addresses operate strictly at Layer 2 Data Link."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Layer 3 uses IP addresses."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Layer 4 uses port numbers."
+      },
+      {
+        "option_text": "Layer 7 \u2014 Application",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Layer 7 uses domain names and URLs."
+      }
+    ],
+    "tags": [
+      "osi",
+      "data-link",
+      "mac-address"
+    ]
+  },
+  {
+    "code": "OSI-019",
+    "topic_slug": "osi-troubleshooting",
+    "question_text": "In OSI-based troubleshooting, what does the 'divide-and-conquer' approach involve?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Divide-and-conquer starts troubleshooting at the middle layer (usually Layer 3 Network by running a ping test). If ping succeeds, Layers 1-3 are verified, and the problem must be at Layers 4-7.",
+    "learning_objective": "Explain the divide-and-conquer troubleshooting strategy.",
+    "options": [
+      {
+        "option_text": "Starting investigation at Layer 3 (e.g. testing with ping) to immediately isolate whether the issue is at lower layers (1-2) or upper layers (4-7)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Testing Layer 3 with ping effectively splits the 7 layers in half, saving diagnostic time."
+      },
+      {
+        "option_text": "Splitting the physical Ethernet cable in half with wire cutters to check copper purity",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Severing cables destroys physical connectivity."
+      },
+      {
+        "option_text": "Assigning two technicians to yell at each other across the datacenter",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is not an engineering methodology."
+      },
+      {
+        "option_text": "Reinstalling the operating system before testing any network cables",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Reinstalling OS is a drastic measure that should never precede basic diagnostics."
+      }
+    ],
+    "tags": [
+      "osi-troubleshooting",
+      "divide-and-conquer",
+      "ping"
+    ]
+  },
+  {
+    "code": "OSI-020",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which layer of the OSI model is responsible for flow control, windowing, and error recovery in reliable data delivery?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Layer 4 (Transport Layer), through protocols like TCP, provides end-to-end flow control (sliding windows), sequence numbers, acknowledgements, and retransmissions of dropped segments.",
+    "learning_objective": "Identify Transport layer reliability mechanisms.",
+    "options": [
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Transport layer manages flow control, sequence tracking, and error recovery."
+      },
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Physical layer cannot detect or recover from dropped packets."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IPv4 and IPv6 are best-effort protocols without built-in reliability recovery."
+      },
+      {
+        "option_text": "Layer 6 \u2014 Presentation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Presentation formats and translates syntax."
+      }
+    ],
+    "tags": [
+      "osi",
+      "transport-layer",
+      "flow-control",
+      "reliability"
+    ]
+  },
+  {
+    "code": "OSI-021",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "What is the primary function of the Frame Check Sequence (FCS) located in an Ethernet frame trailer at Layer 2?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The Frame Check Sequence (FCS) uses a Cyclic Redundancy Check (CRC-32) algorithm to detect whether any bits in the frame were corrupted during physical transmission over the wire.",
+    "learning_objective": "Explain the purpose of the Frame Check Sequence.",
+    "options": [
+      {
+        "option_text": "To detect bit-level data corruption that occurred during physical transmission",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "FCS checks for transmission corruption; corrupted frames are discarded."
+      },
+      {
+        "option_text": "To encrypt the payload using a symmetric cryptographic key",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "FCS is an error-detecting checksum, not an encryption cipher."
+      },
+      {
+        "option_text": "To inform Google Analytics of the user's geographical location",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ethernet trailers have no connection to web marketing analytics."
+      },
+      {
+        "option_text": "To accelerate the electrical signal to twice the speed of light",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Electrical signals cannot exceed the speed of light in the transmission medium."
+      }
+    ],
+    "tags": [
+      "osi",
+      "data-link",
+      "fcs",
+      "error-detection"
+    ]
+  },
+  {
+    "code": "OSI-022",
+    "topic_slug": "tcp-ip-layers",
+    "question_text": "Which protocol functions at the Internet layer of the TCP/IP model?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Internet Protocol (IP), along with ICMP and ARP, operates at the Internet layer of the TCP/IP model, handling logical addressing and routing.",
+    "learning_objective": "Identify Internet layer protocols.",
+    "options": [
+      {
+        "option_text": "Internet Protocol (IP)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IP is the cornerstone protocol of the TCP/IP Internet layer."
+      },
+      {
+        "option_text": "Transmission Control Protocol (TCP)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP operates at the Transport layer."
+      },
+      {
+        "option_text": "Simple Mail Transfer Protocol (SMTP)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SMTP operates at the Application layer."
+      },
+      {
+        "option_text": "Ethernet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ethernet operates at the Link / Network Access layer."
+      }
+    ],
+    "tags": [
+      "tcp-ip-layers",
+      "internet-layer",
+      "ip"
+    ]
+  },
+  {
+    "code": "OSI-023",
+    "topic_slug": "tcp-ip-layers",
+    "question_text": "Which protocol operates at the Transport layer of the TCP/IP model?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) operate at the Transport layer of the TCP/IP model.",
+    "learning_objective": "Identify Transport layer protocols.",
+    "options": [
+      {
+        "option_text": "User Datagram Protocol (UDP)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UDP is a core Transport layer protocol."
+      },
+      {
+        "option_text": "Hypertext Transfer Protocol (HTTP)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HTTP operates at the Application layer."
+      },
+      {
+        "option_text": "Address Resolution Protocol (ARP)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ARP operates at the Link/Internet boundary."
+      },
+      {
+        "option_text": "Internet Protocol version 6 (IPv6)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IPv6 operates at the Internet layer."
+      }
+    ],
+    "tags": [
+      "tcp-ip-layers",
+      "transport-layer",
+      "udp"
+    ]
+  },
+  {
+    "code": "OSI-024",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "What term describes the chunk of data generated by an application (Layer 7) before any network encapsulation occurs?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "At the upper application layers (Layers 7, 6, 5), data is simply referred to as 'Data' or Application Data (Payload) prior to Transport layer segmentation.",
+    "learning_objective": "Identify upper-layer data terminology.",
+    "options": [
+      {
+        "option_text": "Data / Payload",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "At Layers 5-7, data is referred to generally as Data or Payload."
+      },
+      {
+        "option_text": "Frame",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Frame is Layer 2 PDU."
+      },
+      {
+        "option_text": "Packet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Packet is Layer 3 PDU."
+      },
+      {
+        "option_text": "Bit",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Bit is Layer 1 transmission unit."
+      }
+    ],
+    "tags": [
+      "osi",
+      "application-layer",
+      "payload"
+    ]
+  },
+  {
+    "code": "OSI-025",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Why does an Ethernet frame require both a header and a trailer, whereas IP packets only have a header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Layer 2 frames require a trailer containing the Frame Check Sequence (FCS) so that receiving hardware can compute the CRC checksum over the entire frame contents as bits arrive.",
+    "learning_objective": "Understand why Layer 2 incorporates a trailer.",
+    "options": [
+      {
+        "option_text": "The trailer contains the FCS checksum computed over the frame, allowing the receiver to verify data integrity upon receipt",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Layer 2 puts the FCS in a trailer so it can be calculated on-the-fly during transmission."
+      },
+      {
+        "option_text": "The trailer contains the user's personal credit card information",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Networking trailers contain protocol integrity metadata, never payment credentials."
+      },
+      {
+        "option_text": "IP packets are forbidden by RFC standards from detecting errors",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IPv4 includes a header checksum, but Layer 2 validates the entire physical frame."
+      },
+      {
+        "option_text": "Ethernet cables can only carry data backwards",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ethernet transmission is sequential from preamble to trailer."
+      }
+    ],
+    "tags": [
+      "osi",
+      "data-link",
+      "fcs",
+      "trailer"
+    ]
+  },
+  {
+    "code": "OSI-026",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which layer in the OSI model is responsible for assigning source and destination IP addresses?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The Network layer (Layer 3) adds source and destination logical IP addresses in its header during packet encapsulation.",
+    "learning_objective": "Identify the layer responsible for IP addressing.",
+    "options": [
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Source and destination IP addresses are added at Layer 3."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Data link adds MAC addresses."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport adds port numbers."
+      },
+      {
+        "option_text": "Layer 5 \u2014 Session",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Session does not handle IP addressing."
+      }
+    ],
+    "tags": [
+      "osi",
+      "network-layer",
+      "ip-addresses"
+    ]
+  },
+  {
+    "code": "OSI-027",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "Which OSI layer determines whether communication should be connection-oriented (reliable) or connectionless (unreliable)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The Transport layer (Layer 4) selects between connection-oriented transport (TCP) or connectionless transport (UDP) depending on application requirements.",
+    "learning_objective": "Understand Transport layer service modes.",
+    "options": [
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Transport layer protocols determine connection-oriented vs connectionless modes."
+      },
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Physical layer only transmits electrical/optical bits without connection awareness."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Data link deals with local media framing."
+      },
+      {
+        "option_text": "Layer 6 \u2014 Presentation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Presentation deals with data translation."
+      }
+    ],
+    "tags": [
+      "osi",
+      "transport-layer",
+      "connection-oriented",
+      "tcp-udp"
+    ]
+  },
+  {
+    "code": "OSI-028",
+    "topic_slug": "osi-vs-tcp-ip",
+    "question_text": "What is one key philosophical difference between the OSI reference model and the TCP/IP model?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The OSI model was designed as a theoretical, protocol-independent reference architecture before protocols were created. TCP/IP was developed practically around working protocols implemented in ARPANET/Unix.",
+    "learning_objective": "Compare OSI and TCP/IP historical design philosophies.",
+    "options": [
+      {
+        "option_text": "OSI was designed as a theoretical reference model, whereas TCP/IP was built around working, implemented protocols",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP/IP is pragmatic and protocol-specific; OSI is a formal conceptual framework."
+      },
+      {
+        "option_text": "OSI was designed for wireless smartphones; TCP/IP was designed for analog landline telephones",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both models predate modern smartphones by decades."
+      },
+      {
+        "option_text": "TCP/IP requires exactly seven layers; OSI has only four",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP/IP has 4 layers; OSI has 7 layers."
+      },
+      {
+        "option_text": "OSI completely bans the use of routers and switches",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "OSI explicitly incorporates routing at Layer 3 and switching at Layer 2."
+      }
+    ],
+    "tags": [
+      "osi-vs-tcp-ip",
+      "history",
+      "architecture"
+    ]
+  },
+  {
+    "code": "OSI-029",
+    "topic_slug": "seven-osi-layers",
+    "question_text": "At which layer of the OSI model does an unmanaged Layer 1 repeater or electrical amplifier operate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A repeater operates at Layer 1 (Physical). It regenerates and amplifies electrical or optical signals to overcome attenuation without reading frame headers or IP addresses.",
+    "learning_objective": "Identify the operational layer of repeaters.",
+    "options": [
+      {
+        "option_text": "Layer 1 \u2014 Physical",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Repeaters regenerate raw physical signals at Layer 1."
+      },
+      {
+        "option_text": "Layer 2 \u2014 Data Link",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Layer 2 devices (bridges/switches) inspect MAC frames."
+      },
+      {
+        "option_text": "Layer 3 \u2014 Network",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Layer 3 devices (routers) inspect IP packets."
+      },
+      {
+        "option_text": "Layer 4 \u2014 Transport",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Layer 4 devices (firewalls) inspect transport ports."
+      }
+    ],
+    "tags": [
+      "osi",
+      "physical-layer",
+      "repeater"
+    ]
+  },
+  {
+    "code": "OSI-030",
+    "topic_slug": "encapsulation",
+    "question_text": "When viewing an Ethernet frame captured on a wire, in what order do headers appear from outermost to innermost?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "During transmission, lower-layer headers enclose higher-layer headers: Ethernet Header (Layer 2) comes first, followed by IP Header (Layer 3), then TCP/UDP Header (Layer 4), and finally the Application Data (Layer 7).",
+    "learning_objective": "Trace header order in encapsulated frames.",
+    "options": [
+      {
+        "option_text": "Ethernet Header -> IP Header -> TCP Header -> Application Data",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Outer encapsulation layer comes first on the wire: Layer 2 -> Layer 3 -> Layer 4 -> Payload."
+      },
+      {
+        "option_text": "Application Data -> TCP Header -> IP Header -> Ethernet Header",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is reverse order; the frame header arrives first on the wire."
+      },
+      {
+        "option_text": "IP Header -> Ethernet Header -> Application Data -> TCP Header",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ethernet header wraps the IP packet, so Ethernet header comes first."
+      },
+      {
+        "option_text": "TCP Header -> IP Header -> Ethernet Header -> Application Data",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP is encapsulated inside IP, which is encapsulated inside Ethernet."
+      }
+    ],
+    "tags": [
+      "encapsulation",
+      "headers",
+      "packet-structure"
+    ]
+  }
+]

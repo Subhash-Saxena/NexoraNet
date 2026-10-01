@@ -1,0 +1,1550 @@
+[
+  {
+    "code": "PORT-001",
+    "topic_slug": "ports",
+    "question_text": "What is the standard TCP port used for unencrypted HTTP web traffic?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "TCP port 80 is the standardized well-known port assigned by IANA for unencrypted Hypertext Transfer Protocol (HTTP) web server communications.",
+    "learning_objective": "Recall standard well-known port for HTTP.",
+    "options": [
+      {
+        "option_text": "Port 80",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP port 80 is the default port for HTTP."
+      },
+      {
+        "option_text": "Port 443",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 443 is for encrypted HTTPS."
+      },
+      {
+        "option_text": "Port 22",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP port 22 is for SSH."
+      },
+      {
+        "option_text": "Port 53",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "UDP/TCP port 53 is for DNS."
+      }
+    ],
+    "tags": [
+      "ports",
+      "http",
+      "well-known-ports"
+    ]
+  },
+  {
+    "code": "PORT-002",
+    "topic_slug": "ports",
+    "question_text": "What is the standard TCP port used for secure, encrypted HTTPS web traffic?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "TCP port 443 is the standard well-known port assigned for Hypertext Transfer Protocol Secure (HTTPS), which encapsulates HTTP inside a TLS/SSL encrypted tunnel.",
+    "learning_objective": "Recall standard well-known port for HTTPS.",
+    "options": [
+      {
+        "option_text": "Port 443",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP port 443 is the default port for HTTPS."
+      },
+      {
+        "option_text": "Port 80",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 80 is unencrypted HTTP."
+      },
+      {
+        "option_text": "Port 8080",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port 8080 is an alternative HTTP proxy port."
+      },
+      {
+        "option_text": "Port 25",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port 25 is for SMTP mail transfer."
+      }
+    ],
+    "tags": [
+      "ports",
+      "https",
+      "tls",
+      "well-known-ports"
+    ]
+  },
+  {
+    "code": "PORT-003",
+    "topic_slug": "dns",
+    "question_text": "What is the primary function of the Domain Name System (DNS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "DNS acts as the phonebook of the Internet, translating human-readable hostnames (such as www.example.com) into machine-routable IP addresses (such as 93.184.216.34).",
+    "learning_objective": "Explain the core purpose of the Domain Name System.",
+    "options": [
+      {
+        "option_text": "To translate human-friendly domain names into numerical IP addresses",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DNS resolves domain names to IP addresses and vice versa."
+      },
+      {
+        "option_text": "To dynamically assign IP addresses and default gateways to local clients",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is the role of DHCP (Dynamic Host Configuration Protocol)."
+      },
+      {
+        "option_text": "To physically route fiber-optic pulses under the ocean",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Undersea cable routing is physical infrastructure management."
+      },
+      {
+        "option_text": "To compress digital video streams before downloading",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Video compression is handled by application/presentation codecs."
+      }
+    ],
+    "tags": [
+      "dns",
+      "protocols",
+      "fundamentals"
+    ]
+  },
+  {
+    "code": "PORT-004",
+    "topic_slug": "ports",
+    "question_text": "Which port and transport protocol is predominantly used by client DNS name queries?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Standard client DNS resolution queries use UDP port 53 for fast, lightweight name lookups without connection setup overhead (though TCP port 53 is used for large zone transfers).",
+    "learning_objective": "Identify the transport port and protocol used by DNS queries.",
+    "options": [
+      {
+        "option_text": "UDP port 53",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DNS client queries standardly use UDP port 53."
+      },
+      {
+        "option_text": "TCP port 21",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 21 is for FTP control."
+      },
+      {
+        "option_text": "UDP port 67",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "UDP port 67 is for DHCP server listening."
+      },
+      {
+        "option_text": "TCP port 23",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP port 23 is for unencrypted Telnet."
+      }
+    ],
+    "tags": [
+      "dns",
+      "ports",
+      "udp"
+    ]
+  },
+  {
+    "code": "PORT-005",
+    "topic_slug": "dhcp",
+    "question_text": "What is the primary function of the Dynamic Host Configuration Protocol (DHCP)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "DHCP automatically assigns network configuration settings\u2014including an IPv4 address, subnet mask, default gateway, and DNS servers\u2014to client devices joining a network.",
+    "learning_objective": "Explain the function of DHCP in local networks.",
+    "options": [
+      {
+        "option_text": "To automatically lease IP addresses, subnet masks, default gateways, and DNS settings to network clients",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DHCP automates client IP configuration without manual static entry."
+      },
+      {
+        "option_text": "To translate private IP addresses into public IP addresses on a boundary router",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is Network Address Translation (NAT)."
+      },
+      {
+        "option_text": "To establish encrypted SSH tunnels for remote server administration",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is the role of Secure Shell (SSH)."
+      },
+      {
+        "option_text": "To block incoming malicious packets using stateful inspection",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is the role of a firewall."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "protocols",
+      "configuration"
+    ]
+  },
+  {
+    "code": "PORT-006",
+    "topic_slug": "dhcp",
+    "question_text": "What is the four-step message exchange process used by DHCP to allocate an IP address to a client?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "DHCP client-server allocation uses the DORA sequence: Discover (broadcast by client), Offer (unicast/broadcast by server), Request (broadcast by client), Acknowledgement (sent by server).",
+    "learning_objective": "Recall the DORA process in DHCP.",
+    "options": [
+      {
+        "option_text": "Discover -> Offer -> Request -> Acknowledge (DORA)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DORA is the standard four-message DHCP handshake sequence."
+      },
+      {
+        "option_text": "SYN -> SYN-ACK -> ACK -> FIN",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That describes the TCP 3-way handshake and connection teardown."
+      },
+      {
+        "option_text": "Ping -> Echo -> Trace -> Route",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These are CLI troubleshooting commands and ICMP message types."
+      },
+      {
+        "option_text": "Connect -> Authenticate -> Authorize -> Accounting",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That describes AAA identity management workflows."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "dora",
+      "protocols"
+    ]
+  },
+  {
+    "code": "PORT-007",
+    "topic_slug": "ports",
+    "question_text": "Which UDP ports are used by DHCP client requests and DHCP server responses?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "DHCP servers listen on UDP port 67, and DHCP clients listen for responses on UDP port 68.",
+    "learning_objective": "Identify the UDP ports used by DHCP.",
+    "options": [
+      {
+        "option_text": "UDP port 67 (Server) and UDP port 68 (Client)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DHCP uses UDP ports 67 (server) and 68 (client)."
+      },
+      {
+        "option_text": "TCP port 80 and TCP port 443",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are web server ports."
+      },
+      {
+        "option_text": "UDP port 53 and TCP port 53",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These are DNS ports."
+      },
+      {
+        "option_text": "TCP port 20 and TCP port 21",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These are FTP data and control ports."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "ports",
+      "udp"
+    ]
+  },
+  {
+    "code": "PORT-008",
+    "topic_slug": "arp",
+    "question_text": "What is the primary function of the Address Resolution Protocol (ARP)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "ARP resolves a known logical Layer 3 IP address to its corresponding physical Layer 2 MAC address on a local area network segment.",
+    "learning_objective": "Define the function of ARP.",
+    "options": [
+      {
+        "option_text": "To resolve a known IPv4 address to its corresponding physical MAC address on a local LAN",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ARP maps IP addresses to MAC hardware addresses on local Ethernet/Wi-Fi links."
+      },
+      {
+        "option_text": "To convert domain names into IP addresses over the Internet",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is the role of DNS."
+      },
+      {
+        "option_text": "To assign cryptographic SSL certificates to web servers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is the role of a Certificate Authority (CA)."
+      },
+      {
+        "option_text": "To measure the physical length of an Ethernet cable in feet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is done using a Time-Domain Reflectometer (TDR)."
+      }
+    ],
+    "tags": [
+      "arp",
+      "layer2",
+      "layer3",
+      "mac-address"
+    ]
+  },
+  {
+    "code": "PORT-009",
+    "topic_slug": "arp",
+    "question_text": "When a computer sends an ARP Request to find a neighbor's MAC address, what destination MAC address is used in the Ethernet frame?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Because the host does not yet know the destination MAC address, it sends the ARP Request as a Layer 2 broadcast to FF:FF:FF:FF:FF:FF so that every device on the local switch processes it.",
+    "learning_objective": "Identify the broadcast destination of ARP requests.",
+    "options": [
+      {
+        "option_text": "FF:FF:FF:FF:FF:FF (Broadcast)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ARP requests are broadcast to all hosts on the local network."
+      },
+      {
+        "option_text": "00:00:00:00:00:00",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is not a valid destination broadcast address."
+      },
+      {
+        "option_text": "127.0.0.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "127.0.0.1 is an IPv4 loopback address, not an Ethernet MAC address."
+      },
+      {
+        "option_text": "The destination server's public IP address",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ethernet frames require a MAC address in the Layer 2 header, not an IP address."
+      }
+    ],
+    "tags": [
+      "arp",
+      "broadcast",
+      "ethernet"
+    ]
+  },
+  {
+    "code": "PORT-010",
+    "topic_slug": "icmp",
+    "question_text": "Which core network utility uses ICMP Echo Request and Echo Reply messages to test basic IP connectivity between hosts?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The 'ping' utility sends ICMP Echo Request (Type 8) messages and listens for ICMP Echo Reply (Type 0) messages to verify Layer 3 connectivity and measure round-trip time.",
+    "learning_objective": "Identify the utility based on ICMP Echo Request/Reply.",
+    "options": [
+      {
+        "option_text": "ping",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Ping uses ICMP Echo Request and Echo Reply messages."
+      },
+      {
+        "option_text": "netstat",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Netstat displays active network connections, routing tables, and interface stats."
+      },
+      {
+        "option_text": "nslookup",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Nslookup queries DNS servers."
+      },
+      {
+        "option_text": "ipconfig",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ipconfig displays local interface IP configurations."
+      }
+    ],
+    "tags": [
+      "icmp",
+      "ping",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PORT-011",
+    "topic_slug": "icmp",
+    "question_text": "At which layer of the TCP/IP model does ICMP (Internet Control Message Protocol) operate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "ICMP operates at the Internet Layer (OSI Layer 3). While it is encapsulated inside IP packets, it is an integral companion protocol to IP used for network diagnostics and error reporting.",
+    "learning_objective": "Recall the architectural layer of ICMP.",
+    "options": [
+      {
+        "option_text": "Internet Layer (OSI Layer 3)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ICMP operates at the Internet/Network layer alongside IP."
+      },
+      {
+        "option_text": "Application Layer (OSI Layer 7)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ICMP is not an application protocol."
+      },
+      {
+        "option_text": "Transport Layer (OSI Layer 4)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ICMP does not use TCP or UDP ports; it runs directly over IP."
+      },
+      {
+        "option_text": "Physical Layer (OSI Layer 1)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Physical layer deals with electrical signals."
+      }
+    ],
+    "tags": [
+      "icmp",
+      "internet-layer",
+      "osi"
+    ]
+  },
+  {
+    "code": "PORT-012",
+    "topic_slug": "tcp-basics",
+    "question_text": "Which three-way handshake sequence is used by TCP to establish a reliable connection between a client and a server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The TCP three-way handshake proceeds as: 1. Client sends SYN (Synchronize), 2. Server responds with SYN-ACK (Synchronize-Acknowledge), 3. Client replies with ACK (Acknowledge).",
+    "learning_objective": "Recall the TCP 3-way handshake sequence.",
+    "options": [
+      {
+        "option_text": "SYN -> SYN-ACK -> ACK",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The TCP three-way handshake begins with SYN, responds with SYN-ACK, and concludes with ACK."
+      },
+      {
+        "option_text": "ACK -> SYN-ACK -> FIN",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is not a valid handshake sequence."
+      },
+      {
+        "option_text": "HELLO -> ACK -> DATA",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP does not use HELLO packets; that terminology is used in routing protocols like OSPF."
+      },
+      {
+        "option_text": "DISCOVER -> OFFER -> REQUEST",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is the DHCP DORA process."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "three-way-handshake",
+      "tcp-flags"
+    ]
+  },
+  {
+    "code": "PORT-013",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the primary operational difference between TCP and UDP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "TCP is a connection-oriented protocol providing guaranteed delivery, sequence numbers, and error retransmission. UDP is a connectionless, best-effort protocol that prioritizes low latency without delivery guarantees.",
+    "learning_objective": "Compare TCP reliability against UDP speed.",
+    "options": [
+      {
+        "option_text": "TCP provides connection-oriented reliable delivery with acknowledgements; UDP is connectionless and best-effort with lower latency",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP guarantees delivery; UDP prioritizes speed and minimal overhead."
+      },
+      {
+        "option_text": "TCP only works over Wi-Fi; UDP only works over copper cables",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both transport protocols work across all network media."
+      },
+      {
+        "option_text": "UDP encrypts all packets; TCP transmits only unencrypted plaintext",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Encryption is handled by higher-layer protocols (like TLS), not by UDP."
+      },
+      {
+        "option_text": "TCP is restricted to 10 Mbps maximum bandwidth",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP scales to multi-gigabit speeds."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "udp",
+      "transport-layer",
+      "comparison"
+    ]
+  },
+  {
+    "code": "PORT-014",
+    "topic_slug": "udp-basics",
+    "question_text": "Which of the following real-time applications typically relies on UDP rather than TCP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Live Voice over IP (VoIP) and real-time streaming use UDP because lost audio packets cannot be retransmitted without introducing unacceptable voice delays; recent data is preferred over late retransmissions.",
+    "learning_objective": "Identify applications that benefit from UDP transport.",
+    "options": [
+      {
+        "option_text": "Live VoIP audio and online multiplayer video games",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Real-time interactive audio/video values low latency over guaranteed retransmission."
+      },
+      {
+        "option_text": "Secure financial bank wire transfers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Financial transactions require strict TCP reliability and verification."
+      },
+      {
+        "option_text": "Downloading executable software update patches",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Software installers must be complete and uncorrupted, requiring TCP."
+      },
+      {
+        "option_text": "Sending business email attachments via SMTP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Email delivery requires reliable TCP transmission."
+      }
+    ],
+    "tags": [
+      "udp",
+      "voip",
+      "real-time",
+      "applications"
+    ]
+  },
+  {
+    "code": "PORT-015",
+    "topic_slug": "ports",
+    "question_text": "What is the standard TCP port used for Secure Shell (SSH) remote administrative login?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "TCP port 22 is the standardized well-known port for Secure Shell (SSH), providing encrypted remote terminal sessions and SFTP file transfer.",
+    "learning_objective": "Recall standard well-known port for SSH.",
+    "options": [
+      {
+        "option_text": "Port 22",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP port 22 is standard for SSH."
+      },
+      {
+        "option_text": "Port 23",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 23 is Telnet (unencrypted)."
+      },
+      {
+        "option_text": "Port 21",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP port 21 is FTP control."
+      },
+      {
+        "option_text": "Port 3389",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP port 3389 is Microsoft RDP."
+      }
+    ],
+    "tags": [
+      "ports",
+      "ssh",
+      "security",
+      "remote-access"
+    ]
+  },
+  {
+    "code": "PORT-016",
+    "topic_slug": "ssh",
+    "question_text": "Why has SSH almost entirely replaced Telnet for command-line server administration?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Telnet transmits all data\u2014including usernames and passwords\u2014in clear plaintext across the network, making it trivial for eavesdroppers to capture credentials. SSH encrypts the entire communication session.",
+    "learning_objective": "Explain the security advantage of SSH over Telnet.",
+    "options": [
+      {
+        "option_text": "SSH encrypts all traffic including passwords; Telnet transmits credentials in unencrypted plaintext",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SSH prevents packet sniffing attacks by encrypting the full session with asymmetric/symmetric cryptography."
+      },
+      {
+        "option_text": "Telnet requires expensive satellite equipment; SSH runs on copper wires",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both protocols run over standard IP networks."
+      },
+      {
+        "option_text": "SSH increases server processor speeds by 500%",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SSH does not increase processor clock frequencies."
+      },
+      {
+        "option_text": "Telnet can only be installed on smartphones",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Telnet was historically the standard terminal protocol on servers and mainframes."
+      }
+    ],
+    "tags": [
+      "ssh",
+      "telnet",
+      "security",
+      "encryption"
+    ]
+  },
+  {
+    "code": "PORT-017",
+    "topic_slug": "ports",
+    "question_text": "Which protocol and standard port is used to transfer outgoing email from a client to a mail server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Simple Mail Transfer Protocol (SMTP) standardly uses TCP port 25 (or port 587 with STARTTLS submission) to transmit outgoing email messages between mail agents.",
+    "learning_objective": "Identify email transmission protocol and port.",
+    "options": [
+      {
+        "option_text": "SMTP on TCP port 25 (or 587)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SMTP handles outgoing email transport on port 25 / 587."
+      },
+      {
+        "option_text": "POP3 on TCP port 110",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "POP3 is for retrieving email from a mailbox."
+      },
+      {
+        "option_text": "IMAP on TCP port 143",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IMAP is for synchronizing and retrieving email from a mailbox."
+      },
+      {
+        "option_text": "SNMP on UDP port 161",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SNMP is for network device management."
+      }
+    ],
+    "tags": [
+      "ports",
+      "smtp",
+      "email"
+    ]
+  },
+  {
+    "code": "PORT-018",
+    "topic_slug": "ports",
+    "question_text": "Which two protocols are commonly used by email clients to RETRIEVE emails from a mail server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "POP3 (Post Office Protocol 3) and IMAP (Internet Message Access Protocol) are the two primary protocols used by client mail applications to fetch stored emails from a mail server.",
+    "learning_objective": "Recall email retrieval protocols.",
+    "options": [
+      {
+        "option_text": "POP3 and IMAP",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "POP3 and IMAP allow client software to access and read emails stored on a mail server."
+      },
+      {
+        "option_text": "SMTP and DNS",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SMTP sends email; DNS resolves domain names."
+      },
+      {
+        "option_text": "FTP and TFTP",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "FTP and TFTP are file transfer protocols."
+      },
+      {
+        "option_text": "HTTP and DHCP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HTTP is for web pages; DHCP is for IP address assignment."
+      }
+    ],
+    "tags": [
+      "email",
+      "imap",
+      "pop3",
+      "protocols"
+    ]
+  },
+  {
+    "code": "PORT-019",
+    "topic_slug": "ports",
+    "question_text": "What is the standard port for unencrypted File Transfer Protocol (FTP) control connections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "FTP uses TCP port 21 for its command/control channel (where user authentication and commands are negotiated), and port 20 for active data transfer.",
+    "learning_objective": "Identify the FTP control port.",
+    "options": [
+      {
+        "option_text": "TCP port 21",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP port 21 is the standard FTP control port."
+      },
+      {
+        "option_text": "TCP port 22",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 22 is SSH / SFTP."
+      },
+      {
+        "option_text": "TCP port 80",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP port 80 is HTTP."
+      },
+      {
+        "option_text": "UDP port 69",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "UDP port 69 is Trivial FTP (TFTP)."
+      }
+    ],
+    "tags": [
+      "ports",
+      "ftp",
+      "file-transfer"
+    ]
+  },
+  {
+    "code": "PORT-020",
+    "topic_slug": "ports-and-sockets",
+    "question_text": "In computer networking, what two components form a network 'socket'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A network socket is defined by the combination of an IP address (identifying the specific host interface) and a port number (identifying the specific process or service on that host), e.g., 192.168.1.50:443.",
+    "learning_objective": "Define the composition of a network socket.",
+    "options": [
+      {
+        "option_text": "An IP address combined with a port number",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A socket represents an endpoint of a two-way communication link: IP Address + Port."
+      },
+      {
+        "option_text": "A MAC address combined with an operating system license key",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Sockets are Layer 3/4 constructs independent of software licensing."
+      },
+      {
+        "option_text": "A username combined with a hashed password",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sockets identify network endpoints, not user identity credentials."
+      },
+      {
+        "option_text": "An electrical wall outlet combined with a surge protector",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "In networking software, a socket is an API communication endpoint."
+      }
+    ],
+    "tags": [
+      "ports-and-sockets",
+      "socket",
+      "fundamentals"
+    ]
+  },
+  {
+    "code": "PORT-021",
+    "topic_slug": "ports",
+    "question_text": "What range of port numbers is designated as 'Well-Known Ports' (system ports) by IANA?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Ports 0 through 1023 are classified as Well-Known Ports, reserved for privileged system services such as HTTP (80), HTTPS (443), SSH (22), and DNS (53).",
+    "learning_objective": "Recall the IANA well-known port range.",
+    "options": [
+      {
+        "option_text": "0 to 1023",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "0 to 1023 are Well-Known ports reserved for standard system protocols."
+      },
+      {
+        "option_text": "1024 to 49151",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "1024 to 49151 are Registered ports."
+      },
+      {
+        "option_text": "49152 to 65535",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "49152 to 65535 are Dynamic or Ephemeral ports."
+      },
+      {
+        "option_text": "1 to 65536",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The total 16-bit port range is 0 to 65535."
+      }
+    ],
+    "tags": [
+      "ports",
+      "iana",
+      "well-known-ports"
+    ]
+  },
+  {
+    "code": "PORT-022",
+    "topic_slug": "ports-and-sockets",
+    "question_text": "What term describes the temporary, high-numbered ports dynamically allocated by an operating system to outgoing client connections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Ephemeral (or dynamic) ports are high-numbered ports (typically 49152 to 65535) temporarily assigned by the client OS to identify an outbound connection session, and released once closed.",
+    "learning_objective": "Identify ephemeral port allocation.",
+    "options": [
+      {
+        "option_text": "Ephemeral (or dynamic) ports",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Ephemeral ports are short-lived client ports allocated from the dynamic range."
+      },
+      {
+        "option_text": "Static system ports",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Static ports (0-1023) are permanently bound to listening services."
+      },
+      {
+        "option_text": "Broadcast ports",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ports are transport endpoints, not broadcast addresses."
+      },
+      {
+        "option_text": "Serial COM ports",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "COM ports are physical serial hardware ports on motherboards."
+      }
+    ],
+    "tags": [
+      "ports",
+      "ephemeral-ports",
+      "sockets"
+    ]
+  },
+  {
+    "code": "PORT-023",
+    "topic_slug": "http",
+    "question_text": "What HTTP request method is standardly used by a web browser to request and retrieve a web page from a server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The HTTP GET method is used to retrieve data or resources (HTML documents, images, stylesheets) from a specified web server URI without altering server state.",
+    "learning_objective": "Identify the standard HTTP retrieval method.",
+    "options": [
+      {
+        "option_text": "GET",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "GET retrieves representation of resources from a web server."
+      },
+      {
+        "option_text": "POST",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "POST submits data to be processed by the server (e.g. form submissions)."
+      },
+      {
+        "option_text": "DELETE",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DELETE requests removal of a resource."
+      },
+      {
+        "option_text": "CONNECT",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "CONNECT is used to establish tunnels, typically for HTTPS proxies."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-methods",
+      "web"
+    ]
+  },
+  {
+    "code": "PORT-024",
+    "topic_slug": "http",
+    "question_text": "What HTTP response status code family indicates that a request was successfully received, understood, and processed?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "2xx status codes indicate Success. The most common is '200 OK', confirming that the web server successfully processed the request and is returning the payload.",
+    "learning_objective": "Recognize HTTP success status code ranges.",
+    "options": [
+      {
+        "option_text": "2xx (e.g., 200 OK)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "2xx status codes indicate successful HTTP transactions."
+      },
+      {
+        "option_text": "4xx (e.g., 404 Not Found)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "4xx indicates client-side errors."
+      },
+      {
+        "option_text": "5xx (e.g., 500 Internal Server Error)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "5xx indicates server-side errors."
+      },
+      {
+        "option_text": "3xx (e.g., 301 Moved Permanently)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "3xx indicates redirection."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "web"
+    ]
+  },
+  {
+    "code": "PORT-025",
+    "topic_slug": "http",
+    "question_text": "What does an HTTP '404 Not Found' status code signify?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A 404 status code is a client-side error indicating that the server could not find the specific resource or URL requested by the browser.",
+    "learning_objective": "Interpret HTTP 404 Not Found.",
+    "options": [
+      {
+        "option_text": "The web server could not find the requested webpage or resource at the specified URL",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "404 means the requested resource does not exist on the server."
+      },
+      {
+        "option_text": "The client's Ethernet cable has been disconnected",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Receiving a 404 proves that network connectivity to the server succeeded."
+      },
+      {
+        "option_text": "The user's computer processor is overheating",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HTTP status codes reflect web server resource states, not hardware temperatures."
+      },
+      {
+        "option_text": "The entire Internet has been deleted",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A 404 is an ordinary application error indicating a missing file."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PORT-026",
+    "topic_slug": "dns",
+    "question_text": "Which DNS record type maps a domain name to an IPv4 address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "An 'A' (Address) record maps a fully qualified domain name (FQDN) to its 32-bit IPv4 address (e.g. example.com -> 93.184.216.34).",
+    "learning_objective": "Identify IPv4 DNS address records.",
+    "options": [
+      {
+        "option_text": "A record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "An A record maps a domain name to an IPv4 address."
+      },
+      {
+        "option_text": "AAAA record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "An AAAA (quad-A) record maps a domain name to an IPv6 address."
+      },
+      {
+        "option_text": "MX record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "An MX record points to the mail server handling email for a domain."
+      },
+      {
+        "option_text": "PTR record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A PTR record maps an IP address back to a hostname (reverse DNS)."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dns-records",
+      "ipv4"
+    ]
+  },
+  {
+    "code": "PORT-027",
+    "topic_slug": "dns",
+    "question_text": "Which DNS record type maps a domain name to an IPv6 address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "An 'AAAA' record (quad-A) maps a domain name to a 128-bit IPv6 address (e.g. example.com -> 2606:2800:220:1:248:1893:25c8:1946).",
+    "learning_objective": "Identify IPv6 DNS address records.",
+    "options": [
+      {
+        "option_text": "AAAA record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "An AAAA record maps a domain name to an IPv6 address."
+      },
+      {
+        "option_text": "A record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "An A record maps to an IPv4 address."
+      },
+      {
+        "option_text": "CNAME record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "A CNAME record maps an alias hostname to a canonical hostname."
+      },
+      {
+        "option_text": "TXT record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A TXT record stores arbitrary text data (e.g., SPF, DKIM verification)."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dns-records",
+      "ipv6"
+    ]
+  },
+  {
+    "code": "PORT-028",
+    "topic_slug": "dns",
+    "question_text": "Which DNS record type specifies the mail servers responsible for accepting incoming email for a domain?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "MX (Mail Exchanger) records specify the mail servers authorized to accept incoming email messages for a domain, along with preference priorities.",
+    "learning_objective": "Identify mail exchanger DNS records.",
+    "options": [
+      {
+        "option_text": "MX record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MX records direct email traffic to designated mail servers."
+      },
+      {
+        "option_text": "A record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A records resolve web and general host IPv4 addresses."
+      },
+      {
+        "option_text": "NS record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NS records identify the authoritative nameservers for a zone."
+      },
+      {
+        "option_text": "SOA record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SOA records contain administrative and zone transfer parameters."
+      }
+    ],
+    "tags": [
+      "dns",
+      "mx-record",
+      "email"
+    ]
+  },
+  {
+    "code": "PORT-029",
+    "topic_slug": "dns",
+    "question_text": "What is the purpose of a DNS CNAME (Canonical Name) record?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A CNAME record creates an alias that points one domain name to another domain name (e.g., pointing 'www.example.com' to 'example.com'), rather than pointing directly to an IP address.",
+    "learning_objective": "Explain the function of DNS CNAME records.",
+    "options": [
+      {
+        "option_text": "To create an alias pointing one domain name to another canonical domain name",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "CNAME provides alias redirection to another domain name."
+      },
+      {
+        "option_text": "To permanently block all encrypted HTTPS traffic to a server",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DNS records resolve addresses; they do not enforce firewall blocks."
+      },
+      {
+        "option_text": "To assign a dynamic private IP address to a home printer",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP assigns IP addresses to printers."
+      },
+      {
+        "option_text": "To measure packet round-trip time between two servers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ping/ICMP measures round-trip latency."
+      }
+    ],
+    "tags": [
+      "dns",
+      "cname",
+      "dns-records"
+    ]
+  },
+  {
+    "code": "PORT-030",
+    "topic_slug": "ports",
+    "question_text": "What is the standard port used by Network Time Protocol (NTP) to synchronize system clocks across network devices?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Network Time Protocol (NTP) standardly uses UDP port 123 to synchronize device system clocks within milliseconds of Coordinated Universal Time (UTC).",
+    "learning_objective": "Recall the standard UDP port for NTP.",
+    "options": [
+      {
+        "option_text": "UDP port 123",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UDP port 123 is the standard port for Network Time Protocol (NTP)."
+      },
+      {
+        "option_text": "TCP port 25",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 25 is SMTP."
+      },
+      {
+        "option_text": "UDP port 69",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "UDP port 69 is TFTP."
+      },
+      {
+        "option_text": "TCP port 110",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP port 110 is POP3."
+      }
+    ],
+    "tags": [
+      "ports",
+      "ntp",
+      "time-synchronization"
+    ]
+  },
+  {
+    "code": "PORT-031",
+    "topic_slug": "ports",
+    "question_text": "Why is accurate time synchronization via NTP critically important in cybersecurity incident investigation?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Incident responders correlate log events across firewalls, servers, and endpoint detection agents. If clocks are out of sync, constructing an accurate chronological timeline of an attacker's actions is impossible.",
+    "learning_objective": "Explain the security value of synchronized system time.",
+    "options": [
+      {
+        "option_text": "It ensures log timestamps across all firewalls, servers, and sensors align accurately to construct reliable attack timelines",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Accurate log timeline correlation across dispersed systems is essential for incident forensics."
+      },
+      {
+        "option_text": "It automatically disables all user passwords after 5:00 PM every evening",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "NTP synchronizes time; it does not manage password expiry rules."
+      },
+      {
+        "option_text": "It increases the physical download speed of large video files",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NTP synchronization has no effect on network transmission throughput."
+      },
+      {
+        "option_text": "It prevents computers from being affected by electrical power outages",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NTP is a software time protocol, not an electrical power battery."
+      }
+    ],
+    "tags": [
+      "ntp",
+      "soc",
+      "incident-investigation",
+      "timestamps"
+    ]
+  },
+  {
+    "code": "PORT-032",
+    "topic_slug": "ports",
+    "question_text": "Which port and protocol is standardly used by Simple Network Management Protocol (SNMP) agents to receive queries from management stations?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "SNMP agents listen for polling queries from Network Management Stations (NMS) on UDP port 161. (Unsolicited SNMP Traps are sent to NMS on UDP port 162).",
+    "learning_objective": "Identify the standard port for SNMP.",
+    "options": [
+      {
+        "option_text": "UDP port 161",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UDP port 161 is standard for SNMP agent polling queries."
+      },
+      {
+        "option_text": "TCP port 443",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 443 is HTTPS."
+      },
+      {
+        "option_text": "UDP port 53",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "UDP port 53 is DNS."
+      },
+      {
+        "option_text": "TCP port 22",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP port 22 is SSH."
+      }
+    ],
+    "tags": [
+      "ports",
+      "snmp",
+      "network-monitoring"
+    ]
+  },
+  {
+    "code": "PORT-033",
+    "topic_slug": "tcp-basics",
+    "question_text": "Which TCP flag is sent by a host to immediately and abruptly abort/reset an invalid or unrecognized connection?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The RST (Reset) flag is sent to immediately tear down a connection, commonly when a packet arrives for a closed port or an invalid TCP state occurs.",
+    "learning_objective": "Identify the function of the TCP RST flag.",
+    "options": [
+      {
+        "option_text": "RST (Reset)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RST abruptly terminates or rejects a TCP connection."
+      },
+      {
+        "option_text": "SYN (Synchronize)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN initiates a connection."
+      },
+      {
+        "option_text": "ACK (Acknowledge)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ACK acknowledges received data."
+      },
+      {
+        "option_text": "URG (Urgent)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "URG marks data that should be processed urgently."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "reset"
+    ]
+  },
+  {
+    "code": "PORT-034",
+    "topic_slug": "tcp-basics",
+    "question_text": "Which TCP flag is used to gracefully initiate the termination of a connection once all data has been sent?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The FIN (Finish) flag is transmitted by a host when it has finished sending data, initiating the graceful 4-step TCP connection teardown sequence.",
+    "learning_objective": "Identify the TCP flag for graceful termination.",
+    "options": [
+      {
+        "option_text": "FIN (Finish)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "FIN indicates that the sender has finished transmitting data."
+      },
+      {
+        "option_text": "SYN (Synchronize)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN is used for connection startup."
+      },
+      {
+        "option_text": "PSH (Push)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PSH informs the receiver to push data directly to the application."
+      },
+      {
+        "option_text": "RST (Reset)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "RST is an abrupt forced termination."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "fin"
+    ]
+  },
+  {
+    "code": "PORT-035",
+    "topic_slug": "ports",
+    "question_text": "What is the standard TCP port used by Microsoft Remote Desktop Protocol (RDP) for graphical desktop access?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "TCP port 3389 is the default port for Microsoft Remote Desktop Protocol (RDP), allowing users and administrators to connect graphically to remote Windows workstations and servers.",
+    "learning_objective": "Recall the standard port for Microsoft RDP.",
+    "options": [
+      {
+        "option_text": "TCP port 3389",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP port 3389 is the default port for RDP."
+      },
+      {
+        "option_text": "TCP port 22",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 22 is SSH (command line)."
+      },
+      {
+        "option_text": "TCP port 443",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP port 443 is HTTPS."
+      },
+      {
+        "option_text": "TCP port 80",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP port 80 is HTTP."
+      }
+    ],
+    "tags": [
+      "ports",
+      "rdp",
+      "remote-access"
+    ]
+  }
+]

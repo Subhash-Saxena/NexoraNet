@@ -1,0 +1,74 @@
+# ==============================================================================
+# NexoraNet - Production Docker Compose Definition
+# Includes PostgreSQL 16, Multi-stage Hardened Backend, and Nginx Frontend
+# ==============================================================================
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: nexoranet-prod-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-nexora}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nexora_secure_prod_pass_2026}
+      POSTGRES_DB: ${POSTGRES_DB:-nexoranet}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nexora} -d ${POSTGRES_DB:-nexoranet}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - nexoranet-prod-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.prod.Dockerfile
+    container_name: nexoranet-prod-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      ENVIRONMENT: production
+      DEBUG: "False"
+      BACKEND_HOST: 0.0.0.0
+      BACKEND_PORT: 8000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-nexora}:${POSTGRES_PASSWORD:-nexora_secure_prod_pass_2026}@db:5432/${POSTGRES_DB:-nexoranet}
+      SECRET_KEY: ${SECRET_KEY:-nexoranet-production-super-secret-key-at-least-32-chars-long}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-nexoranet-production-super-secret-key-at-least-32-chars-long}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://nexoranet.internal}
+      DB_POOL_SIZE: 10
+      DB_MAX_OVERFLOW: 20
+      RATE_LIMIT_LOGIN_PER_MINUTE: 10
+      RATE_LIMIT_FLAG_PER_MINUTE: 30
+      LAB_ALLOWED_SUBNET: 10.99.0.0/16
+    networks:
+      - nexoranet-prod-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.prod.Dockerfile
+      args:
+        VITE_API_URL: /api/v1
+    container_name: nexoranet-prod-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - nexoranet-prod-net
+
+networks:
+  nexoranet-prod-net:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local

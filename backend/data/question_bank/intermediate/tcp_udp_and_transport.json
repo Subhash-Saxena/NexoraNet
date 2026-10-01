@@ -1,0 +1,1569 @@
+[
+  {
+    "code": "TCP-001",
+    "topic_slug": "tcp-three-way-handshake",
+    "question_text": "In step 1 of the TCP three-way handshake, what sequence number does the initiating client send to the server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The client generates a pseudo-random Initial Sequence Number (ISN) to prevent sequence prediction attacks, and sets the SYN control flag in the TCP header.",
+    "learning_objective": "Explain initial sequence number generation in TCP.",
+    "options": [
+      {
+        "option_text": "A randomized Initial Sequence Number (ISN) selected by the client operating system",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Modern operating systems randomize the ISN to protect against TCP sequence prediction and session hijacking."
+      },
+      {
+        "option_text": "Always the number 0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Using static 0 was an early vulnerability; RFC 6528 mandates pseudo-randomized ISNs."
+      },
+      {
+        "option_text": "The client's physical MAC address",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sequence numbers are 32-bit integers tracking byte offsets, not 48-bit MAC addresses."
+      },
+      {
+        "option_text": "The total number of packets remaining on the hard drive",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Sequence numbers track transmission bytes, not disk storage capacity."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "three-way-handshake",
+      "isn",
+      "security"
+    ]
+  },
+  {
+    "code": "TCP-002",
+    "topic_slug": "tcp-three-way-handshake",
+    "question_text": "In step 2 of the TCP three-way handshake, what value does the server return in the Acknowledgment Number field?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The server acknowledges the client's SYN by sending an Acknowledgment number equal to the client's Initial Sequence Number plus 1 (ISN_client + 1), signaling the next expected byte.",
+    "learning_objective": "Calculate expected TCP acknowledgment values.",
+    "options": [
+      {
+        "option_text": "Client's Initial Sequence Number plus 1 (Client_ISN + 1)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP acknowledges consumed control flags (SYN and FIN) by adding 1 to the received sequence number."
+      },
+      {
+        "option_text": "Client's Initial Sequence Number minus 1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Acknowledgment numbers indicate the NEXT expected byte and advance forward, never backward."
+      },
+      {
+        "option_text": "The server's own Initial Sequence Number",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The server's ISN is placed in the Sequence Number field, not the Acknowledgment Number field."
+      },
+      {
+        "option_text": "Always decimal 80",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "80 is the HTTP port number, not a dynamic TCP sequence/ack value."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "three-way-handshake",
+      "ack",
+      "sequence-numbers"
+    ]
+  },
+  {
+    "code": "TCP-003",
+    "topic_slug": "tcp-flags",
+    "question_text": "Which combination of TCP control flags is set in the packet sent by a server during step 2 of the 3-way handshake?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "During step 2, the server sets both SYN (to synchronize its own sequence number) and ACK (to acknowledge receipt of the client's SYN).",
+    "learning_objective": "Identify flags set in the second step of the TCP handshake.",
+    "options": [
+      {
+        "option_text": "SYN and ACK",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The server sets both SYN (synchronize) and ACK (acknowledge) flags."
+      },
+      {
+        "option_text": "SYN and FIN",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN and FIN are never set simultaneously in legitimate traffic (historically seen in malicious port scans)."
+      },
+      {
+        "option_text": "ACK and RST",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "RST indicates connection refusal or abort."
+      },
+      {
+        "option_text": "PSH and URG",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "PSH and URG are data transfer flags, not connection establishment flags."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "three-way-handshake"
+    ]
+  },
+  {
+    "code": "TCP-004",
+    "topic_slug": "tcp-flags",
+    "question_text": "What is the security significance of observing a packet with both SYN and FIN flags set simultaneously?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "SYN (open connection) and FIN (close connection) are mutually exclusive under standard RFC 793 state logic. Packets with both flags set represent a SYN-FIN scan designed to evade primitive firewall inspection or fingerprint operating systems.",
+    "learning_objective": "Recognize abnormal TCP flag combinations used in reconnaissance.",
+    "options": [
+      {
+        "option_text": "It is an illegal flag combination often used in stealth port scans to fingerprint OS stacks or evade stateless firewalls",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RFC 793 defines SYN and FIN as logically incompatible; seeing them indicates adversarial probing."
+      },
+      {
+        "option_text": "It indicates that the connection has been successfully upgraded to fiber optics",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP flags are transport layer control bits independent of physical media."
+      },
+      {
+        "option_text": "It is standard behavior when streaming high-definition 4K video",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Video streaming uses standard TCP data segments or UDP."
+      },
+      {
+        "option_text": "It proves the packet was generated by an authorized DNS root server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS servers never generate SYN-FIN packets."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "reconnaissance",
+      "security",
+      "firewall-evasion"
+    ]
+  },
+  {
+    "code": "TCP-005",
+    "topic_slug": "tcp-flags",
+    "question_text": "Which TCP flag informs the receiving host that incoming segment data should be pushed immediately to the application without waiting for buffers to fill?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The PSH (Push) flag requests that the receiving TCP stack bypass its internal buffering thresholds and pass the data immediately up to the listening application process (common in interactive SSH or Telnet sessions).",
+    "learning_objective": "Identify the role of the TCP PSH flag.",
+    "options": [
+      {
+        "option_text": "PSH (Push)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PSH tells the receiver to empty its buffer and push data immediately to the application."
+      },
+      {
+        "option_text": "URG (Urgent)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "URG marks the presence of urgent out-of-band data via the urgent pointer."
+      },
+      {
+        "option_text": "FIN (Finish)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "FIN signals graceful connection closing."
+      },
+      {
+        "option_text": "SYN (Synchronize)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SYN synchronizes sequence numbers at startup."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "psh",
+      "buffering"
+    ]
+  },
+  {
+    "code": "TCP-006",
+    "topic_slug": "tcp-connection-termination",
+    "question_text": "How many packets are standardly exchanged during a graceful TCP connection teardown?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A standard graceful TCP termination is a four-way handshake: 1. Host A sends FIN, 2. Host B sends ACK, 3. Host B sends its own FIN, 4. Host A sends final ACK. (In some implementations, steps 2 and 3 can be combined into a single FIN-ACK, creating a 3-way teardown).",
+    "learning_objective": "Recall standard TCP connection termination exchange.",
+    "options": [
+      {
+        "option_text": "4 packets (FIN, ACK, FIN, ACK)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP is full-duplex; each direction must be closed independently with a FIN and ACK."
+      },
+      {
+        "option_text": "2 packets (FIN, ACK)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "2 packets would only close one half of the bidirectional TCP stream."
+      },
+      {
+        "option_text": "3 packets (SYN, SYN-ACK, ACK)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is the 3-way connection ESTABLISHMENT handshake."
+      },
+      {
+        "option_text": "1 packet (RST)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "A single RST is an abrupt forced abort, not a graceful teardown."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "connection-termination",
+      "fin-ack"
+    ]
+  },
+  {
+    "code": "TCP-007",
+    "topic_slug": "tcp-connection-termination",
+    "question_text": "What is the purpose of the TIME_WAIT state in the TCP state machine on the endpoint that initiated an active close?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "TIME_WAIT ensures that the final ACK was received by the remote endpoint (giving time to re-send the ACK if the remote peer retransmits its FIN), and allows any lingering duplicate packets from the connection to expire on the network before the port can be reused.",
+    "learning_objective": "Explain the technical rationale for the TCP TIME_WAIT state.",
+    "options": [
+      {
+        "option_text": "To ensure the remote peer received the final ACK and to prevent lingering duplicate packets from corrupting a future new connection",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TIME_WAIT lasts 2 * MSL (Maximum Segment Lifetime) to safely drain in-flight packets."
+      },
+      {
+        "option_text": "To wait for the user to type their username and password again",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TIME_WAIT is a kernel transport state independent of user authentication."
+      },
+      {
+        "option_text": "To allow the CPU fan to cool down the processor",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP states manage protocol packets, not cooling hardware."
+      },
+      {
+        "option_text": "To notify the local router to reboot its firmware",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Routers do not reboot when transport connections terminate."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "time-wait",
+      "tcp-state-machine",
+      "architecture"
+    ]
+  },
+  {
+    "code": "TCP-008",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the primary function of the TCP 'Window Size' field located in the TCP header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Window Size is used for Flow Control. It informs the sender how many bytes of data the receiver's buffer is currently prepared to accept before requiring an acknowledgment, preventing buffer overflow.",
+    "learning_objective": "Explain TCP flow control via sliding window.",
+    "options": [
+      {
+        "option_text": "To advertise the number of bytes the receiving buffer can accept before requiring an acknowledgment (Flow Control)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The receiver dynamically advertises its window size to throttle sender throughput to match its buffer capacity."
+      },
+      {
+        "option_text": "To specify the physical size in inches of the user's computer screen",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Window size refers to network buffer bytes, not display monitors."
+      },
+      {
+        "option_text": "To indicate how many web browser tabs can be opened simultaneously",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport window size has no relation to browser UI tabs."
+      },
+      {
+        "option_text": "To set the expiration date of the server's SSL certificate",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Certificates are application/TLS credentials with dates in X.509 format."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "flow-control",
+      "sliding-window"
+    ]
+  },
+  {
+    "code": "TCP-009",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the difference between TCP Flow Control and TCP Congestion Control?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Flow Control prevents the sender from overwhelming the RECEIVING HOST'S buffer (managed by advertised Window Size). Congestion Control prevents the sender from overwhelming the INTERVENING NETWORK routers and links (managed by Congestion Window / cwnd).",
+    "learning_objective": "Contrast Flow Control and Congestion Control in TCP.",
+    "options": [
+      {
+        "option_text": "Flow control protects the receiver from buffer overflow; congestion control protects intermediate network links and routers from saturation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Flow control is end-to-end between endpoints; congestion control adapts to network bottleneck capacity."
+      },
+      {
+        "option_text": "Flow control is used only in IPv4; congestion control is used only in IPv6",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both mechanisms operate across all modern IP networks."
+      },
+      {
+        "option_text": "Flow control encrypts the packet; congestion control decrypts the packet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Neither mechanism provides cryptographic encryption."
+      },
+      {
+        "option_text": "Flow control requires satellite dishes; congestion control uses copper wire",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Both are transport algorithms independent of physical media."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "flow-control",
+      "congestion-control"
+    ]
+  },
+  {
+    "code": "TCP-010",
+    "topic_slug": "tcp-basics",
+    "question_text": "What happens when a TCP sender does not receive an acknowledgment (ACK) for a transmitted segment before its Retransmission Timeout (RTO) expires?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "If the RTO timer expires without receiving an ACK, TCP assumes the segment was lost or corrupted in transit and automatically retransmits the unacknowledged segment while reducing its congestion window.",
+    "learning_objective": "Describe TCP segment retransmission behavior.",
+    "options": [
+      {
+        "option_text": "It assumes the segment was lost and automatically retransmits it while backing off its transmission rate",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP reliability guarantees delivery through timer-based retransmissions upon packet loss."
+      },
+      {
+        "option_text": "It immediately crashes the operating system with a blue screen",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Packet loss is an expected condition handled gracefully by TCP."
+      },
+      {
+        "option_text": "It switches the entire connection permanently to UDP",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP connections cannot dynamically morph into UDP sockets."
+      },
+      {
+        "option_text": "It sends a physical electrical shock through the Ethernet cable",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Networking hardware strictly adheres to safe low-voltage telecommunication limits."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "retransmission",
+      "reliability",
+      "rto"
+    ]
+  },
+  {
+    "code": "TCP-011",
+    "topic_slug": "tcp-flags",
+    "question_text": "How does a SYN Flood Denial of Service attack exploit the standard TCP three-way handshake?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "The attacker sends a deluge of TCP SYN packets with spoofed source IP addresses. The target server allocates memory in its SYN backlog queue and sends SYN-ACKs that never receive the final ACK, eventually filling the connection backlog and rejecting legitimate users.",
+    "learning_objective": "Analyze the mechanics of a TCP SYN Flood attack.",
+    "options": [
+      {
+        "option_text": "The attacker sends numerous SYN packets with spoofed source IPs, filling the server's half-open connection queue (SYN backlog) so legitimate requests are dropped",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SYN floods exhaust kernel memory buffers (backlog queue) by leaving connections in SYN_RECEIVED state."
+      },
+      {
+        "option_text": "The attacker sends a giant physical surge of AC electricity that burns out the server's network card",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN flood is a logical protocol resource exhaustion attack, not an electrical power surge."
+      },
+      {
+        "option_text": "The attacker decrypts the server's private SSH key using rainbow tables",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SYN floods do not involve cryptographic key cracking."
+      },
+      {
+        "option_text": "The attacker deletes all DNS records for the root domain of the Internet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SYN floods target a specific host's transport stack, not global DNS registries."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "syn-flood",
+      "ddos",
+      "security",
+      "soc"
+    ]
+  },
+  {
+    "code": "TCP-012",
+    "topic_slug": "tcp-flags",
+    "question_text": "Which defensive mechanism was specifically developed to mitigate TCP SYN flood attacks without consuming server memory for half-open connections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "SYN Cookies encode the connection state (client IP, client port, server secret) cryptographically into the server's Initial Sequence Number (ISN) in the SYN-ACK response, allowing the server to avoid allocating memory until the client's final ACK arrives.",
+    "learning_objective": "Explain the defensive function of SYN Cookies.",
+    "options": [
+      {
+        "option_text": "SYN Cookies",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SYN cookies avoid allocating kernel memory until the final ACK arrives, neutralizing SYN backlog exhaustion."
+      },
+      {
+        "option_text": "Traceroute",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Traceroute is a path diagnostic tool."
+      },
+      {
+        "option_text": "ARP Spoofing",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ARP spoofing is an attack, not a defensive measure."
+      },
+      {
+        "option_text": "Cat6 Shielded Cabling",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Cabling shielding prevents electromagnetic interference, not transport protocol floods."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "syn-cookies",
+      "ddos-mitigation",
+      "defense"
+    ]
+  },
+  {
+    "code": "TCP-013",
+    "topic_slug": "udp-communication",
+    "question_text": "How large is the standard User Datagram Protocol (UDP) header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The UDP header consists of exactly 8 bytes (64 bits), structured into four 2-byte fields: Source Port, Destination Port, Length, and Checksum.",
+    "learning_objective": "Recall the size and fields of the UDP header.",
+    "options": [
+      {
+        "option_text": "8 bytes (64 bits)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The UDP header is a lightweight 8 bytes containing Source Port, Destination Port, Length, and Checksum."
+      },
+      {
+        "option_text": "20 bytes (160 bits)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "20 bytes is the minimum size of a standard TCP or IPv4 header without options."
+      },
+      {
+        "option_text": "48 bytes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "48 bits (6 bytes) is a MAC address, not a UDP header."
+      },
+      {
+        "option_text": "64 bytes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "64 bytes is the minimum Ethernet frame size."
+      }
+    ],
+    "tags": [
+      "udp",
+      "udp-header",
+      "transport-layer"
+    ]
+  },
+  {
+    "code": "TCP-014",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the minimum header size of a standard TCP segment without optional header fields?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A standard TCP header with no options is exactly 20 bytes (160 bits). With options (such as Maximum Segment Size, Timestamps, Window Scaling), it can extend up to 60 bytes.",
+    "learning_objective": "Recall the minimum TCP header size.",
+    "options": [
+      {
+        "option_text": "20 bytes",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The minimum standard TCP header is 20 bytes."
+      },
+      {
+        "option_text": "8 bytes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "8 bytes is the size of a UDP header."
+      },
+      {
+        "option_text": "14 bytes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "14 bytes is the size of a standard Ethernet header without 802.1Q tags."
+      },
+      {
+        "option_text": "40 bytes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "40 bytes is the fixed header size of IPv6."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-header",
+      "transport-layer"
+    ]
+  },
+  {
+    "code": "TCP-015",
+    "topic_slug": "tcp-flags",
+    "question_text": "When a client sends a TCP SYN packet to a port on a server where no service is actively listening, what response does the server standardly return?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Under RFC 793, if a segment arrives addressed to a closed port, the host operating system returns a TCP segment with the RST (Reset) and ACK flags set to notify the client that the port is closed and refuse connection.",
+    "learning_objective": "Predict the response from a closed TCP port.",
+    "options": [
+      {
+        "option_text": "A TCP packet with the RST and ACK flags set (RST/ACK)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A closed port responds with RST/ACK to reject the connection attempt."
+      },
+      {
+        "option_text": "A TCP SYN-ACK packet accepting the connection",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN-ACK is returned only when a service is actively listening on the port."
+      },
+      {
+        "option_text": "An ICMP Echo Reply message",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ICMP Echo Reply responds to Echo Request (ping), not TCP SYN packets."
+      },
+      {
+        "option_text": "The server shuts down its power supply immediately",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Operating systems routinely reject closed port probes via RST."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "rst",
+      "closed-port",
+      "port-scanning"
+    ]
+  },
+  {
+    "code": "TCP-016",
+    "topic_slug": "tcp-flags",
+    "question_text": "When a client sends a UDP packet to a destination port on a server where no application is listening, what ICMP message is standardly returned by the host?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Because UDP has no built-in connection handshake or RST mechanism, the operating system's IP stack returns an ICMP Type 3, Code 3 message: Destination Unreachable (Port Unreachable).",
+    "learning_objective": "Identify the error returned by a closed UDP port.",
+    "options": [
+      {
+        "option_text": "ICMP Destination Unreachable \u2014 Port Unreachable (Type 3, Code 3)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Closed UDP ports trigger ICMP Port Unreachable responses from the target OS."
+      },
+      {
+        "option_text": "TCP RST/ACK segment",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "UDP does not use TCP control segments."
+      },
+      {
+        "option_text": "HTTP 404 Not Found error",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HTTP 404 is an application-layer web response, not a transport-layer port failure."
+      },
+      {
+        "option_text": "An ARP Reply with MAC 00:00:00:00:00:00",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ARP resolves IP to MAC; it does not report UDP port status."
+      }
+    ],
+    "tags": [
+      "udp",
+      "icmp",
+      "port-unreachable",
+      "port-scanning"
+    ]
+  },
+  {
+    "code": "TCP-017",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the role of the Maximum Segment Size (MSS) negotiated in TCP SYN options?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "MSS defines the largest amount of data (payload only, excluding IP and TCP headers) that a device is willing to receive in a single TCP segment, typically derived from MTU (e.g. 1500 byte MTU - 20 IP - 20 TCP = 1460 byte MSS).",
+    "learning_objective": "Explain TCP Maximum Segment Size calculation.",
+    "options": [
+      {
+        "option_text": "The largest payload data size in bytes a host can receive in a single segment without fragmentation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Standard Ethernet 1500 MTU yields an MSS of 1460 bytes (1500 - 40 bytes header overhead)."
+      },
+      {
+        "option_text": "The total number of computers allowed on an enterprise Wi-Fi network",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MSS is a byte size parameter for TCP segments, not a host count limit."
+      },
+      {
+        "option_text": "The physical length in millimeters of the CPU processor chip",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MSS is a network transport parameter."
+      },
+      {
+        "option_text": "The maximum number of characters permitted in an email password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Password limits are application security policies."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "mss",
+      "mtu",
+      "segmentation"
+    ]
+  },
+  {
+    "code": "TCP-018",
+    "topic_slug": "ports-and-sockets",
+    "question_text": "Which command on a Linux or Windows terminal displays all actively listening ports and established TCP connections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "'netstat -ano' (or 'ss -tulpn' on modern Linux) displays active listening sockets, foreign addresses, connection states (ESTABLISHED, LISTENING, TIME_WAIT), and process IDs.",
+    "learning_objective": "Recall terminal commands to inspect socket connections.",
+    "options": [
+      {
+        "option_text": "netstat -ano (or 'ss -tulpn' on Linux)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Netstat and ss display active listening ports and established connection tables."
+      },
+      {
+        "option_text": "ipconfig /renew",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Ipconfig /renew requests a new DHCP lease from the DHCP server."
+      },
+      {
+        "option_text": "ping 127.0.0.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ping tests loopback IP stack functionality."
+      },
+      {
+        "option_text": "tracert -d 8.8.8.8",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Tracert maps router hops along a network path."
+      }
+    ],
+    "tags": [
+      "ports-and-sockets",
+      "netstat",
+      "ss",
+      "cli",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "TCP-019",
+    "topic_slug": "tcp-basics",
+    "question_text": "In a TCP header, how many bits are allocated to the Source Port and Destination Port fields?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Both Source Port and Destination Port in TCP (and UDP) are 16-bit fields ($2^{16} = 65,536$ possible port numbers, ranging from 0 to 65535).",
+    "learning_objective": "Recall bit size of transport layer port fields.",
+    "options": [
+      {
+        "option_text": "16 bits each (supporting ports 0 to 65535)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "16 bits yields 65,536 total port numbers per IP address."
+      },
+      {
+        "option_text": "32 bits each",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "32 bits is the size of the Sequence Number and Acknowledgment Number fields."
+      },
+      {
+        "option_text": "8 bits each",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "8 bits is the size of an IPv4 octet (0-255)."
+      },
+      {
+        "option_text": "48 bits each",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "48 bits is the length of an Ethernet MAC address."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "ports",
+      "tcp-header"
+    ]
+  },
+  {
+    "code": "TCP-020",
+    "topic_slug": "tcp-flags",
+    "question_text": "What is the primary role of the TCP Urgent Pointer (URG flag)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The URG flag indicates that the 16-bit Urgent Pointer field is valid and points to the last byte of urgent, out-of-band data that the receiving process should evaluate immediately (e.g. an interrupt signal in Telnet/FTP).",
+    "learning_objective": "Explain the function of the TCP URG flag.",
+    "options": [
+      {
+        "option_text": "It indicates that the Urgent Pointer field is valid, pointing to out-of-band data requiring immediate attention",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "URG signals that urgent control data takes priority over normal buffered stream data."
+      },
+      {
+        "option_text": "It instructs the sender to double the transmission voltage on the wire",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Transport protocols cannot alter electrical voltage."
+      },
+      {
+        "option_text": "It deletes all logs stored on the local router",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "URG is a stream processing flag, not a log deletion command."
+      },
+      {
+        "option_text": "It forces all web browsers to switch to night mode",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "UI themes are browser/operating system settings."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-flags",
+      "urg"
+    ]
+  },
+  {
+    "code": "TCP-021",
+    "topic_slug": "tcp-basics",
+    "question_text": "What does the TCP Cumulative Acknowledgment scheme mean?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Cumulative ACK means an ACK number $N$ acknowledges that all bytes up to $N - 1$ have been successfully received, and that the receiver is ready to receive byte $N$.",
+    "learning_objective": "Explain cumulative acknowledgment mechanics.",
+    "options": [
+      {
+        "option_text": "An ACK with value N informs the sender that all bytes prior to N have been successfully received",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Cumulative ACK implicitly confirms all preceding bytes without needing individual ACKs for every byte."
+      },
+      {
+        "option_text": "The receiver only acknowledges packets once a week",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ACKs are sent within milliseconds or delayed ACK intervals."
+      },
+      {
+        "option_text": "The sender must re-send every single packet sent since the connection began",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That would defeat the efficiency of sliding window protocols."
+      },
+      {
+        "option_text": "The ACK packet contains a physical signature from the CEO of the company",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ACKs are automated cryptographic or protocol-level acknowledgments."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "ack",
+      "cumulative-ack",
+      "reliability"
+    ]
+  },
+  {
+    "code": "TCP-022",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is Selective Acknowledgment (SACK / RFC 2018) in TCP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "SACK allows a receiver to inform the sender about non-contiguous blocks of data that were received successfully, enabling the sender to retransmit only the specific missing segments rather than an entire window.",
+    "learning_objective": "Explain the optimization provided by TCP SACK.",
+    "options": [
+      {
+        "option_text": "It allows the receiver to report non-contiguous received blocks, enabling the sender to retransmit only missing segments",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SACK prevents wasteful retransmission of packets that were already received intact."
+      },
+      {
+        "option_text": "It encrypts email passwords with quantum key distribution",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SACK is an unencrypted transport reliability optimization."
+      },
+      {
+        "option_text": "It allows routers to delete packets when network traffic is low",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Routers do not delete valid packets unnecessarily."
+      },
+      {
+        "option_text": "It replaces all copper wires with laser beams",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SACK is a software protocol option."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "sack",
+      "performance",
+      "retransmission"
+    ]
+  },
+  {
+    "code": "TCP-023",
+    "topic_slug": "tcp-connection-termination",
+    "question_text": "A network engineer observes multiple sockets in the 'CLOSE_WAIT' state on a web server. What does this condition typically indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "CLOSE_WAIT indicates that the remote peer sent a FIN and the local OS acknowledged it, but the local application process has not yet called close() on the socket to send its own FIN. High numbers of CLOSE_WAIT sockets indicate an application-level bug or resource leak.",
+    "learning_objective": "Diagnose sockets hanging in CLOSE_WAIT.",
+    "options": [
+      {
+        "option_text": "The remote client closed the connection, but the local application process has not yet closed its socket (application bug or thread leak)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "CLOSE_WAIT represents a local application failing to call close() on its socket handles."
+      },
+      {
+        "option_text": "The physical Ethernet cable has been eaten by rodents",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "CLOSE_WAIT is a protocol state in the local kernel, not physical wire damage."
+      },
+      {
+        "option_text": "The server has successfully completed an automated antivirus update",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Connection states are unrelated to antivirus updates."
+      },
+      {
+        "option_text": "The ISP has doubled the server's public IP address pool",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "CLOSE_WAIT reflects local process socket handling."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "close-wait",
+      "troubleshooting",
+      "application-leak"
+    ]
+  },
+  {
+    "code": "TCP-024",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is Nagle's algorithm designed to prevent in TCP communication?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Nagle's algorithm (RFC 896) prevents the 'small-packet problem' by buffering small outgoing payloads and combining them into a single larger segment until an ACK is received, preventing 40-byte headers for 1-byte keystrokes.",
+    "learning_objective": "Explain the purpose of Nagle's algorithm.",
+    "options": [
+      {
+        "option_text": "To prevent sending many tiny packets with large header overhead by buffering small outgoing payloads until an ACK is received",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Nagle's algorithm improves efficiency by combining small packets into full MSS segments."
+      },
+      {
+        "option_text": "To encrypt passwords using hashing algorithms",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Nagle's algorithm is a buffering efficiency algorithm, not cryptography."
+      },
+      {
+        "option_text": "To assign dynamic IP addresses to printer servers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP assigns IP addresses."
+      },
+      {
+        "option_text": "To format computer hard drives during network boot",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Nagle's algorithm operates on outbound transport buffers."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "nagle-algorithm",
+      "optimization"
+    ]
+  },
+  {
+    "code": "TCP-025",
+    "topic_slug": "tcp-basics",
+    "question_text": "Which TCP socket option disables Nagle's algorithm for low-latency interactive applications (like gaming or real-time trading)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Setting the 'TCP_NODELAY' socket option disables Nagle's algorithm, forcing segments to be transmitted immediately without buffering delays.",
+    "learning_objective": "Identify the socket option that disables Nagle's algorithm.",
+    "options": [
+      {
+        "option_text": "TCP_NODELAY",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP_NODELAY disables Nagle's algorithm to prioritize immediate transmission over bandwidth efficiency."
+      },
+      {
+        "option_text": "SO_KEEPALIVE",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SO_KEEPALIVE sends periodic probes on idle connections."
+      },
+      {
+        "option_text": "SO_REUSEADDR",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SO_REUSEADDR allows binding to a port currently in TIME_WAIT."
+      },
+      {
+        "option_text": "TCP_MAXSEG",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP_MAXSEG sets the maximum segment size."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "tcp-nodelay",
+      "socket-options"
+    ]
+  },
+  {
+    "code": "TCP-026",
+    "topic_slug": "udp-communication",
+    "question_text": "Why does User Datagram Protocol (UDP) NOT implement a three-way handshake?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "UDP is fundamentally connectionless. It simply wraps application data with an 8-byte header and sends it immediately to the network layer without establishing or maintaining session state.",
+    "learning_objective": "Explain why UDP operates without connection handshakes.",
+    "options": [
+      {
+        "option_text": "UDP is connectionless; it transmits datagrams immediately without establishing or maintaining session state",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UDP eliminates handshake latency by treating every datagram as an independent transmission."
+      },
+      {
+        "option_text": "UDP was designed before handshakes were invented by mathematicians",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Handshakes existed in early ARPANET protocols prior to UDP."
+      },
+      {
+        "option_text": "UDP cables do not have enough copper wires to transmit handshakes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport protocols run over the exact same physical network infrastructure."
+      },
+      {
+        "option_text": "Handshakes are strictly illegal in real-time gaming protocols",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Handshakes are not illegal; they simply introduce latency unsuited for real-time traffic."
+      }
+    ],
+    "tags": [
+      "udp",
+      "connectionless",
+      "transport-layer"
+    ]
+  },
+  {
+    "code": "TCP-027",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the role of the 32-bit Acknowledgment Number in a TCP header during active data transfer?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The Acknowledgment Number specifies the sequence number of the next byte of data that the receiver expects to receive from the sender.",
+    "learning_objective": "Explain the meaning of the TCP acknowledgment number during data transfer.",
+    "options": [
+      {
+        "option_text": "It indicates the next byte sequence number the receiver is expecting to receive from the sender",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Acknowledgment numbers point forward to the next expected byte in the stream."
+      },
+      {
+        "option_text": "It counts the total number of errors detected in the physical copper cable",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Error counts are tracked by interface counters, not TCP ack numbers."
+      },
+      {
+        "option_text": "It indicates the price of the server in United States dollars",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP headers contain transport protocol metadata, not accounting data."
+      },
+      {
+        "option_text": "It records the serial number of the client's hard drive",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP headers do not store local hardware serial numbers."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "ack",
+      "sequence-numbers"
+    ]
+  },
+  {
+    "code": "TCP-028",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is TCP 'Keep-Alive' and what is its primary purpose?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "TCP Keep-Alive sends small empty probe segments across an idle connection at periodic intervals to verify that the remote peer is still alive and responsive, and to prevent stateful NAT/firewalls from timing out the session.",
+    "learning_objective": "Explain the function of TCP Keep-Alive probes.",
+    "options": [
+      {
+        "option_text": "Periodic empty probe segments sent on idle connections to verify the remote peer is reachable and keep firewall state tables open",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Keep-Alives maintain stateful firewall sessions and detect dead peers on long-lived connections."
+      },
+      {
+        "option_text": "A hardware feature that prevents server power cords from falling out",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Keep-Alive is a transport protocol mechanism, not a mechanical cord lock."
+      },
+      {
+        "option_text": "A software license that keeps an antivirus program updated",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Keep-Alives are TCP transport probes."
+      },
+      {
+        "option_text": "A protocol used to download video files across peer-to-peer networks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "BitTorrent is an application protocol; Keep-Alive is a socket feature."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "keep-alive",
+      "firewalls",
+      "state-table"
+    ]
+  },
+  {
+    "code": "TCP-029",
+    "topic_slug": "tcp-flags",
+    "question_text": "In packet analysis, what does a sudden spike of TCP RST packets originating from a internal database server indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A sudden surge of RST packets indicates either that incoming connection attempts are hitting a closed port (e.g. database service crashed or is down) or that an internal scanner/adversary is probing closed database ports.",
+    "learning_objective": "Analyze the operational meaning of high RST rates from a server.",
+    "options": [
+      {
+        "option_text": "Incoming connections are hitting closed ports (e.g., database service is stopped or port scan underway)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RST spikes indicate connection rejections from closed ports or service crashes."
+      },
+      {
+        "option_text": "The database server has successfully doubled its RAM storage",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "RST packets are network error signals, not memory upgrades."
+      },
+      {
+        "option_text": "All data stored in the database has been securely encrypted with AES-256",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "RST packets reject connections and do not indicate cryptographic encryption."
+      },
+      {
+        "option_text": "The network switches have switched from copper to optical fiber",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Switch physical media changes do not generate transport RST spikes."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "rst",
+      "packet-analysis",
+      "soc",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "TCP-030",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the TCP 'Three-Way Handshake' timeout duration typically set to by operating systems when no response is received to an initial SYN?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Operating systems retry sending the SYN with exponential backoff (e.g., after 1s, 3s, 6s) before aborting with a connection timeout after approximately 20 to 75 seconds if no SYN-ACK arrives.",
+    "learning_objective": "Understand TCP connection establishment timeout behavior.",
+    "options": [
+      {
+        "option_text": "The OS retries the SYN packet multiple times with exponential backoff before timing out after approximately 20 to 75 seconds",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "OS stacks retransmit SYN packets with increasing backoff intervals before terminating."
+      },
+      {
+        "option_text": "It times out immediately after 1 millisecond without retrying",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Immediate timeout would cause widespread failure over typical Internet latencies."
+      },
+      {
+        "option_text": "It waits indefinitely for 10 years until the server responds",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Kernel resources cannot be held indefinitely for failed connections."
+      },
+      {
+        "option_text": "It automatically reboots the router after 3 seconds",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Failed TCP handshakes do not cause hardware reboots."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "syn",
+      "timeout",
+      "exponential-backoff"
+    ]
+  },
+  {
+    "code": "TCP-031",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is the function of the TCP 'Checksum' field?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The 16-bit TCP Checksum verifies the integrity of the TCP header, payload data, and a 12-byte 'pseudo-header' (containing source IP, destination IP, protocol, and TCP length) to ensure data was not corrupted during transit.",
+    "learning_objective": "Explain the coverage of the TCP checksum.",
+    "options": [
+      {
+        "option_text": "It verifies that the TCP header, payload, and IP pseudo-header were not corrupted in transit",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The TCP checksum includes a pseudo-header to ensure segments were not misdelivered to the wrong IP."
+      },
+      {
+        "option_text": "It encrypts the payload using SHA-256 hashing",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Checksums detect accidental transmission bit errors; they do not encrypt data."
+      },
+      {
+        "option_text": "It determines the physical weight of the Ethernet cable",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Checksums are mathematical calculations over digital bits."
+      },
+      {
+        "option_text": "It measures the air humidity inside the computer chassis",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Checksums are software calculations."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "checksum",
+      "integrity"
+    ]
+  },
+  {
+    "code": "TCP-032",
+    "topic_slug": "udp-communication",
+    "question_text": "Is the checksum field mandatory in standard IPv4 UDP headers?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "In IPv4, the UDP checksum is optional (though strongly recommended); a value of 0 indicates the checksum was omitted. In IPv6, however, the UDP checksum is strictly mandatory.",
+    "learning_objective": "Recall UDP checksum requirements across IPv4 and IPv6.",
+    "options": [
+      {
+        "option_text": "It is optional in IPv4 (0 means omitted), but strictly mandatory in IPv6",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPv4 made UDP checksum optional; IPv6 mandates it because IPv6 eliminated the Network layer header checksum."
+      },
+      {
+        "option_text": "It is mandatory in IPv4, but completely banned in IPv6",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "IPv6 strictly requires the UDP checksum."
+      },
+      {
+        "option_text": "It is illegal under all RFC networking standards",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Checksums are standard integrity fields."
+      },
+      {
+        "option_text": "It only functions when computers are connected via Bluetooth",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "UDP checksums function across all standard network interfaces."
+      }
+    ],
+    "tags": [
+      "udp",
+      "checksum",
+      "ipv4-vs-ipv6"
+    ]
+  },
+  {
+    "code": "TCP-033",
+    "topic_slug": "tcp-basics",
+    "question_text": "What is 'Window Scaling' (RFC 7323) in TCP and why was it introduced?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The standard TCP Window field is 16 bits, limiting maximum unacknowledged data to 65,535 bytes (64 KB). Window Scaling introduces a scale factor in options, expanding the effective window up to 1 GB for high-speed, high-latency networks (BDP).",
+    "learning_objective": "Explain why TCP Window Scaling was developed.",
+    "options": [
+      {
+        "option_text": "It expands the 16-bit window limit beyond 64 KB up to 1 GB to utilize high-bandwidth, high-latency network links (High BDP)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Window scaling allows modern high-speed networks to fully utilize available bandwidth-delay product."
+      },
+      {
+        "option_text": "It automatically magnifies the text font size on the user's desktop monitor",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Window scaling relates to buffer byte capacity, not graphical desktop display scaling."
+      },
+      {
+        "option_text": "It forces all Ethernet cables to transmit at 10 Mbps maximum",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Window scaling was created to support gigabit and 10-gigabit speeds."
+      },
+      {
+        "option_text": "It allows computers to download files without connecting to the Internet",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Window scaling is an active TCP communication option."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "window-scaling",
+      "performance",
+      "rfc7323"
+    ]
+  },
+  {
+    "code": "TCP-034",
+    "topic_slug": "tcp-flags",
+    "question_text": "In port scanning terminology, what is a 'TCP FIN Scan' and how does an open port respond?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "In a FIN scan, the scanner sends an unsolicited FIN packet. According to RFC 793, a closed port responds with a RST, while an OPEN port ignores the packet and sends NO response. (This behavior allows stealth scanning on RFC-compliant Unix stacks).",
+    "learning_objective": "Analyze the mechanics of a stealth TCP FIN port scan.",
+    "options": [
+      {
+        "option_text": "A closed port responds with RST, while an open port drops the packet and sends no response",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RFC 793 mandates that closed ports send RST to unsolicited FINs, while open ports discard them silently."
+      },
+      {
+        "option_text": "An open port responds with a SYN-ACK, while a closed port returns an ICMP Echo Reply",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A FIN packet will never elicit a SYN-ACK response."
+      },
+      {
+        "option_text": "Both open and closed ports immediately reboot the server",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port scans do not reboot systems."
+      },
+      {
+        "option_text": "The scanner receives an email containing the server's root password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port scans discover open ports; they do not steal passwords via FIN responses."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "fin-scan",
+      "port-scanning",
+      "reconnaissance",
+      "security"
+    ]
+  },
+  {
+    "code": "TCP-035",
+    "topic_slug": "tcp-flags",
+    "question_text": "What is a 'TCP Xmas Scan'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A Xmas (Christmas Tree) scan transmits packets with the FIN, PSH, and URG flags all set simultaneously ('lit up like a Christmas tree'), exploiting RFC 793 closed-port RST behavior for stealth reconnaissance.",
+    "learning_objective": "Identify the flags set in a TCP Xmas scan.",
+    "options": [
+      {
+        "option_text": "A packet with FIN, PSH, and URG flags all set simultaneously",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Xmas scan lights up FIN, PSH, and URG flags to observe whether the target returns a RST."
+      },
+      {
+        "option_text": "A holiday email greeting card sent over SMTP port 25",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Xmas scan is a transport reconnaissance probe, not an email greeting."
+      },
+      {
+        "option_text": "A packet that plays Christmas music through the computer speakers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network packets transmit digital bits, not audio through speakers."
+      },
+      {
+        "option_text": "A routine automated backup script that runs only on December 25th",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Xmas scan is a security scanner probe technique."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "xmas-scan",
+      "port-scanning",
+      "reconnaissance"
+    ]
+  }
+]

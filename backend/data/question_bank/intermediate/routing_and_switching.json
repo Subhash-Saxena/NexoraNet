@@ -1,0 +1,1565 @@
+[
+  {
+    "code": "ROUT-001",
+    "topic_slug": "switching",
+    "question_text": "How does a Layer 2 switch dynamically populate its MAC address table (CAM table)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A switch inspects the SOURCE MAC address of every incoming frame received on an ingress port, mapping that source MAC address to that specific physical switch port in its MAC table.",
+    "learning_objective": "Explain how Ethernet switches learn MAC addresses.",
+    "options": [
+      {
+        "option_text": "By inspecting the SOURCE MAC address of incoming frames and recording the ingress switch port",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Switches learn dynamically from incoming source MAC addresses."
+      },
+      {
+        "option_text": "By querying the local DNS server for the host's domain name",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DNS resolves IP addresses to hostnames; it does not populate switch MAC tables."
+      },
+      {
+        "option_text": "By reading the destination IP address in the Layer 3 header",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Layer 2 switches do not evaluate Layer 3 IP headers for CAM table learning."
+      },
+      {
+        "option_text": "By measuring electrical copper resistance on the wire",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Switches read digital bit streams in frame headers, not cable resistance."
+      }
+    ],
+    "tags": [
+      "switching",
+      "mac-address-table",
+      "layer2",
+      "learning"
+    ]
+  },
+  {
+    "code": "ROUT-002",
+    "topic_slug": "switching",
+    "question_text": "What action does an Ethernet switch take when it receives a unicast frame destined for a MAC address that is NOT present in its MAC address table?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "When the destination MAC is unknown, the switch performs 'Unknown Unicast Flooding': it floods (broadcasts) the frame out of all active ports within that VLAN, except the port on which the frame was received.",
+    "learning_objective": "Explain unknown unicast flooding in Ethernet switches.",
+    "options": [
+      {
+        "option_text": "It floods the frame out of all ports within the same VLAN, except the port where it arrived (Unknown Unicast Flooding)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The switch floods unknown unicasts so the true destination can receive it and reply, allowing the switch to learn its port."
+      },
+      {
+        "option_text": "It drops the frame immediately and sends an ICMP Host Unreachable packet",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Layer 2 switches do not drop unknown unicasts or generate ICMP packets."
+      },
+      {
+        "option_text": "It transmits the frame across the Internet using satellite links",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Layer 2 frames do not route across the Internet."
+      },
+      {
+        "option_text": "It shuts down the switch power supply to prevent a network loop",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Flooding is normal, expected Layer 2 forwarding behavior."
+      }
+    ],
+    "tags": [
+      "switching",
+      "unknown-unicast-flooding",
+      "cam-table"
+    ]
+  },
+  {
+    "code": "ROUT-003",
+    "topic_slug": "mac-address-table",
+    "question_text": "What happens to dynamic entries in a switch's MAC address table when no frames are observed from a host for the aging timer duration (typically 300 seconds)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The aging timer ensures the CAM table does not retain stale entries when devices disconnect or move. If no frames are received from that MAC before the timer expires, the entry is deleted from the table.",
+    "learning_objective": "Explain MAC address table aging mechanics.",
+    "options": [
+      {
+        "option_text": "The entry is aged out and deleted from the table to prevent stale port mappings",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Aging removes inactive device mappings so table space is preserved and moved devices can be relearned."
+      },
+      {
+        "option_text": "The switch permanently blacklists the MAC address from ever connecting again",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Aging out is normal maintenance; the MAC is relearned immediately when it transmits again."
+      },
+      {
+        "option_text": "The switch sends an automated email alert to the local police department",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Aging out is standard Layer 2 table maintenance."
+      },
+      {
+        "option_text": "The switch formats its internal flash firmware",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Flash memory is not formatted by CAM aging."
+      }
+    ],
+    "tags": [
+      "mac-address-table",
+      "aging-timer",
+      "switching"
+    ]
+  },
+  {
+    "code": "ROUT-004",
+    "topic_slug": "vlan",
+    "question_text": "What is the primary architectural purpose of configuring Virtual Local Area Networks (VLANs) on enterprise switches?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "VLANs partition a physical switch into multiple isolated logical broadcast domains, improving network performance (limiting broadcast traffic), security (preventing unauthorized lateral access), and management.",
+    "learning_objective": "Explain the benefits of VLAN segmentation.",
+    "options": [
+      {
+        "option_text": "To divide a physical local network into separate logical broadcast domains, improving performance and security",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "VLANs isolate broadcast domains and segment departments logically on shared physical switches."
+      },
+      {
+        "option_text": "To allow computers to operate without needing physical network interface cards",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Computers still require physical NICs to connect to switch ports."
+      },
+      {
+        "option_text": "To automatically double the download speed of video files from YouTube",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "VLANs manage broadcast domains, not Internet streaming bandwidth."
+      },
+      {
+        "option_text": "To eliminate the need for IP addressing entirely",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Each VLAN corresponds to a distinct IP subnet and requires IP addressing."
+      }
+    ],
+    "tags": [
+      "vlan",
+      "broadcast-domain",
+      "segmentation",
+      "switching"
+    ]
+  },
+  {
+    "code": "ROUT-005",
+    "topic_slug": "trunking",
+    "question_text": "What industry-standard protocol is used to tag Ethernet frames traversing a trunk link between switches with their originating VLAN ID?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "IEEE 802.1Q is the universal industry-standard trunking protocol that inserts a 4-byte VLAN tag (containing a 12-bit VLAN ID) into the Ethernet frame header between the Source MAC and EtherType fields.",
+    "learning_objective": "Identify the standard VLAN trunking protocol.",
+    "options": [
+      {
+        "option_text": "IEEE 802.1Q",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IEEE 802.1Q inserts a 4-byte tag identifying the frame's VLAN ID over trunk links."
+      },
+      {
+        "option_text": "IEEE 802.11ac",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "802.11ac is a Wi-Fi wireless standard."
+      },
+      {
+        "option_text": "IEEE 802.3af",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "802.3af is a Power over Ethernet (PoE) standard."
+      },
+      {
+        "option_text": "Cisco ISL",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Inter-Switch Link (ISL) was a legacy proprietary Cisco encapsulation replaced by 802.1Q."
+      }
+    ],
+    "tags": [
+      "trunking",
+      "vlan",
+      "802.1q",
+      "switching"
+    ]
+  },
+  {
+    "code": "ROUT-006",
+    "topic_slug": "trunking",
+    "question_text": "What is the 'Native VLAN' on an IEEE 802.1Q trunk link?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The Native VLAN is the single configured VLAN on an 802.1Q trunk that carries untagged traffic. Any frame that traverses the trunk without an 802.1Q tag is automatically treated as belonging to the Native VLAN.",
+    "learning_objective": "Explain the behavior of the Native VLAN on 802.1Q trunks.",
+    "options": [
+      {
+        "option_text": "The specific VLAN designated to carry untagged frames across an 802.1Q trunk link",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Frames belonging to the native VLAN are sent across the trunk without an 802.1Q tag."
+      },
+      {
+        "option_text": "A VLAN that can only be accessed by wireless smartphones",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Native VLAN is a wired switch trunking concept."
+      },
+      {
+        "option_text": "The encrypted master VLAN where switch passwords are stored",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Native VLAN carries ordinary untagged traffic, not encrypted passwords."
+      },
+      {
+        "option_text": "A VLAN that deletes all packets passing through it",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Native VLAN forwards untagged traffic normally."
+      }
+    ],
+    "tags": [
+      "trunking",
+      "native-vlan",
+      "802.1q",
+      "switching"
+    ]
+  },
+  {
+    "code": "ROUT-007",
+    "topic_slug": "vlan",
+    "question_text": "Why can two computers on the same physical switch configured in different VLANs (e.g. VLAN 10 and VLAN 20) NOT communicate directly without a Layer 3 device?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "VLANs are separate Layer 2 broadcast domains and separate IP subnets. Switches enforce strict Layer 2 isolation between different VLANs; forwarding traffic between distinct subnets requires a Layer 3 router or multilayer switch.",
+    "learning_objective": "Explain the requirement for inter-VLAN routing.",
+    "options": [
+      {
+        "option_text": "VLANs are isolated Layer 2 broadcast domains; forwarding traffic between different subnets requires Layer 3 routing",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A Layer 3 device (router or multilayer switch) is strictly required to route between distinct VLAN subnets."
+      },
+      {
+        "option_text": "VLAN 20 automatically encrypts all packets so VLAN 10 cannot read them",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Isolation is enforced by switch port tagging logic, not payload encryption."
+      },
+      {
+        "option_text": "Computers in VLAN 20 are physically located on a different planet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both VLANs can exist on the same physical switch in the same server rack."
+      },
+      {
+        "option_text": "Ethernet cables can only carry one letter of the alphabet at a time",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Cabling transmits binary bit streams."
+      }
+    ],
+    "tags": [
+      "vlan",
+      "inter-vlan-routing",
+      "layer2-vs-layer3"
+    ]
+  },
+  {
+    "code": "ROUT-008",
+    "topic_slug": "vlan",
+    "question_text": "What is the 'Router-on-a-Stick' inter-VLAN routing topology?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "In Router-on-a-Stick, a single physical router interface connects to a switch trunk port using multiple logical sub-interfaces (e.g. g0/0.10, g0/0.20), routing traffic between VLANs over the shared trunk.",
+    "learning_objective": "Define the Router-on-a-Stick architectural model.",
+    "options": [
+      {
+        "option_text": "A single physical router interface connects via an 802.1Q trunk to a switch, using logical sub-interfaces to route between VLANs",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Router-on-a-Stick uses sub-interfaces with dot1q encapsulation to route inter-VLAN traffic across a single link."
+      },
+      {
+        "option_text": "A wooden stick placed between two switches to prevent physical vibrations",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is literal wordplay, not an engineering architecture."
+      },
+      {
+        "option_text": "A router mounted on a satellite dish orbiting the earth",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Router-on-a-stick is standard enterprise rack routing."
+      },
+      {
+        "option_text": "A wireless ad-hoc connection between two mobile smartphones",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "It is a wired Ethernet trunk topology."
+      }
+    ],
+    "tags": [
+      "inter-vlan-routing",
+      "router-on-a-stick",
+      "sub-interfaces"
+    ]
+  },
+  {
+    "code": "ROUT-009",
+    "topic_slug": "routing",
+    "question_text": "What fundamental rule governs how a router selects the winning route in its routing table when multiple matching routes exist for a destination IP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The Longest Prefix Match (most specific route) rule: the router always chooses the route with the longest prefix length (most network bits matching the destination IP, e.g. /28 beats /24, which beats /16).",
+    "learning_objective": "State the Longest Prefix Match rule in IP routing.",
+    "options": [
+      {
+        "option_text": "Longest Prefix Match: the router always selects the route with the most specific prefix length matching the destination IP",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Longest prefix match dictates that more specific routes (higher prefix /N) always take precedence."
+      },
+      {
+        "option_text": "Shortest Prefix Match: the router always prefers the route with the fewest bits matching",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Shortest match is incorrect; more specific routes always win."
+      },
+      {
+        "option_text": "Alphabetical Match: the route whose interface name begins with the earliest letter",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Routing decisions are based on binary IP prefix matching, not interface names."
+      },
+      {
+        "option_text": "Random Choice: the router flips a digital coin to select a route",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IP forwarding is strictly deterministic based on longest prefix match."
+      }
+    ],
+    "tags": [
+      "routing",
+      "longest-prefix-match",
+      "routing-table"
+    ]
+  },
+  {
+    "code": "ROUT-010",
+    "topic_slug": "default-routes",
+    "question_text": "What is the destination IP address and subnet mask notation for an IPv4 Default Route (the 'Gateway of Last Resort')?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "An IPv4 default route matches all destination addresses with a zero-length prefix: 0.0.0.0/0 (IP 0.0.0.0 with subnet mask 0.0.0.0).",
+    "learning_objective": "Identify the IPv4 default route syntax.",
+    "options": [
+      {
+        "option_text": "0.0.0.0/0 (0.0.0.0 0.0.0.0)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "0.0.0.0/0 matches any IP address when no more specific route exists in the routing table."
+      },
+      {
+        "option_text": "255.255.255.255/32",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.255/32 is the limited broadcast address."
+      },
+      {
+        "option_text": "127.0.0.1/8",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "127.0.0.1/8 is the loopback network."
+      },
+      {
+        "option_text": "192.168.1.1/24",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.1.1/24 is a specific Class C subnet."
+      }
+    ],
+    "tags": [
+      "routing",
+      "default-routes",
+      "gateway-of-last-resort"
+    ]
+  },
+  {
+    "code": "ROUT-011",
+    "topic_slug": "static-routing",
+    "question_text": "What is a major operational advantage of static routing compared to dynamic routing protocols?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Static routes require zero CPU processing overhead for protocol calculation, consume zero network link bandwidth for routing updates, and provide predictable, administrator-controlled traffic paths.",
+    "learning_objective": "Identify advantages of static routing.",
+    "options": [
+      {
+        "option_text": "Low CPU/memory overhead and zero routing update traffic traversing the network links",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Static routes do not consume router CPU or bandwidth for neighbor hellos and route recalculation."
+      },
+      {
+        "option_text": "Automatic rerouting around failed links without administrator intervention",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Static routes cannot automatically adapt to topology changes unless combined with IP SLA/tracking."
+      },
+      {
+        "option_text": "Automatic assignment of IP addresses to all office computers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP assigns IP addresses, not static routes."
+      },
+      {
+        "option_text": "Physical immunity against severed fiber-optic cables",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Cut cables break connectivity regardless of routing type."
+      }
+    ],
+    "tags": [
+      "routing",
+      "static-routing",
+      "dynamic-routing"
+    ]
+  },
+  {
+    "code": "ROUT-012",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is the primary operational advantage of dynamic routing protocols (such as OSPF and BGP) over static routes?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Dynamic routing protocols automatically discover remote networks, share topology information between neighbor routers, and automatically calculate and reroute traffic around failed links without manual intervention.",
+    "learning_objective": "Explain the benefit of dynamic routing protocols.",
+    "options": [
+      {
+        "option_text": "They automatically detect link failures and dynamically recalculate alternative paths around network outages",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Dynamic protocols provide automated convergence and fault-tolerant rerouting."
+      },
+      {
+        "option_text": "They eliminate the need for electrical power supplies in routers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Routers require electrical power."
+      },
+      {
+        "option_text": "They encrypt all user files on Windows desktop workstations",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Routing protocols share network reachability data, not file encryption."
+      },
+      {
+        "option_text": "They increase the download speed of the Internet to infinity",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Throughput is bounded by physical link capacities."
+      }
+    ],
+    "tags": [
+      "routing",
+      "dynamic-routing",
+      "convergence",
+      "ospf"
+    ]
+  },
+  {
+    "code": "ROUT-013",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "In Cisco and standard routing architecture, what does 'Administrative Distance' (AD) represent?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Administrative Distance measures the trustworthiness or believability of a routing source when multiple routing protocols learn a route to the exact same destination prefix. Lower AD values indicate higher trustworthiness.",
+    "learning_objective": "Define Administrative Distance.",
+    "options": [
+      {
+        "option_text": "A metric measuring the trustworthiness of a routing source; lower values indicate higher believability",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "When multiple protocols offer routes to the same prefix, the router chooses the source with the lowest AD."
+      },
+      {
+        "option_text": "The physical distance in kilometers between two router server chassis",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "AD is a logical believability ranking, not geographical distance."
+      },
+      {
+        "option_text": "The number of seconds before a router password expires",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "AD has no relation to password management."
+      },
+      {
+        "option_text": "The amount of electricity consumed by the router power supply",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "AD is a routing table selection metric."
+      }
+    ],
+    "tags": [
+      "routing",
+      "administrative-distance",
+      "routing-table"
+    ]
+  },
+  {
+    "code": "ROUT-014",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is the default Administrative Distance (AD) of a directly connected network interface that is up and configured with an IP address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Directly connected networks have an Administrative Distance of 0, making them the most trusted routing source in the routing table.",
+    "learning_objective": "Recall AD for directly connected routes.",
+    "options": [
+      {
+        "option_text": "0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Directly connected routes have an AD of 0 (most trusted)."
+      },
+      {
+        "option_text": "1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Static routes standardly have an AD of 1."
+      },
+      {
+        "option_text": "110",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "110 is the default AD for OSPF on Cisco routers."
+      },
+      {
+        "option_text": "90",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "90 is the default AD for internal EIGRP."
+      }
+    ],
+    "tags": [
+      "routing",
+      "administrative-distance",
+      "directly-connected"
+    ]
+  },
+  {
+    "code": "ROUT-015",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is the default Administrative Distance (AD) of a standard static route pointing to a next-hop IP on Cisco routers?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A standard static route configured with a next-hop IP has an Administrative Distance of 1.",
+    "learning_objective": "Recall AD for standard static routes.",
+    "options": [
+      {
+        "option_text": "1",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Static routes standardly have an Administrative Distance of 1."
+      },
+      {
+        "option_text": "0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "0 is for directly connected interfaces."
+      },
+      {
+        "option_text": "110",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "110 is OSPF."
+      },
+      {
+        "option_text": "120",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "120 is RIP."
+      }
+    ],
+    "tags": [
+      "routing",
+      "administrative-distance",
+      "static-routes"
+    ]
+  },
+  {
+    "code": "ROUT-016",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is a 'Floating Static Route' and how is it configured?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A floating static route is an administrative backup static route configured with a higher Administrative Distance than the primary dynamic routing protocol (e.g. AD 120 vs OSPF 110). It remains dormant until the primary route fails.",
+    "learning_objective": "Explain floating static route configuration and purpose.",
+    "options": [
+      {
+        "option_text": "A backup static route configured with a higher Administrative Distance that only becomes active if the primary dynamic route fails",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Floating static routes provide backup redundancy by having an intentionally worse AD than primary dynamic routes."
+      },
+      {
+        "option_text": "A route that moves dynamically between different Wi-Fi access points",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Floating static routes are manual static route configurations on routers."
+      },
+      {
+        "option_text": "A route designed to connect computers floating on marine boats",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The term 'floating' refers to AD precedence, not maritime operations."
+      },
+      {
+        "option_text": "A route that automatically changes its destination IP address every hour",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Static routes have fixed destination prefixes."
+      }
+    ],
+    "tags": [
+      "routing",
+      "floating-static-route",
+      "redundancy"
+    ]
+  },
+  {
+    "code": "ROUT-017",
+    "topic_slug": "routing",
+    "question_text": "What is the Time to Live (TTL) field in the IPv4 header used for during packet forwarding?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "TTL is an 8-bit hop counter that prevents packets from looping endlessly through a network. Every router that forwards the packet decrements the TTL by 1. If TTL hits 0, the packet is dropped and an ICMP Time Exceeded is returned.",
+    "learning_objective": "Explain loop prevention via the IPv4 TTL field.",
+    "options": [
+      {
+        "option_text": "It is decremented by 1 at each router hop; when it reaches 0, the packet is discarded to prevent infinite routing loops",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TTL bounds the lifetime of packets and terminates forwarding loops."
+      },
+      {
+        "option_text": "It specifies how many seconds the user has to read an email message",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TTL in IP headers is a hop counter, not an email countdown."
+      },
+      {
+        "option_text": "It measures the physical temperature of the copper cable in Celsius",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Network headers manage routing logic, not cable thermodynamics."
+      },
+      {
+        "option_text": "It forces the packet to travel in reverse order across the country",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TTL does not reverse packet trajectory."
+      }
+    ],
+    "tags": [
+      "routing",
+      "ttl",
+      "loop-prevention",
+      "ipv4"
+    ]
+  },
+  {
+    "code": "ROUT-018",
+    "topic_slug": "routing",
+    "question_text": "Which ICMP message is returned to the sending host when a router decrements a packet's TTL to zero?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "When a router decrements the TTL to 0, it drops the packet and generates an ICMP Type 11, Code 0 message: 'Time-to-Live exceeded in transit'. (This mechanism is what powers the 'traceroute' diagnostic tool).",
+    "learning_objective": "Identify the ICMP message sent upon TTL expiration.",
+    "options": [
+      {
+        "option_text": "ICMP Time Exceeded (Type 11, Code 0)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ICMP Time Exceeded notifies the sender that a packet exceeded its hop limit."
+      },
+      {
+        "option_text": "ICMP Echo Reply (Type 0)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Echo Reply responds to ping."
+      },
+      {
+        "option_text": "ICMP Redirect (Type 5)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Redirect informs a host of a better first-hop router."
+      },
+      {
+        "option_text": "TCP RST",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "RST is a transport-layer flag, not an ICMP message."
+      }
+    ],
+    "tags": [
+      "icmp",
+      "ttl",
+      "time-exceeded",
+      "traceroute"
+    ]
+  },
+  {
+    "code": "ROUT-019",
+    "topic_slug": "switching",
+    "question_text": "What is a 'Broadcast Storm' on an Ethernet switch network and what causes it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A broadcast storm occurs when redundant Layer 2 links exist between switches without Spanning Tree Protocol (STP). Broadcast frames (like ARP requests) circulate and multiply indefinitely in an infinite loop, saturating CPU and switch links until the network collapses.",
+    "learning_objective": "Analyze the cause and impact of Layer 2 broadcast storms.",
+    "options": [
+      {
+        "option_text": "An endless circulation and multiplication of broadcast frames caused by redundant Layer 2 links without Spanning Tree Protocol",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Layer 2 frames lack a TTL field; loops circulate broadcast frames forever, consuming 100% of bandwidth and switch CPU."
+      },
+      {
+        "option_text": "A sudden thunderstorm that physically strikes outdoor Wi-Fi towers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A broadcast storm is a logical switching loop phenomenon, not meteorology."
+      },
+      {
+        "option_text": "A hacker sending 10,000 spam emails to employees",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Broadcast storms occur at Layer 2 inside the switch fabric, not in mailboxes."
+      },
+      {
+        "option_text": "A failure in the building's electrical power grid",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Broadcast storms happen while switches are fully powered and functional."
+      }
+    ],
+    "tags": [
+      "switching",
+      "broadcast-storm",
+      "layer2-loops",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "ROUT-020",
+    "topic_slug": "switching",
+    "question_text": "Which protocol is standardly used on enterprise Ethernet switches to eliminate Layer 2 loops and prevent broadcast storms?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Spanning Tree Protocol (STP / IEEE 802.1D or RSTP IEEE 802.1w) automatically detects redundant physical links, places designated redundant ports in a blocking state, and dynamically unblocks them if the primary link fails.",
+    "learning_objective": "Identify the protocol that prevents switching loops.",
+    "options": [
+      {
+        "option_text": "Spanning Tree Protocol (STP / RSTP)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "STP blocks redundant paths to create a loop-free logical tree topology."
+      },
+      {
+        "option_text": "Border Gateway Protocol (BGP)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "BGP is an exterior gateway routing protocol for the Internet."
+      },
+      {
+        "option_text": "Dynamic Host Configuration Protocol (DHCP)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP assigns IP configurations."
+      },
+      {
+        "option_text": "Domain Name System (DNS)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS resolves domain names."
+      }
+    ],
+    "tags": [
+      "switching",
+      "stp",
+      "rstp",
+      "loop-prevention"
+    ]
+  },
+  {
+    "code": "ROUT-021",
+    "topic_slug": "vlan",
+    "question_text": "What is 'VLAN Hopping' in network penetration testing and security assessment?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "VLAN Hopping is an attack technique (via Switch Spoofing using DTP or Double Tagging 802.1Q frames) where an adversary on one VLAN injects traffic into a different unauthorized VLAN, bypassing Layer 2 segmentation.",
+    "learning_objective": "Define the concept of a VLAN Hopping attack.",
+    "options": [
+      {
+        "option_text": "An attack method (such as switch spoofing or double tagging) that allows an attacker on one VLAN to send traffic into an unauthorized target VLAN",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "VLAN hopping exploits trunking misconfigurations or double 802.1Q tags to bypass VLAN boundaries."
+      },
+      {
+        "option_text": "A legitimate network optimization tool that increases switch throughput by 200%",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "VLAN hopping is an adversarial attack technique."
+      },
+      {
+        "option_text": "A wireless feature that automatically switches between 2.4 GHz and 5 GHz Wi-Fi",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is band steering, not VLAN hopping."
+      },
+      {
+        "option_text": "A protocol used to track stolen laptops across international borders",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "VLAN hopping is a local Layer 2 attack."
+      }
+    ],
+    "tags": [
+      "vlan",
+      "vlan-hopping",
+      "switch-security",
+      "attack-techniques"
+    ]
+  },
+  {
+    "code": "ROUT-022",
+    "topic_slug": "vlan",
+    "question_text": "Which two configuration practices mitigate VLAN Hopping attacks on enterprise switch access ports?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "To prevent VLAN hopping: 1. Explicitly configure end-user ports as access ports (`switchport mode access`) and disable Dynamic Trunking Protocol (`switchport nonegotiate`), 2. Change the native VLAN on trunks away from default VLAN 1 to an unused dedicated VLAN.",
+    "learning_objective": "Apply defensive controls against VLAN hopping.",
+    "options": [
+      {
+        "option_text": "Disable DTP negotiation on access ports and change the native VLAN on trunks away from default VLAN 1",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Disabling DTP prevents switch spoofing, and changing native VLAN neutralizes double tagging attacks."
+      },
+      {
+        "option_text": "Assign all employees to the same master administrator VLAN",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Consolidating everyone onto one VLAN destroys segmentation."
+      },
+      {
+        "option_text": "Remove all Ethernet switches and replace them with unmanaged hubs",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hubs have no VLAN support and allow universal packet sniffing."
+      },
+      {
+        "option_text": "Disable passwords across all network administration portals",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Removing passwords severely compromises security."
+      }
+    ],
+    "tags": [
+      "vlan",
+      "vlan-hopping-defense",
+      "switch-hardening",
+      "security"
+    ]
+  },
+  {
+    "code": "ROUT-023",
+    "topic_slug": "switching",
+    "question_text": "What is the difference between a collision domain and a broadcast domain?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A collision domain is a network segment where simultaneous packet transmissions can collide (each switch port is its own collision domain). A broadcast domain is the network scope where a broadcast frame reaches all nodes (delimited by routers or VLANs).",
+    "learning_objective": "Differentiate collision domains and broadcast domains.",
+    "options": [
+      {
+        "option_text": "A collision domain is isolated to each switch port; a broadcast domain spans all ports in a VLAN and is bounded by routers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Switches break up collision domains (microsegmentation); routers break up broadcast domains."
+      },
+      {
+        "option_text": "Collision domains only exist on Wi-Fi; broadcast domains only exist on copper",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both concepts apply across wired and wireless network architectures."
+      },
+      {
+        "option_text": "Collision domains encrypt traffic; broadcast domains decrypt traffic",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Neither domain concept involves cryptographic encryption."
+      },
+      {
+        "option_text": "Collision domains are illegal under international telecommunication law",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "They are fundamental networking topology concepts."
+      }
+    ],
+    "tags": [
+      "switching",
+      "collision-domain",
+      "broadcast-domain",
+      "architecture"
+    ]
+  },
+  {
+    "code": "ROUT-024",
+    "topic_slug": "switching",
+    "question_text": "How many collision domains and how many broadcast domains are created by a 24-port unmanaged Layer 2 Ethernet switch configured with default settings (all ports in default VLAN 1)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "On a standard Layer 2 switch, each individual port operates in full duplex as its own isolated collision domain (24 collision domains). Since all ports reside in a single VLAN without routers, there is exactly 1 broadcast domain.",
+    "learning_objective": "Calculate collision and broadcast domains on a 24-port switch.",
+    "options": [
+      {
+        "option_text": "24 collision domains and 1 broadcast domain",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Each switch port is an independent collision domain (24), while VLAN 1 encompasses all 24 ports in 1 broadcast domain."
+      },
+      {
+        "option_text": "1 collision domain and 24 broadcast domains",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That would describe a 24-port router, not a switch."
+      },
+      {
+        "option_text": "1 collision domain and 1 broadcast domain",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That describes a legacy 24-port network hub."
+      },
+      {
+        "option_text": "24 collision domains and 24 broadcast domains",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That would require 24 separate VLANs or 24 routed interfaces."
+      }
+    ],
+    "tags": [
+      "switching",
+      "collision-domain",
+      "broadcast-domain",
+      "calculation"
+    ]
+  },
+  {
+    "code": "ROUT-025",
+    "topic_slug": "routing",
+    "question_text": "Given the following routing table entries:\n1. 10.0.0.0/8 via 192.168.1.1\n2. 10.1.0.0/16 via 192.168.1.2\n3. 10.1.1.0/24 via 192.168.1.3\n4. 0.0.0.0/0 via 192.168.1.254\nWhich next-hop router will receive a packet destined for 10.1.1.55?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "The destination 10.1.1.55 matches routes 1, 2, 3, and 4. Under Longest Prefix Match, route 3 (/24) has the longest prefix length (24 matching bits), so the packet is forwarded to next-hop 192.168.1.3.",
+    "learning_objective": "Apply longest prefix match to resolve forwarding next-hop.",
+    "options": [
+      {
+        "option_text": "192.168.1.3 (matched by 10.1.1.0/24)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "10.1.1.0/24 is the longest prefix match (/24 beats /16, /8, and /0)."
+      },
+      {
+        "option_text": "192.168.1.2 (matched by 10.1.0.0/16)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "/16 is a shorter match than /24."
+      },
+      {
+        "option_text": "192.168.1.1 (matched by 10.0.0.0/8)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "/8 is a shorter match than /24."
+      },
+      {
+        "option_text": "192.168.1.254 (matched by 0.0.0.0/0)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The default route is the least specific match."
+      }
+    ],
+    "tags": [
+      "routing",
+      "longest-prefix-match",
+      "routing-table",
+      "analysis"
+    ]
+  },
+  {
+    "code": "ROUT-026",
+    "topic_slug": "switching",
+    "question_text": "What is 'Port Security' on an enterprise switch access port?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Port Security restricts which devices can connect to a specific switch port by limiting the number of allowed MAC addresses and binding specific learned or static MACs to that port, dropping frames or disabling the port (err-disable) upon violation.",
+    "learning_objective": "Explain switch Port Security functionality.",
+    "options": [
+      {
+        "option_text": "A feature that limits the MAC addresses permitted to transmit on a switch port, shutting down or dropping traffic from unauthorized MACs",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Port security prevents unauthorized devices from plugging into enterprise wall jacks."
+      },
+      {
+        "option_text": "A physical padlock that wraps around the RJ-45 cable",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port security is a switch operating system software feature."
+      },
+      {
+        "option_text": "A password required by web browsers before opening Google",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port security is a Layer 2 switch feature, not a web browser login."
+      },
+      {
+        "option_text": "An antivirus scanner that removes trojans from USB thumb drives",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port security manages Ethernet frame source MACs on switch interfaces."
+      }
+    ],
+    "tags": [
+      "switching",
+      "port-security",
+      "defense",
+      "layer2-security"
+    ]
+  },
+  {
+    "code": "ROUT-027",
+    "topic_slug": "switching",
+    "question_text": "In switch Port Security, what occurs when a violation occurs under the 'shutdown' violation mode?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Under shutdown mode (the standard default), an unauthorized MAC address immediately puts the switch port into an 'err-disabled' state, turning off the port and logging an SNMP trap/syslog message until manually or automatically reset.",
+    "learning_objective": "Identify the behavior of port security shutdown mode.",
+    "options": [
+      {
+        "option_text": "The port is immediately disabled and placed into the 'err-disabled' state, shutting off link light and logging the violation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Shutdown mode disables the physical port until an administrator intervenes or err-disable recovery runs."
+      },
+      {
+        "option_text": "The switch explodes with a loud electrical spark",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Network devices do not physically detonate upon security violations."
+      },
+      {
+        "option_text": "The unauthorized device's hard drive is wiped automatically",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Switches cannot format endpoint hard drives over Ethernet."
+      },
+      {
+        "option_text": "The port permits the unauthorized device to access the executive network",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Shutdown mode strictly blocks all communication."
+      }
+    ],
+    "tags": [
+      "switching",
+      "port-security",
+      "err-disable",
+      "security"
+    ]
+  },
+  {
+    "code": "ROUT-028",
+    "topic_slug": "switching",
+    "question_text": "What is a 'MAC Flooding Attack' and what is the attacker's objective?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "In a MAC flooding attack (e.g. using macof), the attacker sends thousands of frames with randomized fake source MAC addresses to overflow the switch's CAM table. Once full, the switch enters fail-open hub mode, broadcasting all subsequent unicast traffic out of all ports, allowing sniffing.",
+    "learning_objective": "Analyze MAC table overflow (CAM flooding) attacks.",
+    "options": [
+      {
+        "option_text": "Flooding the switch with thousands of fake source MACs to exhaust CAM memory, forcing the switch to act like a hub and broadcast all traffic for sniffing",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "CAM exhaustion forces the switch into fail-open mode, broadcasting frames so the attacker can sniff traffic."
+      },
+      {
+        "option_text": "Water flooding into the server room through open windows",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MAC flooding is a network frame flood attack, not plumbing water damage."
+      },
+      {
+        "option_text": "A protocol used to synchronize time across Apple Mac computers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NTP synchronizes time; MAC flooding is an adversarial attack."
+      },
+      {
+        "option_text": "An attack that doubles the user's internet bill",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MAC flooding targets local switch forwarding memory."
+      }
+    ],
+    "tags": [
+      "switching",
+      "mac-flooding",
+      "cam-table",
+      "sniffing",
+      "security"
+    ]
+  },
+  {
+    "code": "ROUT-029",
+    "topic_slug": "switching",
+    "question_text": "What does 'Static MAC Binding' accomplish on a switch port?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Static MAC binding manually associates a specific MAC address with a designated switch port, ensuring that only that specific pre-registered hardware device can transmit on that port.",
+    "learning_objective": "Explain static MAC binding.",
+    "options": [
+      {
+        "option_text": "It permanently binds a specific hardware MAC address to an assigned switch port, preventing unauthorized replacement devices",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Static MAC binding enforces strict hardware-to-port mapping."
+      },
+      {
+        "option_text": "It automatically reboots the switch every 24 hours",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MAC binding does not trigger periodic reboots."
+      },
+      {
+        "option_text": "It converts copper cabling into optical fiber signals",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC binding is a Layer 2 configuration table entry."
+      },
+      {
+        "option_text": "It assigns a public IP address to the workstation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IP address allocation is handled by IPAM/DHCP."
+      }
+    ],
+    "tags": [
+      "switching",
+      "mac-address",
+      "port-security"
+    ]
+  },
+  {
+    "code": "ROUT-030",
+    "topic_slug": "routing",
+    "question_text": "What is a 'Routing Loop' in an IP network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A routing loop occurs when misconfigured routing tables or slow convergence cause two or more routers to forward packets for a destination back and forth to each other in a circle, consuming link bandwidth until TTL expires.",
+    "learning_objective": "Define the concept of an IP routing loop.",
+    "options": [
+      {
+        "option_text": "A condition where packets are forwarded continuously in an endless circle between routers due to routing table inconsistencies",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Routing loops circulate packets until the IPv4 TTL or IPv6 Hop Limit reaches zero."
+      },
+      {
+        "option_text": "A circular optical fiber cable installed around a running track",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Routing loop is a logical forwarding defect, not physical athletics tracks."
+      },
+      {
+        "option_text": "A legitimate feature used to test the physical speed of light in fiber",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Routing loops are errors that degrade network performance."
+      },
+      {
+        "option_text": "An encryption technique that repeats passwords three times",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Routing loops are forwarding path flaws, not encryption algorithms."
+      }
+    ],
+    "tags": [
+      "routing",
+      "routing-loops",
+      "troubleshooting",
+      "convergence"
+    ]
+  },
+  {
+    "code": "ROUT-031",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is 'Convergence Time' in dynamic routing protocols?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Convergence time is the time required for all routers across an autonomous system or network to detect a topology change, share routing updates, recalculate best paths, and update their routing tables to agree on the new network state.",
+    "learning_objective": "Define routing protocol convergence time.",
+    "options": [
+      {
+        "option_text": "The time taken for all routers in a network to learn of a topology change and establish consistent routing tables",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Faster convergence minimizes packet loss and blackholes during link failures."
+      },
+      {
+        "option_text": "The time required to install a physical router into a 19-inch equipment rack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hardware mounting time is physical installation, not protocol convergence."
+      },
+      {
+        "option_text": "The lifespan in years of an enterprise router's internal battery",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Convergence time is measured in seconds or milliseconds."
+      },
+      {
+        "option_text": "The time it takes for a user to log in with their password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Authentication latency is unrelated to routing convergence."
+      }
+    ],
+    "tags": [
+      "dynamic-routing",
+      "convergence",
+      "routing-protocols"
+    ]
+  },
+  {
+    "code": "ROUT-032",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "Which routing protocol metric is standardly used by Open Shortest Path First (OSPF)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "OSPF uses 'Cost' as its metric, which is inversely proportional to the bandwidth of the link (Cost = Reference Bandwidth / Interface Bandwidth), preferring higher-speed links over slower links.",
+    "learning_objective": "Recall the metric used by OSPF.",
+    "options": [
+      {
+        "option_text": "Cost (inversely proportional to interface bandwidth)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "OSPF calculates cost based on link bandwidth, preferring faster links."
+      },
+      {
+        "option_text": "Hop Count (number of routers traversed)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hop count is the metric for Routing Information Protocol (RIP)."
+      },
+      {
+        "option_text": "Delay and Reliability only",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "EIGRP uses a composite metric including bandwidth, delay, reliability, and load."
+      },
+      {
+        "option_text": "Financial cost in US dollars per gigabyte",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Routing metrics measure technical network parameters, not accounting bills."
+      }
+    ],
+    "tags": [
+      "routing",
+      "ospf",
+      "metric",
+      "cost"
+    ]
+  },
+  {
+    "code": "ROUT-033",
+    "topic_slug": "dynamic-routing-concepts",
+    "question_text": "What is the maximum hop count allowed by the legacy Routing Information Protocol (RIP) before a destination is marked as unreachable?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "RIP defines a maximum hop count of 15; a hop count of 16 represents infinity (unreachable), preventing infinite counting-to-infinity routing loops in small networks.",
+    "learning_objective": "Recall RIP maximum hop count.",
+    "options": [
+      {
+        "option_text": "15 hops (16 is considered unreachable / infinite)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RIP limits network diameter to 15 hops to prevent count-to-infinity loops."
+      },
+      {
+        "option_text": "255 hops",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255 is the maximum value of an 8-bit TTL field."
+      },
+      {
+        "option_text": "100 hops",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "100 is the default hop limit for EIGRP."
+      },
+      {
+        "option_text": "65535 hops",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "RIP cannot support networks of that diameter."
+      }
+    ],
+    "tags": [
+      "routing",
+      "rip",
+      "hop-count",
+      "distance-vector"
+    ]
+  },
+  {
+    "code": "ROUT-034",
+    "topic_slug": "static-routing",
+    "question_text": "What syntax on a Cisco router configures a static route to the 10.20.0.0/16 network via next-hop router IP 192.168.1.1?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The standard Cisco command syntax is: 'ip route <destination-network> <subnet-mask> <next-hop-ip>': 'ip route 10.20.0.0 255.255.0.0 192.168.1.1'.",
+    "learning_objective": "Identify static route configuration syntax on Cisco IOS.",
+    "options": [
+      {
+        "option_text": "ip route 10.20.0.0 255.255.0.0 192.168.1.1",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This follows the standard syntax: ip route <dest> <mask> <next-hop>."
+      },
+      {
+        "option_text": "route add 10.20.0.0 to 192.168.1.1 with mask 255.255.0.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is not valid Cisco IOS syntax."
+      },
+      {
+        "option_text": "router ospf 10.20.0.0 192.168.1.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is invalid OSPF configuration syntax."
+      },
+      {
+        "option_text": "ip default-gateway 10.20.0.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ip default-gateway is used for Layer 2 switch management, not static routing."
+      }
+    ],
+    "tags": [
+      "static-routing",
+      "cisco",
+      "cli",
+      "syntax"
+    ]
+  },
+  {
+    "code": "ROUT-035",
+    "topic_slug": "switching",
+    "question_text": "What is an 802.1Q 'Trunk Port' on a switch compared to an 'Access Port'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "An Access Port belongs to exactly one VLAN and carries untagged frames for endpoint devices (PCs, printers). A Trunk Port carries traffic for multiple VLANs simultaneously, multiplexing them with 802.1Q tags between switches or routers.",
+    "learning_objective": "Compare switch access ports and trunk ports.",
+    "options": [
+      {
+        "option_text": "An access port carries traffic for a single VLAN; a trunk port carries multiplexed traffic for multiple VLANs using 802.1Q tags",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Access ports connect end-user hosts; trunk ports interconnect switches and routers."
+      },
+      {
+        "option_text": "An access port only works at 10 Mbps; a trunk port works at 100 Gbps",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both port types operate at whatever physical speed the switch hardware supports."
+      },
+      {
+        "option_text": "An access port encrypts traffic; a trunk port decrypts traffic",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port operational modes do not govern cryptographic encryption."
+      },
+      {
+        "option_text": "A trunk port can only be installed in the trunk of a car",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Trunk is a telecommunications term for a shared aggregate multiplexed link."
+      }
+    ],
+    "tags": [
+      "switching",
+      "access-port",
+      "trunk-port",
+      "vlan"
+    ]
+  }
+]

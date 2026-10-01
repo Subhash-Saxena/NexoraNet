@@ -1,0 +1,1410 @@
+[
+  {
+    "code": "FW-001",
+    "topic_slug": "nat",
+    "question_text": "What is the primary function of Network Address Translation (NAT / RFC 1631)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "NAT modifies IP address information in packet headers while they are in transit across a boundary router, translating private non-routable IP addresses (RFC 1918) into public globally routable IP addresses to access the Internet.",
+    "learning_objective": "Explain the core purpose of Network Address Translation.",
+    "options": [
+      {
+        "option_text": "To translate private non-routable IPv4 addresses into public globally routable IP addresses for Internet access",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "NAT conserves public IPv4 addresses and enables private networks to reach the public Internet."
+      },
+      {
+        "option_text": "To convert optical fiber pulses into acoustic sound waves",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "NAT is a network layer packet translation protocol, not an audio conversion tool."
+      },
+      {
+        "option_text": "To encrypt all hard drives across the corporate domain",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NAT translates IP headers; it does not encrypt storage drives."
+      },
+      {
+        "option_text": "To force all computers to reboot at midnight",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NAT has nothing to do with scheduled reboots."
+      }
+    ],
+    "tags": [
+      "nat",
+      "rfc1918",
+      "routing",
+      "internet-access"
+    ]
+  },
+  {
+    "code": "FW-002",
+    "topic_slug": "nat",
+    "question_text": "What form of NAT maps thousands of internal private IP addresses to a SINGLE public IP address by tracking unique Layer 4 source port numbers?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Port Address Translation (PAT), also known as NAT Overload (or NAPT), tracks internal source IP and port combinations to map multiple private hosts to a single public IP address using distinct dynamic public ports.",
+    "learning_objective": "Identify Port Address Translation (NAT Overload).",
+    "options": [
+      {
+        "option_text": "Port Address Translation (PAT / NAT Overload)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PAT multiplexes many private IPs onto one public IP using source port tracking."
+      },
+      {
+        "option_text": "Static NAT (One-to-One NAT)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Static NAT maps one private IP permanently to one public IP."
+      },
+      {
+        "option_text": "Dynamic NAT without overload",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Dynamic NAT maps from a pool of public IPs on a one-to-one basis until the pool is exhausted."
+      },
+      {
+        "option_text": "Border Gateway Protocol (BGP)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "BGP is a routing protocol, not address translation."
+      }
+    ],
+    "tags": [
+      "nat",
+      "pat",
+      "nat-overload",
+      "ports"
+    ]
+  },
+  {
+    "code": "FW-003",
+    "topic_slug": "nat",
+    "question_text": "In which scenario is 'Static NAT' (one-to-one mapping) standardly deployed?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Static NAT is deployed for inbound access to internal servers (such as a public web server or mail server hosted in a DMZ) that must be reachable by external Internet users at a constant, consistent public IP address.",
+    "learning_objective": "Identify appropriate deployment scenarios for Static NAT.",
+    "options": [
+      {
+        "option_text": "When an internal server (such as an enterprise web or mail server) must be reachable at a dedicated static public IP address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Static NAT provides a permanent bidirectional 1:1 mapping so external clients can reach an internal server."
+      },
+      {
+        "option_text": "When an office has 500 mobile laptops browsing web pages simultaneously",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Outbound client browsing uses PAT (NAT Overload) to share a public IP."
+      },
+      {
+        "option_text": "When an Ethernet cable is shorter than 1 meter",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Cable lengths do not dictate NAT architecture."
+      },
+      {
+        "option_text": "When all computers must be disconnected from the network permanently",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NAT provides connectivity, not permanent isolation."
+      }
+    ],
+    "tags": [
+      "nat",
+      "static-nat",
+      "dmz",
+      "servers"
+    ]
+  },
+  {
+    "code": "FW-004",
+    "topic_slug": "nat-security",
+    "question_text": "Why is NAT considered an architectural security barrier for inbound unsolicited connections, even though it is not a dedicated firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Under PAT, inbound packets from the Internet are dropped by default unless they match an existing entry in the router's active translation table that was initiated by an internal host, shielding internal endpoints from unsolicited incoming scans.",
+    "learning_objective": "Explain the incidental security shielding provided by PAT.",
+    "options": [
+      {
+        "option_text": "External Internet hosts cannot initiate direct connections to internal private IPs unless a stateful translation mapping exists",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PAT rejects unsolicited inbound connection attempts because no corresponding entry exists in the translation table."
+      },
+      {
+        "option_text": "NAT physically melts any rogue cable that connects to the router",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "NAT is software translation logic."
+      },
+      {
+        "option_text": "NAT encrypts all payloads with 4096-bit RSA keys",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NAT alters IP/port headers; it does not encrypt data payloads."
+      },
+      {
+        "option_text": "NAT blocks all web browsing on weekends",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NAT does not enforce calendar access schedules."
+      }
+    ],
+    "tags": [
+      "nat",
+      "nat-security",
+      "pat",
+      "defense"
+    ]
+  },
+  {
+    "code": "FW-005",
+    "topic_slug": "firewall-rules",
+    "question_text": "In what order are firewall Access Control List (ACL) rules evaluated when a packet arrives at an interface?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Firewall rules are evaluated sequentially from Top to Bottom (First Match). Once a packet matches a rule's criteria (permit or deny), that action is executed immediately, and evaluation stops without checking subsequent rules.",
+    "learning_objective": "Explain sequential top-down firewall rule evaluation.",
+    "options": [
+      {
+        "option_text": "Top to bottom sequentially; once a packet matches a rule, that rule is applied and evaluation stops (First Match)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Sequential first-match evaluation means rule order is critically important."
+      },
+      {
+        "option_text": "Bottom to top in reverse chronological order",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls evaluate rules from the top down."
+      },
+      {
+        "option_text": "Randomly chosen each time by the firewall processor",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Rule evaluation is strictly deterministic."
+      },
+      {
+        "option_text": "All rules are executed simultaneously, and the packet is permitted if any rule says yes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Simultaneous execution would defeat specific drop rules placed above broad permit rules."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "firewall-rules",
+      "acl",
+      "rule-order"
+    ]
+  },
+  {
+    "code": "FW-006",
+    "topic_slug": "firewall-rules",
+    "question_text": "A firewall administrator accidentally places the rule 'DENY ip any any' at line 1 of the inbound firewall policy. What will happen to inbound traffic?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Because rules are evaluated top-down with first-match semantics, 'DENY ip any any' at line 1 will match 100% of all incoming packets, immediately dropping all inbound traffic and rendering every rule below it useless.",
+    "learning_objective": "Analyze the impact of misordered firewall rules.",
+    "options": [
+      {
+        "option_text": "All inbound traffic will be dropped immediately; all rules beneath line 1 will never be evaluated (Shadowed Rules)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Placing a broad deny rule at the top shadows all subsequent permit rules, causing complete service outage."
+      },
+      {
+        "option_text": "The firewall will ignore line 1 and execute line 2 instead",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls strictly enforce rules in order."
+      },
+      {
+        "option_text": "The firewall will double the internet speed of the building",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Dropping all packets stops all network communication."
+      },
+      {
+        "option_text": "The router will automatically order a replacement firewall from Amazon",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Firewalls do not perform automated commercial purchases."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "firewall-rules",
+      "shadowed-rules",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "FW-007",
+    "topic_slug": "firewall-rules",
+    "question_text": "In firewall terminology, what is a 'Shadowed' or 'Redundant' rule?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A shadowed rule is a rule located further down the ACL that can never be reached or executed because a preceding rule higher up in the list matches all the traffic that the lower rule would have matched.",
+    "learning_objective": "Define shadowed firewall rules.",
+    "options": [
+      {
+        "option_text": "A rule that can never be evaluated because a broader rule preceding it in the list already matches all applicable traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Shadowed rules are dead rules that represent administrative misconfigurations."
+      },
+      {
+        "option_text": "A rule that only works during a solar eclipse",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Shadowed is an access control list optimization term, not astronomical."
+      },
+      {
+        "option_text": "A rule created by an unauthenticated hacker in the shadows",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Shadowed rules are accidental administrative ordering mistakes."
+      },
+      {
+        "option_text": "A rule that encrypts web pages in black-and-white color",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Firewall rules govern packet permitting/blocking."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "firewall-rules",
+      "shadowed-rules",
+      "acl-audit"
+    ]
+  },
+  {
+    "code": "FW-008",
+    "topic_slug": "firewall-rules",
+    "question_text": "Why is it important to place specific host rules (e.g. permit host 10.1.1.5) ABOVE broad subnet rules (e.g. deny 10.1.0.0/16) in a firewall policy?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Because firewalls use first-match logic, if the broad deny rule were placed first, the specific host would be blocked along with the rest of the subnet. Placing the specific exception first allows it to be permitted before the general rule denies the rest.",
+    "learning_objective": "Apply rule ordering principles for specific exceptions.",
+    "options": [
+      {
+        "option_text": "To allow the specific exception to match and be permitted before the broader rule denies the rest of the subnet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Specific exceptions must always precede general broad policies in top-down rule evaluation."
+      },
+      {
+        "option_text": "Because firewalls can only read rules whose IP addresses end in an odd number",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls process all valid IP syntax."
+      },
+      {
+        "option_text": "To prevent the firewall from consuming too much electrical power",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Rule ordering impacts policy logic, not electrical power wattage."
+      },
+      {
+        "option_text": "To ensure that Google Chrome can update automatically",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Rule ordering applies to all network traffic."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "firewall-rules",
+      "rule-ordering",
+      "acl"
+    ]
+  },
+  {
+    "code": "FW-009",
+    "topic_slug": "ids",
+    "question_text": "Where is a network Intrusion Detection System (NIDS) sensor standardly connected to monitor traffic without sitting in-line?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Passive NIDS sensors connect out-of-band to a switch SPAN (Switched Port Analyzer / Port Mirroring) port or a physical Network TAP (Test Access Point), which sends a copy of all passing frames to the sensor for deep packet inspection.",
+    "learning_objective": "Identify passive NIDS connection points.",
+    "options": [
+      {
+        "option_text": "To a switch SPAN/mirror port or a physical Network TAP that provides a mirrored copy of network traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SPAN ports and TAPs copy frames to passive monitoring tools without introducing in-line latency."
+      },
+      {
+        "option_text": "In-line between the CPU and the computer's RAM memory",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That would be a memory bus, not a network monitoring connection."
+      },
+      {
+        "option_text": "Directly to the building's electrical circuit breaker box",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NIDS sensors connect to network switches, not building electrical panels."
+      },
+      {
+        "option_text": "Inside the telephone handset receiver",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NIDS monitors Ethernet and IP network traffic."
+      }
+    ],
+    "tags": [
+      "ids",
+      "nids",
+      "span-port",
+      "network-tap",
+      "monitoring"
+    ]
+  },
+  {
+    "code": "FW-010",
+    "topic_slug": "ips",
+    "question_text": "What is the primary risk of deploying an Intrusion Prevention System (IPS) in-line in 'blocking' mode?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A False Positive (an alert erroneously classifying legitimate business traffic as malicious) in an in-line IPS will cause the IPS to actively drop legitimate business communications, potentially causing unexpected service outages.",
+    "learning_objective": "Analyze the operational risks of in-line IPS deployments.",
+    "options": [
+      {
+        "option_text": "False Positives will result in legitimate business traffic being actively dropped, disrupting business operations",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "In-line IPS actions must be carefully tuned to prevent dropping critical legitimate traffic."
+      },
+      {
+        "option_text": "The IPS will permanently delete the operating system from all client computers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "An IPS drops network packets; it does not delete client operating systems."
+      },
+      {
+        "option_text": "The IPS will cause copper Ethernet cables to dissolve into dust",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Software packet inspection does not damage physical cabling."
+      },
+      {
+        "option_text": "The IPS will force all web browsers to switch to Swedish language",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IPS does not modify web browser language localization."
+      }
+    ],
+    "tags": [
+      "ips",
+      "false-positives",
+      "inline",
+      "risk-analysis",
+      "soc"
+    ]
+  },
+  {
+    "code": "FW-011",
+    "topic_slug": "network-segmentation",
+    "question_text": "In network architecture, what is a 'Microsegmentation' strategy?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Microsegmentation creates granular, isolated security zones within data centers and cloud networks, restricting lateral (east-west) traffic between individual workloads, virtual machines, or containers to enforce Zero Trust.",
+    "learning_objective": "Define microsegmentation in modern enterprise networks.",
+    "options": [
+      {
+        "option_text": "Granular security isolation that restricts lateral (east-west) communication between individual servers, VMs, or workloads",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Microsegmentation confines compromised workloads and blocks east-west lateral movement inside datacenters."
+      },
+      {
+        "option_text": "Cutting Ethernet cables into pieces smaller than one millimeter",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Microsegmentation is a logical security policy architecture, not cable cutting."
+      },
+      {
+        "option_text": "Allowing all devices on the network to share a single unencrypted password",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Sharing passwords destroys authentication."
+      },
+      {
+        "option_text": "Replacing all corporate servers with portable handheld calculators",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Microsegmentation applies to enterprise servers and cloud workloads."
+      }
+    ],
+    "tags": [
+      "network-segmentation",
+      "microsegmentation",
+      "zero-trust",
+      "defense"
+    ]
+  },
+  {
+    "code": "FW-012",
+    "topic_slug": "ping",
+    "question_text": "A network technician can successfully ping 127.0.0.1, but cannot ping their local default gateway (192.168.1.1). What does this diagnose?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Pinging 127.0.0.1 proves that the local computer's TCP/IP stack software and protocol driver are operational. Failing to ping the default gateway points to a local Layer 1/2 physical link problem (cable unplugged, wrong VLAN, Wi-Fi disconnected, or gateway router down).",
+    "learning_objective": "Diagnose network faults using ping isolation.",
+    "options": [
+      {
+        "option_text": "The local TCP/IP stack is functional, but there is a physical/data-link failure or network connectivity issue reaching the local gateway",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "127.0.0.1 tests local protocol drivers; gateway failure isolates the fault to the local link or router interface."
+      },
+      {
+        "option_text": "The Internet has ceased to exist worldwide",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The issue is localized to the workstation's connection to its local gateway."
+      },
+      {
+        "option_text": "The computer's central processor has melted",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The OS is executing ping commands normally."
+      },
+      {
+        "option_text": "The DNS root server is rejecting the user's credit card",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ping tested raw IP connectivity without using DNS or payments."
+      }
+    ],
+    "tags": [
+      "ping",
+      "troubleshooting",
+      "localhost",
+      "default-gateway"
+    ]
+  },
+  {
+    "code": "FW-013",
+    "topic_slug": "traceroute",
+    "question_text": "How does the 'traceroute' (or Windows 'tracert') command discover each intermediate router hop along a network path?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Traceroute sends packets with incrementally increasing IP Time to Live (TTL) values, starting at TTL=1. Each intermediate router decrements TTL, expires it, and sends back an ICMP Time Exceeded message, revealing its IP address.",
+    "learning_objective": "Explain the technical mechanism of traceroute.",
+    "options": [
+      {
+        "option_text": "It sends packets with incrementally increasing TTL values (TTL=1, 2, 3...), collecting ICMP Time Exceeded messages from each hop",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Each hop router drops the expired packet and reveals its identity via ICMP Time Exceeded (Type 11)."
+      },
+      {
+        "option_text": "It queries Google Maps for the geographical GPS coordinates of underground cables",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Traceroute uses IP TTL expiration, not mapping APIs."
+      },
+      {
+        "option_text": "It uses satellite imagery to take photos of router antenna towers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Traceroute is a Layer 3 network diagnostic protocol."
+      },
+      {
+        "option_text": "It forces all routers to shut down and reboot in sequence",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Traceroute sends ordinary low-overhead diagnostic packets."
+      }
+    ],
+    "tags": [
+      "traceroute",
+      "tracert",
+      "ttl",
+      "icmp",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "FW-014",
+    "topic_slug": "traceroute",
+    "question_text": "In a traceroute output, what does an asterisk (*) displayed for a specific hop typically indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "An asterisk (*) indicates that the traceroute probe timed out without receiving a response, commonly because the intermediate router is configured to drop ICMP/UDP probes or firewall rate-limiting is active.",
+    "learning_objective": "Interpret asterisks in traceroute output.",
+    "options": [
+      {
+        "option_text": "The probe timed out without receiving a response (often due to firewall filtering or rate-limiting of ICMP)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Many enterprise and carrier routers drop ICMP generation to prioritize routing traffic."
+      },
+      {
+        "option_text": "The router at that hop has physically exploded",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A timeout is standard router security/rate-limiting behavior."
+      },
+      {
+        "option_text": "The packet has traveled faster than the speed of light",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Physics limits transmission speed."
+      },
+      {
+        "option_text": "The user's computer screen has dead pixels",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Asterisks are text characters printed in terminal output."
+      }
+    ],
+    "tags": [
+      "traceroute",
+      "icmp",
+      "timeouts",
+      "firewalls"
+    ]
+  },
+  {
+    "code": "FW-015",
+    "topic_slug": "netstat-ss",
+    "question_text": "A cybersecurity analyst suspects a host is infected with command-and-control (C2) malware. Which command and flag combination reveals which executable process owns each active network connection on Windows?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "On Windows, 'netstat -anob' displays all active connections (a), numeric IP/ports (n), listening status (o: Process ID), and (b) displays the actual executable component name involved in creating each connection.",
+    "learning_objective": "Recall netstat flags to identify processes owning connections.",
+    "options": [
+      {
+        "option_text": "netstat -anob",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The -b flag displays the executable program name associated with each connection (requires admin privilege)."
+      },
+      {
+        "option_text": "ping -t 127.0.0.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Ping sends continuous ICMP echo requests."
+      },
+      {
+        "option_text": "tracert -h 30",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Tracert maps router hops."
+      },
+      {
+        "option_text": "nslookup -type=mx",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Nslookup queries mail server records."
+      }
+    ],
+    "tags": [
+      "netstat",
+      "incident-investigation",
+      "process-tracking",
+      "windows",
+      "soc"
+    ]
+  },
+  {
+    "code": "FW-016",
+    "topic_slug": "nslookup-dig-concepts",
+    "question_text": "Which command-line utility on Linux is standardly preferred over nslookup for performing detailed DNS queries and inspecting flags and authoritative authority sections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "'dig' (Domain Information Groper) is the preferred diagnostic DNS tool on Linux/Unix, providing detailed query responses, TTL values, response flags, and root traversal options (+trace).",
+    "learning_objective": "Identify advanced DNS diagnostic command-line tools.",
+    "options": [
+      {
+        "option_text": "dig",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "dig provides comprehensive output for inspecting DNS records, response flags, and authority sections."
+      },
+      {
+        "option_text": "ipconfig",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Ipconfig displays local interface IP configurations on Windows."
+      },
+      {
+        "option_text": "fdisk",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "fdisk partitions hard drives."
+      },
+      {
+        "option_text": "chown",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "chown changes file ownership on Linux."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dig",
+      "nslookup",
+      "cli",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "FW-017",
+    "topic_slug": "firewall-basics",
+    "question_text": "What is an Application Layer Firewall (Layer 7 / WAF / Web Application Firewall) and how does it differ from a standard Layer 4 firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A Layer 7 Web Application Firewall (WAF) inspects the actual application payload (HTTP headers, cookies, POST bodies, parameters) to detect application-level attacks like SQL Injection and Cross-Site Scripting (XSS), which Layer 4 firewalls cannot see.",
+    "learning_objective": "Contrast Layer 7 firewalls with Layer 4 packet filters.",
+    "options": [
+      {
+        "option_text": "It inspects application payloads (HTTP requests, parameters) to detect application attacks like SQL Injection and XSS",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A WAF inspects Layer 7 data, whereas Layer 4 firewalls only examine IP addresses and port numbers."
+      },
+      {
+        "option_text": "It physically accelerates the rotational speed of server cooling fans",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Firewalls filter network packets."
+      },
+      {
+        "option_text": "It formats all incoming emails into Comic Sans font",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "WAF inspects web security exploits."
+      },
+      {
+        "option_text": "It requires all users to write their passwords in cursive handwriting",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "WAF does not alter human authentication handwriting."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "waf",
+      "layer7",
+      "sql-injection",
+      "xss"
+    ]
+  },
+  {
+    "code": "FW-018",
+    "topic_slug": "firewall-basics",
+    "question_text": "What is the security risk of leaving an administrative service (such as SSH on port 22 or RDP on port 3389) directly exposed to the public Internet without IP restriction or VPN?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Publicly exposed administrative ports are subjected to continuous automated credential brute-force attacks, dictionary attacks, and immediate exploitation whenever zero-day or unpatched remote code execution vulnerabilities arise.",
+    "learning_objective": "Analyze risks of exposing administrative ports to the public Internet.",
+    "options": [
+      {
+        "option_text": "Automated threat actor bots will continually launch brute-force password attacks and exploit unpatched vulnerabilities",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Internet-facing management ports are relentlessly scanned and attacked within minutes of exposure."
+      },
+      {
+        "option_text": "The operating system will automatically delete the user's web browser",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Administrative services do not delete web browsers."
+      },
+      {
+        "option_text": "The server will begin broadcasting FM radio music across the office",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Server network ports do not transmit commercial FM radio."
+      },
+      {
+        "option_text": "The local router will run out of physical Ethernet jacks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port exposure does not alter hardware jack counts."
+      }
+    ],
+    "tags": [
+      "security",
+      "remote-access",
+      "ssh",
+      "rdp",
+      "brute-force",
+      "soc"
+    ]
+  },
+  {
+    "code": "FW-019",
+    "topic_slug": "nat",
+    "question_text": "What is 'Hairpinning' (or NAT Loopback) in enterprise network routing?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Hairpinning is a NAT feature that allows an internal LAN client to access an internal server (in the DMZ/LAN) using the server's public external IP address, with the router translating and looping the packet back internally.",
+    "learning_objective": "Explain NAT hairpinning.",
+    "options": [
+      {
+        "option_text": "A feature that allows internal hosts to communicate with an internal server using the server's public IP address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Hairpinning loops internal requests addressed to the public IP back into the local network."
+      },
+      {
+        "option_text": "A physical tool used by technicians to tie back long hair in server rooms",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hairpinning is a routing and NAT loopback translation concept."
+      },
+      {
+        "option_text": "A security vulnerability that causes routers to overheat and catch fire",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hairpinning is a legitimate routing feature."
+      },
+      {
+        "option_text": "A protocol used to download video files across BitTorrent",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Hairpinning is a router NAT policy."
+      }
+    ],
+    "tags": [
+      "nat",
+      "hairpinning",
+      "nat-loopback",
+      "routing"
+    ]
+  },
+  {
+    "code": "FW-020",
+    "topic_slug": "network-segmentation",
+    "question_text": "In network security architecture, what is 'East-West' traffic compared to 'North-South' traffic?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "North-South traffic flows in and out of the datacenter/enterprise perimeter (between internal hosts and the external Internet). East-West traffic flows laterally between servers and workstations inside the internal network.",
+    "learning_objective": "Contrast North-South and East-West network traffic.",
+    "options": [
+      {
+        "option_text": "North-South flows between internal networks and the external Internet; East-West flows laterally between internal servers and workstations",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Perimeter firewalls filter North-South; microsegmentation filters East-West lateral movement."
+      },
+      {
+        "option_text": "North-South runs over copper; East-West runs over satellite",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both traffic patterns use standard datacenter switching and cabling."
+      },
+      {
+        "option_text": "North-South is unencrypted; East-West is permanently deleted",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both flows can be encrypted and monitored."
+      },
+      {
+        "option_text": "North-South applies only in the Northern Hemisphere",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These are topological directional metaphors independent of compass geography."
+      }
+    ],
+    "tags": [
+      "network-segmentation",
+      "east-west",
+      "north-south",
+      "traffic-flows"
+    ]
+  },
+  {
+    "code": "FW-021",
+    "topic_slug": "ping",
+    "question_text": "Why do many enterprise boundary firewalls and public web servers intentionally disable or rate-limit incoming ICMP Echo Requests (ping)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Disabling ICMP ping responses conceals hosts from casual network discovery scans, prevents ICMP flood Denial of Service attacks, and reduces unnecessary reconnaissance visibility to external adversaries.",
+    "learning_objective": "Explain why perimeter firewalls often block incoming ICMP ping.",
+    "options": [
+      {
+        "option_text": "To conceal internal hosts from casual reconnaissance scans and mitigate ICMP flood DoS attacks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Blocking inbound ICMP reduces attack surface discovery and prevents ping floods."
+      },
+      {
+        "option_text": "Because ICMP packets destroy the physical glass fibers inside optical cables",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ICMP packets are standard digital frames with no physical cable damage."
+      },
+      {
+        "option_text": "Because pinging a server causes it to automatically delete its database",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ping does not modify server databases."
+      },
+      {
+        "option_text": "Because ICMP is strictly forbidden by federal law",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ICMP is a standard IETF protocol (RFC 792)."
+      }
+    ],
+    "tags": [
+      "ping",
+      "icmp",
+      "firewall",
+      "reconnaissance",
+      "security"
+    ]
+  },
+  {
+    "code": "FW-022",
+    "topic_slug": "traceroute",
+    "question_text": "A network analyst runs 'traceroute 8.8.8.8' on Linux and 'tracert 8.8.8.8' on Windows. What transport protocol does each operating system standardly use for its outgoing probes by default?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "By default, Windows 'tracert' sends ICMP Echo Request messages, while Linux/Unix 'traceroute' sends high-numbered UDP packets (typically ports 33434-33534).",
+    "learning_objective": "Compare Windows and Linux traceroute transport mechanisms.",
+    "options": [
+      {
+        "option_text": "Windows uses ICMP Echo Requests; Linux standardly uses high-numbered UDP packets",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Windows sends ICMP by default; Linux sends UDP packets (though -I flag enables ICMP on Linux)."
+      },
+      {
+        "option_text": "Windows uses encrypted SSH; Linux uses unencrypted Telnet",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Traceroute does not use terminal management protocols."
+      },
+      {
+        "option_text": "Both use TCP SYN packets on port 443 exclusively",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Standard traceroute uses ICMP or UDP, though tcptraceroute exists as an alternative."
+      },
+      {
+        "option_text": "Both use Bluetooth radio transmissions",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Traceroute runs over IP networks."
+      }
+    ],
+    "tags": [
+      "traceroute",
+      "windows",
+      "linux",
+      "icmp",
+      "udp"
+    ]
+  },
+  {
+    "code": "FW-023",
+    "topic_slug": "netstat-ss",
+    "question_text": "In netstat output, what does the socket state 'ESTABLISHED' signify?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "'ESTABLISHED' indicates that the TCP three-way handshake completed successfully and the connection is currently open for bidirectional data transmission between client and server.",
+    "learning_objective": "Interpret the ESTABLISHED TCP socket state.",
+    "options": [
+      {
+        "option_text": "The TCP three-way handshake completed and the connection is actively open for data transfer",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ESTABLISHED indicates an active, ongoing TCP session."
+      },
+      {
+        "option_text": "The connection has been aborted due to network failure",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Aborted connections enter CLOSED or generate RST."
+      },
+      {
+        "option_text": "The server is waiting for an Initial Sequence Number",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That would be SYN_RECEIVED."
+      },
+      {
+        "option_text": "The client has unplugged its physical Ethernet cable",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Connection states track protocol communication, not physical disconnects."
+      }
+    ],
+    "tags": [
+      "netstat",
+      "tcp-states",
+      "established"
+    ]
+  },
+  {
+    "code": "FW-024",
+    "topic_slug": "netstat-ss",
+    "question_text": "In netstat output, what does the socket state 'LISTENING' signify?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "'LISTENING' signifies that a local server application process has bound to a specific port and is waiting to accept incoming connection requests from remote clients.",
+    "learning_objective": "Interpret the LISTENING socket state.",
+    "options": [
+      {
+        "option_text": "A local service process has bound to the port and is actively waiting to accept incoming connections",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "LISTENING indicates an open service port ready to receive client handshakes."
+      },
+      {
+        "option_text": "The computer is eavesdropping on all office telephone calls",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "LISTENING is a standard TCP socket state for local server daemons."
+      },
+      {
+        "option_text": "The hard drive is playing an audio podcast through the speakers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Socket listening refers to network port readiness."
+      },
+      {
+        "option_text": "The network card has stopped working permanently",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Listening sockets demonstrate an active, operational protocol stack."
+      }
+    ],
+    "tags": [
+      "netstat",
+      "tcp-states",
+      "listening",
+      "sockets"
+    ]
+  },
+  {
+    "code": "FW-025",
+    "topic_slug": "firewall-basics",
+    "question_text": "What is an 'Egress Filtering' policy on an enterprise perimeter firewall?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Egress filtering inspects and restricts OUTBOUND traffic originating from internal networks destined for the Internet, preventing malware from communicating with C2 servers, blocking unauthorized protocol tunnels, and stopping data exfiltration.",
+    "learning_objective": "Explain the purpose of egress filtering.",
+    "options": [
+      {
+        "option_text": "Restricting outbound traffic leaving the internal network to prevent malware C2 communication and data exfiltration",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Egress filtering stops internal compromised hosts from beaconing to malicious external command-and-control servers."
+      },
+      {
+        "option_text": "Filtering incoming spam emails from external marketing companies",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Inbound email inspection is ingress spam filtering."
+      },
+      {
+        "option_text": "Preventing users from turning off their office computer monitors",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Power settings are managed by OS group policies."
+      },
+      {
+        "option_text": "Cleaning dust out of physical ventilation fans",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Filtering in cybersecurity refers to network packet inspection."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "egress-filtering",
+      "defense",
+      "c2",
+      "data-exfiltration"
+    ]
+  },
+  {
+    "code": "FW-026",
+    "topic_slug": "firewall-rules",
+    "question_text": "An enterprise policy requires that all internal servers synchronize time via an external NTP pool (pool.ntp.org) over UDP port 123. What firewall rule should be configured on the outbound interface?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The outbound rule must permit internal server source IPs to reach external destination IPs with protocol UDP and destination port 123: 'PERMIT udp <internal_servers> any eq 123'.",
+    "learning_objective": "Construct an outbound firewall access rule for NTP.",
+    "options": [
+      {
+        "option_text": "PERMIT udp internal_servers any destination-port 123",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "NTP uses UDP destination port 123 for network time synchronization."
+      },
+      {
+        "option_text": "PERMIT tcp internal_servers any destination-port 80",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TCP port 80 is HTTP, not NTP."
+      },
+      {
+        "option_text": "DENY udp any any destination-port 123",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This rule would block NTP synchronization."
+      },
+      {
+        "option_text": "PERMIT icmp any any type echo-request",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ICMP is ping, not time synchronization."
+      }
+    ],
+    "tags": [
+      "firewall-rules",
+      "ntp",
+      "acl",
+      "configuration"
+    ]
+  },
+  {
+    "code": "FW-027",
+    "topic_slug": "nat-security",
+    "question_text": "What is 'Double NAT' and why does it cause problems for peer-to-peer applications, VoIP, and gaming?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Double NAT occurs when two routers in series both perform NAT (e.g. an ISP gateway router connected to a customer's personal Wi-Fi router). This creates two private address tiers, breaking port forwarding, UPnP, and direct peer-to-peer connectivity.",
+    "learning_objective": "Explain the complications caused by Double NAT.",
+    "options": [
+      {
+        "option_text": "Two cascading routers both perform address translation, breaking inbound port forwarding, UPnP, and VoIP/P2P sessions",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Double NAT creates two private subnets in sequence, preventing direct inbound routing and breaking session tracking."
+      },
+      {
+        "option_text": "The user is charged twice as much money by their Internet provider",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Double NAT is a routing/translation topology problem, not an ISP billing rate."
+      },
+      {
+        "option_text": "The computer downloads two copies of every file simultaneously",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Double NAT does not duplicate file downloads."
+      },
+      {
+        "option_text": "The Wi-Fi signals turn completely invisible",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Wi-Fi radio waves are naturally invisible."
+      }
+    ],
+    "tags": [
+      "nat",
+      "double-nat",
+      "troubleshooting",
+      "voip"
+    ]
+  },
+  {
+    "code": "FW-028",
+    "topic_slug": "ids-ips-advanced",
+    "question_text": "What is a 'False Negative' in intrusion detection systems, and why is it considered the most dangerous outcome for a security operations center (SOC)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A False Negative occurs when a genuine attack or malicious activity occurs on the network, but the IDS/IPS fails to detect it and generates NO alert. It is the most dangerous condition because an attacker breaches the network completely undetected.",
+    "learning_objective": "Analyze the threat of False Negatives in security monitoring.",
+    "options": [
+      {
+        "option_text": "A real attack occurs but the security system fails to detect it and generates zero alerts, leaving the breach undetected",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "False negatives mean active intrusions proceed silently without security analyst awareness."
+      },
+      {
+        "option_text": "The security system generates 5,000 alerts for normal user web browsing",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is a high False Positive rate."
+      },
+      {
+        "option_text": "The firewall power supply fails during a lightning storm",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is a hardware power failure."
+      },
+      {
+        "option_text": "A user types an incorrect password into their email client",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is an ordinary authentication failure."
+      }
+    ],
+    "tags": [
+      "ids",
+      "soc",
+      "false-negative",
+      "detection-engineering",
+      "risk"
+    ]
+  },
+  {
+    "code": "FW-029",
+    "topic_slug": "ping",
+    "question_text": "What does the output 'Destination Host Unreachable' from a router indicate compared to 'Request Timed Out' during a ping test?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "'Destination Host Unreachable' is an ICMP message sent by a router indicating it has no route to the destination network or cannot resolve the host's MAC via ARP. 'Request Timed Out' means the packet was routed, but the destination never responded before the timer expired.",
+    "learning_objective": "Distinguish Host Unreachable from Request Timed Out.",
+    "options": [
+      {
+        "option_text": "'Host Unreachable' is an explicit error from a router stating it cannot route to or find the host; 'Timed Out' means packets were sent but no reply was received before timeout",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Host Unreachable indicates routing or ARP failure at the gateway; Timed Out indicates the target or firewall dropped the packet silently."
+      },
+      {
+        "option_text": "'Host Unreachable' means the computer has no screen; 'Timed Out' means the computer has no keyboard",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are IP network diagnostic messages independent of peripheral hardware."
+      },
+      {
+        "option_text": "Both messages mean the exact same thing with zero difference",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "They indicate fundamentally different network failure modes."
+      },
+      {
+        "option_text": "'Timed Out' only occurs on computers running Windows 95",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Timeout is a universal network diagnostic response."
+      }
+    ],
+    "tags": [
+      "ping",
+      "icmp",
+      "troubleshooting",
+      "host-unreachable",
+      "timed-out"
+    ]
+  },
+  {
+    "code": "FW-030",
+    "topic_slug": "nslookup-dig-concepts",
+    "question_text": "A user can ping external servers by their IP address (e.g. ping 8.8.8.8 succeeds), but typing 'ping google.com' returns 'Ping request could not find host google.com'. What is the root cause?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Because IP ping succeeds, physical cabling, Layer 2 switching, Layer 3 routing, and default gateway configurations are all working. The inability to resolve 'google.com' isolates the root cause to a DNS resolution failure (misconfigured or unreachable DNS server).",
+    "learning_objective": "Isolate DNS resolution failure from underlying IP connectivity.",
+    "options": [
+      {
+        "option_text": "DNS resolution failure: the host cannot resolve domain names, though underlying IP routing and gateway connectivity are functional",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Successful IP ping proves Layer 1-3 connectivity; name failure isolates the issue to DNS (Layer 7)."
+      },
+      {
+        "option_text": "The physical Ethernet cable has been severed in half",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "If the cable were cut, pinging 8.8.8.8 would fail immediately."
+      },
+      {
+        "option_text": "The user's computer monitor has overheated",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The user is actively viewing terminal error messages on screen."
+      },
+      {
+        "option_text": "The default gateway router has crashed and stopped forwarding all packets",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Pinging 8.8.8.8 succeeded through the gateway."
+      }
+    ],
+    "tags": [
+      "dns",
+      "ping",
+      "troubleshooting",
+      "dns-failure"
+    ]
+  },
+  {
+    "code": "FW-031",
+    "topic_slug": "stateful-vs-stateless-filtering",
+    "question_text": "In firewall architecture, how does a stateful firewall handle inbound return traffic for an established outbound TCP connection compared to a stateless packet filter?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A stateful firewall tracks connection state in a dynamic state table, automatically allowing return traffic that belongs to an active, established outbound session. A stateless packet filter treats every packet independently and requires an explicit static rule (or broad port opening) to allow return packets.",
+    "learning_objective": "Differentiate stateful connection tracking from stateless packet filtering.",
+    "options": [
+      {
+        "option_text": "A stateful firewall automatically permits return traffic matching an active session in its state table, whereas a stateless filter requires an explicit static rule",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "State tables track handshakes dynamically, whereas stateless filters evaluate each packet in isolation."
+      },
+      {
+        "option_text": "A stateful firewall rejects all return traffic and forces the user to browse offline",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Stateful firewalls enable seamless bidirectional communication for valid sessions."
+      },
+      {
+        "option_text": "Stateless filters inspect encrypted TLS payloads, while stateful firewalls cannot",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Stateless filters do not decrypt or inspect application payloads."
+      },
+      {
+        "option_text": "Stateful firewalls only function when connected to high-voltage power lines",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Stateful inspection is a software algorithm running on standard network devices."
+      }
+    ],
+    "tags": [
+      "firewall",
+      "stateful",
+      "stateless",
+      "state-table",
+      "filtering"
+    ]
+  }
+]

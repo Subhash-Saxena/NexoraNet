@@ -1,0 +1,1583 @@
+[
+  {
+    "code": "PCAP-001",
+    "topic_slug": "packet-structure",
+    "question_text": "An analyst inspects an Ethernet frame in a packet analyzer and observes an EtherType field value of 0x0800. What protocol payload is encapsulated inside this frame?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "EtherType 0x0800 identifies an encapsulated IPv4 packet. (In contrast, 0x86DD indicates IPv6, and 0x0806 indicates ARP).",
+    "learning_objective": "Identify network layer protocols from Layer 2 EtherType values.",
+    "options": [
+      {
+        "option_text": "IPv4 (Internet Protocol version 4)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "0x0800 is the standard EtherType hex value for IPv4."
+      },
+      {
+        "option_text": "IPv6 (Internet Protocol version 6)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "IPv6 is identified by EtherType 0x86DD."
+      },
+      {
+        "option_text": "ARP (Address Resolution Protocol)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ARP is identified by EtherType 0x0806."
+      },
+      {
+        "option_text": "IEEE 802.1Q VLAN Tag",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "802.1Q tagged frames use EtherType 0x8100."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "ethernet-frames",
+      "ethertype",
+      "wireshark"
+    ]
+  },
+  {
+    "code": "PCAP-002",
+    "topic_slug": "packet-structure",
+    "question_text": "In an IPv4 packet header, what protocol number is specified in the 8-bit 'Protocol' field when the encapsulated payload is TCP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "IP Protocol number 6 signifies TCP (Transmission Control Protocol). In contrast, Protocol 17 is UDP, Protocol 1 is ICMP, and Protocol 47 is GRE.",
+    "learning_objective": "Recall IP header Protocol field numbers.",
+    "options": [
+      {
+        "option_text": "Protocol 6",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IP Protocol 6 indicates TCP encapsulation."
+      },
+      {
+        "option_text": "Protocol 17",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Protocol 17 indicates UDP."
+      },
+      {
+        "option_text": "Protocol 1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Protocol 1 indicates ICMP."
+      },
+      {
+        "option_text": "Protocol 89",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Protocol 89 indicates OSPF."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "ip-packets",
+      "protocols",
+      "headers"
+    ]
+  },
+  {
+    "code": "PCAP-003",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which Wireshark display filter isolates packets where the TCP SYN flag is set and the ACK flag is cleared (identifying connection initiation attempts)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The filter 'tcp.flags.syn == 1 && tcp.flags.ack == 0' isolates pure initial SYN packets, useful for identifying new inbound connection attempts and scanning activity.",
+    "learning_objective": "Construct Wireshark display filters for TCP handshake analysis.",
+    "options": [
+      {
+        "option_text": "tcp.flags.syn == 1 && tcp.flags.ack == 0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This filter matches initial connection initiation SYN packets."
+      },
+      {
+        "option_text": "tcp.flags == 0x012",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "0x012 corresponds to SYN-ACK (SYN=0x002, ACK=0x010)."
+      },
+      {
+        "option_text": "tcp.port == 80 && ip.addr == 1.1.1.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This filters by IP and port, not by handshake flags."
+      },
+      {
+        "option_text": "http.request.method == 'SYN'",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SYN is a Layer 4 TCP flag, not an HTTP Layer 7 method."
+      }
+    ],
+    "tags": [
+      "wireshark",
+      "packet-analysis",
+      "tcp-flags",
+      "display-filters"
+    ]
+  },
+  {
+    "code": "PCAP-004",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "A SOC analyst examines a packet capture and observes 10 consecutive TCP packets with identical ACK numbers and zero window size progression from a receiver. What condition does this represent?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Receiving consecutive duplicate ACKs indicates that the receiver is missing an intermediate packet (due to packet loss or out-of-order delivery). When three duplicate ACKs are observed, TCP Fast Retransmit is triggered.",
+    "learning_objective": "Analyze TCP duplicate ACKs in packet captures.",
+    "options": [
+      {
+        "option_text": "TCP Duplicate ACKs signaling packet loss and triggering Fast Retransmit",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Duplicate ACKs notify the sender that an out-of-order segment arrived and an earlier segment is missing."
+      },
+      {
+        "option_text": "The web browser is loading a high-resolution 8K image",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Image loading generates data transfer, not duplicate ACK stalls."
+      },
+      {
+        "option_text": "The server has been infected with an email worm",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Duplicate ACKs are standard TCP flow mechanisms indicating dropped packets."
+      },
+      {
+        "option_text": "The client has switched its display monitor to 144Hz refresh rate",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Display refresh rates do not affect TCP transport acknowledgments."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "tcp-stream-analysis",
+      "duplicate-acks",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PCAP-005",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "In a packet capture, an analyst observes continuous UDP queries to port 53 where domain names consist of long, random alphanumeric prefixes (e.g. 'a8f7c9b2e1.exfil.attacker.com') carrying high entropy. What threat activity is occurring?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "This pattern indicates DNS Tunneling / Data Exfiltration. Adversaries encode stolen data or command-and-control payloads into the subdomain labels of queries destined for an authoritative nameserver they control.",
+    "learning_objective": "Identify DNS tunneling and data exfiltration patterns.",
+    "options": [
+      {
+        "option_text": "DNS Tunneling used for command-and-control (C2) or data exfiltration",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "High-entropy, frequent subdomain queries to a single root domain are a classic indicator of DNS tunneling."
+      },
+      {
+        "option_text": "Routine automated Microsoft Windows operating system updates",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "OS updates use standard HTTPS queries to known CDN domains."
+      },
+      {
+        "option_text": "Normal DHCP IP address lease renewals",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP uses UDP ports 67/68 on the local subnet, not external DNS queries."
+      },
+      {
+        "option_text": "The local router synchronizing time with NTP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NTP uses UDP port 123, not port 53 DNS queries."
+      }
+    ],
+    "tags": [
+      "dns",
+      "packet-analysis",
+      "dns-tunneling",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "PCAP-006",
+    "topic_slug": "http-packet-analysis",
+    "question_text": "An analyst inspects an unencrypted HTTP POST request in Wireshark and spots the following string in the parameters: 'uname=admin' OR 1=1--'. What web attack is being attempted?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The payload 'admin' OR 1=1--' is a classic SQL Injection (SQLi) authentication bypass exploit intended to manipulate the backend database logic into returning true and logging in without a password.",
+    "learning_objective": "Recognize SQL injection patterns in HTTP request payloads.",
+    "options": [
+      {
+        "option_text": "SQL Injection (SQLi) authentication bypass attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "'OR 1=1--' forces SQL boolean evaluation to true, bypassing password checks."
+      },
+      {
+        "option_text": "Cross-Site Request Forgery (CSRF)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "CSRF tricks an authenticated user's browser into submitting forged requests."
+      },
+      {
+        "option_text": "Buffer Overflow attack in the network card firmware",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is an application-layer database injection, not hardware memory corruption."
+      },
+      {
+        "option_text": "DNS Cache Poisoning",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This payload targets a web application form, not a DNS resolver cache."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "http",
+      "sql-injection",
+      "application-security",
+      "soc"
+    ]
+  },
+  {
+    "code": "PCAP-007",
+    "topic_slug": "tls-traffic",
+    "question_text": "In TLS 1.2 traffic analysis, which packet in the handshake contains the web server's X.509 digital certificate in cleartext?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "In TLS 1.2, the server sends the 'Server Hello' followed by the 'Certificate' message in plaintext before the encrypted session key is derived, allowing passive packet sniffers to inspect the certificate.",
+    "learning_objective": "Analyze TLS handshake messages in packet captures.",
+    "options": [
+      {
+        "option_text": "The Server Hello / Certificate message",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "In TLS 1.2, the certificate is sent in plaintext; in TLS 1.3, it is encrypted after the Server Hello."
+      },
+      {
+        "option_text": "The Client Key Exchange message",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Client Key Exchange contains encrypted premaster secret or parameters."
+      },
+      {
+        "option_text": "The TCP SYN-ACK packet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TCP SYN-ACK is Layer 4; TLS handshake occurs after TCP establishment."
+      },
+      {
+        "option_text": "The HTTP 200 OK response",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HTTP traffic is sent inside the encrypted TLS tunnel after handshake completion."
+      }
+    ],
+    "tags": [
+      "tls",
+      "packet-analysis",
+      "certificates",
+      "wireshark"
+    ]
+  },
+  {
+    "code": "PCAP-008",
+    "topic_slug": "tls-traffic",
+    "question_text": "What TLS extension allows a client browser to specify the exact hostname it is attempting to connect to during the Client Hello, enabling virtual hosting on HTTPS servers?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Server Name Indication (SNI / RFC 6066) is an extension in the TLS Client Hello where the client specifies the requested domain name, allowing the web server to present the correct SSL certificate among multiple hosted sites.",
+    "learning_objective": "Recall the role of Server Name Indication (SNI).",
+    "options": [
+      {
+        "option_text": "Server Name Indication (SNI)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SNI reveals the target domain in the Client Hello before encryption, allowing multi-tenant certificate selection."
+      },
+      {
+        "option_text": "Session Ticket",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Session tickets facilitate fast session resumption."
+      },
+      {
+        "option_text": "Application-Layer Protocol Negotiation (ALPN)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ALPN negotiates application protocols like HTTP/2 or HTTP/3."
+      },
+      {
+        "option_text": "Key Share",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Key Share carries Diffie-Hellman public keys in TLS 1.3."
+      }
+    ],
+    "tags": [
+      "tls",
+      "sni",
+      "packet-analysis",
+      "web-hosting"
+    ]
+  },
+  {
+    "code": "PCAP-009",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which Wireshark filter restricts the display to traffic involving host 192.168.1.50 communicating over TCP port 443?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "In Wireshark display filter syntax, 'ip.addr == 192.168.1.50 && tcp.port == 443' matches packets where either source or destination IP is 192.168.1.50 and either source or destination port is 443.",
+    "learning_objective": "Construct compound Wireshark display filters.",
+    "options": [
+      {
+        "option_text": "ip.addr == 192.168.1.50 && tcp.port == 443",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This combines IP address filtering with TCP port filtering."
+      },
+      {
+        "option_text": "host 192.168.1.50 and port 443",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is BPF capture filter syntax (used in tcpdump), not a Wireshark display filter."
+      },
+      {
+        "option_text": "ip.src == 192.168.1.50 || udp.port == 443",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This uses logical OR and UDP port instead of TCP."
+      },
+      {
+        "option_text": "ether.addr == 192.168.1.50",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Ethernet filters evaluate 48-bit MAC addresses, not IP strings."
+      }
+    ],
+    "tags": [
+      "wireshark",
+      "display-filters",
+      "packet-analysis"
+    ]
+  },
+  {
+    "code": "PCAP-010",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "An analyst follows a TCP stream in Wireshark and spots the message '220 Microsoft ESMTP MAIL Service ready'. What service was contacted?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Banner '220 ... ESMTP ... ready' is the standard greeting banner returned by a Simple Mail Transfer Protocol (SMTP) server on TCP port 25 or 587.",
+    "learning_objective": "Identify application protocols from service greeting banners.",
+    "options": [
+      {
+        "option_text": "SMTP (Simple Mail Transfer Protocol)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ESMTP banner 220 confirms an active mail exchange service."
+      },
+      {
+        "option_text": "FTP (File Transfer Protocol)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "FTP banners typically start with '220 FTP server ready'."
+      },
+      {
+        "option_text": "SSH (Secure Shell)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SSH banners begin with 'SSH-2.0-...'."
+      },
+      {
+        "option_text": "HTTP (Hypertext Transfer Protocol)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HTTP servers respond to requests with 'HTTP/1.1 200 OK', not unsolicited 220 banners."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "smtp",
+      "banners",
+      "service-identification"
+    ]
+  },
+  {
+    "code": "PCAP-011",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "In packet forensics, what does a 'TCP Zero Window' warning from a destination host signify?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A TCP Zero Window advertisement informs the sender that the receiver's TCP buffer is completely full and cannot accept any more bytes. The sender must pause transmission until the receiver processes data and sends a Window Update.",
+    "learning_objective": "Analyze TCP Zero Window advertisements in packet traces.",
+    "options": [
+      {
+        "option_text": "The receiver's network buffer is completely full, halting data transmission until buffer space is cleared",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Zero Window signals severe application backpressure where data is arriving faster than the app can read it."
+      },
+      {
+        "option_text": "The physical cable has disconnected from the wall",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Zero Window is an active TCP segment sent across a functional connection."
+      },
+      {
+        "option_text": "The server has revoked its SSL certificate",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Zero Window is a Layer 4 flow control condition, not a TLS certificate event."
+      },
+      {
+        "option_text": "The client has closed all open browser windows",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Browser UI state does not generate transport zero window frames."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "tcp",
+      "zero-window",
+      "troubleshooting",
+      "performance"
+    ]
+  },
+  {
+    "code": "PCAP-012",
+    "topic_slug": "packet-structure",
+    "question_text": "In an IPv4 packet header, what is the purpose of the 'Don't Fragment' (DF) bit?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The DF bit in the IPv4 Flags field instructs intermediate routers that the packet must NOT be fragmented. If the packet exceeds a link's MTU, the router drops it and returns an ICMP Fragmentation Needed message (used in Path MTU Discovery).",
+    "learning_objective": "Explain the role of the IPv4 Don't Fragment flag.",
+    "options": [
+      {
+        "option_text": "It instructs routers not to fragment the packet; if it exceeds link MTU, the packet is dropped and an ICMP error is returned",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DF bit is central to Path MTU Discovery (PMTUD) to prevent fragmentation overhead."
+      },
+      {
+        "option_text": "It instructs the receiving CPU to delete the packet immediately upon receipt",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DF bit manages fragmentation, not packet deletion."
+      },
+      {
+        "option_text": "It indicates that the packet contains audio data rather than text",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IP flags do not classify media MIME types."
+      },
+      {
+        "option_text": "It ensures that passwords are encrypted using SHA-256",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IP header flags provide routing instructions, not cryptographic encryption."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "fragmentation",
+      "df-bit",
+      "pmtud"
+    ]
+  },
+  {
+    "code": "PCAP-013",
+    "topic_slug": "packet-structure",
+    "question_text": "What security risk is associated with IP fragmentation in enterprise networks?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Adversaries can exploit IP fragmentation (e.g. Tiny Fragment attacks, Teardrop, overlapping fragments) to bypass stateless packet filters or evade NIDS inspection by splitting attack signatures across fragment boundaries.",
+    "learning_objective": "Analyze security vulnerabilities related to IP packet fragmentation.",
+    "options": [
+      {
+        "option_text": "Adversaries can split attack signatures across fragment boundaries to evade detection by legacy NIDS and firewalls",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Fragmentation evasion splits payloads so sensors that don't reassemble fragments miss the malicious signature."
+      },
+      {
+        "option_text": "Fragments cause copper Ethernet cables to overheat and melt",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Fragmentation is a software protocol handling event with no physical cable damage."
+      },
+      {
+        "option_text": "Fragments convert all IPv4 packets into unencrypted Bluetooth signals",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Fragmented packets remain on their routed IP medium."
+      },
+      {
+        "option_text": "Fragments prevent web servers from running operating system updates",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Fragment reassembly is an ordinary kernel network stack function."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "fragmentation",
+      "evasion",
+      "security",
+      "nids"
+    ]
+  },
+  {
+    "code": "PCAP-014",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "An analyst reviews DNS query logs and spots thousands of queries for 'ANY' records directed to open resolvers with a spoofed target victim IP. What attack is being executed?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "This is a DNS Amplification Distributed Denial of Service (DDoS) attack. Small spoofed requests eliciting massive responses (using 'ANY' queries with EDNS0) reflect and amplify flood traffic onto the victim IP.",
+    "learning_objective": "Identify DNS amplification and reflection DDoS attacks.",
+    "options": [
+      {
+        "option_text": "DNS Amplification / Reflection DDoS attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DNS amplification uses small spoofed queries to generate massive reflected responses targeting a victim."
+      },
+      {
+        "option_text": "ARP Poisoning Man-in-the-Middle attack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ARP poisoning occurs locally on Layer 2, not over public DNS resolvers."
+      },
+      {
+        "option_text": "SQL Injection attack against an authoritative database",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DNS amplification targets network link saturation, not database query logic."
+      },
+      {
+        "option_text": "Pass-the-Hash credential theft",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Pass-the-hash is a Windows lateral movement technique."
+      }
+    ],
+    "tags": [
+      "dns",
+      "ddos",
+      "amplification",
+      "reflection",
+      "soc"
+    ]
+  },
+  {
+    "code": "PCAP-015",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which Wireshark display filter will display only HTTP requests that generated a 404 (Not Found) or 500 (Internal Server Error) response?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The filter 'http.response.code == 404 || http.response.code == 500' isolates responses matching either specific HTTP status error code.",
+    "learning_objective": "Construct Wireshark filters for HTTP status troubleshooting.",
+    "options": [
+      {
+        "option_text": "http.response.code == 404 || http.response.code == 500",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This filter matches either 404 or 500 response codes."
+      },
+      {
+        "option_text": "tcp.port == 404 && tcp.port == 500",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "404 and 500 are HTTP status codes, not TCP port numbers."
+      },
+      {
+        "option_text": "ip.error == 404",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IP headers do not contain HTTP status codes."
+      },
+      {
+        "option_text": "dns.flags.rcode == 404",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS response codes use RCODE values (e.g. NXDOMAIN), not HTTP codes."
+      }
+    ],
+    "tags": [
+      "wireshark",
+      "http",
+      "display-filters",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PCAP-016",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "What does a 'TCP Spurious Retransmission' in Wireshark analysis indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A spurious retransmission occurs when a sender retransmits a segment that the receiver had already received and acknowledged, typically caused by premature RTO expiration due to sudden network latency spikes.",
+    "learning_objective": "Explain TCP spurious retransmissions.",
+    "options": [
+      {
+        "option_text": "The sender retransmitted data that had already been acknowledged, typically caused by premature timer expiration during latency spikes",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Spurious retransmissions waste bandwidth when the sender's RTO timer fires before delayed ACKs arrive."
+      },
+      {
+        "option_text": "The packet was generated by an unauthorized malware process",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Spurious retransmissions are standard transport behavior under sudden latency jitter."
+      },
+      {
+        "option_text": "The network card is executing a DDoS attack against the switch",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "It indicates normal protocol recovery under delay."
+      },
+      {
+        "option_text": "The receiver sent a forged MAC address to the router",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Spurious retransmissions are Layer 4 sequence timer events."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "spurious-retransmission",
+      "troubleshooting",
+      "packet-analysis"
+    ]
+  },
+  {
+    "code": "PCAP-017",
+    "topic_slug": "packet-structure",
+    "question_text": "Where in an IPv4 packet header is the Differentiated Services Code Point (DSCP) field located, and what is its purpose?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "DSCP is a 6-bit field located in the former Type of Service (ToS) byte of the IPv4 header (and Traffic Class in IPv6), used for Quality of Service (QoS) classification to prioritize voice, video, or critical traffic.",
+    "learning_objective": "Explain the function and location of the DSCP field.",
+    "options": [
+      {
+        "option_text": "In the former Type of Service (ToS) byte; it classifies and prioritizes packets for Quality of Service (QoS)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DSCP marks traffic priority (e.g. EF for voice, AF for video) across routers."
+      },
+      {
+        "option_text": "In the TCP options field; it sets the screen brightness of the receiver",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DSCP is an IP header field for QoS, not display settings."
+      },
+      {
+        "option_text": "In the Ethernet trailer; it encrypts the user's password",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DSCP is in the Layer 3 header."
+      },
+      {
+        "option_text": "In the DNS question section; it counts the characters in the domain name",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DSCP is a network layer packet header field."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "dscp",
+      "qos",
+      "packet-structure"
+    ]
+  },
+  {
+    "code": "PCAP-018",
+    "topic_slug": "packet-structure",
+    "question_text": "In an IPv6 header, what field replaces the IPv4 'Time to Live' (TTL) field?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "In IPv6, the field is explicitly named 'Hop Limit' (8 bits). It functions identically to IPv4 TTL by decrementing by 1 at each router hop and dropping the packet at 0.",
+    "learning_objective": "Recall IPv6 header fields corresponding to IPv4 TTL.",
+    "options": [
+      {
+        "option_text": "Hop Limit",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPv6 renamed TTL to 'Hop Limit' to accurately reflect that it counts router hops."
+      },
+      {
+        "option_text": "Flow Label",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Flow Label (20 bits) identifies specific packet sequences requiring identical handling."
+      },
+      {
+        "option_text": "Next Header",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Next Header specifies the protocol encapsulated immediately following the IPv6 header."
+      },
+      {
+        "option_text": "Traffic Class",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Traffic Class corresponds to IPv4 Type of Service / DSCP."
+      }
+    ],
+    "tags": [
+      "ipv6",
+      "hop-limit",
+      "ttl",
+      "headers"
+    ]
+  },
+  {
+    "code": "PCAP-019",
+    "topic_slug": "packet-structure",
+    "question_text": "In an IPv6 header, what field replaces the IPv4 'Protocol' field to specify the encapsulated payload or extension header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The 'Next Header' field in IPv6 serves the dual purpose of identifying either an IPv6 extension header (such as Routing or Fragmentation) or the transport layer protocol (such as TCP=6 or UDP=17).",
+    "learning_objective": "Identify the IPv6 Next Header field.",
+    "options": [
+      {
+        "option_text": "Next Header",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Next Header specifies the type of the next header or upper-layer protocol."
+      },
+      {
+        "option_text": "Protocol ID",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Protocol is the field name in IPv4, not IPv6."
+      },
+      {
+        "option_text": "EtherType",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "EtherType is a Layer 2 Ethernet field."
+      },
+      {
+        "option_text": "Payload Type",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Payload type is used in RTP, not IPv6 headers."
+      }
+    ],
+    "tags": [
+      "ipv6",
+      "next-header",
+      "packet-structure"
+    ]
+  },
+  {
+    "code": "PCAP-020",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which Wireshark display filter will display all ARP requests and replies occurring on a network capture?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "Typing 'arp' in the Wireshark display filter bar filters packets exclusively to Address Resolution Protocol traffic.",
+    "learning_objective": "Filter ARP traffic in Wireshark.",
+    "options": [
+      {
+        "option_text": "arp",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The display filter 'arp' isolates all ARP broadcast requests and unicast replies."
+      },
+      {
+        "option_text": "ip.protocol == 24",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ARP operates directly over Ethernet (EtherType 0x0806) and does not use IP protocol numbers."
+      },
+      {
+        "option_text": "tcp.port == arp",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ARP does not use TCP."
+      },
+      {
+        "option_text": "ether.broadcast == true",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This is not standard Wireshark syntax for ARP filtering."
+      }
+    ],
+    "tags": [
+      "arp",
+      "wireshark",
+      "display-filters"
+    ]
+  },
+  {
+    "code": "PCAP-021",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "When analyzing a suspicious TCP stream in Wireshark, an analyst sees plaintext commands like 'whoami', 'net user', and 'systeminfo' followed by command prompt outputs. What has been captured?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "This indicates an unencrypted reverse shell or bind shell session, where an adversary gained remote command execution on a victim machine and is running discovery commands over an interactive terminal.",
+    "learning_objective": "Analyze interactive command shell sessions in packet captures.",
+    "options": [
+      {
+        "option_text": "An interactive reverse shell or remote command-line session conducted by an adversary",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Plaintext execution of host discovery commands over TCP indicates an active compromise shell."
+      },
+      {
+        "option_text": "Normal background synchronization of the computer clock with NTP",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "NTP synchronizes timestamps via binary UDP, not interactive OS command lines."
+      },
+      {
+        "option_text": "A routine automated backup of user photo albums to Google Drive",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Cloud backups transfer binary data over HTTPS."
+      },
+      {
+        "option_text": "The operating system scanning for Wi-Fi printer drivers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Printer discovery uses SSDP/mDNS, not interactive shell commands."
+      }
+    ],
+    "tags": [
+      "packet-analysis",
+      "reverse-shell",
+      "soc",
+      "threat-hunting",
+      "investigation"
+    ]
+  },
+  {
+    "code": "PCAP-022",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "In DNS response analysis, what does a response code (RCODE) of 'NXDOMAIN' (Name Error / RCODE 3) indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "NXDOMAIN indicates that the queried domain name does not exist in the DNS hierarchy (the authoritative server has no record for the requested name).",
+    "learning_objective": "Interpret DNS NXDOMAIN response codes.",
+    "options": [
+      {
+        "option_text": "The queried domain name does not exist in the DNS namespace",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "NXDOMAIN proves the domain has no active DNS record."
+      },
+      {
+        "option_text": "The server refused to process the query due to lack of payment",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Refusal returns REFUSED (RCODE 5)."
+      },
+      {
+        "option_text": "The server's physical hard drive has crashed",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NXDOMAIN is an authoritative protocol response confirming non-existence of the name."
+      },
+      {
+        "option_text": "The client entered an invalid credit card number",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS protocol does not process payment credentials."
+      }
+    ],
+    "tags": [
+      "dns",
+      "nxdomain",
+      "rcode",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PCAP-023",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "A security analyst observes a massive surge in NXDOMAIN responses (e.g. hundreds per second) generated by a single internal workstation querying random-looking domain names. What malware behavior does this pattern indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "This pattern is characteristic of malware utilizing a Domain Generation Algorithm (DGA). The malware generates hundreds of pseudo-random domains daily to contact its C2 server; most are unregistered (producing NXDOMAINs) until it finds the active domain registered by the attacker.",
+    "learning_objective": "Identify Domain Generation Algorithm (DGA) network indicators.",
+    "options": [
+      {
+        "option_text": "Domain Generation Algorithm (DGA) used by malware to locate active command-and-control servers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DGAs produce heavy NXDOMAIN bursts because the majority of generated domains are unregistered."
+      },
+      {
+        "option_text": "A user rapidly typing search queries into Google",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Search engine queries query google.com, not hundreds of non-existent domains."
+      },
+      {
+        "option_text": "The workstation installing an official Microsoft Windows cumulative update",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Windows update queries fixed, registered Microsoft domains."
+      },
+      {
+        "option_text": "The local switch experiencing a broadcast storm",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Switch loops circulate Layer 2 frames, not DNS NXDOMAIN responses."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dga",
+      "c2",
+      "malware",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "PCAP-024",
+    "topic_slug": "http-packet-analysis",
+    "question_text": "An analyst inspects HTTP traffic and notices that a client's 'User-Agent' header is string 'sqlmap/1.5.2#stable'. What does this indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "This indicates that an automated security scanning or exploitation tool (specifically sqlmap, a popular automated SQL injection tool) is being run against the web application.",
+    "learning_objective": "Identify security scanner User-Agent signatures in HTTP headers.",
+    "options": [
+      {
+        "option_text": "An automated SQL injection scanning tool (sqlmap) is actively probing or exploiting the web application",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Default tool signatures in User-Agent headers identify automated scanner activity."
+      },
+      {
+        "option_text": "A standard user is viewing the website using Google Chrome",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Chrome uses 'Mozilla/5.0 ... Chrome/...' User-Agent strings."
+      },
+      {
+        "option_text": "The web server has successfully created a daily database backup",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "User-Agent is a client request header, not a server backup status."
+      },
+      {
+        "option_text": "The client's computer monitor has a cracked screen",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "User-Agent reflects client software identity, not hardware screen condition."
+      }
+    ],
+    "tags": [
+      "http",
+      "user-agent",
+      "sqlmap",
+      "reconnaissance",
+      "soc"
+    ]
+  },
+  {
+    "code": "PCAP-025",
+    "topic_slug": "packet-structure",
+    "question_text": "What is the maximum standard Transmission Unit (MTU) size for standard Ethernet version 2 frames on local area networks?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The standard Ethernet v2 MTU is 1500 bytes (referring to the maximum IP packet size excluding the 14-byte Ethernet header and 4-byte FCS trailer).",
+    "learning_objective": "Recall standard Ethernet MTU size.",
+    "options": [
+      {
+        "option_text": "1500 bytes",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Standard Ethernet MTU is 1500 bytes."
+      },
+      {
+        "option_text": "9000 bytes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "9000 bytes is a Jumbo Frame size used in datacenters."
+      },
+      {
+        "option_text": "576 bytes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "576 bytes is the minimum IPv4 reassembly buffer size."
+      },
+      {
+        "option_text": "65535 bytes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "65535 bytes is the theoretical maximum size of an IPv4 packet."
+      }
+    ],
+    "tags": [
+      "ethernet",
+      "mtu",
+      "packet-structure"
+    ]
+  },
+  {
+    "code": "PCAP-026",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which BPF (Berkeley Packet Filter) capture filter syntax used in tcpdump or Wireshark captures traffic on port 80 or port 443 while excluding traffic to host 10.0.0.1?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "In BPF capture filter syntax: '(port 80 or port 443) and not host 10.0.0.1'.",
+    "learning_objective": "Construct BPF capture filters for tcpdump.",
+    "options": [
+      {
+        "option_text": "(port 80 or port 443) and not host 10.0.0.1",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This correctly combines port matching with a host exclusion in standard BPF syntax."
+      },
+      {
+        "option_text": "tcp.port in {80, 443} && ip.addr != 10.0.0.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is Wireshark display filter syntax, not a BPF capture filter."
+      },
+      {
+        "option_text": "filter port 80, 443 exclude 10.0.0.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is pseudocode, not BPF syntax."
+      },
+      {
+        "option_text": "iptables -A INPUT -p tcp --dport 80 -j DROP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This is a Linux firewall command, not a packet capture filter."
+      }
+    ],
+    "tags": [
+      "bpf",
+      "tcpdump",
+      "wireshark",
+      "capture-filters"
+    ]
+  },
+  {
+    "code": "PCAP-027",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "In a packet capture, what does the presence of the TCP flag combination 'ACK, PSH' indicate during an active data session?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "ACK, PSH indicates that the sender is simultaneously acknowledging data previously received (ACK) and delivering an immediate block of payload data that should be pushed straight to the receiving application (PSH).",
+    "learning_objective": "Interpret the PSH-ACK TCP flag combination.",
+    "options": [
+      {
+        "option_text": "The segment acknowledges previously received data and contains payload data that should be pushed immediately to the application",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PSH-ACK is the standard flag combination used during active application data exchange."
+      },
+      {
+        "option_text": "The connection is being terminated by the server",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Connection termination uses the FIN flag."
+      },
+      {
+        "option_text": "The router has detected an electrical short circuit",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Transport flags manage software protocol flows, not electrical shorts."
+      },
+      {
+        "option_text": "The user has changed their password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Transport flags do not indicate credential changes."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "psh-ack",
+      "packet-analysis",
+      "data-transfer"
+    ]
+  },
+  {
+    "code": "PCAP-028",
+    "topic_slug": "packet-structure",
+    "question_text": "What is the function of the 3-bit 'Flags' field in the IPv4 header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The IPv4 Flags field controls and identifies fragmentation: Bit 0 is reserved (must be 0), Bit 1 is the DF (Don't Fragment) bit, and Bit 2 is the MF (More Fragments) bit.",
+    "learning_objective": "Recall the bit definitions of the IPv4 Flags field.",
+    "options": [
+      {
+        "option_text": "Bit 0: Reserved, Bit 1: Don't Fragment (DF), Bit 2: More Fragments (MF)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "These 3 bits control and track packet fragmentation across IP networks."
+      },
+      {
+        "option_text": "Bit 0: SYN, Bit 1: ACK, Bit 2: FIN",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SYN, ACK, and FIN are Layer 4 TCP flags, not IPv4 header flags."
+      },
+      {
+        "option_text": "Bit 0: Encrypt, Bit 1: Decrypt, Bit 2: Delete",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IP header flags do not perform cryptographic operations."
+      },
+      {
+        "option_text": "Bit 0: Red, Bit 1: Green, Bit 2: Blue",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Network headers manage routing logic, not color display."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "flags",
+      "df",
+      "mf",
+      "fragmentation"
+    ]
+  },
+  {
+    "code": "PCAP-029",
+    "topic_slug": "http-packet-analysis",
+    "question_text": "An analyst inspects an HTTP request and observes the header 'Authorization: Basic YWRtaW46cGFzc3dvcmQxMjM='. How is this credential string protected in transit?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "'Basic' HTTP authentication encodes credentials using Base64, which is NOT encryption\u2014it is merely an encoding scheme that can be instantly decoded back to plaintext ('admin:password123') by anyone who captures the packet.",
+    "learning_objective": "Evaluate HTTP Basic Authentication security.",
+    "options": [
+      {
+        "option_text": "It is merely Base64-encoded (not encrypted) and can be immediately decoded back to plaintext by anyone intercepting the traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Base64 is an encoding format, offering zero confidentiality; without HTTPS, credentials are exposed in plaintext."
+      },
+      {
+        "option_text": "It is encrypted with military-grade AES-256 that cannot be broken for 1000 years",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Base64 encoding is not encryption."
+      },
+      {
+        "option_text": "It is protected by a hardware quantum key",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Base64 is a standard ASCII text encoding algorithm."
+      },
+      {
+        "option_text": "It is permanently unreadable even by the destination web server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The server decodes it directly to check username and password."
+      }
+    ],
+    "tags": [
+      "http",
+      "basic-auth",
+      "base64",
+      "packet-analysis",
+      "security"
+    ]
+  },
+  {
+    "code": "PCAP-030",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "What does a DNS response containing an answer in the 'Authority' section pointing to a 'SOA' record with no A records in the 'Answer' section indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A response containing an SOA in the authority section with zero answers indicates a negative response: either NXDOMAIN (domain name does not exist) or NODATA (domain exists, but the requested record type does not exist).",
+    "learning_objective": "Interpret negative DNS response structures.",
+    "options": [
+      {
+        "option_text": "A negative response indicating the domain name or requested record type does not exist (NXDOMAIN or NODATA)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The SOA record provides the negative caching TTL for resolvers to cache the non-existence of the record."
+      },
+      {
+        "option_text": "The web server has accepted a credit card payment",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DNS responses carry name resolution records, not payment acknowledgments."
+      },
+      {
+        "option_text": "The DNS query was encrypted using AES-GCM",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Standard DNS queries and responses are unencrypted."
+      },
+      {
+        "option_text": "The client computer has been disconnected from the electrical power grid",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "The client received an active network response."
+      }
+    ],
+    "tags": [
+      "dns",
+      "soa",
+      "negative-caching",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "PCAP-031",
+    "topic_slug": "packet-structure",
+    "question_text": "In packet dissection, what protocol is indicated by EtherType value 0x86DD?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "EtherType 0x86DD standardly identifies encapsulated Internet Protocol version 6 (IPv6) packets inside Ethernet frames.",
+    "learning_objective": "Identify the IPv6 EtherType value.",
+    "options": [
+      {
+        "option_text": "IPv6 (Internet Protocol version 6)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "0x86DD identifies IPv6 payloads."
+      },
+      {
+        "option_text": "IPv4",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "IPv4 is 0x0800."
+      },
+      {
+        "option_text": "ARP",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ARP is 0x0806."
+      },
+      {
+        "option_text": "MPLS",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MPLS unicast is 0x8847."
+      }
+    ],
+    "tags": [
+      "ipv6",
+      "ethertype",
+      "packet-structure"
+    ]
+  },
+  {
+    "code": "PCAP-032",
+    "topic_slug": "wireshark-filtering-concepts",
+    "question_text": "Which Wireshark display filter will find all packets containing the plaintext string 'password' anywhere in their payload data?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The filter 'frame contains \"password\"' scans the entire frame (headers and payload) for the specified case-sensitive ASCII text string.",
+    "learning_objective": "Search for string patterns in Wireshark packet captures.",
+    "options": [
+      {
+        "option_text": "frame contains \"password\"",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The 'contains' operator searches for ASCII or hex sequences across the entire frame."
+      },
+      {
+        "option_text": "ip.payload == password",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is invalid filter syntax."
+      },
+      {
+        "option_text": "search \"password\"",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is not standard Wireshark display filter syntax."
+      },
+      {
+        "option_text": "tcp.flags == password",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP flags are numeric bit masks, not text strings."
+      }
+    ],
+    "tags": [
+      "wireshark",
+      "string-search",
+      "packet-analysis",
+      "forensics"
+    ]
+  },
+  {
+    "code": "PCAP-033",
+    "topic_slug": "tcp-stream-analysis",
+    "question_text": "An analyst observes a TCP session where the server responds to every client data packet with an immediate ACK, but the receiver's window size remains constant at 0 for several minutes. What should the analyst investigate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A persistent Zero Window condition accompanied by regular zero window probes indicates that the receiving server application process has hung, deadlocked, or crashed, preventing it from consuming data from its kernel buffer.",
+    "learning_objective": "Diagnose persistent TCP Zero Window deadlocks.",
+    "options": [
+      {
+        "option_text": "The receiving application process has deadlocked or crashed, leaving the kernel buffer unable to drain",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "When the application stops calling recv()/read(), the buffer fills and stays at zero indefinitely."
+      },
+      {
+        "option_text": "The Ethernet switch has run out of physical RJ-45 copper ports",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Zero window is an application buffer consumption failure on the endpoint."
+      },
+      {
+        "option_text": "The user's Wi-Fi router has changed its wireless password",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The TCP connection is actively established and transmitting ACKs."
+      },
+      {
+        "option_text": "The client has upgraded its operating system to Windows 11",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Zero window reflects application thread stalls, not OS upgrades."
+      }
+    ],
+    "tags": [
+      "tcp",
+      "zero-window",
+      "troubleshooting",
+      "application-hang"
+    ]
+  },
+  {
+    "code": "PCAP-034",
+    "topic_slug": "dns-packet-analysis",
+    "question_text": "What is the difference between an Authoritative Answer and a Non-Authoritative Answer in a DNS response packet?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An Authoritative Answer (AA flag set in DNS header) comes directly from the nameserver that permanently hosts the master zone records for that domain. A Non-Authoritative Answer comes from a resolver's temporary cache.",
+    "learning_objective": "Distinguish authoritative and non-authoritative DNS answers.",
+    "options": [
+      {
+        "option_text": "Authoritative answers come from the server hosting the actual zone file; non-authoritative answers are served from a resolver's cache",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The AA bit indicates whether the response originated from the authoritative zone owner or a recursive cache."
+      },
+      {
+        "option_text": "Authoritative answers are encrypted; non-authoritative answers are unencrypted",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both are unencrypted in standard DNS."
+      },
+      {
+        "option_text": "Authoritative answers only work on smartphones",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DNS resolution is universal across all devices."
+      },
+      {
+        "option_text": "Non-authoritative answers are always malicious malware attacks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Cached non-authoritative answers are normal, expected DNS operations."
+      }
+    ],
+    "tags": [
+      "dns",
+      "authoritative",
+      "caching",
+      "dns-headers"
+    ]
+  },
+  {
+    "code": "PCAP-035",
+    "topic_slug": "packet-structure",
+    "question_text": "What is the minimum physical Ethernet frame size on wire (including destination MAC, source MAC, EtherType, payload, and FCS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Under IEEE 802.3, the minimum Ethernet frame size is 64 bytes (14 bytes header + 46 bytes minimum payload + 4 bytes FCS). If a payload is smaller than 46 bytes, padding bytes (zeros) are appended.",
+    "learning_objective": "Recall minimum Ethernet frame size specifications.",
+    "options": [
+      {
+        "option_text": "64 bytes (frames with smaller payloads are padded)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "64 bytes is the minimum frame size required for CSMA/CD collision detection slot time."
+      },
+      {
+        "option_text": "1500 bytes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "1500 bytes is the standard maximum payload MTU, not the minimum frame size."
+      },
+      {
+        "option_text": "20 bytes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "20 bytes is the minimum size of an IP header alone."
+      },
+      {
+        "option_text": "32 bytes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "32 bytes is the bit size of an IPv4 address."
+      }
+    ],
+    "tags": [
+      "ethernet",
+      "frame-size",
+      "padding",
+      "csma-cd"
+    ]
+  }
+]

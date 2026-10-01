@@ -1,0 +1,700 @@
+[
+  {
+    "code": "BEGINNER-NETWORKING-001",
+    "title": "Networking Fundamentals",
+    "slug": "networking-fundamentals",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test your understanding of core computer networking fundamentals, network topologies (star, mesh, bus), transmission media, LAN vs WAN boundaries, and client-server communication models.",
+    "instructions": "Answer 20 multiple-choice questions within 20 minutes. Score 70% or higher to achieve a passing grade.",
+    "prerequisites": "None. Suitable for beginners starting their computer networking journey.",
+    "tags": [
+      "fundamentals",
+      "lan",
+      "wan",
+      "topologies",
+      "client-server"
+    ],
+    "what_you_will_practice": [
+      "Distinguish between LAN, WAN, MAN, and PAN scales",
+      "Identify star, mesh, bus, and ring network topologies",
+      "Understand client-server vs peer-to-peer architectures",
+      "Recognize standard transmission media and signaling properties"
+    ],
+    "blueprint": {
+      "title": "Networking Fundamentals Blueprint",
+      "description": "Assesses foundational computer networking concepts, topologies, and transmission media.",
+      "topics": [
+        {
+          "topic_slug": "what-is-computer-networking",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "network-topologies",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "lan",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "wan",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "client-server",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "peer-to-peer",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "network-media",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-OSI-001",
+    "title": "OSI 7-Layer Reference Model",
+    "slug": "osi-model",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess your understanding of the 7-Layer OSI Reference Model, protocol data units (PDU), data encapsulation, decapsulation, and layer-by-layer troubleshooting methodologies.",
+    "instructions": "Answer 20 multiple-choice questions within 20 minutes. 70% required to pass.",
+    "prerequisites": "Basic understanding of computer networks.",
+    "tags": [
+      "osi",
+      "encapsulation",
+      "decapsulation",
+      "pdu",
+      "troubleshooting"
+    ],
+    "what_you_will_practice": [
+      "Map standard networking protocols to their correct OSI layers",
+      "Track PDU transformations from Application down to Physical bits",
+      "Diagnose network faults using top-down and bottom-up OSI troubleshooting",
+      "Explain the distinct roles of transport, network, and data link layers"
+    ],
+    "blueprint": {
+      "title": "OSI Reference Model Blueprint",
+      "description": "Assesses knowledge of the seven OSI layers and encapsulation flow.",
+      "topics": [
+        {
+          "topic_slug": "seven-osi-layers",
+          "question_count": 15,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "encapsulation",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "decapsulation",
+          "question_count": 1,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "osi-troubleshooting",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-TCPIP-001",
+    "title": "TCP/IP Protocol Suite Basics",
+    "slug": "tcp-ip-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 15,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Evaluate your knowledge of the 4-layer TCP/IP protocol architecture, protocol comparison against the OSI stack, transport protocols, and fundamental packet framing.",
+    "instructions": "Complete 15 questions in 15 minutes. 70% pass threshold.",
+    "prerequisites": "OSI Model fundamentals.",
+    "tags": [
+      "tcp-ip",
+      "osi-vs-tcp-ip",
+      "protocols",
+      "architecture"
+    ],
+    "what_you_will_practice": [
+      "Contrast the 4-layer TCP/IP model with the 7-layer OSI stack",
+      "Identify protocols operating at the Network Access, Internet, Transport, and Application layers",
+      "Understand how IP headers and TCP segments encapsulate application data"
+    ],
+    "blueprint": {
+      "title": "TCP/IP Suite Blueprint",
+      "description": "Evaluates understanding of the practical Internet TCP/IP stack.",
+      "topics": [
+        {
+          "topic_slug": "tcp-ip-layers",
+          "question_count": 6,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "osi-vs-tcp-ip",
+          "question_count": 1,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "encapsulation",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "udp-basics",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-DEVICES-001",
+    "title": "Network Devices & Infrastructure",
+    "slug": "network-devices",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 15,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test your knowledge of core networking hardware including Layer 2 switches, Layer 3 routers, default gateways, hubs, wireless access points, and boundary firewalls.",
+    "instructions": "15 questions, 15 minutes. Minimum 70% passing score.",
+    "prerequisites": "Basic understanding of networking communication.",
+    "tags": [
+      "router",
+      "switch",
+      "gateway",
+      "hardware",
+      "firewall"
+    ],
+    "what_you_will_practice": [
+      "Differentiate collision domains and broadcast domains across hubs, switches, and routers",
+      "Explain the role of default gateways in routing traffic outside the local subnet",
+      "Identify where firewalls and access points fit into network topologies"
+    ],
+    "blueprint": {
+      "title": "Network Devices Blueprint",
+      "description": "Assesses functional roles of hardware devices in enterprise infrastructure.",
+      "topics": [
+        {
+          "topic_slug": "network-devices",
+          "question_count": 10,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "default-gateway",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "network-media",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-ETHERNET-001",
+    "title": "Ethernet & MAC Addressing",
+    "slug": "ethernet-and-mac",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 12,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Examine your understanding of Layer 2 physical addressing, 48-bit MAC address structure (OUI vs NIC), unicast/multicast/broadcast addresses, and Address Resolution Protocol (ARP).",
+    "instructions": "12 questions in 15 minutes.",
+    "prerequisites": "OSI Layer 2 basics.",
+    "tags": [
+      "ethernet",
+      "mac-address",
+      "oui",
+      "layer2",
+      "arp"
+    ],
+    "what_you_will_practice": [
+      "Dissect 48-bit MAC address hex representations and the Organizationally Unique Identifier (OUI)",
+      "Explain how Address Resolution Protocol (ARP) discovers Layer 2 addresses from IP addresses",
+      "Differentiate unicast, broadcast, and multicast destination MAC addresses"
+    ],
+    "blueprint": {
+      "title": "Ethernet & MAC Blueprint",
+      "description": "Assesses Layer 2 addressing and frame transmission mechanics.",
+      "topics": [
+        {
+          "topic_slug": "mac-address",
+          "question_count": 9,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "arp",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-IPV4-001",
+    "title": "IPv4 Addressing Fundamentals",
+    "slug": "ipv4-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test your mastery of 32-bit IPv4 address structure, dotted-decimal notation, legacy address classes (A, B, C), default subnet masks, and network vs host ID division.",
+    "instructions": "20 questions, 20 minutes, 70% passing threshold.",
+    "prerequisites": "Binary conversion and basic networking.",
+    "tags": [
+      "ipv4",
+      "addressing",
+      "classes",
+      "subnet-mask",
+      "layer3"
+    ],
+    "what_you_will_practice": [
+      "Calculate total addresses and octet boundaries in 32-bit IPv4",
+      "Recognize legacy Class A, B, and C address ranges and default masks",
+      "Distinguish network identifier bits from host identifier bits"
+    ],
+    "blueprint": {
+      "title": "IPv4 Fundamentals Blueprint",
+      "description": "Evaluates foundational Layer 3 logical addressing concepts.",
+      "topics": [
+        {
+          "topic_slug": "ipv4-basics",
+          "question_count": 9,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ipv4-address-structure",
+          "question_count": 6,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "public-vs-private-ip",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-PRIV-PUB-IP-001",
+    "title": "Public vs Private IP Addresses",
+    "slug": "public-vs-private-ip",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 12,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Verify your understanding of RFC 1918 private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), globally routable public IPs, loopback (127.0.0.1), and APIPA (169.254.0.0/16).",
+    "instructions": "12 questions, 15 minutes.",
+    "prerequisites": "IPv4 address basics.",
+    "tags": [
+      "rfc1918",
+      "private-ip",
+      "public-ip",
+      "loopback",
+      "apipa"
+    ],
+    "what_you_will_practice": [
+      "Identify RFC 1918 private IPv4 blocks used in home and enterprise LANs",
+      "Recognize loopback diagnostics (127.0.0.1) and APIPA auto-configuration",
+      "Explain why private IP addresses cannot route across the public Internet without NAT"
+    ],
+    "blueprint": {
+      "title": "Public vs Private IP Blueprint",
+      "description": "Tests recognition and application of private and special-purpose IP ranges.",
+      "topics": [
+        {
+          "topic_slug": "public-vs-private-ip",
+          "question_count": 7,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ipv4-basics",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-PORTS-001",
+    "title": "Standard Ports & Protocols",
+    "slug": "ports-and-protocols",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess recall and understanding of IANA well-known ports (0-1023), registered ports, and essential application protocols including HTTP, HTTPS, SSH, FTP, DNS, and SMTP.",
+    "instructions": "20 questions, 20 minutes.",
+    "prerequisites": "Transport layer and client-server concepts.",
+    "tags": [
+      "ports",
+      "protocols",
+      "iana",
+      "transport",
+      "ssh",
+      "http"
+    ],
+    "what_you_will_practice": [
+      "Recall standard port numbers (SSH:22, HTTP:80, HTTPS:443, DNS:53, DHCP:67/68)",
+      "Differentiate well-known ports from dynamic ephemeral client ports",
+      "Map common application protocols to their underlying transport mechanism (TCP vs UDP)"
+    ],
+    "blueprint": {
+      "title": "Ports & Protocols Blueprint",
+      "description": "Assesses familiarity with standard ports and foundational protocols.",
+      "topics": [
+        {
+          "topic_slug": "ports",
+          "question_count": 15,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ports-and-sockets",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "http",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-DNS-001",
+    "title": "DNS Fundamentals & Name Resolution",
+    "slug": "dns-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "DRAFT",
+    "description": "Assess your understanding of the Domain Name System (DNS), hierarchical domain resolution, root nameservers, TLDs, and standard resource record types (A, AAAA, CNAME, MX).",
+    "instructions": "20 questions, 20 minutes. Note: Currently in draft status while additional beginner DNS items are staged.",
+    "prerequisites": "Ports and IP addressing.",
+    "tags": [
+      "dns",
+      "name-resolution",
+      "records",
+      "udp53"
+    ],
+    "what_you_will_practice": [
+      "Trace recursive and iterative DNS resolution workflows",
+      "Identify functions of A, AAAA, CNAME, and MX records",
+      "Explain the role of DNS caching in web performance"
+    ],
+    "blueprint": {
+      "title": "DNS Fundamentals Blueprint",
+      "description": "Tests understanding of DNS hierarchy and record lookups.",
+      "topics": [
+        {
+          "topic_slug": "dns",
+          "question_count": 20,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-DHCP-001",
+    "title": "DHCP & Dynamic Host Configuration",
+    "slug": "dhcp-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "DRAFT",
+    "description": "Examine the dynamic IP configuration process, DHCP DORA exchange (Discover, Offer, Request, Acknowledge), lease management, and DHCP scopes.",
+    "instructions": "20 questions, 20 minutes. Currently in draft status.",
+    "prerequisites": "LAN communication and IP basics.",
+    "tags": [
+      "dhcp",
+      "dora",
+      "ip-assignment",
+      "leases"
+    ],
+    "what_you_will_practice": [
+      "Understand the 4-step DHCP DORA negotiation sequence",
+      "Identify information delivered via DHCP (IP, subnet mask, gateway, DNS servers)",
+      "Explain DHCP lease renewal and expiration"
+    ],
+    "blueprint": {
+      "title": "DHCP Configuration Blueprint",
+      "description": "Assesses dynamic IP assignment and lease maintenance.",
+      "topics": [
+        {
+          "topic_slug": "dhcp",
+          "question_count": 20,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-TCP-UDP-001",
+    "title": "TCP & UDP Transport Mechanics",
+    "slug": "tcp-and-udp-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 10,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Compare connection-oriented TCP with connectionless UDP. Practice distinguishing reliability, flow control, overhead, and appropriate application use cases.",
+    "instructions": "10 questions, 15 minutes. 70% passing threshold.",
+    "prerequisites": "Transport layer fundamentals.",
+    "tags": [
+      "tcp",
+      "udp",
+      "connection-oriented",
+      "reliability",
+      "transport"
+    ],
+    "what_you_will_practice": [
+      "Contrast TCP reliability (sequencing, ACKs) with UDP low-latency streaming",
+      "Match real-time applications (VoIP, video, DNS queries) with UDP",
+      "Match file transfer and secure web protocols with TCP"
+    ],
+    "blueprint": {
+      "title": "TCP & UDP Basics Blueprint",
+      "description": "Contrasts transport protocols and operational characteristics.",
+      "topics": [
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "udp-basics",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "tcp-vs-udp",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ports-and-sockets",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-HTTP-001",
+    "title": "HTTP, HTTPS & Web Communication",
+    "slug": "http-and-https-basics",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 15,
+    "total_questions": 10,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Test your understanding of World Wide Web protocols, plaintext HTTP vs encrypted HTTPS, standard request methods (GET, POST), status code families, and TLS encryption.",
+    "instructions": "10 questions, 15 minutes.",
+    "prerequisites": "Client-server and port basics.",
+    "tags": [
+      "http",
+      "https",
+      "web",
+      "tls",
+      "status-codes"
+    ],
+    "what_you_will_practice": [
+      "Differentiate plaintext HTTP on port 80 from TLS-encrypted HTTPS on port 443",
+      "Recognize common HTTP status codes (200 OK, 301 Redirect, 404 Not Found, 500 Error)",
+      "Explain the security risks of transmitting sensitive credentials over unencrypted HTTP"
+    ],
+    "blueprint": {
+      "title": "HTTP & HTTPS Basics Blueprint",
+      "description": "Assesses web communication protocols and encryption requirements.",
+      "topics": [
+        {
+          "topic_slug": "http",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "encryption",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "common-network-threats",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-SECURITY-001",
+    "title": "Basic Network Security & Threat Defense",
+    "slug": "basic-network-security",
+    "test_type": "TOPIC",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 20,
+    "total_questions": 20,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Assess foundational cybersecurity concepts including firewalls, encryption vs hashing, multi-factor authentication, malware transmission vectors, and common network attacks.",
+    "instructions": "20 questions, 20 minutes.",
+    "prerequisites": "Networking fundamentals.",
+    "tags": [
+      "security",
+      "firewall",
+      "encryption",
+      "threats",
+      "defense"
+    ],
+    "what_you_will_practice": [
+      "Understand the CIA triad (Confidentiality, Integrity, Availability)",
+      "Identify common network attacks (man-in-the-middle, eavesdropping, spoofing)",
+      "Explain the role of packet filtering firewalls in isolating untrusted networks"
+    ],
+    "blueprint": {
+      "title": "Basic Network Security Blueprint",
+      "description": "Tests foundational defensive cybersecurity principles.",
+      "topics": [
+        {
+          "topic_slug": "common-network-threats",
+          "question_count": 10,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "firewall-basics",
+          "question_count": 6,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "encryption",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  },
+  {
+    "code": "BEGINNER-COMPREHENSIVE-001",
+    "title": "Beginner Comprehensive Networking Exam",
+    "slug": "beginner-comprehensive-networking-test",
+    "test_type": "COMPREHENSIVE",
+    "difficulty": "BEGINNER",
+    "duration_minutes": 30,
+    "total_questions": 30,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "The definitive beginner assessment. Synthesizes knowledge across the entire beginner curriculum: fundamentals, OSI model, TCP/IP stack, devices, Ethernet, IPv4, ports, DNS, and basic security.",
+    "instructions": "30 comprehensive questions in 30 minutes. Timed exam simulating CCNA / Network+ entry-level competency.",
+    "prerequisites": "Completion of Beginner networking modules.",
+    "tags": [
+      "comprehensive",
+      "beginner",
+      "exam",
+      "certification-prep",
+      "ccna"
+    ],
+    "what_you_will_practice": [
+      "Holistic validation across all beginner computer networking domains",
+      "Integrate OSI and TCP/IP models with real hardware and protocols",
+      "Diagnose foundational connectivity failures and assess network security readiness"
+    ],
+    "blueprint": {
+      "title": "Beginner Comprehensive Blueprint",
+      "description": "Full-spectrum beginner examination covering all foundational networking topics.",
+      "topics": [
+        {
+          "topic_slug": "what-is-computer-networking",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "seven-osi-layers",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "tcp-ip-layers",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "network-devices",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ipv4-basics",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ports",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "dns",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "common-network-threats",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        }
+      ]
+    }
+  }
+]

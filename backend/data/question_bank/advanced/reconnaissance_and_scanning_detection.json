@@ -1,0 +1,1372 @@
+[
+  {
+    "code": "RECON-001",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "In network reconnaissance, what distinguishes a 'Horizontal Port Scan' from a 'Vertical Port Scan'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A Horizontal scan probes a single specific port (e.g. port 445 SMB) across many different target IP addresses to find vulnerable systems. A Vertical scan probes many different ports (e.g. ports 1 to 1000) on a single specific target host.",
+    "learning_objective": "Differentiate horizontal and vertical port scanning patterns.",
+    "options": [
+      {
+        "option_text": "Horizontal scans probe one specific port across many IP addresses; vertical scans probe many ports on a single IP address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Horizontal scans search across subnets for a specific service; vertical scans enumerate services on a single host."
+      },
+      {
+        "option_text": "Horizontal scans use optical fiber; vertical scans use copper cabling",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Scanning patterns describe logical target selection, not physical media."
+      },
+      {
+        "option_text": "Vertical scans are only conducted by government space satellites",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port scans are executed by network software utilities like Nmap."
+      },
+      {
+        "option_text": "Horizontal scans can only be run on laptops sitting flat on a table",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These are topological directional metaphors."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "port-scanning",
+      "horizontal-scan",
+      "vertical-scan",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-002",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "How does a 'TCP SYN Stealth Scan' (Nmap -sS / Half-Open Scan) discover open ports without completing the three-way handshake?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The scanner sends a SYN. If the port is open, the target replies with SYN-ACK. Instead of sending the final ACK to establish the session, the scanner immediately sends a RST (Reset) packet to abort the connection, preventing full application logging.",
+    "learning_objective": "Explain the mechanics of a TCP half-open SYN scan.",
+    "options": [
+      {
+        "option_text": "The scanner sends a SYN; upon receiving a SYN-ACK (open port), it immediately sends a RST to abort the handshake before completion",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Tearing down the handshake with RST avoids completing the connection, evading older application-level connection logs."
+      },
+      {
+        "option_text": "The scanner formats the target's operating system with an automated exploit",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port scans query port status; they do not format operating systems."
+      },
+      {
+        "option_text": "The scanner downloads all private files from the server's desktop",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Port scanning discovers open ports, not file contents."
+      },
+      {
+        "option_text": "The scanner turns off the target server's cooling fans",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Scanning does not alter hardware cooling."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "syn-scan",
+      "half-open",
+      "nmap",
+      "security"
+    ]
+  },
+  {
+    "code": "RECON-003",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "What is a 'TCP Connect() Scan' (Nmap -sT) and why is it more easily detected by defensive logging systems than a SYN scan?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A TCP Connect scan uses the operating system's standard connect() system call to complete the full 3-way handshake (SYN, SYN-ACK, ACK). Because the connection fully completes, the application process logs the connection before it is closed.",
+    "learning_objective": "Explain TCP Connect scan mechanics and detection visibility.",
+    "options": [
+      {
+        "option_text": "It completes the full three-way handshake using the OS network API, causing application services to log the completed connection",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Full connection establishment generates system and application logs on the target server."
+      },
+      {
+        "option_text": "It transmits physical electrical sparks across the Ethernet jack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Software port scans do not cause physical electrical sparks."
+      },
+      {
+        "option_text": "It requires all network switches to restart every 30 seconds",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Switches forward TCP frames without restarting."
+      },
+      {
+        "option_text": "It cannot scan any ports higher than port 10",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Connect scans evaluate any port from 1 to 65535."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "connect-scan",
+      "nmap",
+      "logging",
+      "detection"
+    ]
+  },
+  {
+    "code": "RECON-004",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What is 'Banner Grabbing' during network reconnaissance?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Banner grabbing is an enumeration technique where a scanner connects to an open service port and captures the initial greeting text banner returned by the server, revealing exact software brand names, operating system types, and version numbers (e.g. Apache/2.4.41 Ubuntu).",
+    "learning_objective": "Define service banner grabbing.",
+    "options": [
+      {
+        "option_text": "Connecting to an open service port to read the initial greeting message, revealing application names and version details",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Service banners provide exact version numbers that adversaries and auditors use to look up known CVE vulnerabilities."
+      },
+      {
+        "option_text": "Physically pulling down cloth marketing banners outside a corporate headquarters",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Banner grabbing is a network protocol reconnaissance technique."
+      },
+      {
+        "option_text": "A tool that prevents users from downloading web banner advertisements",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Ad blockers block web ads; banner grabbing reads service greetings."
+      },
+      {
+        "option_text": "An algorithm used to compress image graphics files",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Banner grabbing reads textual network protocol headers."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "service-enumeration",
+      "banner-grabbing",
+      "cve"
+    ]
+  },
+  {
+    "code": "RECON-005",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "Which network telemetry indicator observed on an internal core switch most strongly suggests an ongoing port scan?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A massive, abnormal ratio of outbound TCP SYN packets with zero corresponding data payloads, accompanied by a high percentage of RST/ACK connection rejections or ICMP Port Unreachable responses across hundreds of ports, is the hallmark of an active port scan.",
+    "learning_objective": "Identify telemetry indicators of automated port scans.",
+    "options": [
+      {
+        "option_text": "A high volume of outbound SYN packets across diverse ports with a high ratio of RST connection rejections and zero data payload",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Port scans generate rapid connection attempts across non-listening ports, resulting in elevated RST response rates."
+      },
+      {
+        "option_text": "A user successfully streaming an educational video on YouTube",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Streaming video generates continuous incoming data streams, not port sweeps."
+      },
+      {
+        "option_text": "A server backing up encrypted database files to an authorized storage NAS",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Scheduled backups generate high sustained throughput to a single IP/port."
+      },
+      {
+        "option_text": "A workstation synchronizing its clock with an NTP server once an hour",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NTP generates a single periodic UDP packet."
+      }
+    ],
+    "tags": [
+      "reconnaissance-detection",
+      "port-scanning",
+      "soc",
+      "telemetry",
+      "anomalous-traffic"
+    ]
+  },
+  {
+    "code": "RECON-006",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "How do tools like Nmap perform 'OS Fingerprinting' without having authenticated access to a target system?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Different operating system network stacks implement RFC standards with subtle nuances. Scanners send customized probes (with specific TCP options, window sizes, TTLs, and flag combinations) and compare the exact response quirks against a database of known OS fingerprint signatures.",
+    "learning_objective": "Explain remote operating system fingerprinting techniques.",
+    "options": [
+      {
+        "option_text": "By analyzing subtle quirks in how the target's network stack responds to specific TCP options, window sizes, TTLs, and flags",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TCP/IP stack fingerprinting examines implementation differences across Windows, Linux, BSD, and Cisco IOS."
+      },
+      {
+        "option_text": "By reading the user's personal diary stored on the desktop",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Remote fingerprinting evaluates network packet responses, not local file access."
+      },
+      {
+        "option_text": "By measuring the physical weight of the server equipment rack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Physical weight cannot be measured over network packets."
+      },
+      {
+        "option_text": "By guessing the brand name of the computer monitor",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Stack fingerprinting identifies operating system kernels."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "os-fingerprinting",
+      "nmap",
+      "tcp-options"
+    ]
+  },
+  {
+    "code": "RECON-007",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "An analyst reviews firewall logs and notices a single external IP sending TCP SYN packets to port 22 on 500 different internal IP addresses within 30 seconds. What activity is this?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "This is a Horizontal Port Sweep targeting SSH (port 22). The adversary is searching across the entire subnet to discover which specific hosts have SSH exposed for subsequent brute-force attacks.",
+    "learning_objective": "Analyze horizontal port sweep attacks.",
+    "options": [
+      {
+        "option_text": "A horizontal port sweep searching for exposed SSH services across the subnet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Probing one specific port across hundreds of hosts is a horizontal sweep to find vulnerable targets."
+      },
+      {
+        "option_text": "A vertical port scan enumerating all services on a single database server",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A vertical scan targets one IP across many ports, not many IPs on one port."
+      },
+      {
+        "option_text": "Normal DHCP IP address allocation behavior",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP operates locally via broadcast, not external TCP SYN scans."
+      },
+      {
+        "option_text": "An authorized Windows cumulative patch installation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Windows updates do not sweep subnets on port 22."
+      }
+    ],
+    "tags": [
+      "reconnaissance-detection",
+      "horizontal-sweep",
+      "ssh",
+      "soc",
+      "firewall-logs"
+    ]
+  },
+  {
+    "code": "RECON-008",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "Why is a UDP Port Scan typically much slower to execute than a TCP SYN scan?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "UDP has no three-way handshake or positive acknowledgment for open ports. When a UDP port is closed, the host sends an ICMP Port Unreachable error. However, modern operating systems strictly rate-limit ICMP error generation (e.g. 1 per second in Linux), forcing the scanner to wait.",
+    "learning_objective": "Explain why UDP port scans take significantly longer to complete.",
+    "options": [
+      {
+        "option_text": "Open ports often send no reply, and operating systems strictly rate-limit outgoing ICMP Port Unreachable errors for closed ports",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "RFC 1812 mandates ICMP error rate-limiting, capping UDP scan speed to the OS ICMP generation rate."
+      },
+      {
+        "option_text": "UDP packets can only travel at 1 mile per hour across copper wires",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "UDP packets travel at standard propagation speeds."
+      },
+      {
+        "option_text": "UDP port scans require manual written approval from the United Nations",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Scanning tools are automated software utilities."
+      },
+      {
+        "option_text": "UDP ports do not exist on computers manufactured after 2010",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "UDP is a core Internet transport protocol supported on all modern systems."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "udp-scan",
+      "icmp-rate-limiting",
+      "performance"
+    ]
+  },
+  {
+    "code": "RECON-009",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "In Snort/Suricata intrusion detection rule writing, which rule header option specifies the network traffic direction?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The direction operator '->' (unidirectional) specifies traffic traveling from source to destination. The operator '<>' (bidirectional) evaluates traffic flowing in both directions.",
+    "learning_objective": "Identify the direction operators in Snort/Suricata rules.",
+    "options": [
+      {
+        "option_text": "-> (unidirectional) and <> (bidirectional)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "These operators define the traffic flow direction relative to source and destination IP/port definitions."
+      },
+      {
+        "option_text": "== and !=",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are comparison operators in programming, not Snort rule directional headers."
+      },
+      {
+        "option_text": ">> and <<",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These are bitwise shift operators."
+      },
+      {
+        "option_text": "TCP and UDP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TCP and UDP are protocol specifications."
+      }
+    ],
+    "tags": [
+      "detection-rules",
+      "snort",
+      "suricata",
+      "rule-syntax"
+    ]
+  },
+  {
+    "code": "RECON-010",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "What does a 'Null Scan' (Nmap -sN) send, and what response is expected from an open port on an RFC-compliant Unix stack?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A Null scan sends a TCP packet with zero control flags set (all flag bits 0). Under RFC 793, an open port silently drops the invalid packet with NO response, whereas a closed port returns a RST.",
+    "learning_objective": "Explain the mechanics of a TCP Null scan.",
+    "options": [
+      {
+        "option_text": "It sends a packet with no flags set (all zero); an open port drops it silently with no response, while a closed port returns RST",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Null scans exploit RFC 793 requirements that closed ports send RST while open ports ignore flagless packets."
+      },
+      {
+        "option_text": "It sends an encrypted email to the system administrator",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Null scan sends raw transport segments without payload."
+      },
+      {
+        "option_text": "It forces all server cooling fans to run at maximum speed",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Scanning does not alter hardware cooling firmware."
+      },
+      {
+        "option_text": "It changes the server's IP address to 0.0.0.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Null scan tests port states without altering IP configuration."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "null-scan",
+      "nmap",
+      "tcp-flags"
+    ]
+  },
+  {
+    "code": "RECON-011",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "What is 'Decoy Scanning' (Nmap -D) in network penetration testing?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Decoy scanning allows the attacker to interleave their real IP address with multiple spoofed decoy IP addresses in the scan stream, making it difficult for target security analysts and firewalls to determine which IP was the true scanner.",
+    "learning_objective": "Explain the purpose of decoy scanning in network reconnaissance.",
+    "options": [
+      {
+        "option_text": "Mixing the attacker's real IP with multiple spoofed decoy IPs in the scan stream to conceal the true source of the scan",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Decoys flood firewall and IDS logs with alerts from multiple innocent IPs, hiding the real attacker among the noise."
+      },
+      {
+        "option_text": "Using wooden dummy computers to distract datacenter security guards",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is physical deception, not network decoy scanning."
+      },
+      {
+        "option_text": "A tool that automatically deletes all user browser cookies",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Decoy scanning is a network packet generation technique."
+      },
+      {
+        "option_text": "A protocol used to download video games across torrent networks",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Decoy scanning is an Nmap reconnaissance feature."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "decoy-scan",
+      "nmap",
+      "evasion",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-012",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "When performing service enumeration against a web server, what information is standardly revealed by the 'Server' HTTP response header?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The 'Server' response header typically identifies the web server software name and version (e.g. 'Server: Apache/2.4.41 (Ubuntu)' or 'Server: nginx/1.18.0'), aiding administrators and adversaries in identifying the backend technology stack.",
+    "learning_objective": "Identify information disclosed by the HTTP Server header.",
+    "options": [
+      {
+        "option_text": "The web server software name, version number, and underlying operating system distribution",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The Server header discloses web daemon software and version details unless explicitly suppressed or disguised."
+      },
+      {
+        "option_text": "The personal home address of the web developer",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HTTP headers carry technical server metadata, not personal residential addresses."
+      },
+      {
+        "option_text": "The secret master password for the MySQL database",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Server headers do not disclose backend database credentials."
+      },
+      {
+        "option_text": "The physical room temperature of the datacenter",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Server headers do not report ambient environmental thermals."
+      }
+    ],
+    "tags": [
+      "http",
+      "server-header",
+      "banner-grabbing",
+      "information-disclosure"
+    ]
+  },
+  {
+    "code": "RECON-013",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "Why is 'Slow and Low' scanning (scanning ports over days or weeks with randomized delays) used by advanced threat actors?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Slow and low scanning spaces out probes over extended time windows to stay below the threshold limits of automated rate-based intrusion detection systems (e.g. alerts triggering on $> 10$ port probes per second), avoiding automated blocking.",
+    "learning_objective": "Analyze evasion of threshold-based detection via slow scanning.",
+    "options": [
+      {
+        "option_text": "To evade threshold-based IDS/IPS alert rules that look for rapid bursts of connection attempts within short time windows",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "By spacing probes across minutes or hours, slow scans evade simple rate-limiting detection thresholds."
+      },
+      {
+        "option_text": "Because the attacker's computer has an extremely slow dial-up modem",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Slow scanning is an intentional stealth choice by modern adversaries."
+      },
+      {
+        "option_text": "Because scanning faster than 10 packets per second is physically impossible",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Modern tools like masscan can scan millions of packets per second."
+      },
+      {
+        "option_text": "To conserve electrical battery power on the victim server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Adversaries do not prioritize victim battery efficiency."
+      }
+    ],
+    "tags": [
+      "reconnaissance-detection",
+      "slow-and-low",
+      "evasion",
+      "ids-tuning",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-014",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "What response indicates an 'open' port during an Nmap UDP scan against a service that does not return an application-level response (like TFTP or SNMP)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "In UDP scanning, if no packet is returned, Nmap cannot tell whether the port is open and the application chose not to reply, or whether a firewall dropped the packet. Nmap marks this state as 'open|filtered'.",
+    "learning_objective": "Interpret Nmap open|filtered UDP port states.",
+    "options": [
+      {
+        "option_text": "open|filtered (no response was received, which could mean open without reply or dropped by a firewall)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UDP's connectionless nature makes silence ambiguous: open services may not reply, and firewalls drop silently."
+      },
+      {
+        "option_text": "closed (an immediate RST was returned)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "UDP ports do not return RST segments."
+      },
+      {
+        "option_text": "active (a three-way handshake completed)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "UDP does not use three-way handshakes."
+      },
+      {
+        "option_text": "rejected (an HTTP 403 error was returned)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HTTP 403 is a web response, not a raw UDP port state."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "udp-scan",
+      "open-filtered",
+      "nmap"
+    ]
+  },
+  {
+    "code": "RECON-015",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "How does a SIEM or NIDS rule detect a 'Subnet Ping Sweep' conducted by an internal host?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A ping sweep manifests as a single internal source IP generating sequential or rapid ICMP Echo Requests across an entire range of host IP addresses (e.g. 192.168.1.1 to 192.168.1.254) in a very short duration.",
+    "learning_objective": "Construct detection criteria for subnet ping sweeps.",
+    "options": [
+      {
+        "option_text": "A single source IP generating rapid ICMP Echo Requests across sequential destination IPs across an entire subnet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Correlating one source generating sequential ICMP requests to multiple target IPs identifies sweep activity."
+      },
+      {
+        "option_text": "A computer downloading a 10 GB file over HTTPS",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "File downloads generate TCP data streams to a single destination."
+      },
+      {
+        "option_text": "A user opening multiple browser tabs to Wikipedia",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Browsing Wikipedia generates DNS and HTTPS traffic, not ICMP sweeps."
+      },
+      {
+        "option_text": "An unmanaged switch experiencing a broadcast storm",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Switch loops circulate frames, not sequential host ping sweeps."
+      }
+    ],
+    "tags": [
+      "reconnaissance-detection",
+      "ping-sweep",
+      "icmp",
+      "siem",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-016",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What information does an adversary seek to discover when performing 'SMB Enumeration' on TCP port 445?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "SMB enumeration probes Windows file sharing to identify available shared folders (shares), active domain user accounts, password policies, operating system versions, and whether SMBv1/v2 signing is enforced.",
+    "learning_objective": "Identify the objectives of SMB enumeration.",
+    "options": [
+      {
+        "option_text": "Available network shares, user accounts, password policies, and OS version details",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SMB enumeration maps internal network resources, shared file repositories, and user accounts."
+      },
+      {
+        "option_text": "The personal credit card number of the CEO",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "SMB shares store files, not raw credit card credentials by default."
+      },
+      {
+        "option_text": "The physical serial number of the office microwave oven",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SMB is a Windows file sharing protocol."
+      },
+      {
+        "option_text": "The optical wavelength of the building's fiber cables",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SMB operates at Layer 7 application file sharing."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "smb",
+      "enumeration",
+      "windows",
+      "shares"
+    ]
+  },
+  {
+    "code": "RECON-017",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "What is 'TCP ACK Scanning' (Nmap -sA) used for by an adversary?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "An ACK scan sends packets with only the ACK flag set. It never determines whether a port is open; instead, it is used to map out firewall rules and determine whether the firewall is stateful or stateless, and which ports are filtered vs unfiltered.",
+    "learning_objective": "Explain the purpose of TCP ACK scanning.",
+    "options": [
+      {
+        "option_text": "To map firewall rule sets and determine whether ports are filtered or unfiltered by stateful firewall rules",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "ACK scans test firewall filtering behavior; open and closed ports both return RST on unfiltered systems."
+      },
+      {
+        "option_text": "To establish a high-speed video call with the target server",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "ACK scanning is a security reconnaissance technique."
+      },
+      {
+        "option_text": "To permanently delete all firewall logs",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "ACK packets are network probes, not administrative deletion commands."
+      },
+      {
+        "option_text": "To encrypt the target hard drive with ransomware",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Port scans do not infect systems with ransomware."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "ack-scan",
+      "firewall-mapping",
+      "nmap"
+    ]
+  },
+  {
+    "code": "RECON-018",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What is 'SNMP Enumeration' on UDP port 161 and why is an unconfigured default community string (like 'public' or 'private') dangerous?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "SNMPv1/v2c uses unencrypted plaintext 'community strings' for authentication. If left at the default 'public', an attacker can query the Management Information Base (MIB) to extract interface lists, routing tables, usernames, and running software.",
+    "learning_objective": "Analyze the risks of default SNMP community strings.",
+    "options": [
+      {
+        "option_text": "Attackers can use default community strings ('public') to query the MIB and extract routing tables, interface IPs, and system details",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Default community strings grant unauthorized read access to extensive device configuration and state data."
+      },
+      {
+        "option_text": "The router will automatically shut down its power supply",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Default strings expose data; they do not trigger immediate power outages."
+      },
+      {
+        "option_text": "The computer monitor will immediately turn off",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SNMP is a network management protocol with no monitor display control."
+      },
+      {
+        "option_text": "The router will convert all copper cables into telephone lines",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SNMP does not alter physical hardware cabling."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "snmp",
+      "community-strings",
+      "information-disclosure",
+      "mib"
+    ]
+  },
+  {
+    "code": "RECON-019",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "In an Nmap scan output, what does the port state 'filtered' indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "'Filtered' indicates that a firewall, packet filter, or network rule is blocking probes from reaching the port, causing probes to be dropped without response or rejected with an ICMP administrative unreachable error.",
+    "learning_objective": "Interpret Nmap 'filtered' port status.",
+    "options": [
+      {
+        "option_text": "A firewall or network filter is actively blocking probes, preventing Nmap from determining if the port is open or closed",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Filtered means packet drops or ICMP admin-prohibited errors prevent the probe from reaching the service."
+      },
+      {
+        "option_text": "The service is running normally and accepting connections",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Open services return SYN-ACK and are marked 'open'."
+      },
+      {
+        "option_text": "The port is closed and returned an immediate RST packet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Closed ports that return RST are marked 'closed'."
+      },
+      {
+        "option_text": "The server's network cable has been eaten by insects",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Filtered is a firewall policy blocking decision."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "filtered-port",
+      "nmap",
+      "firewall"
+    ]
+  },
+  {
+    "code": "RECON-020",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What security vulnerability is exposed when an organization allows unrestricted 'DNS Zone Transfers' (AXFR) from its authoritative nameservers to any public IP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Unrestricted AXFR allows anyone on the Internet to download the entire DNS zone file, instantly revealing all internal hostnames, IP addresses, mail servers, VPN endpoints, and subdomains to an adversary without scanning.",
+    "learning_objective": "Analyze the risk of unrestricted DNS zone transfers (AXFR).",
+    "options": [
+      {
+        "option_text": "An adversary can download the entire DNS zone file, revealing all internal hostnames, IP addresses, and infrastructure topology",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Zone transfers disclose the complete organizational DNS map and must be restricted to authorized secondary nameservers."
+      },
+      {
+        "option_text": "The DNS server will immediately catch fire and explode",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Zone transfer is an RFC-compliant protocol feature; misconfiguration causes information disclosure, not fires."
+      },
+      {
+        "option_text": "All computer passwords in the company are deleted",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DNS zone files contain resource records, not user account passwords."
+      },
+      {
+        "option_text": "The company website becomes permanently unviewable",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Zone transfers do not take websites offline."
+      }
+    ],
+    "tags": [
+      "dns",
+      "axfr",
+      "zone-transfer",
+      "information-disclosure",
+      "reconnaissance"
+    ]
+  },
+  {
+    "code": "RECON-021",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "Which Zeek (formerly Bro) log file specifically records all connection metadata\u2014including source/destination IPs, ports, duration, byte counts, and connection state history?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The 'conn.log' file in Zeek records comprehensive metadata for every network connection observed on the monitored link, serving as the foundational log for network traffic analysis and threat hunting.",
+    "learning_objective": "Identify primary connection logging in Zeek.",
+    "options": [
+      {
+        "option_text": "conn.log",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "conn.log tracks all connection sessions, protocols, byte sizes, and state histories."
+      },
+      {
+        "option_text": "dns.log",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "dns.log records domain queries, answers, and TTLs."
+      },
+      {
+        "option_text": "http.log",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "http.log records HTTP request methods, URIs, and status codes."
+      },
+      {
+        "option_text": "ssl.log",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "ssl.log records TLS certificate subjects, issuers, and cipher suites."
+      }
+    ],
+    "tags": [
+      "zeek",
+      "bro",
+      "conn-log",
+      "network-monitoring",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-022",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "In Zeek's conn.log, what does the connection state 'S0' signify?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "In Zeek connection history, 'S0' means that a connection attempt was seen (SYN sent by the client), but NO response was ever seen from the destination server (SYN without reply), characteristic of port scanning or dead targets.",
+    "learning_objective": "Interpret Zeek conn.log S0 connection state.",
+    "options": [
+      {
+        "option_text": "Connection attempt seen (SYN sent), but no response was returned by the destination (unanswered probe)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "S0 connections indicate unacknowledged probes, common during scans against non-existent IPs or filtered ports."
+      },
+      {
+        "option_text": "The connection completed a full 3-way handshake and transferred 1 GB of data",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That would be SF (normal establishment and termination)."
+      },
+      {
+        "option_text": "The connection was encrypted with TLS 1.3",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "S0 is a transport-layer connection status."
+      },
+      {
+        "option_text": "The server successfully generated a full backup",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Zeek logs network wire states, not backup jobs."
+      }
+    ],
+    "tags": [
+      "zeek",
+      "conn-log",
+      "s0",
+      "port-scanning",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-023",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What is 'LDAP Enumeration' on TCP port 389/636 and what information can an attacker gather from an Active Directory domain controller?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Lightweight Directory Access Protocol (LDAP) queries can enumerate all Active Directory domain users, group memberships, computer accounts, service principal names (SPNs), and administrative permissions.",
+    "learning_objective": "Identify the objectives of LDAP enumeration in Active Directory.",
+    "options": [
+      {
+        "option_text": "Domain user accounts, security groups, computer objects, and administrative privileges",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "LDAP enumeration provides a comprehensive directory map of enterprise identity structures."
+      },
+      {
+        "option_text": "The physical serial number of the office coffee machine",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "LDAP manages directory identity objects, not kitchen appliances."
+      },
+      {
+        "option_text": "The color of the computer monitor casing",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "LDAP attributes store enterprise directory schema data."
+      },
+      {
+        "option_text": "The physical speed of light in optical fiber",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "LDAP is an application directory protocol."
+      }
+    ],
+    "tags": [
+      "ldap",
+      "active-directory",
+      "enumeration",
+      "reconnaissance"
+    ]
+  },
+  {
+    "code": "RECON-024",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "An analyst detects thousands of rapid connections to TCP port 445 on a domain controller, resulting in Kerberos error 'KDC_ERR_PREAUTH_FAILED' (Event ID 4771). What attack is occurring?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Event ID 4771 with KDC_ERR_PREAUTH_FAILED indicates Kerberos pre-authentication failure due to an incorrect password. High volumes across multiple accounts signify a Password Spraying or Kerberos Brute-Force attack.",
+    "learning_objective": "Identify Active Directory Kerberos password attacks.",
+    "options": [
+      {
+        "option_text": "A Kerberos password spraying or brute-force attack testing passwords against domain accounts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Pre-authentication failure (4771) across accounts indicates automated password testing."
+      },
+      {
+        "option_text": "Routine automated synchronization of server clocks with NTP",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "NTP synchronizes time over UDP port 123."
+      },
+      {
+        "option_text": "A physical failure of the domain controller power cord",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Active Event ID generation proves the server is online and processing authentication."
+      },
+      {
+        "option_text": "The domain controller downloading a video file from YouTube",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Kerberos authentication logs manage domain ticket requests."
+      }
+    ],
+    "tags": [
+      "active-directory",
+      "kerberos",
+      "password-spraying",
+      "brute-force",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-025",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "What is 'Zombie Scanning' (or Idle Scan / Nmap -sI) in stealth reconnaissance?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "An Idle Scan exploits predictable IP Identification (IP ID) sequence increments on an idle third-party host (the 'zombie') to probe target ports blindly, completely concealing the attacker's true IP address from the victim.",
+    "learning_objective": "Explain the mechanics of an Idle/Zombie port scan.",
+    "options": [
+      {
+        "option_text": "A blind scanning technique that monitors predictable IP ID increments on an idle third-party host to scan a target without sending packets from the attacker's IP",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Idle scan achieves total anonymity by using the zombie host as an unwitting reflection oracle."
+      },
+      {
+        "option_text": "An attack that causes computer monitors to turn into zombies",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is wordplay on the term zombie."
+      },
+      {
+        "option_text": "A scan that only operates when all employees in an office are asleep",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Idle scan relies on low traffic volume on the zombie host, not human sleep."
+      },
+      {
+        "option_text": "A tool that deletes operating system files from the target",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Idle scanning probes port states."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "idle-scan",
+      "ip-id",
+      "stealth-scanning",
+      "nmap"
+    ]
+  },
+  {
+    "code": "RECON-026",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What is 'Wappalyzer' or similar browser technology profilers used for during web application reconnaissance?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Technology profilers inspect web page source code, script tags, cookies, and HTTP response headers to identify underlying technologies (e.g. WordPress, React, Apache, PHP, Google Analytics) used by a target website.",
+    "learning_objective": "Explain web application technology fingerprinting.",
+    "options": [
+      {
+        "option_text": "Identifying software frameworks, CMS platforms, JavaScript libraries, and web servers used by a website",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Technology profilers map web architecture to identify outdated plugins or software stacks."
+      },
+      {
+        "option_text": "A tool that automatically formats computer hard drives",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Web profilers inspect public HTML and HTTP metadata."
+      },
+      {
+        "option_text": "An algorithm used to calculate electrical resistance in Ethernet cables",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Technology profilers evaluate web technologies."
+      },
+      {
+        "option_text": "A protocol used to stream audio across Bluetooth",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Profilers analyze web application source code."
+      }
+    ],
+    "tags": [
+      "web-security",
+      "reconnaissance",
+      "fingerprinting",
+      "wappalyzer"
+    ]
+  },
+  {
+    "code": "RECON-027",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "In Suricata rules, what does the keyword 'threshold' or 'detection_filter' accomplish?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The 'threshold' or 'detection_filter' keyword restricts alert generation by requiring an event to occur a specified number of times within a given time interval (e.g. 10 events within 60 seconds) before triggering an alert, reducing alert noise.",
+    "learning_objective": "Explain rate-limiting and thresholding in Suricata rules.",
+    "options": [
+      {
+        "option_text": "It limits alert firing by requiring a rule match to occur a specified number of times within a set time window",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Detection filters prevent alert flooding by triggering only when match frequencies exceed defined thresholds."
+      },
+      {
+        "option_text": "It sets the physical temperature limit of the server chassis",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Suricata rules inspect network traffic packets, not chassis temperatures."
+      },
+      {
+        "option_text": "It deletes all logs stored on the sensor after 10 minutes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Thresholding controls alert generation rates."
+      },
+      {
+        "option_text": "It encrypts the packet using military AES ciphers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Rule keywords control inspection logic, not packet encryption."
+      }
+    ],
+    "tags": [
+      "detection-engineering",
+      "suricata",
+      "threshold",
+      "alert-tuning",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-028",
+    "topic_slug": "port-scanning-concepts",
+    "question_text": "Why do penetration testing tools randomize the order of destination ports during a port scan (e.g. Nmap -r disables this)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Scanning ports in random order rather than sequential order (1, 2, 3...) avoids triggering simple sequential port scan detection rules in firewalls and NIDS that monitor for sequential port access on a single host.",
+    "learning_objective": "Explain why port scanners randomize target port order.",
+    "options": [
+      {
+        "option_text": "To avoid triggering sequential port scan detection rules in firewalls and intrusion detection systems",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Randomizing port order bypasses naive sequential detection rules."
+      },
+      {
+        "option_text": "Because computer processors can only count backwards",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Processors can count in any direction."
+      },
+      {
+        "option_text": "To make the scan run 500 times faster",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Randomization does not increase line transmission speed."
+      },
+      {
+        "option_text": "Because standard networking cables reject sequentially numbered packets",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Network hardware forwards packets regardless of port order."
+      }
+    ],
+    "tags": [
+      "port-scanning",
+      "evasion",
+      "randomization",
+      "nmap",
+      "soc"
+    ]
+  },
+  {
+    "code": "RECON-029",
+    "topic_slug": "service-enumeration-concepts",
+    "question_text": "What security risk is created by exposing an unauthenticated Redis or Memcached caching server directly to the public Internet?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Redis and Memcached were designed for trusted internal networks without authentication by default. Public exposure allows attackers to read sensitive cached data, write SSH keys to victim systems, or execute massive UDP reflection DDoS attacks.",
+    "learning_objective": "Analyze the threat of exposed unauthenticated in-memory databases.",
+    "options": [
+      {
+        "option_text": "Adversaries can extract sensitive cached data, overwrite files to achieve remote code execution, or launch reflection DDoS",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Exposed Redis instances allow unauthorized data dumps and arbitrary file writing (e.g. injecting authorized_keys)."
+      },
+      {
+        "option_text": "The server's physical CPU chip will melt within 5 minutes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Service exposure causes data breach vulnerabilities, not hardware melting."
+      },
+      {
+        "option_text": "The operating system will automatically delete all web browsers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Exposed caching daemons do not uninstall client software."
+      },
+      {
+        "option_text": "The local router will change its Wi-Fi password to 'admin'",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Caching servers do not alter router Wi-Fi settings."
+      }
+    ],
+    "tags": [
+      "reconnaissance",
+      "redis",
+      "memcached",
+      "misconfiguration",
+      "vulnerabilities"
+    ]
+  },
+  {
+    "code": "RECON-030",
+    "topic_slug": "reconnaissance-detection",
+    "question_text": "What is 'JA3' (or JA4) fingerprinting and how does it assist SOC analysts in identifying malware even over encrypted TLS connections?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "JA3 creates an MD5 hash of specific unencrypted parameters in the TLS Client Hello (TLS version, accepted cipher suites, extensions, elliptic curves, and curve formats). Because different applications/malware have distinct Client Hello configurations, JA3 identifies the client software even when payload is encrypted.",
+    "learning_objective": "Explain JA3 TLS client fingerprinting in network defense.",
+    "options": [
+      {
+        "option_text": "It hashes unencrypted TLS Client Hello parameters to identify client software and malware families regardless of payload encryption",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "JA3 fingerprinting allows defenders to detect known malware (like Cobalt Strike) by their distinct TLS handshake signatures."
+      },
+      {
+        "option_text": "It decrypts the full TLS payload without requiring a private key",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "JA3 fingerprints handshake parameters; it does not decrypt the encrypted application payload."
+      },
+      {
+        "option_text": "It measures the physical speed of the CPU processor in gigahertz",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "JA3 is a network packet fingerprinting algorithm."
+      },
+      {
+        "option_text": "It permanently disables all user passwords across the enterprise",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "JA3 is a passive network detection telemetry standard."
+      }
+    ],
+    "tags": [
+      "ja3",
+      "tls",
+      "fingerprinting",
+      "malware-detection",
+      "soc",
+      "threat-hunting"
+    ]
+  }
+]

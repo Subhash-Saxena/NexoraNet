@@ -1,0 +1,64 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/backend.Dockerfile
+    container_name: nexoranet-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=True
+      - BACKEND_HOST=0.0.0.0
+      - BACKEND_PORT=8000
+      - DATABASE_URL=sqlite:////app/nexoranet.db
+      - CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000
+      - LAB_ALLOWED_SUBNET=10.99.0.0/16
+    volumes:
+      - ./backend:/app
+      - backend-data:/app/data
+    restart: unless-stopped
+    networks:
+      - nexoranet-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+    container_name: nexoranet-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - nexoranet-network
+
+  # FUTURE POSTGRESQL INTEGRATION:
+  # Uncomment the block below to migrate from SQLite to PostgreSQL without modifying container topology
+  # db:
+  #   image: postgres:16-alpine
+  #   container_name: nexoranet-db
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_USER=nexora
+  #     - POSTGRES_PASSWORD=nexorapass
+  #     - POSTGRES_DB=nexoranet
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   networks:
+  #     - nexoranet-network
+
+networks:
+  nexoranet-network:
+    driver: bridge
+
+volumes:
+  backend-data:
+  # pgdata:

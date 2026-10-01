@@ -1,0 +1,711 @@
+/* ==========================================================================
+   NexoraNet Interactive Network Simulator Styles
+   Theme: High-Contrast Dark Cybersecurity Aesthetic
+   ========================================================================== */
+
+.simulator-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4.5rem);
+  min-height: 700px;
+  background-color: #0b0f19;
+  color: #e2e8f0;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* Disclaimer Bar */
+.simulator-disclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  background: rgba(14, 165, 233, 0.08);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+  font-size: 0.75rem;
+  color: #38bdf8;
+}
+
+.simulator-disclaimer-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Header & Control Bar */
+.simulator-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background-color: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.simulator-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.simulator-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.simulator-badge {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.simulator-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sim-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.sim-btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0369a1;
+}
+
+.sim-btn-primary:hover {
+  background: #0369a1;
+}
+
+.sim-btn-secondary {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+.sim-btn-secondary:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+.sim-btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.sim-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.sim-btn-accent {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.sim-btn-accent:hover {
+  background: rgba(168, 85, 247, 0.25);
+}
+
+.sim-select {
+  background: #1e293b;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: 0.375rem;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.sim-select:focus {
+  border-color: #38bdf8;
+}
+
+/* Main Workspace 3-Column Layout */
+.simulator-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left: Device Palette */
+.simulator-palette {
+  width: 210px;
+  background-color: #0f172a;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  user-select: none;
+  z-index: 10;
+}
+
+.palette-section {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #1e293b;
+}
+
+.palette-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem;
+}
+
+.palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.3rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.375rem;
+  cursor: grab;
+  transition: all 0.15s ease;
+  color: #94a3b8;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.palette-item:hover {
+  background: #253349;
+  border-color: #38bdf8;
+  color: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.palette-item:active {
+  cursor: grabbing;
+}
+
+.palette-item-name {
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+/* Center: Network Canvas Area */
+.simulator-canvas-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background-color: #090d16;
+}
+
+.canvas-viewport {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* Grid pattern */
+.canvas-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+/* Canvas SVG Elements */
+.canvas-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.canvas-link {
+  stroke: #0284c7;
+  stroke-width: 2.5;
+  transition: stroke 0.2s ease;
+}
+
+.canvas-link.down {
+  stroke: #ef4444;
+  stroke-dasharray: 4, 4;
+}
+
+.canvas-link.active {
+  stroke: #38bdf8;
+  stroke-width: 3.5;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.7));
+}
+
+.canvas-link-port-label {
+  fill: #94a3b8;
+  font-size: 10px;
+  font-family: monospace;
+}
+
+/* Device Node Group in Canvas */
+.canvas-node {
+  cursor: move;
+  transition: filter 0.15s ease;
+}
+
+.canvas-node:hover {
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.canvas-node.selected rect.node-box {
+  stroke: #38bdf8;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
+}
+
+.node-box {
+  fill: #1e293b;
+  stroke: #334155;
+  stroke-width: 1.5;
+  rx: 8;
+  transition: all 0.2s ease;
+}
+
+.node-label {
+  fill: #f8fafc;
+  font-size: 11px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.node-sublabel {
+  fill: #38bdf8;
+  font-size: 9.5px;
+  font-family: monospace;
+  text-anchor: middle;
+}
+
+.port-indicator {
+  cursor: pointer;
+  fill: #10b981;
+  stroke: #064e3b;
+  stroke-width: 1.5;
+  transition: all 0.15s ease;
+}
+
+.port-indicator:hover {
+  fill: #34d399;
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 6px #10b981);
+}
+
+.port-indicator.connecting {
+  fill: #f59e0b;
+  stroke: #78350f;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { r: 5; opacity: 0.8; }
+  to { r: 8; opacity: 1; }
+}
+
+/* Floating Zoom / Pan Controls */
+.canvas-floating-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid #334155;
+  border-radius: 0.375rem;
+  padding: 0.25rem;
+  z-index: 20;
+}
+
+.canvas-floating-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.canvas-floating-btn:hover {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+/* Simulation Controls Bar (Docked at canvas bottom) */
+.simulation-dock {
+  background-color: #0f172a;
+  border-top: 1px solid #1e293b;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  z-index: 15;
+}
+
+.simulation-dock-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sim-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sim-input-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Right: Device Properties Panel */
+.simulator-properties {
+  width: 320px;
+  background-color: #0f172a;
+  border-left: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.prop-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prop-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.prop-tabs {
+  display: flex;
+  border-bottom: 1px solid #1e293b;
+  background: #090d16;
+}
+
+.prop-tab-btn {
+  flex: 1;
+  padding: 0.5rem 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.prop-tab-btn.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  background: #0f172a;
+}
+
+.prop-body {
+  padding: 0.75rem 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.prop-form-group {
+  margin-bottom: 0.75rem;
+}
+
+.prop-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.prop-input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.375rem;
+  color: #f8fafc;
+  font-size: 0.8rem;
+  outline: none;
+  font-family: monospace;
+}
+
+.prop-input:focus {
+  border-color: #38bdf8;
+}
+
+/* Bottom: Drawer for Timeline & Packet Inspector */
+.simulator-bottom-drawer {
+  background-color: #0b1120;
+  border-top: 1px solid #1e293b;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: height 0.25s ease;
+}
+
+.simulator-bottom-drawer.collapsed {
+  height: 38px;
+}
+
+.drawer-header {
+  height: 38px;
+  background-color: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  user-select: none;
+}
+
+.drawer-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.drawer-tab {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  background: transparent;
+  color: #64748b;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.drawer-tab.active {
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+.drawer-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Event Timeline Component */
+.timeline-scroll {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 0.375rem;
+  font-size: 0.78rem;
+  transition: all 0.15s ease;
+}
+
+.timeline-item:hover {
+  border-color: #334155;
+  background: #131c31;
+}
+
+.timeline-severity-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.2rem;
+  text-transform: uppercase;
+}
+
+.timeline-severity-badge.info {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+}
+
+.timeline-severity-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.timeline-severity-badge.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.timeline-severity-badge.warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.timeline-msg {
+  flex: 1;
+  color: #cbd5e1;
+}
+
+.timeline-why-btn {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.timeline-why-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+/* OSI Stack Visualizer */
+.osi-container {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  flex: 1;
+  overflow: auto;
+}
+
+.osi-layers-stack {
+  width: 180px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.25rem;
+}
+
+.osi-layer-box {
+  padding: 0.35rem 0.5rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.25rem;
+  font-size: 0.72rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.osi-layer-box.active {
+  background: rgba(14, 165, 233, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.osi-detail-panel {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  overflow-y: auto;
+}
+
+/* Educational Explanation Box */
+.edu-explanation-box {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #0284c7;
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.edu-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.edu-text {
+  color: #e2e8f0;
+  line-height: 1.45;
+  margin-bottom: 0.4rem;
+}
+
+.edu-cyber {
+  background: rgba(168, 85, 247, 0.1);
+  border-left: 3px solid #a855f7;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.74rem;
+  color: #d8b4fe;
+  border-radius: 0 0.25rem 0.25rem 0;
+}

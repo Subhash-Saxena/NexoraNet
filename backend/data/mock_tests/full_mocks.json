@@ -1,0 +1,320 @@
+[
+  {
+    "code": "FULL-MOCK-001",
+    "title": "Full Networking Mock Exam",
+    "slug": "full-networking-mock-exam",
+    "test_type": "FULL_MOCK",
+    "difficulty": "MIXED",
+    "duration_minutes": 60,
+    "total_questions": 50,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Full-length 50-question mock examination simulating industrial networking certification tests (Cisco CCNA 200-301 / CompTIA Network+ N10-008). Balanced across Beginner, Intermediate, and Advanced networking domains.",
+    "instructions": "50 questions, 60 minutes. Timed exam simulating official certification conditions. 70% passing score.",
+    "prerequisites": "Broad knowledge of computer networking from foundational frames to dynamic routing.",
+    "tags": [
+      "full-mock",
+      "ccna",
+      "network-plus",
+      "certification",
+      "exam",
+      "mixed"
+    ],
+    "what_you_will_practice": [
+      "Full certification simulation under authentic 60-minute time constraints",
+      "Cross-tier synthesis from physical Ethernet frames to application HTTP/TLS",
+      "Diagnostic subnetting, routing lookups, switching tables, and protocol troubleshooting"
+    ],
+    "blueprint": {
+      "title": "Full Networking Mock Blueprint",
+      "description": "50-question multi-tier blueprint assessing comprehensive networking competency.",
+      "topics": [
+        {
+          "topic_slug": "what-is-computer-networking",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "seven-osi-layers",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ipv4-basics",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "network-devices",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "subnetting",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-address",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-flags",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "switching",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "routing",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nat",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "ping",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "FULL-MOCK-002",
+    "title": "Full Networking Security Mock Exam",
+    "slug": "full-networking-security-mock-exam",
+    "test_type": "FULL_MOCK",
+    "difficulty": "MIXED",
+    "duration_minutes": 60,
+    "total_questions": 50,
+    "passing_percentage": 70.0,
+    "status": "PUBLISHED",
+    "description": "Full-length 50-question examination focusing on defensive cybersecurity, packet forensics, and intrusion detection (simulating CompTIA Security+ / Cisco CyberOps Associate).",
+    "instructions": "50 questions, 60 minutes. Timed defensive examination. 70% passing threshold.",
+    "prerequisites": "Solid networking foundations and security concepts.",
+    "tags": [
+      "full-mock",
+      "security-plus",
+      "cyberops",
+      "soc",
+      "defense",
+      "exam"
+    ],
+    "what_you_will_practice": [
+      "Full-scope cyber defense examination testing defensive posture from L2 up to L7",
+      "Analyze adversary reconnaissance scans, port probes, and evasion patterns",
+      "Evaluate NIDS/NIPS rules, IOC telemetry, and SOC incident containment steps"
+    ],
+    "blueprint": {
+      "title": "Full Network Security Blueprint",
+      "description": "50-question blueprint assessing comprehensive defensive network security.",
+      "topics": [
+        {
+          "topic_slug": "common-network-threats",
+          "question_count": 5,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "encryption",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "firewall-basics",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-segmentation",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "stateful-vs-stateless-filtering",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "vlan-security",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "reconnaissance-detection",
+          "question_count": 6,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-rules",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "network-indicators",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "alert-triage",
+          "question_count": 6,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "FULL-MOCK-003",
+    "title": "Full Networking + Security Comprehensive Exam",
+    "slug": "full-networking-security-comprehensive-exam",
+    "test_type": "FULL_MOCK",
+    "difficulty": "MIXED",
+    "duration_minutes": 75,
+    "total_questions": 60,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "The flagship NexoraNet capstone examination. 60 questions covering the entire computer networking and cyber defense curriculum. Designed to evaluate comprehensive mastery across theory, hands-on diagnostics, packet forensics, and SOC operations.",
+    "instructions": "60 questions, 75 minutes. Flagship comprehensive examination. 75% required to pass.",
+    "prerequisites": "Completion of all Beginner, Intermediate, and Advanced networking and security tracks.",
+    "tags": [
+      "capstone",
+      "full-mock",
+      "flagship",
+      "comprehensive",
+      "mastery"
+    ],
+    "what_you_will_practice": [
+      "Rigorous end-to-end evaluation covering all 102 curriculum topics",
+      "Seamless integration of protocol mechanics, subnetting calculations, and cyber defense",
+      "Advanced packet forensics, detection rule authoring, and incident triage under pressure"
+    ],
+    "blueprint": {
+      "title": "Flagship Capstone Comprehensive Blueprint",
+      "description": "60-question capstone blueprint covering the complete NexoraNet curriculum.",
+      "topics": [
+        {
+          "topic_slug": "what-is-computer-networking",
+          "question_count": 2,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "seven-osi-layers",
+          "question_count": 4,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ipv4-basics",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "ports",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "common-network-threats",
+          "question_count": 3,
+          "difficulty": "BEGINNER"
+        },
+        {
+          "topic_slug": "subnetting",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "network-address",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-basics",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "tcp-flags",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "switching",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "routing",
+          "question_count": 4,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "nat",
+          "question_count": 2,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "firewall-rules",
+          "question_count": 3,
+          "difficulty": "INTERMEDIATE"
+        },
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "wireshark-filtering-concepts",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "reconnaissance-detection",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-rules",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "alert-triage",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,1347 @@
+[
+  {
+    "code": "APP-001",
+    "topic_slug": "dns-resolution",
+    "question_text": "What is the difference between a Recursive DNS query and an Iterative DNS query?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "In a recursive query, the client demands that the local DNS resolver do all the work and return the final answer (or an error). In an iterative query, the queried nameserver returns the best referral it knows (next nameserver down the tree) so the querier can follow up.",
+    "learning_objective": "Contrast recursive and iterative DNS queries.",
+    "options": [
+      {
+        "option_text": "A recursive query asks the resolver to find the complete final answer; an iterative query returns referrals to other nameservers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Clients send recursive queries to resolvers; resolvers send iterative queries down the DNS hierarchy."
+      },
+      {
+        "option_text": "Recursive queries are unencrypted; iterative queries use military AES-256 encryption",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Standard DNS queries are unencrypted UDP port 53 regardless of query type."
+      },
+      {
+        "option_text": "Iterative queries only work over Bluetooth connections",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Iterative queries are standard DNS protocol operations across the Internet."
+      },
+      {
+        "option_text": "Recursive queries can only resolve .gov domain names",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Recursive resolvers resolve all valid top-level domains."
+      }
+    ],
+    "tags": [
+      "dns",
+      "recursive-query",
+      "iterative-query",
+      "dns-resolution"
+    ]
+  },
+  {
+    "code": "APP-002",
+    "topic_slug": "dns-resolution",
+    "question_text": "When a recursive DNS resolver receives a query for 'mail.example.com' with an empty cache, what server does it contact FIRST?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The resolver begins at the top of the DNS hierarchy by contacting one of the 13 Root Nameserver clusters (using pre-configured root hints) to determine the authoritative nameservers for the '.com' Top-Level Domain (TLD).",
+    "learning_objective": "Trace the first step of cold-cache recursive DNS resolution.",
+    "options": [
+      {
+        "option_text": "A DNS Root Nameserver (Root Hints)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Cold resolution always starts at the DNS root zone to locate the appropriate TLD nameserver."
+      },
+      {
+        "option_text": "The authoritative nameserver for example.com directly",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The resolver cannot know where example.com is located until it queries the .com TLD server."
+      },
+      {
+        "option_text": "The user's local default gateway router",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The resolver is performing the recursive lookup on behalf of the client."
+      },
+      {
+        "option_text": "Google's public search engine web server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS resolution uses DNS nameservers, not search engines."
+      }
+    ],
+    "tags": [
+      "dns",
+      "root-nameservers",
+      "dns-hierarchy"
+    ]
+  },
+  {
+    "code": "APP-003",
+    "topic_slug": "dns-resolution",
+    "question_text": "What is the role of Time to Live (TTL) in a DNS resource record?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "TTL specifies the duration in seconds that a caching resolver is permitted to store and serve the DNS record locally before it must discard it and query the authoritative server again.",
+    "learning_objective": "Explain DNS Time to Live (TTL).",
+    "options": [
+      {
+        "option_text": "It defines how long in seconds a resolver may cache the DNS record before re-querying the authoritative nameserver",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TTL balances fast cached query responses with timely updates when records change."
+      },
+      {
+        "option_text": "It specifies how many miles an electrical packet can travel before disappearing",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TTL in DNS is measured in seconds; in IP it is a hop count."
+      },
+      {
+        "option_text": "It forces the user's computer to reboot when the timer reaches zero",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DNS TTL only expires cached DNS records."
+      },
+      {
+        "option_text": "It limits the maximum file size of web downloads to 10 MB",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TTL has no relation to file download sizes."
+      }
+    ],
+    "tags": [
+      "dns",
+      "ttl",
+      "caching"
+    ]
+  },
+  {
+    "code": "APP-004",
+    "topic_slug": "dns-record-types",
+    "question_text": "Which DNS record type maps an IPv4 address back to a hostname (Reverse DNS Lookup)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A PTR (Pointer) record maps an IP address back to its canonical domain name in the special 'in-addr.arpa' (IPv4) or 'ip6.arpa' (IPv6) reverse lookup zones.",
+    "learning_objective": "Identify reverse DNS lookup records.",
+    "options": [
+      {
+        "option_text": "PTR record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PTR records perform reverse DNS resolution (IP to domain name)."
+      },
+      {
+        "option_text": "A record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A records perform forward resolution (domain name to IPv4)."
+      },
+      {
+        "option_text": "CNAME record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "CNAME maps an alias domain to another domain name."
+      },
+      {
+        "option_text": "SOA record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SOA specifies authoritative zone parameters."
+      }
+    ],
+    "tags": [
+      "dns",
+      "ptr-record",
+      "reverse-dns"
+    ]
+  },
+  {
+    "code": "APP-005",
+    "topic_slug": "dns-record-types",
+    "question_text": "Which DNS record type is commonly used by organizations to publish SPF (Sender Policy Framework) and DKIM keys to prevent email spoofing?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "TXT (Text) records allow domain owners to store arbitrary text strings, widely used for email authentication protocols like SPF, DKIM, and DMARC to combat phishing and spoofing.",
+    "learning_objective": "Identify the DNS record used for email security policies.",
+    "options": [
+      {
+        "option_text": "TXT record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TXT records host SPF, DKIM, and domain ownership verification strings."
+      },
+      {
+        "option_text": "A record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A records store 32-bit IPv4 addresses."
+      },
+      {
+        "option_text": "PTR record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PTR records are for reverse IP lookups."
+      },
+      {
+        "option_text": "NS record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "NS records list authoritative nameservers."
+      }
+    ],
+    "tags": [
+      "dns",
+      "txt-record",
+      "spf",
+      "dkim",
+      "email-security"
+    ]
+  },
+  {
+    "code": "APP-006",
+    "topic_slug": "dhcp-process",
+    "question_text": "What happens during the 'Lease Renewal' phase when a DHCP client reaches 50% of its lease time (T1 timer)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "At the T1 timer (50% of lease duration), the client sends a unicast DHCPREQUEST directly to the issuing DHCP server requesting a lease renewal. If the server replies with DHCPACK, the lease is renewed.",
+    "learning_objective": "Explain DHCP T1 lease renewal behavior.",
+    "options": [
+      {
+        "option_text": "The client sends a unicast DHCPREQUEST directly to the issuing DHCP server to extend its lease",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "At 50% lease time (T1), the client attempts to renew directly with the original DHCP server via unicast."
+      },
+      {
+        "option_text": "The client immediately broadcasts to the entire world that its network card is broken",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Lease renewal is an ordinary background maintenance transaction."
+      },
+      {
+        "option_text": "The client deletes its operating system and reboots into BIOS",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP renewal never affects disk storage or BIOS."
+      },
+      {
+        "option_text": "The client permanently changes its MAC address to random numbers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Clients keep their hardware MAC address constant during DHCP renewal."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "lease-renewal",
+      "timers"
+    ]
+  },
+  {
+    "code": "APP-007",
+    "topic_slug": "dhcp-process",
+    "question_text": "What is the role of a 'DHCP Relay Agent' (or Cisco 'ip helper-address') in an enterprise network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Routers do not forward Layer 2 broadcasts. A DHCP Relay Agent listens for local DHCP broadcast discovers on a client subnet and forwards them as unicast IP packets across routers to a centralized DHCP server on another subnet.",
+    "learning_objective": "Explain the purpose of a DHCP Relay Agent.",
+    "options": [
+      {
+        "option_text": "It intercepts local client DHCP broadcast messages and forwards them as unicast packets to a DHCP server on a remote subnet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DHCP relay agents allow a single centralized DHCP server to serve multiple remote subnets across routers."
+      },
+      {
+        "option_text": "It converts DHCP packets into encrypted SSH connections",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DHCP relay forwards standard UDP port 67/68 traffic."
+      },
+      {
+        "option_text": "It assigns physical Ethernet cable lengths to wall jacks",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DHCP relay is a router software feature."
+      },
+      {
+        "option_text": "It prevents users from accessing social media websites during lunch",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Content filters restrict websites, not DHCP relay agents."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "dhcp-relay",
+      "ip-helper",
+      "routing"
+    ]
+  },
+  {
+    "code": "APP-008",
+    "topic_slug": "dhcp-process",
+    "question_text": "What is a 'Rogue DHCP Server' and what security threat does it present?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A rogue DHCP server is an unauthorized DHCP service running on a network (accidentally via a misconfigured home router or maliciously by an attacker). It can provide false default gateways and DNS servers to perform Man-in-the-Middle (MitM) attacks.",
+    "learning_objective": "Analyze the threat posed by rogue DHCP servers.",
+    "options": [
+      {
+        "option_text": "An unauthorized DHCP server that hands out false default gateways and DNS servers to conduct Man-in-the-Middle traffic interception",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Rogue DHCP allows an attacker to divert all client traffic through an adversarial gateway."
+      },
+      {
+        "option_text": "A DHCP server that runs out of disk storage memory during backup",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Resource exhaustion is not a rogue malicious server."
+      },
+      {
+        "option_text": "A server that charges employees money for every web page they visit",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Rogue DHCP is a network spoofing attack, not a billing mechanism."
+      },
+      {
+        "option_text": "A server that only assigns IP addresses to Apple MacBook laptops",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Rogue DHCP broadcasts affect all clients on the local broadcast domain."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "rogue-dhcp",
+      "mitm",
+      "security",
+      "threats"
+    ]
+  },
+  {
+    "code": "APP-009",
+    "topic_slug": "dhcp-process",
+    "question_text": "Which switch security feature is specifically designed to block rogue DHCP servers by validating DHCP messages and filtering untrusted switch ports?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "DHCP Snooping is a Layer 2 switch security feature that designates switch ports as either 'trusted' (connected to authorized DHCP servers) or 'untrusted' (connected to client endpoints), immediately dropping unauthorized DHCP offers from untrusted ports.",
+    "learning_objective": "Identify the switch security feature protecting against rogue DHCP.",
+    "options": [
+      {
+        "option_text": "DHCP Snooping",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DHCP Snooping filters unauthorized DHCP server replies and builds the snooping binding database."
+      },
+      {
+        "option_text": "Port Mirroring (SPAN)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Port mirroring copies packets for analysis; it does not filter or block DHCP offers."
+      },
+      {
+        "option_text": "Dynamic Trunking Protocol (DTP)",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DTP negotiates switch trunk links."
+      },
+      {
+        "option_text": "Spanning Tree Protocol (STP)",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "STP prevents Layer 2 switching loops."
+      }
+    ],
+    "tags": [
+      "dhcp",
+      "dhcp-snooping",
+      "switch-security",
+      "defense"
+    ]
+  },
+  {
+    "code": "APP-010",
+    "topic_slug": "http-methods",
+    "question_text": "What is the primary difference between the HTTP GET and POST request methods?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "GET requests retrieve data and encode parameters inside the URL query string (should be idempotent without changing server state). POST sends data inside the request message body, typically modifying server state (e.g. creating records or submitting credentials).",
+    "learning_objective": "Contrast HTTP GET and POST methods.",
+    "options": [
+      {
+        "option_text": "GET retrieves data and includes parameters in the URL; POST transmits data inside the request body and typically alters server state",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "GET is intended for safe retrieval; POST carries payload data in the message body for processing."
+      },
+      {
+        "option_text": "GET encrypts data with AES-256; POST transmits in plaintext",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Encryption is handled by TLS (HTTPS), not by the HTTP method."
+      },
+      {
+        "option_text": "GET can only be used on smartphones; POST can only be used on servers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both are universal HTTP methods supported across all devices."
+      },
+      {
+        "option_text": "POST can only transfer image files",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "POST transfers JSON, form data, XML, binary, and all MIME types."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-methods",
+      "get-vs-post"
+    ]
+  },
+  {
+    "code": "APP-011",
+    "topic_slug": "http-methods",
+    "question_text": "Which HTTP method is specifically intended to upload or completely replace a targeted resource at a known URI?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The HTTP PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the resource already exists, PUT replaces it entirely.",
+    "learning_objective": "Identify the HTTP replacement method.",
+    "options": [
+      {
+        "option_text": "PUT",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PUT replaces the resource at the target URL with the supplied request payload."
+      },
+      {
+        "option_text": "GET",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "GET retrieves data without modifying it."
+      },
+      {
+        "option_text": "DELETE",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "DELETE removes the resource."
+      },
+      {
+        "option_text": "HEAD",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HEAD retrieves only headers without the message body."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-methods",
+      "put"
+    ]
+  },
+  {
+    "code": "APP-012",
+    "topic_slug": "http-methods",
+    "question_text": "What does the HTTP HEAD method do compared to a standard GET request?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The HEAD method requests the exact same headers that a GET request would return, but the server does NOT return the message body. This is used to check resource headers, content length, or caching headers efficiently.",
+    "learning_objective": "Explain the behavior of the HTTP HEAD method.",
+    "options": [
+      {
+        "option_text": "It returns the identical HTTP headers that a GET request would return, but omits the response body",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "HEAD is used to inspect headers and check resource validity without downloading full payloads."
+      },
+      {
+        "option_text": "It forces the server to reboot immediately",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HEAD is a standard read-only inspection request."
+      },
+      {
+        "option_text": "It encrypts the user's hard drive with ransomware",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HEAD is a benign RFC-compliant HTTP method."
+      },
+      {
+        "option_text": "It deletes all user accounts on the web server",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HEAD cannot modify server data."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-methods",
+      "head"
+    ]
+  },
+  {
+    "code": "APP-013",
+    "topic_slug": "http-status-codes",
+    "question_text": "What does an HTTP '301 Moved Permanently' status code indicate to a client browser?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A 301 status code indicates that the requested resource has been permanently assigned a new URI. The response includes a 'Location' header pointing to the new URL, which search engines and browsers should cache.",
+    "learning_objective": "Interpret HTTP 301 redirection.",
+    "options": [
+      {
+        "option_text": "The requested resource has been permanently moved to a new URI specified in the Location header",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "301 indicates permanent redirection, prompting clients and search engines to update their bookmarks/indexes."
+      },
+      {
+        "option_text": "The user entered an incorrect account password",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "401 Unauthorized indicates authentication failure."
+      },
+      {
+        "option_text": "The server hardware has caught fire",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "301 is an expected redirection response."
+      },
+      {
+        "option_text": "The webpage has been deleted forever with no replacement",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "410 Gone indicates permanent removal without redirection."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "redirect"
+    ]
+  },
+  {
+    "code": "APP-014",
+    "topic_slug": "http-status-codes",
+    "question_text": "What is the difference between an HTTP '401 Unauthorized' and an HTTP '403 Forbidden' response?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "401 Unauthorized indicates that the client has not provided valid authentication credentials (authentication failure). 403 Forbidden means the server recognizes the client's identity, but the client does not have permission to access the resource (authorization failure).",
+    "learning_objective": "Differentiate HTTP 401 and 403 status codes.",
+    "options": [
+      {
+        "option_text": "401 indicates missing or invalid authentication credentials; 403 means the user is authenticated but lacks authorized permission to access the resource",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "401 is an authentication problem; 403 is an authorization/permission refusal."
+      },
+      {
+        "option_text": "401 is used only in Europe; 403 is used only in North America",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HTTP status codes are universal global standards."
+      },
+      {
+        "option_text": "403 means the file was deleted; 401 means the file was renamed",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These status codes govern security access, not file existence."
+      },
+      {
+        "option_text": "401 means the client's monitor is too small",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Status codes convey web server response states."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "security",
+      "authorization"
+    ]
+  },
+  {
+    "code": "APP-015",
+    "topic_slug": "http-status-codes",
+    "question_text": "What does an HTTP '500 Internal Server Error' status code indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A 500 status code indicates that the server encountered an unexpected condition or software exception that prevented it from fulfilling the request, signaling a server-side bug or application crash.",
+    "learning_objective": "Interpret HTTP 500 Internal Server Error.",
+    "options": [
+      {
+        "option_text": "The web server encountered an unexpected software exception or crash that prevented fulfilling the request",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "500 indicates a server-side unhandled exception or backend failure."
+      },
+      {
+        "option_text": "The client disconnected their Ethernet cable before receiving data",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "500 is sent by the server, proving connectivity exists."
+      },
+      {
+        "option_text": "The requested URL does not exist on the server",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Missing URLs return 404 Not Found."
+      },
+      {
+        "option_text": "The user's password contains too few capital letters",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Authentication validation returns 400 Bad Request or 422 Unprocessable Entity."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "APP-016",
+    "topic_slug": "http-status-codes",
+    "question_text": "What does an HTTP '502 Bad Gateway' status code mean when received from a reverse proxy or load balancer?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A 502 Bad Gateway means that the gateway or reverse proxy server (such as Nginx or an AWS ALB) received an invalid response or connection refusal from the upstream backend application server while attempting to fulfill the request.",
+    "learning_objective": "Interpret HTTP 502 Bad Gateway.",
+    "options": [
+      {
+        "option_text": "The reverse proxy or gateway received an invalid response or connection failure from the upstream backend application server",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "502 signals that the reverse proxy could not communicate properly with the backend application."
+      },
+      {
+        "option_text": "The client entered an invalid credit card number",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Payment processing errors return application-specific 4xx errors."
+      },
+      {
+        "option_text": "The user's Wi-Fi router has overheated",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "502 is generated by remote web proxies, not local Wi-Fi hardware."
+      },
+      {
+        "option_text": "The website requires the user to install a special browser plugin",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "502 is an infrastructure error, not a client plugin prompt."
+      }
+    ],
+    "tags": [
+      "http",
+      "http-status-codes",
+      "reverse-proxy",
+      "load-balancer"
+    ]
+  },
+  {
+    "code": "APP-017",
+    "topic_slug": "https-intermediate",
+    "question_text": "What two core security objectives are provided by Hypertext Transfer Protocol Secure (HTTPS)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "HTTPS uses TLS/SSL to provide Confidentiality (encrypting traffic to prevent eavesdropping), Integrity (preventing in-flight tampering), and Authentication (verifying server identity via digital certificates).",
+    "learning_objective": "Identify the security guarantees of HTTPS.",
+    "options": [
+      {
+        "option_text": "Data encryption (confidentiality) and server identity verification via digital certificates (authentication)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "HTTPS prevents eavesdropping, tampering, and impersonation."
+      },
+      {
+        "option_text": "Free wireless Internet access and unlimited battery life for laptops",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HTTPS is a cryptographic transport protocol with no battery benefits."
+      },
+      {
+        "option_text": "Permanent immunity from physical hardware theft",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Cryptographic software cannot prevent physical device theft."
+      },
+      {
+        "option_text": "Guaranteed 1000 Mbps download speed on any network",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "HTTPS adds slight cryptographic overhead and does not increase line speed."
+      }
+    ],
+    "tags": [
+      "https",
+      "security",
+      "tls",
+      "encryption"
+    ]
+  },
+  {
+    "code": "APP-018",
+    "topic_slug": "tls-basics",
+    "question_text": "In the TLS handshake, how is the symmetric session key established between the client and the server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The client and server use asymmetric cryptography (traditionally RSA key exchange or modern Ephemeral Diffie-Hellman / ECDHE) to securely agree upon a shared secret, from which symmetric session keys (like AES-GCM) are derived for high-speed bulk data encryption.",
+    "learning_objective": "Explain key exchange mechanics in the TLS handshake.",
+    "options": [
+      {
+        "option_text": "Asymmetric cryptography (e.g. ECDHE or RSA) is used to securely agree on a shared secret, which derives symmetric session keys for bulk data encryption",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Asymmetric encryption solves key exchange; symmetric encryption performs bulk data transfer efficiently."
+      },
+      {
+        "option_text": "The server transmits its private key in clear plaintext over UDP port 80",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Private keys must never be transmitted; doing so would destroy all security."
+      },
+      {
+        "option_text": "Both parties use their hardware MAC addresses as the encryption password",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC addresses are public identifiers, not secure cryptographic keys."
+      },
+      {
+        "option_text": "The symmetric key is printed on a physical piece of paper and mailed via postal service",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Key establishment occurs digitally in milliseconds over the network."
+      }
+    ],
+    "tags": [
+      "tls",
+      "cryptography",
+      "key-exchange",
+      "symmetric-vs-asymmetric"
+    ]
+  },
+  {
+    "code": "APP-019",
+    "topic_slug": "tls-basics",
+    "question_text": "What is the primary role of a digital SSL/TLS Certificate on an HTTPS web server?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The digital certificate binds the web server's public key to its verified domain identity, signed by a trusted third-party Certificate Authority (CA) so client browsers can verify they are communicating with the genuine server.",
+    "learning_objective": "Explain the role of TLS digital certificates.",
+    "options": [
+      {
+        "option_text": "It binds the server's public key to its domain name, cryptographically signed by a trusted Certificate Authority (CA)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Certificates enable clients to authenticate the server and obtain its verified public key."
+      },
+      {
+        "option_text": "It allows the web server to access the user's personal webcam without permission",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Certificates are cryptographic identity files, not webcam malware."
+      },
+      {
+        "option_text": "It provides insurance payments if the web server experiences a power outage",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Certificates verify identity; they are not insurance contracts."
+      },
+      {
+        "option_text": "It compresses all HTML files into MP3 music recordings",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Certificates contain cryptographic keys and metadata, not audio compression."
+      }
+    ],
+    "tags": [
+      "tls",
+      "certificates",
+      "pki",
+      "authentication"
+    ]
+  },
+  {
+    "code": "APP-020",
+    "topic_slug": "tls-basics",
+    "question_text": "What security vulnerability occurs if an application or user ignores a 'Certificate Warning: The security certificate presented by this website was not issued by a trusted certificate authority'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Ignoring untrusted certificate warnings leaves the user completely vulnerable to a Man-in-the-Middle (MitM) attack, where an adversary intercepts the encrypted connection, presents a forged self-signed certificate, and inspects or alters credentials in transit.",
+    "learning_objective": "Analyze the risks of bypassing TLS certificate validation.",
+    "options": [
+      {
+        "option_text": "An adversary conducting a Man-in-the-Middle attack can intercept, decrypt, and manipulate all session traffic",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Certificate warnings alert users that the session may be intercepted by an untrusted entity."
+      },
+      {
+        "option_text": "The user's computer monitor will immediately turn off permanently",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Certificate errors are browser security alerts, not hardware failures."
+      },
+      {
+        "option_text": "The web browser will automatically format the host operating system drive",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Browsers protect users; they do not destroy local operating systems."
+      },
+      {
+        "option_text": "All local network switches will shut down",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TLS certificate validation is an end-to-end application layer function."
+      }
+    ],
+    "tags": [
+      "tls",
+      "mitm",
+      "certificates",
+      "security",
+      "soc"
+    ]
+  },
+  {
+    "code": "APP-021",
+    "topic_slug": "tls-basics",
+    "question_text": "What major architectural improvement was introduced in TLS version 1.3 compared to TLS 1.2?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "TLS 1.3 removed obsolete, insecure cryptographic algorithms (MD5, SHA-1, RC4, static RSA key exchange), enforced Perfect Forward Secrecy (PFS), and reduced handshake latency from 2 round-trips (2-RTT) to 1 round-trip (1-RTT).",
+    "learning_objective": "Identify architectural advances in TLS 1.3.",
+    "options": [
+      {
+        "option_text": "It reduced handshake latency from 2-RTT to 1-RTT and removed legacy insecure ciphers, mandating Perfect Forward Secrecy",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "TLS 1.3 is faster (1-RTT) and strictly mandates modern secure ciphers with PFS."
+      },
+      {
+        "option_text": "It completely removed all encryption from HTTPS",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "TLS 1.3 strengthened encryption."
+      },
+      {
+        "option_text": "It requires all packets to be transmitted over dial-up telephone modems",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "TLS 1.3 is optimized for modern high-speed broadband and mobile networks."
+      },
+      {
+        "option_text": "It forces web browsers to reload web pages every 2 seconds",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "TLS 1.3 establishes persistent session tunnels."
+      }
+    ],
+    "tags": [
+      "tls",
+      "tls1.3",
+      "pfs",
+      "security"
+    ]
+  },
+  {
+    "code": "APP-022",
+    "topic_slug": "tls-basics",
+    "question_text": "What is 'Perfect Forward Secrecy' (PFS) in TLS communication?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "PFS ensures that even if a server's long-term private key is compromised in the future, past recorded encrypted communications cannot be decrypted, because each session used unique ephemeral session keys (e.g. via ECDHE).",
+    "learning_objective": "Define Perfect Forward Secrecy.",
+    "options": [
+      {
+        "option_text": "A cryptographic feature where compromising the server's long-term private key does not compromise past recorded sessions",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PFS uses ephemeral Diffie-Hellman keys so that each session key is independent and discarded after use."
+      },
+      {
+        "option_text": "A feature that makes all computer passwords publicly visible on Twitter",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "PFS protects confidential communications."
+      },
+      {
+        "option_text": "A technique that guarantees Internet access during deep space travel",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PFS is a cryptographic key exchange property."
+      },
+      {
+        "option_text": "A guarantee that an enterprise web server will never crash",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "PFS prevents retrospective decryption; it is not high-availability hardware."
+      }
+    ],
+    "tags": [
+      "tls",
+      "pfs",
+      "cryptography",
+      "security"
+    ]
+  },
+  {
+    "code": "APP-023",
+    "topic_slug": "ssh-intermediate",
+    "question_text": "During an initial SSH connection to a new server, the client displays: 'The authenticity of host cannot be established. RSA key fingerprint is... Are you sure you want to continue connecting?' What is the client verifying?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The client is displaying the server's public Host Key fingerprint, asking the administrator to verify that they are connecting to the genuine server and not an imposter conducting a Man-in-the-Middle attack (Trust On First Use / TOFU).",
+    "learning_objective": "Explain SSH host key fingerprint verification.",
+    "options": [
+      {
+        "option_text": "The public host key of the remote server to prevent connecting to an imposter conducting a Man-in-the-Middle attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SSH relies on Host Keys to authenticate server identity on the first connection (TOFU model)."
+      },
+      {
+        "option_text": "Whether the client's home printer has enough paper",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Host keys verify remote server cryptographic identity."
+      },
+      {
+        "option_text": "Whether the remote server is running Windows XP",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Fingerprints identify cryptographic keys, not OS brand names."
+      },
+      {
+        "option_text": "The remaining battery percentage of the client laptop",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SSH terminal prompts do not display hardware battery levels."
+      }
+    ],
+    "tags": [
+      "ssh",
+      "host-keys",
+      "authentication",
+      "tofu"
+    ]
+  },
+  {
+    "code": "APP-024",
+    "topic_slug": "ssh-intermediate",
+    "question_text": "Where does an SSH server on Linux store the public keys of authorized clients allowed to log in without passwords?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Public keys for passwordless key-based SSH authentication are stored in the user's home directory in the file '~/.ssh/authorized_keys'.",
+    "learning_objective": "Recall the location of authorized SSH public keys on Linux.",
+    "options": [
+      {
+        "option_text": "~/.ssh/authorized_keys",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The authorized_keys file contains public keys permitted to log in as that user."
+      },
+      {
+        "option_text": "/etc/shadow",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "/etc/shadow stores hashed account passwords."
+      },
+      {
+        "option_text": "/var/log/syslog",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "/var/log/syslog is the system event log."
+      },
+      {
+        "option_text": "~/.ssh/id_rsa",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "~/.ssh/id_rsa is the client's PRIVATE key, which must remain secret."
+      }
+    ],
+    "tags": [
+      "ssh",
+      "linux",
+      "authorized-keys",
+      "key-based-auth"
+    ]
+  },
+  {
+    "code": "APP-025",
+    "topic_slug": "ssh-intermediate",
+    "question_text": "What permissions must the private key file (e.g. ~/.ssh/id_rsa) have on a client machine for the OpenSSH client to allow its use?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "OpenSSH strictly rejects private keys that are accessible by other users. The private key must have permissions restricted to the owner only (typically chmod 600 or 400), or SSH will refuse to use it.",
+    "learning_objective": "Recall required filesystem permissions for SSH private keys.",
+    "options": [
+      {
+        "option_text": "Strictly readable/writable by the owner only (e.g., chmod 600 or 400)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "OpenSSH blocks key usage if permissions are too open (e.g., 777 or group-readable)."
+      },
+      {
+        "option_text": "World readable and writable by everyone (chmod 777)",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "chmod 777 causes OpenSSH to abort with 'Permissions are too open'."
+      },
+      {
+        "option_text": "Execution-only permissions with no read access",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The client must be able to read the key file."
+      },
+      {
+        "option_text": "No permissions required; SSH keys can be stored anywhere publicly",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Private keys must be protected from unauthorized local user access."
+      }
+    ],
+    "tags": [
+      "ssh",
+      "file-permissions",
+      "linux",
+      "security"
+    ]
+  },
+  {
+    "code": "APP-026",
+    "topic_slug": "dns-resolution",
+    "question_text": "What is 'DNS Cache Poisoning' (DNS Spoofing)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "DNS cache poisoning occurs when an attacker injects fraudulent DNS records into a caching resolver (e.g. by guessing transaction IDs/ports in Kaminsky attacks), causing all subsequent client queries for legitimate domains (e.g. bank.com) to resolve to an attacker's malicious IP.",
+    "learning_objective": "Analyze the threat of DNS cache poisoning.",
+    "options": [
+      {
+        "option_text": "Injecting fraudulent DNS mapping records into a resolver's cache, redirecting users seeking legitimate sites to malicious servers",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Cache poisoning diverts user traffic at scale by corrupting the resolver's cached records."
+      },
+      {
+        "option_text": "Physically pouring poison on the server room cooling pipes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DNS cache poisoning is a logical cyber attack on resolver records."
+      },
+      {
+        "option_text": "A denial-of-service attack that floods a server with 500 million empty emails",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Email flooding is mail bombing, not DNS spoofing."
+      },
+      {
+        "option_text": "A bug that causes DNS servers to delete all consonants from domain names",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Cache poisoning forges IP address resolutions."
+      }
+    ],
+    "tags": [
+      "dns",
+      "cache-poisoning",
+      "spoofing",
+      "security",
+      "threats"
+    ]
+  },
+  {
+    "code": "APP-027",
+    "topic_slug": "dns-resolution",
+    "question_text": "Which security protocol adds cryptographic signatures to DNS records to protect resolvers against forged or poisoned DNS responses?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Domain Name System Security Extensions (DNSSEC) uses public-key cryptography to digitally sign DNS records (RRSIG, DNSKEY, DS records), allowing resolvers to cryptographically verify data authenticity and integrity.",
+    "learning_objective": "Identify the protocol providing digital signatures for DNS.",
+    "options": [
+      {
+        "option_text": "DNSSEC (DNS Security Extensions)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DNSSEC validates the authenticity and integrity of DNS responses using digital signatures."
+      },
+      {
+        "option_text": "DHCP Snooping",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DHCP snooping protects Layer 2 switches from rogue DHCP."
+      },
+      {
+        "option_text": "HTTPS",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HTTPS encrypts web application traffic; it does not sign raw DNS zone records."
+      },
+      {
+        "option_text": "SNMPv3",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "SNMPv3 is for network device management."
+      }
+    ],
+    "tags": [
+      "dns",
+      "dnssec",
+      "cryptography",
+      "security"
+    ]
+  },
+  {
+    "code": "APP-028",
+    "topic_slug": "http-methods",
+    "question_text": "What is an 'idempotent' HTTP method?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An idempotent HTTP method is one where making multiple identical requests has the exact same effect on the server state as making a single request (e.g., GET, PUT, and DELETE are idempotent; POST is not).",
+    "learning_objective": "Define idempotency in HTTP protocol design.",
+    "options": [
+      {
+        "option_text": "A method where executing multiple identical requests produces the exact same server state as a single request",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Methods like GET, PUT, and DELETE are idempotent; repeating them does not create duplicate entries."
+      },
+      {
+        "option_text": "A method that can only be executed by users named 'Ida'",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Idempotency is a mathematical and computer science property."
+      },
+      {
+        "option_text": "A method that automatically formats the client's hard drive",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HTTP methods do not format client drives."
+      },
+      {
+        "option_text": "A method that is strictly forbidden by RFC standards",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Idempotence is an essential design property defined in RFC 7231."
+      }
+    ],
+    "tags": [
+      "http",
+      "idempotent",
+      "api-design",
+      "rest"
+    ]
+  },
+  {
+    "code": "APP-029",
+    "topic_slug": "https-intermediate",
+    "question_text": "What is 'HTTP Strict Transport Security' (HSTS / RFC 6797)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "HSTS is a web security response header ('Strict-Transport-Security') that instructs web browsers to communicate with the website EXCLUSIVELY over encrypted HTTPS connections, preventing SSL-stripping attacks.",
+    "learning_objective": "Explain the defensive purpose of HSTS.",
+    "options": [
+      {
+        "option_text": "A security header instructing browsers to automatically convert all HTTP requests to secure HTTPS and refuse unencrypted connections",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "HSTS protects users from SSL-stripping MitM attacks by enforcing HTTPS in the browser."
+      },
+      {
+        "option_text": "A protocol used to track user keystrokes for marketing surveys",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HSTS enforces HTTPS; it is not a keystroke logger."
+      },
+      {
+        "option_text": "A hardware feature that prevents servers from overheating",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "HSTS is an HTTP header directive."
+      },
+      {
+        "option_text": "A tool that increases computer RAM memory",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Software headers do not increase hardware RAM."
+      }
+    ],
+    "tags": [
+      "https",
+      "hsts",
+      "web-security",
+      "defense"
+    ]
+  },
+  {
+    "code": "APP-030",
+    "topic_slug": "dns-record-types",
+    "question_text": "Which DNS record type specifies the location (hostname and port) of servers for specific services, widely used by Active Directory, SIP VoIP, and XMPP?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "INTERMEDIATE",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "SRV (Service) records define the hostname, port number, priority, and weight for specific services (e.g., _ldap._tcp.example.com), enabling clients to discover service endpoints dynamically.",
+    "learning_objective": "Identify the DNS record used for service discovery.",
+    "options": [
+      {
+        "option_text": "SRV record",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "SRV records identify hostnames and port numbers for specific application services."
+      },
+      {
+        "option_text": "A record",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A records provide IP addresses only, without port numbers."
+      },
+      {
+        "option_text": "MX record",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MX records specify mail servers only."
+      },
+      {
+        "option_text": "CNAME record",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "CNAME provides alias redirection to another domain name."
+      }
+    ],
+    "tags": [
+      "dns",
+      "srv-record",
+      "service-discovery",
+      "active-directory"
+    ]
+  }
+]

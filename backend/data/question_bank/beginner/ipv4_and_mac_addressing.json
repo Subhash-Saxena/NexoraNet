@@ -1,0 +1,1325 @@
+[
+  {
+    "code": "IPV4-001",
+    "topic_slug": "ipv4-basics",
+    "question_text": "How many bits are in an IPv4 address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "An IPv4 address consists of exactly 32 bits, divided into four 8-bit sections called octets.",
+    "learning_objective": "Recall IPv4 address bit length.",
+    "options": [
+      {
+        "option_text": "32 bits",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPv4 addresses are 32 bits (4 bytes) in length."
+      },
+      {
+        "option_text": "64 bits",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "64 bits is the size of standard computer memory registers, not IPv4."
+      },
+      {
+        "option_text": "128 bits",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "128 bits is the bit length of an IPv6 address."
+      },
+      {
+        "option_text": "48 bits",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "48 bits is the length of an Ethernet MAC address."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "ipv4-basics",
+      "fundamentals"
+    ]
+  },
+  {
+    "code": "IPV4-002",
+    "topic_slug": "ipv4-basics",
+    "question_text": "How many octets are in an IPv4 address when written in standard dotted-decimal notation?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "An IPv4 address is formatted as four decimal numbers separated by dots (e.g., 192.168.1.1), where each decimal number represents one 8-bit octet (byte).",
+    "learning_objective": "Identify the number of octets in IPv4.",
+    "options": [
+      {
+        "option_text": "4 octets",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IPv4 has 4 octets (8 bits * 4 = 32 bits)."
+      },
+      {
+        "option_text": "6 octets",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "6 octets (48 bits) is the structure of a MAC address."
+      },
+      {
+        "option_text": "8 octets",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "IPv6 has 8 groups of hexadecimal digits."
+      },
+      {
+        "option_text": "2 octets",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "2 octets is only 16 bits."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "ipv4-address-structure",
+      "octets"
+    ]
+  },
+  {
+    "code": "IPV4-003",
+    "topic_slug": "ipv4-address-structure",
+    "question_text": "What is the maximum decimal value that can be represented in a single 8-bit IPv4 octet?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "An 8-bit binary number can represent $2^8 = 256$ possible values, ranging from decimal 0 (00000000) to 255 (11111111).",
+    "learning_objective": "Calculate maximum octet value in IPv4.",
+    "options": [
+      {
+        "option_text": "255",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "255 is the maximum 8-bit value (11111111 in binary)."
+      },
+      {
+        "option_text": "256",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "256 requires 9 bits (100000000 in binary)."
+      },
+      {
+        "option_text": "128",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "128 is the value of the most significant bit (2^7)."
+      },
+      {
+        "option_text": "512",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "512 requires 10 bits."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "ipv4-address-structure",
+      "binary"
+    ]
+  },
+  {
+    "code": "IPV4-004",
+    "topic_slug": "ipv4-basics",
+    "question_text": "Which of the following is an INVALID IPv4 address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "192.168.1.256 is invalid because octet values in IPv4 cannot exceed decimal 255 (8 bits).",
+    "learning_objective": "Recognize valid IPv4 decimal syntax.",
+    "options": [
+      {
+        "option_text": "192.168.1.256",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "256 exceeds the maximum possible 8-bit octet value of 255."
+      },
+      {
+        "option_text": "10.0.0.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.0.0.1 is a perfectly valid Class A private IPv4 address."
+      },
+      {
+        "option_text": "172.16.254.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "172.16.254.1 is a valid Class B private IPv4 address."
+      },
+      {
+        "option_text": "8.8.8.8",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "8.8.8.8 is a valid public IPv4 address (Google DNS)."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "ipv4-basics",
+      "validation"
+    ]
+  },
+  {
+    "code": "IPV4-005",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "According to RFC 1918, which of the following is a designated Private IPv4 address range?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "RFC 1918 reserves three private address spaces: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. 10.0.0.0 to 10.255.255.255 is the Class A private block.",
+    "learning_objective": "Recall RFC 1918 private IPv4 address blocks.",
+    "options": [
+      {
+        "option_text": "10.0.0.0 to 10.255.255.255 (10.0.0.0/8)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "10.0.0.0/8 is reserved for private intranets under RFC 1918."
+      },
+      {
+        "option_text": "11.0.0.0 to 11.255.255.255",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "11.0.0.0/8 is public routable address space."
+      },
+      {
+        "option_text": "172.32.0.0 to 172.63.255.255",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "RFC 1918 only covers 172.16.0.0 to 172.31.255.255."
+      },
+      {
+        "option_text": "192.169.0.0 to 192.169.255.255",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "RFC 1918 covers 192.168.0.0/16, not 192.169.0.0/16."
+      }
+    ],
+    "tags": [
+      "public-vs-private-ip",
+      "rfc1918",
+      "private-ip"
+    ]
+  },
+  {
+    "code": "IPV4-006",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "Why are RFC 1918 private IP addresses non-routable on the public Internet?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Internet Service Provider (ISP) core routers drop packets addressed to RFC 1918 private IP addresses. They are intended for internal LANs and must be translated using NAT to reach public hosts.",
+    "learning_objective": "Explain the non-routable nature of RFC 1918 addresses.",
+    "options": [
+      {
+        "option_text": "Public Internet routers drop private IP addresses by convention; NAT is required to communicate with public hosts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Private IPs are reused across millions of homes/businesses and cannot be routed globally."
+      },
+      {
+        "option_text": "Private IP packets carry a self-destruct software virus that crashes routers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Private addresses are a standard addressing convention, not malicious payloads."
+      },
+      {
+        "option_text": "Private IPs cannot be processed by computers running modern operating systems",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "All modern OS stacks fully support private IP configurations."
+      },
+      {
+        "option_text": "Private IPs require optical quantum modems to transmit signals",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Private IPs transmit over standard Ethernet and Wi-Fi."
+      }
+    ],
+    "tags": [
+      "public-vs-private-ip",
+      "nat",
+      "routing"
+    ]
+  },
+  {
+    "code": "IPV4-007",
+    "topic_slug": "ipv4-basics",
+    "question_text": "Which IPv4 address is universally reserved for the host loopback interface (localhost)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "The entire 127.0.0.0/8 block is reserved for loopback testing, with 127.0.0.1 being the standard address that points directly back to the local computer's TCP/IP stack.",
+    "learning_objective": "Identify the IPv4 loopback address.",
+    "options": [
+      {
+        "option_text": "127.0.0.1",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "127.0.0.1 is the standard loopback address pointing to the local host."
+      },
+      {
+        "option_text": "192.168.1.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.1.1 is typically a default gateway router address on home LANs."
+      },
+      {
+        "option_text": "255.255.255.255",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.255 is the IPv4 limited broadcast address."
+      },
+      {
+        "option_text": "0.0.0.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "0.0.0.0 represents an unknown or default route address."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "loopback",
+      "localhost"
+    ]
+  },
+  {
+    "code": "IPV4-008",
+    "topic_slug": "mac-address",
+    "question_text": "How many bits are in a standard Ethernet MAC (Media Access Control) address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "A standard Ethernet MAC address is 48 bits (6 bytes) long, typically formatted as six pairs of hexadecimal digits (e.g., 00:1A:2B:3C:4D:5E).",
+    "learning_objective": "Recall MAC address bit length.",
+    "options": [
+      {
+        "option_text": "48 bits",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Ethernet MAC addresses are 48 bits (6 octets)."
+      },
+      {
+        "option_text": "32 bits",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "32 bits is the length of an IPv4 address."
+      },
+      {
+        "option_text": "64 bits",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "64 bits is EUI-64 format."
+      },
+      {
+        "option_text": "128 bits",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "128 bits is the length of an IPv6 address."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "ethernet",
+      "data-link"
+    ]
+  },
+  {
+    "code": "IPV4-009",
+    "topic_slug": "mac-address",
+    "question_text": "What do the first 24 bits (3 bytes) of an Ethernet MAC address represent?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The first 24 bits of a MAC address are the Organizationally Unique Identifier (OUI), assigned by the IEEE to identify the network hardware manufacturer (e.g., Cisco, Intel, Apple).",
+    "learning_objective": "Identify the OUI portion of a MAC address.",
+    "options": [
+      {
+        "option_text": "Organizationally Unique Identifier (OUI) identifying the hardware manufacturer",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The OUI identifies the vendor who manufactured the network interface card."
+      },
+      {
+        "option_text": "The user's secret cryptographic encryption key",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MAC addresses are public Layer 2 hardware identifiers with no secret keys."
+      },
+      {
+        "option_text": "The geographical GPS coordinates of the computer",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC addresses do not record real-time GPS locations."
+      },
+      {
+        "option_text": "The ISP account billing identification number",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MAC addresses are assigned at hardware manufacturing, independent of ISPs."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "oui",
+      "hardware"
+    ]
+  },
+  {
+    "code": "IPV4-010",
+    "topic_slug": "mac-address",
+    "question_text": "Which of the following represents the universal Ethernet broadcast MAC address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "FF:FF:FF:FF:FF:FF (all 48 bits set to 1) is the universal Layer 2 broadcast address. Every NIC on the local LAN processes frames addressed to this destination.",
+    "learning_objective": "Recall the universal Layer 2 broadcast MAC address.",
+    "options": [
+      {
+        "option_text": "FF:FF:FF:FF:FF:FF",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "All 48 bits set to binary 1 represents the Layer 2 broadcast address."
+      },
+      {
+        "option_text": "00:00:00:00:00:00",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "00:00:00:00:00:00 is an unassigned or invalid source address."
+      },
+      {
+        "option_text": "127.0.0.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "127.0.0.1 is an IPv4 Layer 3 loopback address, not a MAC address."
+      },
+      {
+        "option_text": "FF:00:00:00:00:00",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "This is not a standard broadcast address."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "broadcast",
+      "layer2"
+    ]
+  },
+  {
+    "code": "IPV4-011",
+    "topic_slug": "default-gateway",
+    "question_text": "What is the primary role of a 'Default Gateway' configured on a host workstation?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The default gateway is the local router interface IP address that a host sends packets to whenever the destination IP address lies outside its local subnet.",
+    "learning_objective": "Explain the purpose of a default gateway.",
+    "options": [
+      {
+        "option_text": "The router IP address a host forwards packets to when communicating with destinations outside the local subnet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Hosts forward all off-subnet traffic to their default gateway router."
+      },
+      {
+        "option_text": "The web browser homepage URL displayed when opening Google Chrome",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The default gateway is a Layer 3 routing parameter, not a web browser URL."
+      },
+      {
+        "option_text": "The physical power outlet in the server rack",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "The default gateway is a logical IP address on a router."
+      },
+      {
+        "option_text": "A database password required to authenticate to local switches",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Default gateway is for packet forwarding, not database authentication."
+      }
+    ],
+    "tags": [
+      "default-gateway",
+      "routing",
+      "host-configuration"
+    ]
+  },
+  {
+    "code": "IPV4-012",
+    "topic_slug": "ipv4-address-structure",
+    "question_text": "An IPv4 address is divided into two logical portions. What are they?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Every IPv4 address consists of a Network portion (identifying the specific subnet) and a Host portion (identifying the specific device on that subnet), determined by the subnet mask.",
+    "learning_objective": "Differentiate network and host portions of an IP address.",
+    "options": [
+      {
+        "option_text": "Network portion and Host portion",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The subnet mask separates the address into network bits and host bits."
+      },
+      {
+        "option_text": "Username portion and Password portion",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "IP addresses identify interfaces, not user credentials."
+      },
+      {
+        "option_text": "MAC portion and Port portion",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC is Layer 2 and Port is Layer 4; they are not parts of an IPv4 address."
+      },
+      {
+        "option_text": "Encryption portion and Decryption portion",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "IP addresses are not divided into cryptographic components."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "ipv4-address-structure",
+      "subnet-mask"
+    ]
+  },
+  {
+    "code": "IPV4-013",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "Which of the following addresses falls within the RFC 1918 Class B private address block?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "The Class B private address range spans from 172.16.0.0 through 172.31.255.255 (a /12 prefix). 172.20.10.5 falls squarely within this range.",
+    "learning_objective": "Identify Class B private IP addresses.",
+    "options": [
+      {
+        "option_text": "172.20.10.5",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "172.20.10.5 falls within 172.16.0.0 - 172.31.255.255."
+      },
+      {
+        "option_text": "172.15.1.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "172.15.1.1 is lower than 172.16.0.0 and is a public IP address."
+      },
+      {
+        "option_text": "172.32.1.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "172.32.1.1 is higher than 172.31.255.255 and is a public IP address."
+      },
+      {
+        "option_text": "192.168.1.1",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.1.1 is a Class C private address, not Class B."
+      }
+    ],
+    "tags": [
+      "public-vs-private-ip",
+      "class-b",
+      "rfc1918"
+    ]
+  },
+  {
+    "code": "IPV4-014",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "What address range is designated for Automatic Private IP Addressing (APIPA / Link-Local) in IPv4 when a DHCP server fails to respond?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "When a Windows or macOS client configured for DHCP fails to contact a DHCP server, it self-assigns an APIPA link-local address in the 169.254.0.0/16 range (RFC 3927).",
+    "learning_objective": "Identify the IPv4 APIPA address range.",
+    "options": [
+      {
+        "option_text": "169.254.0.1 to 169.254.255.254 (169.254.0.0/16)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "169.254.0.0/16 is the designated link-local APIPA block."
+      },
+      {
+        "option_text": "192.168.0.0 to 192.168.255.255",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.0.0/16 is standard private space assigned by DHCP routers."
+      },
+      {
+        "option_text": "127.0.0.0 to 127.255.255.255",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "127.0.0.0/8 is reserved for loopback."
+      },
+      {
+        "option_text": "10.0.0.0 to 10.255.255.255",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.0.0.0/8 is Class A private space."
+      }
+    ],
+    "tags": [
+      "apipa",
+      "dhcp",
+      "troubleshooting",
+      "link-local"
+    ]
+  },
+  {
+    "code": "IPV4-015",
+    "topic_slug": "default-gateway",
+    "question_text": "A student types 'ipconfig' and observes their IPv4 address is 169.254.45.12. What does this indicate?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "An address starting with 169.254.x.x is an APIPA address, indicating that the client's network interface is active but was unable to obtain an IP lease from a local DHCP server.",
+    "learning_objective": "Diagnose APIPA symptom during network troubleshooting.",
+    "options": [
+      {
+        "option_text": "The client was unable to contact a DHCP server to obtain an IP address and self-assigned an APIPA address",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "169.254.x.x indicates DHCP failure."
+      },
+      {
+        "option_text": "The computer has been infected with ransomware that modified its IP address",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "APIPA is a standard operating system feature, not malware."
+      },
+      {
+        "option_text": "The computer is connected directly to the root DNS server of the Internet",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "APIPA addresses cannot route to the Internet."
+      },
+      {
+        "option_text": "The network card is defective and must be physically discarded",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DHCP failure is typically caused by cabling, VLAN, or DHCP server outages, not hardware death."
+      }
+    ],
+    "tags": [
+      "apipa",
+      "dhcp",
+      "ipconfig",
+      "troubleshooting"
+    ]
+  },
+  {
+    "code": "IPV4-016",
+    "topic_slug": "mac-address",
+    "question_text": "Why is a MAC address often referred to as a 'physical' or 'burned-in' address (BIA)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Traditionally, the manufacturer burns the MAC address permanently into the Read-Only Memory (ROM) of the Network Interface Card (NIC) during hardware fabrication.",
+    "learning_objective": "Explain the origin of the term 'burned-in address'.",
+    "options": [
+      {
+        "option_text": "It is permanently encoded into the hardware ROM of the network interface card during manufacturing",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MAC addresses are hardcoded into NIC firmware at production."
+      },
+      {
+        "option_text": "It requires extreme heat from a blowtorch to configure on a motherboard",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Burned-in is a metaphor for ROM chip flashing, not thermal burning."
+      },
+      {
+        "option_text": "It dissolves automatically after 30 days of continuous operation",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hardware MAC addresses remain permanent."
+      },
+      {
+        "option_text": "It is only used when server rooms exceed 100 degrees Celsius",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MAC addresses function in all standard operating conditions."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "hardware",
+      "nic"
+    ]
+  },
+  {
+    "code": "IPV4-017",
+    "topic_slug": "ipv4-address-structure",
+    "question_text": "In an IPv4 address with a /24 subnet mask (255.255.255.0), how many bits are allocated to the network portion?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "The '/24' prefix notation indicates that the first 24 bits are mask bits allocated to identify the network, leaving the remaining 8 bits ($32 - 24 = 8$) for host addressing.",
+    "learning_objective": "Interpret prefix length notation in IPv4.",
+    "options": [
+      {
+        "option_text": "24 bits",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A /24 mask means the first 24 bits identify the network."
+      },
+      {
+        "option_text": "8 bits",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "8 bits is the host portion (32 - 24 = 8)."
+      },
+      {
+        "option_text": "16 bits",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "16 bits corresponds to a /16 subnet mask."
+      },
+      {
+        "option_text": "32 bits",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "32 bits corresponds to a /32 host route."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "cidr",
+      "subnet-mask"
+    ]
+  },
+  {
+    "code": "IPV4-018",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "Which address is an example of a public, globally routable IPv4 address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "93.184.216.34 (the public IP for example.com) is outside all RFC 1918 private ranges, loopback (127.0.0.0/8), and APIPA (169.254.0.0/16), making it globally routable.",
+    "learning_objective": "Distinguish public routable IP addresses from reserved blocks.",
+    "options": [
+      {
+        "option_text": "93.184.216.34",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "93.184.216.34 is a globally routable public IPv4 address."
+      },
+      {
+        "option_text": "10.50.1.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.50.1.1 is within RFC 1918 Class A private space."
+      },
+      {
+        "option_text": "192.168.100.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.100.1 is within RFC 1918 Class C private space."
+      },
+      {
+        "option_text": "172.16.1.1",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "172.16.1.1 is within RFC 1918 Class B private space."
+      }
+    ],
+    "tags": [
+      "public-vs-private-ip",
+      "public-ip",
+      "routing"
+    ]
+  },
+  {
+    "code": "IPV4-019",
+    "topic_slug": "mac-address",
+    "question_text": "Which command on a Windows workstation displays the MAC address of the network interface card?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "'getmac' or 'ipconfig /all' on Windows displays the physical (MAC) address of each active network adapter.",
+    "learning_objective": "Recall commands to inspect MAC addresses on Windows.",
+    "options": [
+      {
+        "option_text": "getmac (or ipconfig /all)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "'getmac' and 'ipconfig /all' output physical MAC addresses on Windows."
+      },
+      {
+        "option_text": "ping localhost",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "'ping localhost' tests IP stack functionality without displaying MAC addresses."
+      },
+      {
+        "option_text": "tracert 8.8.8.8",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "'tracert' displays intermediate Layer 3 router hops."
+      },
+      {
+        "option_text": "nslookup google.com",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "'nslookup' queries DNS servers for IP records."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "windows",
+      "cli",
+      "ipconfig"
+    ]
+  },
+  {
+    "code": "IPV4-020",
+    "topic_slug": "mac-address",
+    "question_text": "Can a network packet cross multiple routers across the Internet while keeping its original source MAC address intact?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "No. MAC addresses are strictly Layer 2 local hop-to-hop identifiers. Every router along the path strips the incoming Layer 2 frame and creates a brand-new Layer 2 frame with its own outgoing MAC address for the next hop.",
+    "learning_objective": "Understand hop-by-hop MAC address rewriting by routers.",
+    "options": [
+      {
+        "option_text": "No, routers rewrite the source and destination MAC addresses at every single hop along the path",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "MAC addresses change at every router hop; only source/destination IP addresses remain end-to-end."
+      },
+      {
+        "option_text": "Yes, MAC addresses remain unchanged from source host to ultimate destination server",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Frames are local to each link and do not traverse routers unchanged."
+      },
+      {
+        "option_text": "Yes, but only if the packet is transmitted on Tuesdays",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MAC address behavior is governed by networking protocol standards, not days of the week."
+      },
+      {
+        "option_text": "No, because MAC addresses are deleted by DNS servers",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DNS resolves names to IPs and has nothing to do with frame forwarding."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "routing",
+      "layer2-vs-layer3"
+    ]
+  },
+  {
+    "code": "IPV4-021",
+    "topic_slug": "ipv4-basics",
+    "question_text": "What is the dotted-decimal representation of a /24 subnet mask?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "A /24 subnet mask contains 24 consecutive binary 1s followed by 8 binary 0s: 11111111.11111111.11111111.00000000, which converts in decimal to 255.255.255.0.",
+    "learning_objective": "Convert prefix notation /24 to dotted-decimal.",
+    "options": [
+      {
+        "option_text": "255.255.255.0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "24 bits of ones equals 255.255.255.0."
+      },
+      {
+        "option_text": "255.255.0.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.0.0 corresponds to a /16 mask."
+      },
+      {
+        "option_text": "255.0.0.0",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.0.0.0 corresponds to a /8 mask."
+      },
+      {
+        "option_text": "255.255.255.255",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.255 corresponds to a /32 mask."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "subnet-masks",
+      "conversion"
+    ]
+  },
+  {
+    "code": "IPV4-022",
+    "topic_slug": "ipv4-address-structure",
+    "question_text": "What is the dotted-decimal representation of a /16 subnet mask?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "A /16 subnet mask contains 16 consecutive binary 1s followed by 16 binary 0s: 11111111.11111111.00000000.00000000, which converts to 255.255.0.0.",
+    "learning_objective": "Convert prefix notation /16 to dotted-decimal.",
+    "options": [
+      {
+        "option_text": "255.255.0.0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "16 bits of ones equals 255.255.0.0."
+      },
+      {
+        "option_text": "255.255.255.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.255.0 is /24."
+      },
+      {
+        "option_text": "255.0.0.0",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.0.0.0 is /8."
+      },
+      {
+        "option_text": "255.255.240.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.240.0 is /20."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "subnet-masks",
+      "conversion"
+    ]
+  },
+  {
+    "code": "IPV4-023",
+    "topic_slug": "ipv4-address-structure",
+    "question_text": "What is the dotted-decimal representation of a /8 subnet mask?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 30,
+    "status": "PUBLISHED",
+    "explanation": "A /8 subnet mask contains 8 consecutive binary 1s followed by 24 binary 0s: 11111111.00000000.00000000.00000000, which converts to 255.0.0.0.",
+    "learning_objective": "Convert prefix notation /8 to dotted-decimal.",
+    "options": [
+      {
+        "option_text": "255.0.0.0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "8 bits of ones equals 255.0.0.0."
+      },
+      {
+        "option_text": "255.255.0.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "255.255.0.0 is /16."
+      },
+      {
+        "option_text": "255.255.255.0",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "255.255.255.0 is /24."
+      },
+      {
+        "option_text": "255.255.255.255",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "255.255.255.255 is /32."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "subnet-masks",
+      "conversion"
+    ]
+  },
+  {
+    "code": "IPV4-024",
+    "topic_slug": "mac-address",
+    "question_text": "What is the hexadecimal representation format of an Ethernet MAC address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 35,
+    "status": "PUBLISHED",
+    "explanation": "MAC addresses are represented as 12 hexadecimal characters, commonly separated by colons (e.g. 00:1A:2B:3C:4D:5E), hyphens (00-1A-2B-3C-4D-5E), or Cisco dot notation (001a.2b3c.4d5e).",
+    "learning_objective": "Identify standard MAC address formatting.",
+    "options": [
+      {
+        "option_text": "12 hexadecimal digits separated into pairs by colons or hyphens",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Standard MAC notation uses 6 pairs of hex digits (48 bits)."
+      },
+      {
+        "option_text": "Four decimal numbers separated by dots from 0 to 255",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is IPv4 dotted-decimal notation."
+      },
+      {
+        "option_text": "Eight 4-digit hexadecimal groups separated by colons",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is IPv6 address notation."
+      },
+      {
+        "option_text": "A single 10-digit telephone number",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MAC addresses are not telephone numbers."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "hexadecimal",
+      "syntax"
+    ]
+  },
+  {
+    "code": "IPV4-025",
+    "topic_slug": "default-gateway",
+    "question_text": "What occurs if a workstation has a valid IP address and subnet mask, but NO default gateway configured?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Without a default gateway, the workstation can communicate normally with other computers on its own local subnet, but cannot send packets to any remote IP addresses outside that subnet (such as the Internet).",
+    "learning_objective": "Predict the connectivity consequence of a missing default gateway.",
+    "options": [
+      {
+        "option_text": "It can communicate with devices on its local subnet, but cannot access external networks or the Internet",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "The gateway is required to route traffic beyond the local subnet."
+      },
+      {
+        "option_text": "It cannot communicate with any device at all, even on its local switch",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Local communication uses direct ARP and switch forwarding without needing a gateway."
+      },
+      {
+        "option_text": "The computer's hard drive automatically formats itself",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Default gateway configuration does not affect local storage disks."
+      },
+      {
+        "option_text": "All local traffic is automatically encrypted with quantum keys",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Missing a gateway does not alter local encryption."
+      }
+    ],
+    "tags": [
+      "default-gateway",
+      "troubleshooting",
+      "routing"
+    ]
+  },
+  {
+    "code": "IPV4-026",
+    "topic_slug": "public-vs-private-ip",
+    "question_text": "Which address is an example of an RFC 1918 Class C private address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "192.168.1.100 is within the RFC 1918 Class C private address block (192.168.0.0 through 192.168.255.255 /16).",
+    "learning_objective": "Identify Class C private addresses.",
+    "options": [
+      {
+        "option_text": "192.168.1.100",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "192.168.0.0/16 is the Class C private address block."
+      },
+      {
+        "option_text": "10.1.1.1",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.0.0.0/8 is Class A private."
+      },
+      {
+        "option_text": "172.16.0.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "172.16.0.0/12 is Class B private."
+      },
+      {
+        "option_text": "8.8.4.4",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "8.8.4.4 is a public IP address."
+      }
+    ],
+    "tags": [
+      "public-vs-private-ip",
+      "class-c",
+      "rfc1918"
+    ]
+  },
+  {
+    "code": "IPV4-027",
+    "topic_slug": "ipv4-basics",
+    "question_text": "Which IPv4 address represents the directed broadcast address on the 192.168.1.0/24 network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "On a /24 network with network address 192.168.1.0, the last address with all 8 host bits set to 1 is 192.168.1.255, which is the directed broadcast address.",
+    "learning_objective": "Determine the broadcast address for a /24 network.",
+    "options": [
+      {
+        "option_text": "192.168.1.255",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "192.168.1.255 is the broadcast address for 192.168.1.0/24."
+      },
+      {
+        "option_text": "192.168.1.0",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "192.168.1.0 is the network identifier address."
+      },
+      {
+        "option_text": "192.168.1.1",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "192.168.1.1 is typically the first usable host IP."
+      },
+      {
+        "option_text": "192.168.1.254",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "192.168.1.254 is the last usable host IP."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "broadcast-address",
+      "subnetting"
+    ]
+  },
+  {
+    "code": "IPV4-028",
+    "topic_slug": "ipv4-basics",
+    "question_text": "What is the network address for the host IP 10.20.30.40 with subnet mask 255.255.255.0 (/24)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "With a /24 mask (255.255.255.0), the first 3 octets are network bits and the last octet is set to 0 for the network address: 10.20.30.0.",
+    "learning_objective": "Determine the network address given a host IP and /24 mask.",
+    "options": [
+      {
+        "option_text": "10.20.30.0",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Masking the host bits (the 4th octet) to 0 yields 10.20.30.0."
+      },
+      {
+        "option_text": "10.20.30.40",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "10.20.30.40 is the host IP itself."
+      },
+      {
+        "option_text": "10.20.30.255",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "10.20.30.255 is the broadcast address."
+      },
+      {
+        "option_text": "10.0.0.0",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "10.0.0.0 would be the network address if the mask were /8."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "network-address",
+      "subnetting"
+    ]
+  },
+  {
+    "code": "IPV4-029",
+    "topic_slug": "mac-address",
+    "question_text": "Can two network interface cards manufactured anywhere in the world legally share the same physical MAC address?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "No. Under IEEE 802 specifications, each globally administered MAC address is globally unique to ensure conflict-free communication on local area networks.",
+    "learning_objective": "Recognize the global uniqueness of standard MAC addresses.",
+    "options": [
+      {
+        "option_text": "No, globally administered MAC addresses are designed to be universally unique across all hardware vendors",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "IEEE coordinates OUI assignments to maintain global MAC uniqueness."
+      },
+      {
+        "option_text": "Yes, all computers made in the same year have identical MAC addresses",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Manufacture year does not duplicate MAC addresses."
+      },
+      {
+        "option_text": "Yes, but only if they are plugged into the same power strip",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Electrical power has no relation to MAC addressing."
+      },
+      {
+        "option_text": "Yes, because there are only 256 total MAC addresses available worldwide",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "48-bit MAC addresses support over 281 trillion unique addresses ($2^{48}$)."
+      }
+    ],
+    "tags": [
+      "mac-address",
+      "uniqueness",
+      "hardware"
+    ]
+  },
+  {
+    "code": "IPV4-030",
+    "topic_slug": "ipv4-basics",
+    "question_text": "How many usable host IP addresses are available on a standard /24 IPv4 network?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "BEGINNER",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A /24 network has 8 host bits ($2^8 = 256$ total addresses). Subtracting the network address (first) and the broadcast address (last), there are $256 - 2 = 254$ usable host addresses.",
+    "learning_objective": "Calculate usable host addresses on a /24 network.",
+    "options": [
+      {
+        "option_text": "254 usable hosts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "2^8 - 2 = 256 - 2 = 254 usable host addresses."
+      },
+      {
+        "option_text": "256 usable hosts",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "256 is the total number of addresses; 2 are reserved."
+      },
+      {
+        "option_text": "255 usable hosts",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Both the network and broadcast addresses cannot be assigned to hosts."
+      },
+      {
+        "option_text": "128 usable hosts",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "128 addresses corresponds to a /25 network."
+      }
+    ],
+    "tags": [
+      "ipv4",
+      "usable-hosts",
+      "subnetting"
+    ]
+  }
+]

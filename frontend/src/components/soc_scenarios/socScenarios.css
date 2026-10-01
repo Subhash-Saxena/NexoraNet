@@ -1,0 +1,263 @@
+/**
+ * Step 18: Advanced SOC Scenarios Stylesheet
+ * NexoraNet - "Learn. Simulate. Analyze. Defend."
+ */
+
+:root {
+  --scen-bg-primary: #0a0e17;
+  --scen-bg-card: #111827;
+  --scen-bg-elevated: #1e293b;
+  --scen-bg-hover: #334155;
+  --scen-border: #334155;
+  --scen-cyan: #06b6d4;
+  --scen-emerald: #10b981;
+  --scen-amber: #f59e0b;
+  --scen-red: #ef4444;
+  --scen-purple: #8b5cf6;
+  --scen-text-primary: #f8fafc;
+  --scen-text-secondary: #94a3b8;
+  --scen-text-muted: #64748b;
+}
+
+.scen-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+  color: var(--scen-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.scen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.scen-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scen-subtitle {
+  color: var(--scen-text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 9-Stage Stepper Header */
+.scen-stepper {
+  display: flex;
+  align-items: center;
+  background: var(--scen-bg-card);
+  border: 1px solid var(--scen-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  gap: 6px;
+}
+
+.scen-step-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--scen-text-muted);
+  white-space: nowrap;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.scen-step-node.active {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--scen-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+.scen-step-node.completed {
+  color: var(--scen-emerald);
+}
+
+.scen-step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--scen-border);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.scen-step-node.active .scen-step-num {
+  background: var(--scen-cyan);
+  color: #000;
+}
+
+.scen-step-node.completed .scen-step-num {
+  background: var(--scen-emerald);
+  color: #000;
+}
+
+/* Workspace Layout */
+.scen-workspace-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .scen-workspace-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scen-main-panel {
+  background: var(--scen-bg-card);
+  border: 1px solid var(--scen-border);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.scen-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.scen-side-card {
+  background: var(--scen-bg-card);
+  border: 1px solid var(--scen-border);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+/* Catalog Filter Bar */
+.scen-filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.scen-input {
+  background: var(--scen-bg-card);
+  border: 1px solid var(--scen-border);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.scen-input:focus {
+  outline: none;
+  border-color: var(--scen-cyan);
+}
+
+/* Difficulty Badges */
+.scen-diff-badge {
+  display: inline-flex;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scen-diff-badge.BEGINNER {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.scen-diff-badge.INTERMEDIATE {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.scen-diff-badge.ADVANCED {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.scen-diff-badge.EXPERT {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Evidence Cards */
+.scen-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.scen-evidence-card {
+  background: var(--scen-bg-elevated);
+  border: 1px solid var(--scen-border);
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.scen-evidence-card:hover {
+  border-color: #64748b;
+}
+
+.scen-evidence-card.selected {
+  border-color: var(--scen-cyan);
+  background: rgba(6, 182, 212, 0.08);
+}
+
+/* Results Radar / Breakdown */
+.scen-score-hero {
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid var(--scen-border);
+  border-radius: 12px;
+  margin-bottom: 28px;
+}
+
+.scen-score-circle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scen-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.scen-breakdown-card {
+  background: var(--scen-bg-elevated);
+  border: 1px solid var(--scen-border);
+  border-radius: 8px;
+  padding: 14px 18px;
+}

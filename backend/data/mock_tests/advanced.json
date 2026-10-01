@@ -1,0 +1,636 @@
+[
+  {
+    "code": "ADVANCED-TCPIP-001",
+    "title": "Advanced TCP/IP & Protocol Forensics",
+    "slug": "advanced-tcp-ip",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Dissect advanced TCP/IP behaviors: TCP Zero Window probes, Selective Acknowledgment (SACK), sliding window scaling, out-of-order retransmissions, and anomalous flag combinations.",
+    "instructions": "20 questions, 25 minutes. Deep protocol analysis.",
+    "prerequisites": "Intermediate TCP/UDP mechanics.",
+    "tags": [
+      "tcp",
+      "window-size",
+      "sack",
+      "pcap",
+      "forensics"
+    ],
+    "what_you_will_practice": [
+      "Diagnose application deadlocks from TCP Zero Window conditions",
+      "Calculate sliding window throughput from TCP Window Scale options",
+      "Analyze anomalous TCP flag combinations in transit captures"
+    ],
+    "blueprint": {
+      "title": "Advanced TCP/IP Blueprint",
+      "description": "Assesses deep transport layer mechanics and windowing operations.",
+      "topics": [
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 8,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "tcp-stream-analysis",
+          "question_count": 6,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "wireshark-filtering-concepts",
+          "question_count": 6,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-SUBNET-001",
+    "title": "Advanced Subnetting & Carrier Routing",
+    "slug": "advanced-subnetting",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 35,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "DRAFT",
+    "description": "Carrier-scale IP address planning, multi-protocol BGP aggregation, and complex enterprise IPv6 transition planning.",
+    "instructions": "25 questions in 35 minutes. Note: Currently in draft status.",
+    "prerequisites": "Intermediate VLSM.",
+    "tags": [
+      "subnetting",
+      "bgp",
+      "ipv6",
+      "supernetting"
+    ],
+    "what_you_will_practice": [
+      "Perform carrier-grade address allocation and summarization"
+    ],
+    "blueprint": {
+      "title": "Advanced Subnetting Blueprint",
+      "description": "Assesses carrier-grade routing and aggregation.",
+      "topics": [
+        {
+          "topic_slug": "ipv6-security",
+          "question_count": 25,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-ROUTING-SWITCHING-001",
+    "title": "Routing & Switching Security Analysis",
+    "slug": "routing-and-switching-analysis",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 30,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "DRAFT",
+    "description": "Analyze Layer 2 switch attacks (MAC flooding, VLAN hopping, STP manipulation) and Layer 3 routing protocol attacks (BGP route leaks, rogue OSPF LSAs).",
+    "instructions": "25 questions in 30 minutes. Note: Currently in draft status (requires 25, available 12).",
+    "prerequisites": "Enterprise switching and dynamic routing.",
+    "tags": [
+      "layer2-attacks",
+      "bgp-hijacking",
+      "vlan-hopping",
+      "stp"
+    ],
+    "what_you_will_practice": [
+      "Neutralize VLAN hopping and switch spoofing attacks",
+      "Implement Private VLANs (PVLAN) to isolate compromised hosts",
+      "Analyze BGP hijacking and RPKI route origin validation"
+    ],
+    "blueprint": {
+      "title": "Routing and Switching Security Blueprint",
+      "description": "Assesses protocol exploitation and hardening at Layers 2 and 3.",
+      "topics": [
+        {
+          "topic_slug": "vlan-security",
+          "question_count": 15,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "network-segmentation-advanced",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "routing-protocol-concepts",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-SEC-DEFENSE-001",
+    "title": "Advanced Network Security & Defense Architecture",
+    "slug": "advanced-network-security",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Enterprise defensive architecture: Private VLAN (PVLAN) isolated and promiscuous ports, stateful TCP state exhaustion attacks, Dynamic ARP Inspection (DAI), and Jump Box bastion design.",
+    "instructions": "20 questions, 25 minutes. 75% pass mark.",
+    "prerequisites": "Intermediate network security.",
+    "tags": [
+      "defense",
+      "pvlan",
+      "dai",
+      "bastion",
+      "hardening",
+      "ngfw"
+    ],
+    "what_you_will_practice": [
+      "Implement Private VLAN isolated vs community port boundaries",
+      "Deploy Dynamic ARP Inspection (DAI) and DHCP Snooping against spoofing",
+      "Architect Next-Generation Firewall (NGFW) deep packet inspection zones"
+    ],
+    "blueprint": {
+      "title": "Advanced Network Defense Blueprint",
+      "description": "Tests enterprise microsegmentation and L2/L3 security architecture.",
+      "topics": [
+        {
+          "topic_slug": "vlan-security",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "stateful-vs-stateless-filtering",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "firewall-architecture",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "ids-ips-advanced",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-PCAP-001",
+    "title": "Packet Analysis & Wireshark Stream Forensics",
+    "slug": "packet-analysis",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 30,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Authentic packet forensic investigation: Dissect hex dumps, Ethernet frame byte alignments, IPv4 TTL decrementing, TCP reassembly streams, and complex Wireshark display filters.",
+    "instructions": "25 questions in 30 minutes. 75% required to pass.",
+    "prerequisites": "Intermediate packet analysis.",
+    "tags": [
+      "wireshark",
+      "pcap",
+      "hex-dump",
+      "forensics",
+      "packet-dissection"
+    ],
+    "what_you_will_practice": [
+      "Dissect raw Ethernet and IP byte offsets in packet capture dumps",
+      "Reconstruct full TCP data streams from bidirectional conversations",
+      "Craft complex Wireshark display filters combining protocols and byte slices"
+    ],
+    "blueprint": {
+      "title": "Packet Forensics Blueprint",
+      "description": "Assesses PCAP dissection and Wireshark stream forensic analysis.",
+      "topics": [
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 11,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "wireshark-filtering-concepts",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "tcp-stream-analysis",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-TRAFFIC-001",
+    "title": "Traffic Analysis & Network Baselining",
+    "slug": "traffic-analysis",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Analyze network baselines, anomalous traffic volume spikes, DNS tunneling exfiltration patterns, HTTP user-agent anomalies, and TLS SNI discrepancy indicators.",
+    "instructions": "15 questions, 20 minutes.",
+    "prerequisites": "Packet analysis and application protocols.",
+    "tags": [
+      "traffic-analysis",
+      "baselining",
+      "dns-tunneling",
+      "anomalies",
+      "sni"
+    ],
+    "what_you_will_practice": [
+      "Detect DNS tunneling and data exfiltration from anomalous query lengths",
+      "Identify TLS Server Name Indication (SNI) spoofing and domain fronting",
+      "Recognize periodic C2 beaconing rhythms and jitter patterns"
+    ],
+    "blueprint": {
+      "title": "Traffic Baselining Blueprint",
+      "description": "Evaluates detection of statistical and protocol traffic anomalies.",
+      "topics": [
+        {
+          "topic_slug": "network-monitoring",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "dns-packet-analysis",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "http-packet-analysis",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "tls-traffic",
+          "question_count": 2,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-IDS-IPS-001",
+    "title": "IDS / IPS Analysis & Evasion Techniques",
+    "slug": "ids-ips-analysis",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 20,
+    "total_questions": 15,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Evaluate deep NIDS/NIPS operations: Snort/Suricata rule syntax, content modifiers (fast_pattern, distance, within), packet fragmentation evasion, and false positive reduction.",
+    "instructions": "15 questions in 20 minutes.",
+    "prerequisites": "IDS/IPS fundamentals.",
+    "tags": [
+      "ids",
+      "ips",
+      "snort",
+      "suricata",
+      "evasion",
+      "signatures"
+    ],
+    "what_you_will_practice": [
+      "Dissect Snort/Suricata rule options and payload pattern matching",
+      "Detect IP fragmentation overlap attacks used to evade sensor reassembly",
+      "Tune rule thresholds to eliminate benign operational false positives"
+    ],
+    "blueprint": {
+      "title": "IDS and IPS Evasion Blueprint",
+      "description": "Assesses signature evaluation, payload inspection, and evasion countermeasures.",
+      "topics": [
+        {
+          "topic_slug": "ids-ips-advanced",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-rules",
+          "question_count": 6,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-tuning",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-DETECTION-001",
+    "title": "Network Detection Engineering",
+    "slug": "network-detection",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Design and author high-fidelity detection rules: Snort alert headers, regular expressions, byte-test offsets, flowbit state tracking, and alert lifecycle management.",
+    "instructions": "20 questions, 25 minutes. 75% pass threshold.",
+    "prerequisites": "Snort/Suricata syntax and regex.",
+    "tags": [
+      "detection-engineering",
+      "snort",
+      "rules",
+      "flowbits",
+      "signatures"
+    ],
+    "what_you_will_practice": [
+      "Author multi-packet stateful detection rules using flowbits",
+      "Utilize depth, offset, and within modifiers for precise binary matching",
+      "Tune detection logic to maintain high signal-to-noise ratios"
+    ],
+    "blueprint": {
+      "title": "Detection Engineering Blueprint",
+      "description": "Tests authoring and optimization of network detection signatures.",
+      "topics": [
+        {
+          "topic_slug": "detection-rules",
+          "question_count": 9,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-tuning",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "indicators-of-compromise",
+          "question_count": 4,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "false-positives",
+          "question_count": 2,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-IOC-001",
+    "title": "Network Indicators & Telemetry Corroboration",
+    "slug": "detection-engineering",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Corroborate Indicators of Compromise (IoCs): JA3/JA3S TLS client hashes, HTTP URI patterns, anomalous beacon intervals, and threat intelligence matching against network flow logs.",
+    "instructions": "20 questions, 25 minutes.",
+    "prerequisites": "Threat intelligence and telemetry logs.",
+    "tags": [
+      "ioc",
+      "ja3",
+      "c2",
+      "threat-intel",
+      "telemetry"
+    ],
+    "what_you_will_practice": [
+      "Fingerprint malicious TLS client tools using JA3/JA3S hashes",
+      "Identify C2 beacon intervals from proxy access logs",
+      "Correlate firewall flow records with known malicious IP reputations"
+    ],
+    "blueprint": {
+      "title": "Network Indicators Blueprint",
+      "description": "Assesses identification and validation of network compromise indicators.",
+      "topics": [
+        {
+          "topic_slug": "network-indicators",
+          "question_count": 12,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "indicators-of-compromise",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "alert-creation",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-RECON-001",
+    "title": "Network Reconnaissance & Port Scan Detection",
+    "slug": "network-reconnaissance-detection",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 30,
+    "total_questions": 25,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Detect and analyze offensive network reconnaissance: TCP SYN stealth scans, TCP FIN scans, Xmas scans, Null scans, UDP sweeps, idle zombie scans, and OS fingerprinting probes.",
+    "instructions": "25 questions in 30 minutes. 75% required to pass.",
+    "prerequisites": "TCP flag mechanics and port scanning theory.",
+    "tags": [
+      "reconnaissance",
+      "nmap",
+      "syn-scan",
+      "xmas-scan",
+      "fingerprinting"
+    ],
+    "what_you_will_practice": [
+      "Differentiate full-connect (TCP connect) scans from SYN half-open scans",
+      "Explain RFC 793 closed-port RST behavior utilized in FIN, Null, and Xmas scans",
+      "Detect OS fingerprinting attempts probing TCP options and initial window sizes"
+    ],
+    "blueprint": {
+      "title": "Reconnaissance Detection Blueprint",
+      "description": "Evaluates detection and signature matching of adversary port scans.",
+      "topics": [
+        {
+          "topic_slug": "reconnaissance-detection",
+          "question_count": 11,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "port-scanning-concepts",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "service-enumeration-concepts",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-INCIDENT-001",
+    "title": "Incident Investigation & Network Evidence",
+    "slug": "incident-investigation",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Perform forensic network incident investigation: reconstruct attacker lateral movement, establish attack timelines, preserve volatile network evidence, and document chain of custody.",
+    "instructions": "20 questions, 25 minutes.",
+    "prerequisites": "Packet analysis and incident handling fundamentals.",
+    "tags": [
+      "incident-response",
+      "forensics",
+      "timeline",
+      "evidence",
+      "lateral-movement"
+    ],
+    "what_you_will_practice": [
+      "Reconstruct multi-stage attack timelines from network connection records",
+      "Identify lateral movement protocols (SMB, RPC, SSH) across internal zones",
+      "Ensure cryptographic hashing and chain of custody preservation for PCAP evidence"
+    ],
+    "blueprint": {
+      "title": "Incident Investigation Blueprint",
+      "description": "Tests forensic reconstruction of network intrusion events.",
+      "topics": [
+        {
+          "topic_slug": "network-investigation",
+          "question_count": 10,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "evidence-collection",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "timeline-analysis",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-SOC-001",
+    "title": "SOC Network Analysis & Alert Triage",
+    "slug": "soc-network-analysis",
+    "test_type": "TOPIC",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 25,
+    "total_questions": 20,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "Step into the role of a Tier-1/Tier-2 Security Operations Center (SOC) analyst: triage incoming SIEM alerts, differentiate True Positives from False Positives, and determine escalation priorities.",
+    "instructions": "20 questions in 25 minutes. Simulates enterprise SOC triage drills.",
+    "prerequisites": "Network security and log analysis.",
+    "tags": [
+      "soc",
+      "alert-triage",
+      "siem",
+      "true-positive",
+      "escalation"
+    ],
+    "what_you_will_practice": [
+      "Evaluate alert severity and prioritize critical incident responses",
+      "Validate whether network alerts represent genuine intrusions or benign business traffic",
+      "Execute initial host containment steps to isolate compromised endpoints"
+    ],
+    "blueprint": {
+      "title": "SOC Alert Triage Blueprint",
+      "description": "Assesses operational triage and incident escalation workflows.",
+      "topics": [
+        {
+          "topic_slug": "alert-triage",
+          "question_count": 7,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "network-investigation",
+          "question_count": 10,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "incident-classification",
+          "question_count": 3,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  },
+  {
+    "code": "ADVANCED-COMPREHENSIVE-001",
+    "title": "Advanced Comprehensive Cyber Defense Exam",
+    "slug": "advanced-comprehensive",
+    "test_type": "COMPREHENSIVE",
+    "difficulty": "ADVANCED",
+    "duration_minutes": 45,
+    "total_questions": 35,
+    "passing_percentage": 75.0,
+    "status": "PUBLISHED",
+    "description": "The capstone advanced defensive examination. Tests comprehensive mastery across packet dissection, reconnaissance detection, Snort rule writing, indicator corroboration, and SOC incident triage.",
+    "instructions": "35 questions in 45 minutes. Advanced practical cyber defense examination.",
+    "prerequisites": "Completion of all Advanced learning modules.",
+    "tags": [
+      "comprehensive",
+      "advanced",
+      "cyber-defense",
+      "soc",
+      "packet-forensics"
+    ],
+    "what_you_will_practice": [
+      "Synthesize packet forensic skills with enterprise intrusion detection",
+      "Evaluate multi-stage cyber attacks and coordinate defensive countermeasures",
+      "Corroborate telemetry across switches, firewalls, and endpoint sensors"
+    ],
+    "blueprint": {
+      "title": "Advanced Cyber Defense Blueprint",
+      "description": "Full-spectrum advanced assessment across packet forensics and SOC analysis.",
+      "topics": [
+        {
+          "topic_slug": "reconnaissance-detection",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "packet-structure",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "detection-rules",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "network-indicators",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "alert-triage",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "evidence-collection",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        },
+        {
+          "topic_slug": "vlan-security",
+          "question_count": 5,
+          "difficulty": "ADVANCED"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,1599 @@
+[
+  {
+    "code": "SOC-001",
+    "topic_slug": "alert-triage",
+    "question_text": "In a Security Operations Center (SOC), what is the primary objective of 'Tier 1 Alert Triage'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Tier 1 triage rapidly reviews incoming security alerts to determine whether each alert is a True Positive (real attack) or False Positive (benign activity), assess immediate impact, and escalate verified incidents to Tier 2/3 responders.",
+    "learning_objective": "Define the core purpose of Tier 1 SOC alert triage.",
+    "options": [
+      {
+        "option_text": "To rapidly validate alerts as True or False Positives, assess initial severity, and escalate confirmed threats to Tier 2",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Tier 1 filters noise, verifies initial evidence, and escalates actionable incidents."
+      },
+      {
+        "option_text": "To physically replace broken hardware motherboards in server racks",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hardware repair is data center facilities maintenance, not SOC alert triage."
+      },
+      {
+        "option_text": "To write complete software operating systems from scratch",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "SOC analysts investigate security alerts, not OS kernel programming."
+      },
+      {
+        "option_text": "To answer general customer billing support phone calls",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Billing is handled by customer finance teams."
+      }
+    ],
+    "tags": [
+      "soc",
+      "triage",
+      "tier1",
+      "incident-response"
+    ]
+  },
+  {
+    "code": "SOC-002",
+    "topic_slug": "alert-triage",
+    "question_text": "What is 'Scoping the Blast Radius' during an active cybersecurity incident investigation?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Scoping the blast radius determines the full extent and spread of the compromise across the organization: identifying all affected endpoints, compromised user accounts, accessed databases, and lateral movement paths.",
+    "learning_objective": "Explain blast radius scoping during incident investigation.",
+    "options": [
+      {
+        "option_text": "Determining the full extent of the compromise, including all affected endpoints, accounts, and accessed data",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Scoping ensures incident responders understand the entire footprint of the intrusion before taking containment actions."
+      },
+      {
+        "option_text": "Measuring the physical damage caused by an exploding computer battery",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Blast radius in cybersecurity is a metaphor for the scope of logical compromise."
+      },
+      {
+        "option_text": "Calculating how many miles of network cable exist in a building",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Scoping assesses asset compromise, not cable length."
+      },
+      {
+        "option_text": "Formatting all corporate computers without investigating",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Premature formatting destroys forensic evidence before the breach scope is known."
+      }
+    ],
+    "tags": [
+      "soc",
+      "incident-investigation",
+      "blast-radius",
+      "scoping"
+    ]
+  },
+  {
+    "code": "SOC-003",
+    "topic_slug": "evidence-collection",
+    "question_text": "According to RFC 3227 (Guidelines for Evidence Collection and Archiving), what is the 'Order of Volatility'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The Order of Volatility mandates that forensic evidence must be collected starting with the most volatile data (data that is lost when power is disconnected, like CPU registers, cache, and RAM) before moving to less volatile data (disk, backups).",
+    "learning_objective": "Recall RFC 3227 Order of Volatility in forensic collection.",
+    "options": [
+      {
+        "option_text": "Collecting evidence from most volatile to least volatile: CPU registers/cache -> RAM -> Network state -> Disk -> Archival media",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Volatile data is lost on reboot; collecting it first preserves ephemeral memory artifacts."
+      },
+      {
+        "option_text": "Collecting evidence in alphabetical order based on file names",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Forensic collection follows volatility, not alphabetical names."
+      },
+      {
+        "option_text": "Collecting all physical paper manuals before touching any computers",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Digital memory artifacts take precedence."
+      },
+      {
+        "option_text": "Formatting all hard drives before taking a memory snapshot",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Formatting destroys forensic evidence."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "evidence-collection",
+      "rfc3227",
+      "order-of-volatility",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-004",
+    "topic_slug": "timeline-analysis",
+    "question_text": "Why must a forensic analyst convert all log timestamps from disparate network devices into Coordinated Universal Time (UTC) during timeline reconstruction?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Network devices may reside in different physical time zones or have different local clock settings. Normalizing all timestamps to a single standard time base (UTC) is necessary to correlate events in their true chronological order.",
+    "learning_objective": "Explain the necessity of normalizing forensic timestamps to UTC.",
+    "options": [
+      {
+        "option_text": "To align events across devices spanning multiple time zones into a consistent, accurate chronological sequence",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "UTC normalization prevents chronological confusion caused by local daylight saving or time zone offsets."
+      },
+      {
+        "option_text": "Because computer processors can only calculate math in the UTC language",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Processors calculate math on binary integers."
+      },
+      {
+        "option_text": "To make the forensic report twice as long",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Normalization ensures chronological accuracy."
+      },
+      {
+        "option_text": "Because UTC timestamps prevent hard drives from getting infected with viruses",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Timestamps record time; they do not block viruses."
+      }
+    ],
+    "tags": [
+      "timeline-analysis",
+      "forensics",
+      "utc",
+      "timestamps",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-005",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst investigates a host that made an unauthorized outbound connection to a known malicious C2 IP. Which log source should be checked to identify which local process initiated the socket connection?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Endpoint Detection and Response (EDR) or Windows Sysmon Event ID 3 (Network Connection) logs record the initiating process name, process ID (PID), command-line arguments, user account, and destination IP/port.",
+    "learning_objective": "Identify log sources correlating network connections to endpoint processes.",
+    "options": [
+      {
+        "option_text": "Endpoint Detection and Response (EDR) or Windows Sysmon Event ID 3 (Network Connection)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Sysmon Event ID 3 specifically links network socket events to the exact executable process on the endpoint."
+      },
+      {
+        "option_text": "The building's physical door badge entry logs",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Badge logs record physical human door access, not software process socket creation."
+      },
+      {
+        "option_text": "The web browser's bookmark list",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Bookmarks list saved URLs, not real-time network connection PIDs."
+      },
+      {
+        "option_text": "The printer's remaining toner level indicator",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Printer toner status does not record network socket processes."
+      }
+    ],
+    "tags": [
+      "edr",
+      "sysmon",
+      "process-tracking",
+      "network-investigation",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-006",
+    "topic_slug": "alert-triage",
+    "question_text": "During an investigation, an analyst discovers that a suspected compromised endpoint has been generating outbound connections to malicious C2 infrastructure for 6 hours. What is the immediate first containment action?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "The analyst should immediately isolate the endpoint from the network (logically via EDR network containment or by disconnecting its network link) to stop active C2 control and prevent lateral movement, while keeping power on to preserve volatile RAM.",
+    "learning_objective": "Identify initial containment actions for active C2 compromises.",
+    "options": [
+      {
+        "option_text": "Isolate the endpoint from the network (via EDR isolation or link disconnect) while keeping power on to preserve RAM",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Network isolation halts attacker command execution and lateral movement without destroying volatile RAM evidence."
+      },
+      {
+        "option_text": "Power off the computer immediately by pulling the electrical plug",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Powering off destroys all volatile RAM evidence (running malware, injected keys, memory artifacts)."
+      },
+      {
+        "option_text": "Send an angry email to the attacker demanding they stop",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Communicating with adversaries compromises the investigation and provides zero containment."
+      },
+      {
+        "option_text": "Format the hard drive immediately before taking memory snapshots",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Formatting destroys all forensic evidence."
+      }
+    ],
+    "tags": [
+      "containment",
+      "incident-response",
+      "edr-isolation",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-007",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'Pass-the-Hash' (PtH) and how is it detected in Windows network authentication logs?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Pass-the-Hash is a lateral movement technique where an attacker uses a captured NTLM password hash directly to authenticate over SMB/RPC without cracking the plaintext password, detected via Windows Event ID 4624 (Logon Type 3: Network) using NTLM authentication instead of Kerberos.",
+    "learning_objective": "Analyze Pass-the-Hash lateral movement detection.",
+    "options": [
+      {
+        "option_text": "Using captured NTLM hashes to authenticate across network services without cracking plaintext, seen as Type 3 NTLM logons",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PtH exploits NTLM acceptance of raw password hashes, detectable by unexpected NTLM authentications across internal endpoints."
+      },
+      {
+        "option_text": "Giving the computer password to a colleague during lunchtime",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "PtH is an adversarial credential re-use attack technique."
+      },
+      {
+        "option_text": "A tool used to hash files before uploading them to Google Drive",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "PtH weaponizes stolen credentials to move laterally."
+      },
+      {
+        "option_text": "A hardware fault in the computer power supply",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "PtH is a cyber attack technique."
+      }
+    ],
+    "tags": [
+      "pass-the-hash",
+      "lateral-movement",
+      "ntlm",
+      "event-id-4624",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-008",
+    "topic_slug": "incident-classification",
+    "question_text": "According to NIST SP 800-61 (Computer Security Incident Handling Guide), what are the four core phases of the Incident Response Lifecycle?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "NIST SP 800-61 defines the four lifecycle phases as: 1. Preparation, 2. Detection and Analysis, 3. Containment, Eradication, and Recovery, 4. Post-Incident Activity (Lessons Learned).",
+    "learning_objective": "Recall the four phases of the NIST Incident Response lifecycle.",
+    "options": [
+      {
+        "option_text": "Preparation -> Detection & Analysis -> Containment, Eradication & Recovery -> Post-Incident Activity",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "This is the foundational four-phase incident response cycle defined in NIST SP 800-61."
+      },
+      {
+        "option_text": "Discover -> Offer -> Request -> Acknowledge",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is the DHCP DORA process."
+      },
+      {
+        "option_text": "SYN -> SYN-ACK -> ACK -> FIN",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is the TCP connection lifecycle."
+      },
+      {
+        "option_text": "Identify -> Authenticate -> Authorize -> Audit",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is the AAA security access model."
+      }
+    ],
+    "tags": [
+      "incident-response",
+      "nist-800-61",
+      "lifecycle",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-009",
+    "topic_slug": "evidence-collection",
+    "question_text": "Why is a strict 'Chain of Custody' maintained for digital forensic evidence?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Chain of custody provides a documented chronological record showing who collected, handled, transferred, analyzed, and secured forensic evidence, ensuring its integrity and admissibility in legal court proceedings.",
+    "learning_objective": "Explain the importance of Chain of Custody in forensics.",
+    "options": [
+      {
+        "option_text": "To provide a verifiable audit trail proving who handled the evidence and ensuring it was not tampered with for legal admissibility",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "A broken chain of custody makes evidence inadmissible in criminal or civil court cases."
+      },
+      {
+        "option_text": "To physically tie all server cables together with a metal chain",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Chain of custody is a legal documentation process, not physical hardware chains."
+      },
+      {
+        "option_text": "To ensure that employees wear matching uniforms in the datacenter",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Chain of custody tracks evidence provenance."
+      },
+      {
+        "option_text": "To calculate the total electricity consumed during an investigation",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Chain of custody documents evidence handling."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "chain-of-custody",
+      "evidence-handling",
+      "legal-admissibility"
+    ]
+  },
+  {
+    "code": "SOC-010",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst investigates a compromised workstation and observes that 'certutil.exe' was used to make an outbound HTTP connection to an external IP. What technique is the attacker executing?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "Adversaries frequently abuse 'certutil.exe' (a legitimate Windows certificate utility with a '-urlcache -split -f' download feature) as a Living-off-the-Land Binary (LOLBIN) to download second-stage malware or tools from external servers.",
+    "learning_objective": "Identify LOLBIN misuse of certutil for malware download.",
+    "options": [
+      {
+        "option_text": "LOLBIN abuse: using built-in Windows certutil as an ingress tool to download second-stage malware payloads",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "certutil -urlcache is a common LOLBIN technique used to download files while bypassing basic execution blocks."
+      },
+      {
+        "option_text": "The workstation installing an official Microsoft Windows security update",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Official updates download via Windows Update services, not command-line certutil URL caching."
+      },
+      {
+        "option_text": "Normal synchronization of the computer clock with NTP",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "NTP uses port 123, not certutil HTTP downloads."
+      },
+      {
+        "option_text": "A routine automated backup of the MySQL database",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "certutil is a Windows certificate utility."
+      }
+    ],
+    "tags": [
+      "lolbin",
+      "certutil",
+      "ingress-tool-transfer",
+      "threat-hunting",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-011",
+    "topic_slug": "incident-reporting",
+    "question_text": "What is the primary objective of a 'Post-Incident Review' (Lessons Learned meeting) following the resolution of a major security breach?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Lessons Learned reviews analyze what happened, how well the team responded, what tools or documentation failed, and what preventive controls, detection rules, or architectural changes must be implemented to prevent future recurrence.",
+    "learning_objective": "Explain the purpose of Lessons Learned post-incident reviews.",
+    "options": [
+      {
+        "option_text": "To evaluate the response, identify operational gaps, and implement defensive improvements to prevent future incidents",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Lessons Learned ensures organizations continually improve defenses and incident handling procedures based on real-world experiences."
+      },
+      {
+        "option_text": "To assign blame and publicly fire the youngest employee in the department",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Lessons Learned should be blameless and focused on systemic engineering improvements."
+      },
+      {
+        "option_text": "To delete all logs and pretend the security breach never occurred",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hiding breaches violates regulatory laws and leaves vulnerabilities open."
+      },
+      {
+        "option_text": "To celebrate by playing video games during business hours",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Post-incident review is a structured technical review."
+      }
+    ],
+    "tags": [
+      "incident-response",
+      "lessons-learned",
+      "post-incident-activity",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-012",
+    "topic_slug": "timeline-analysis",
+    "question_text": "In network forensics, what is 'Pivot Point' analysis?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Pivot point analysis uses a verified piece of evidence (e.g. an identified attacker IP, a specific malicious User-Agent, or a timestamp) to search across all other log sources and uncover related connections, lateral movements, or additional compromised hosts.",
+    "learning_objective": "Explain pivoting in digital forensics and threat hunting.",
+    "options": [
+      {
+        "option_text": "Using a confirmed indicator (e.g. an IP, domain, or timestamp) to search across other logs and uncover the broader extent of the attack",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Pivoting allows analysts to expand an investigation from an initial clue to uncover the full campaign footprint."
+      },
+      {
+        "option_text": "Physically rotating a server chassis 90 degrees in the equipment rack",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Pivoting is an analytical investigation technique, not mechanical rotation."
+      },
+      {
+        "option_text": "A feature that formats hard drives when they reach 90% capacity",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Pivoting is investigative correlation."
+      },
+      {
+        "option_text": "An algorithm used to calculate copper wire electrical conductivity",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Pivoting is forensic log analysis."
+      }
+    ],
+    "tags": [
+      "threat-hunting",
+      "pivoting",
+      "forensics",
+      "investigation-methodology"
+    ]
+  },
+  {
+    "code": "SOC-013",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'Kerberoasting' and what network traffic characterizes this attack?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Kerberoasting is an attack where a domain user requests Kerberos Ticket Granting Service (TGS) tickets for service accounts with Service Principal Names (SPNs). The tickets are encrypted with the service account's password hash and can be extracted from traffic and cracked offline.",
+    "learning_objective": "Analyze the mechanics and detection of Kerberoasting.",
+    "options": [
+      {
+        "option_text": "Requesting Kerberos TGS tickets for SPN service accounts to crack their password hashes offline, seen via Event ID 4769",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Kerberoasting generates TGS requests (Event 4769) with RC4 encryption (0x17) targeting service accounts."
+      },
+      {
+        "option_text": "Physically cooking a computer motherboard in an oven",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Kerberoasting is an Active Directory authentication exploit."
+      },
+      {
+        "option_text": "Flooding a domain controller with 5 million empty ping packets",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Kerberoasting is credential theft, not a DoS flood."
+      },
+      {
+        "option_text": "Deleting all Active Directory user accounts",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Kerberoasting operates stealthily to steal service credentials."
+      }
+    ],
+    "tags": [
+      "kerberoasting",
+      "active-directory",
+      "credential-theft",
+      "kerberos",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-014",
+    "topic_slug": "alert-triage",
+    "question_text": "An alert fires stating that a finance workstation accessed an external IP flagged as a known Cobalt Strike C2 server. What should the Tier 1 analyst check FIRST to verify the alert?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The analyst should verify whether the connection was actually successful (established TCP handshake, bytes transferred) or if it was blocked by the perimeter firewall/EDR, and verify the reputation of the external IP in threat intelligence feeds.",
+    "learning_objective": "Formulate initial triage verification steps for C2 alerts.",
+    "options": [
+      {
+        "option_text": "Verify whether the connection succeeded (bytes transferred, established state) or was blocked, and check IP reputation",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Distinguishing between a blocked attempt and an active established session determines immediate incident severity."
+      },
+      {
+        "option_text": "Format the finance workstation immediately without checking any logs",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Formatting destroys evidence before scoping the incident."
+      },
+      {
+        "option_text": "Call the local news station to report a corporate emergency",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Premature public disclosure violates incident handling policies."
+      },
+      {
+        "option_text": "Tell the finance employee that their computer is permanently broken",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Triage requires technical log verification before alerting users."
+      }
+    ],
+    "tags": [
+      "alert-triage",
+      "c2",
+      "cobalt-strike",
+      "verification",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-015",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'Golden Ticket' attack in Active Directory and what does it grant an adversary?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A Golden Ticket attack forges a Kerberos Ticket Granting Ticket (TGT) using the compromised password hash of the Active Directory KRBTGT account, granting the attacker unrestricted, permanent domain administrator access across the entire AD forest.",
+    "learning_objective": "Explain the impact of an Active Directory Golden Ticket attack.",
+    "options": [
+      {
+        "option_text": "Forging a Kerberos TGT using the compromised KRBTGT account hash, granting total unrestricted domain administrative control",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Golden Ticket attacks represent complete Active Directory forest compromise with arbitrary ticket generation."
+      },
+      {
+        "option_text": "A gold-plated Ethernet cable awarded to top-performing IT employees",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is literal wordplay, not an Active Directory attack."
+      },
+      {
+        "option_text": "A promotional coupon that offers free cloud hosting for 30 days",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Golden Ticket is a critical post-exploitation attack."
+      },
+      {
+        "option_text": "A feature that speeds up printer spooling queues",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Golden Ticket operates at the core of Kerberos domain authentication."
+      }
+    ],
+    "tags": [
+      "active-directory",
+      "golden-ticket",
+      "krbtgt",
+      "kerberos",
+      "post-exploitation"
+    ]
+  },
+  {
+    "code": "SOC-016",
+    "topic_slug": "evidence-collection",
+    "question_text": "Why must an analyst calculate cryptographic hashes (like SHA-256) of forensic disk images and packet captures IMMEDIATELY upon acquisition?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Calculating the hash immediately establishes an immutable baseline digital fingerprint. Matching this baseline hash later proves in court that the evidence was preserved intact and was never altered or tampered with during analysis.",
+    "learning_objective": "Explain the purpose of cryptographic hashing during evidence acquisition.",
+    "options": [
+      {
+        "option_text": "To establish a baseline digital fingerprint proving the evidence has not been altered or tampered with during analysis",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Hash verification proves forensic integrity and guarantees legal chain-of-custody compliance."
+      },
+      {
+        "option_text": "To encrypt the disk image so even the forensic analyst cannot read it",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hashing verifies integrity; it does not prevent authorized forensic examination."
+      },
+      {
+        "option_text": "To increase the download speed of the disk image across Wi-Fi",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Hashing calculates mathematical digests; it does not accelerate networks."
+      },
+      {
+        "option_text": "To delete all viruses from the hard drive automatically",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Hashing is a passive integrity calculation."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "hashing",
+      "evidence-integrity",
+      "sha256",
+      "chain-of-custody"
+    ]
+  },
+  {
+    "code": "SOC-017",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'DCSync' attack and what Windows event indicates an attempt to perform it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "A DCSync attack uses the Directory Replication Service (DRS) Remote Protocol to impersonate a domain controller and request password hashes directly from an authentic DC, detected via Directory Service Access (Event ID 4662) on replicating accounts.",
+    "learning_objective": "Identify DCSync attacks against Active Directory.",
+    "options": [
+      {
+        "option_text": "Impersonating a domain controller using replication protocols to extract password hashes (e.g. via mimikatz)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "DCSync extracts hashes over DRS replication without running code directly on the target domain controller."
+      },
+      {
+        "option_text": "Synchronizing computer clocks with public NTP servers",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "DCSync is an AD credential replication exploit, not clock synchronization."
+      },
+      {
+        "option_text": "A user syncing their personal smartphone calendar with Microsoft Outlook",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Personal calendar sync uses Exchange ActiveSync, not DCSync."
+      },
+      {
+        "option_text": "A network switch rebooting due to high memory utilization",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "DCSync operates against domain controller directory replication."
+      }
+    ],
+    "tags": [
+      "active-directory",
+      "dcsync",
+      "mimikatz",
+      "credential-theft",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-018",
+    "topic_slug": "incident-classification",
+    "question_text": "In SOC operations, what is Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "MTTD measures the average time elapsed from when an intrusion occurs to when it is detected. MTTR measures the average time from detection to when the incident is contained, eradicated, and resolved.",
+    "learning_objective": "Define MTTD and MTTR metrics in SOC performance evaluation.",
+    "options": [
+      {
+        "option_text": "MTTD is the average time to detect an intrusion; MTTR is the average time to contain and resolve the incident",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Lower MTTD and MTTR represent higher security maturity and lower potential breach impact."
+      },
+      {
+        "option_text": "MTTD is the time to purchase new computers; MTTR is the time to unpack them",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "These are cybersecurity incident response metrics, not hardware procurement."
+      },
+      {
+        "option_text": "MTTD is the download speed of a file; MTTR is the upload speed",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "These measure security operations response times."
+      },
+      {
+        "option_text": "MTTD is employee vacation time; MTTR is employee sick leave",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "These measure threat detection and response velocity."
+      }
+    ],
+    "tags": [
+      "soc-metrics",
+      "mttd",
+      "mttr",
+      "incident-response"
+    ]
+  },
+  {
+    "code": "SOC-019",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst investigates a host that communicated with a known ransomware payment portal. In proxy logs, they see an initial outbound connection to an unknown domain 45 minutes earlier followed by an executable download. What was that initial connection?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The initial connection was the initial staging / payload delivery phase (often via a phishing lure or drive-by download), where the victim system downloaded the second-stage loader/ransomware binary that subsequently detonated.",
+    "learning_objective": "Reconstruct multi-stage attack infection sequences.",
+    "options": [
+      {
+        "option_text": "Initial compromise and second-stage payload delivery preceding the ransomware detonation phase",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Attacks occur in phases (Cyber Kill Chain): initial access -> payload staging -> execution -> extortion."
+      },
+      {
+        "option_text": "Routine automated updating of the user's web browser",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Web browser updates download from official vendor domains, not ransomware precursors."
+      },
+      {
+        "option_text": "The employee purchasing office supplies online",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Legitimate retail transactions do not execute ransomware payloads."
+      },
+      {
+        "option_text": "The local router synchronizing time with NTP",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Time sync does not download executable binaries."
+      }
+    ],
+    "tags": [
+      "kill-chain",
+      "ransomware",
+      "payload-delivery",
+      "incident-investigation",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-020",
+    "topic_slug": "timeline-analysis",
+    "question_text": "What is 'Log Tampering' and what evidence in Windows event logs indicates that an attacker cleared the Security log?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Log tampering occurs when an adversary clears event logs to conceal their tracks. On Windows, clearing the Security event log generates a distinct, non-suppressible event: Event ID 1102 ('The audit log was cleared'), which is a high-priority alert for SOC analysts.",
+    "learning_objective": "Identify evidence of security log clearing.",
+    "options": [
+      {
+        "option_text": "Windows Event ID 1102 ('The audit log was cleared'), signaling an adversary attempting to conceal their tracks",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Event 1102 is recorded when the security log is wiped, serving as a critical indicator of compromise."
+      },
+      {
+        "option_text": "The computer screen turning blue and restarting",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "A blue screen (BSOD) is an operating system kernel crash."
+      },
+      {
+        "option_text": "The computer's clock jumping forward by 100 years",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Log clearing does not manipulate system clock settings."
+      },
+      {
+        "option_text": "The printer running out of physical paper",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Log clearing is an operating system audit event manipulation."
+      }
+    ],
+    "tags": [
+      "log-tampering",
+      "event-id-1102",
+      "anti-forensics",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-021",
+    "topic_slug": "alert-triage",
+    "question_text": "What is a 'Playbook' (or Runbook) in Security Orchestration, Automation, and Response (SOAR)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "A SOAR Playbook is a pre-defined, standardized workflow of automated actions and guided manual steps executed by security systems and analysts to respond to a specific type of threat (e.g. phishing triage, host containment, malware analysis).",
+    "learning_objective": "Explain SOAR playbooks in automated incident response.",
+    "options": [
+      {
+        "option_text": "A standardized, automated workflow of triage and containment actions executed in response to a specific threat type",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Playbooks ensure consistent, rapid incident response by automating repetitive tasks (IP lookups, containment)."
+      },
+      {
+        "option_text": "A book containing sports strategies for football coaches",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "In cybersecurity, playbooks are automated incident handling workflows."
+      },
+      {
+        "option_text": "A manual explaining how to install copper cables in walls",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Playbooks govern security incident investigation and remediation."
+      },
+      {
+        "option_text": "A software license agreement required to use open-source tools",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Playbooks define operational response procedures."
+      }
+    ],
+    "tags": [
+      "soar",
+      "playbook",
+      "automation",
+      "incident-response",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-022",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'Ransomware Pre-Encryption Staging' and what network activity reveals it before encryption begins?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Before launching encryption, modern ransomware gangs perform data exfiltration (Double Extortion). Detecting large outbound archive uploads (via Mega, Rclone, or FTP) during off-hours gives defenders a vital window to intervene before systems are encrypted.",
+    "learning_objective": "Analyze pre-encryption data exfiltration indicators.",
+    "options": [
+      {
+        "option_text": "Massive outbound data uploads (e.g. via Rclone or Mega) to exfiltrate confidential data before encrypting local drives",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Modern double-extortion ransomware exfiltrates data first; catching the exfiltration allows containment before encryption."
+      },
+      {
+        "option_text": "A user saving a small text file to their local desktop folder",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Saving small local files is normal routine work."
+      },
+      {
+        "option_text": "The computer screen turning off when the user walks away",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Screen sleeping is an operating system power-saving feature."
+      },
+      {
+        "option_text": "The local printer printing a 2-page document",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Local printing does not indicate ransomware staging."
+      }
+    ],
+    "tags": [
+      "ransomware",
+      "data-exfiltration",
+      "rclone",
+      "double-extortion",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-023",
+    "topic_slug": "evidence-collection",
+    "question_text": "Why must a forensic analyst never examine or execute suspicious files directly on the original live evidence drive?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Interacting directly with the original drive alters timestamps, modifies system registry keys, creates temporary swap files, and potentially triggers destructive anti-forensics malware. Analysts must always work on a bit-for-bit forensic copy using hardware write-blockers.",
+    "learning_objective": "Explain the necessity of forensic copies and write blockers.",
+    "options": [
+      {
+        "option_text": "Live interaction modifies timestamps, alters registry data, and risks triggering anti-forensics destruction; working on copies preserves original evidence",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Working on bit-for-bit forensic images with write blockers preserves original evidence pristine for legal scrutiny."
+      },
+      {
+        "option_text": "Because hard drives can only be plugged into a computer once in their lifetime",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Hard drives can be read repeatedly under write-blocked conditions."
+      },
+      {
+        "option_text": "Because examining evidence on the original drive violates copyright law",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "This is a forensic evidence integrity rule, not copyright."
+      },
+      {
+        "option_text": "Because files on an original drive automatically delete themselves after 5 minutes",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Drives do not delete files unless instructed by software."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "write-blocker",
+      "evidence-handling",
+      "integrity"
+    ]
+  },
+  {
+    "code": "SOC-024",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst detects that an internal web application was breached via an unauthenticated file upload vulnerability. What network or server evidence reveals where the uploaded webshell was placed?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Web server access logs (e.g. Nginx or Apache access.log) will record an HTTP POST request to the vulnerable upload endpoint, followed by subsequent HTTP GET/POST requests accessing the newly created file in an uploads directory (e.g. '/uploads/shell.php').",
+    "learning_objective": "Correlate web server access logs to identify webshell locations.",
+    "options": [
+      {
+        "option_text": "Web server access logs showing an HTTP POST to the upload form followed by HTTP GET/POST requests accessing the newly uploaded script",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Correlating the upload POST request with subsequent requests to files in the uploads folder identifies the webshell path."
+      },
+      {
+        "option_text": "The building's air conditioning thermostat logs",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "HVAC logs record temperatures, not web server file paths."
+      },
+      {
+        "option_text": "The router's physical serial number label",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Router serial numbers do not record web server directories."
+      },
+      {
+        "option_text": "The user's personal web browser history on their home phone",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Web server access logs capture all incoming HTTP requests."
+      }
+    ],
+    "tags": [
+      "webshell",
+      "web-application-security",
+      "log-analysis",
+      "incident-investigation"
+    ]
+  },
+  {
+    "code": "SOC-025",
+    "topic_slug": "timeline-analysis",
+    "question_text": "What is 'MFT Analysis' (Master File Table) in Windows forensic timeline reconstruction?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "The NTFS Master File Table ($MFT) records metadata for every file and folder on the volume (including creation, modification, access, and MFT record change timestamps: $STANDARD_INFORMATION and $FILE_NAME), enabling microsecond-precision file activity timelines.",
+    "learning_objective": "Explain MFT analysis in Windows forensic investigations.",
+    "options": [
+      {
+        "option_text": "Analyzing the NTFS $MFT to extract precise file creation, modification, and access timestamps across all volume files",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "$MFT provides forensic proof of when files were dropped, modified, or executed, exposing timestamp manipulation (timestomping)."
+      },
+      {
+        "option_text": "A tool that tests the physical rotation speed of hard drive platters",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "MFT is a filesystem metadata structure, not a mechanical tachometer."
+      },
+      {
+        "option_text": "An algorithm used to calculate employee payroll taxes",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "MFT is the core filesystem database of Windows NTFS."
+      },
+      {
+        "option_text": "A protocol that enables wireless printing over Bluetooth",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "MFT operates on local disk filesystems."
+      }
+    ],
+    "tags": [
+      "mft",
+      "ntfs",
+      "forensics",
+      "timeline-analysis",
+      "timestomping"
+    ]
+  },
+  {
+    "code": "SOC-026",
+    "topic_slug": "network-investigation",
+    "question_text": "What is 'Timestomping' and how does an analyst detect it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "ANALYZE",
+    "points": 3,
+    "estimated_seconds": 60,
+    "status": "PUBLISHED",
+    "explanation": "Timestomping is an anti-forensics technique where an attacker alters file timestamps (e.g. setting creation date back to 2015 to blend in with legitimate system binaries). Analysts detect it by comparing the easily modified $STANDARD_INFORMATION attribute with the harder-to-modify $FILE_NAME attribute in the MFT.",
+    "learning_objective": "Analyze timestomping detection in NTFS forensics.",
+    "options": [
+      {
+        "option_text": "Manipulating file timestamps to blend with legitimate files; detected by comparing $STANDARD_INFORMATION with $FILE_NAME in the MFT",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Inconsistencies between $STANDARD_INFORMATION and $FILE_NAME timestamps reveal timestomping."
+      },
+      {
+        "option_text": "A physical intruder stomping on a computer with their shoes",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Timestomping is a digital anti-forensics timestamp modification technique."
+      },
+      {
+        "option_text": "A clock error that occurs during daylight saving time",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Timestomping is deliberate adversarial modification of metadata."
+      },
+      {
+        "option_text": "A technique that accelerates computer processor clock speed",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Timestomping alters file timestamps, not CPU frequency."
+      }
+    ],
+    "tags": [
+      "anti-forensics",
+      "timestomping",
+      "mft",
+      "forensic-analysis",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-027",
+    "topic_slug": "alert-triage",
+    "question_text": "What does a 'P1 / Critical' incident classification typically mandate in an enterprise Incident Response policy?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "A P1/Critical incident involves severe business disruption, active ransomware, or widespread unauthorized domain control. It mandates immediate 24/7 incident response activation, executive/legal escalation, and continuous containment until resolved.",
+    "learning_objective": "Recall operational requirements for P1 Critical incidents.",
+    "options": [
+      {
+        "option_text": "Immediate 24/7 emergency response team activation, executive escalation, and active containment until business risk is mitigated",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "P1 incidents threaten critical business operations and require immediate all-hands operational containment."
+      },
+      {
+        "option_text": "Sending an email that will be reviewed next week after vacation",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "P1 incidents cannot wait for delayed review."
+      },
+      {
+        "option_text": "Immediately deleting all company social media accounts",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Incident handling follows structured operational response playbooks."
+      },
+      {
+        "option_text": "Rebooting the building's main electrical generator",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "P1 is a cyber severity classification."
+      }
+    ],
+    "tags": [
+      "incident-classification",
+      "p1-severity",
+      "soc-policy",
+      "sla"
+    ]
+  },
+  {
+    "code": "SOC-028",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst discovers that an attacker used PowerShell to execute a Base64-encoded command. What command parameter allows PowerShell to run encoded scripts directly, and how does the analyst decode it?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "PowerShell accepts Base64-encoded UTF-16LE scripts via the '-EncodedCommand' (or '-enc') parameter. An analyst can decode the payload using tools like CyberChef or Python base64 decoding with utf-16le encoding.",
+    "learning_objective": "Analyze encoded PowerShell execution.",
+    "options": [
+      {
+        "option_text": "The -EncodedCommand (-enc) parameter; decoded by Base64-decoding the string as UTF-16LE text",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "PowerShell expects UTF-16LE encoding; decoding it reveals the underlying command script."
+      },
+      {
+        "option_text": "The -DeleteEverything parameter; decoded by running it in safe mode",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is an imaginary parameter."
+      },
+      {
+        "option_text": "The -Password parameter; decoded by typing it backwards",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Base64 decoding requires standard mathematical string decoding."
+      },
+      {
+        "option_text": "The -ColorBlue parameter; decoded by changing screen brightness",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Parameters govern command interpreter execution."
+      }
+    ],
+    "tags": [
+      "powershell",
+      "encodedcommand",
+      "base64",
+      "cyberchef",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-029",
+    "topic_slug": "evidence-collection",
+    "question_text": "What tool on Linux is commonly used to create a bit-for-bit forensic clone of a storage drive while avoiding accidental write modifications?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "'dd' (or specialized forensic variants 'dc3dd' and 'dcfldd') reads raw blocks from an input drive (if=/dev/sdb) and writes an identical bit-for-bit raw image to an output file (of=image.raw) with hashing verification.",
+    "learning_objective": "Identify forensic disk imaging tools on Linux.",
+    "options": [
+      {
+        "option_text": "dd (or forensic variants dc3dd / dcfldd)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "dd and dcfldd create raw bit-stream copies of physical storage drives for forensic analysis."
+      },
+      {
+        "option_text": "rm -rf",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "rm -rf deletes files recursively and must never be used on evidence."
+      },
+      {
+        "option_text": "fdisk -l",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "fdisk -l lists partitions but does not create drive images."
+      },
+      {
+        "option_text": "chmod 777",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "chmod changes file permissions."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "disk-imaging",
+      "dd",
+      "dc3dd",
+      "evidence-collection"
+    ]
+  },
+  {
+    "code": "SOC-030",
+    "topic_slug": "timeline-analysis",
+    "question_text": "What is 'Super Timeline' creation in digital forensics (e.g. using log2timeline / Plaso)?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 55,
+    "status": "PUBLISHED",
+    "explanation": "A Super Timeline aggregates and sorts timestamps from all available forensic artifacts across a system ($MFT, registry hives, event logs, browser history, prefetch, USB logs) into a single unified chronological timeline of all activities on the machine.",
+    "learning_objective": "Explain Super Timeline generation in forensic analysis.",
+    "options": [
+      {
+        "option_text": "Aggregating timestamps from all filesystem, registry, event log, and application artifacts into a unified chronological master timeline",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Super timelines provide holistic chronological visibility into every event that occurred on a compromised host."
+      },
+      {
+        "option_text": "A timeline showing the release dates of superhero movies",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "This is wordplay on the term super timeline."
+      },
+      {
+        "option_text": "A calendar used exclusively by company executives to schedule vacations",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Super timelines are deep technical forensic artifact databases."
+      },
+      {
+        "option_text": "A tool that automatically speeds up the computer's CPU clock speed",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Super timelines analyze forensic disk artifacts."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "plaso",
+      "log2timeline",
+      "super-timeline",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-031",
+    "topic_slug": "network-investigation",
+    "question_text": "In Windows forensics, what artifact records evidence of application execution\u2014including execution timestamp, run count, and referenced DLLs\u2014even if the executable has been deleted from disk?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Windows Prefetch files (.pf located in C:\\Windows\\Prefetch) record application execution evidence, including the executable name, run count, hash, and the last 8 execution timestamps (in Windows 10/11), proving execution even if the binary was deleted.",
+    "learning_objective": "Identify Windows Prefetch execution artifacts.",
+    "options": [
+      {
+        "option_text": "Windows Prefetch files (.pf in C:\\Windows\\Prefetch)",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Prefetch files prove whether and when an executable was launched on a Windows system."
+      },
+      {
+        "option_text": "The Windows Recycle Bin",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "The Recycle Bin holds deleted files but does not track execution counts or timestamps."
+      },
+      {
+        "option_text": "The web browser bookmarks folder",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Bookmarks store URLs, not binary execution tracking."
+      },
+      {
+        "option_text": "The system audio driver settings",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Audio drivers do not record application execution histories."
+      }
+    ],
+    "tags": [
+      "forensics",
+      "prefetch",
+      "windows",
+      "execution-artifacts",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-032",
+    "topic_slug": "incident-classification",
+    "question_text": "In incident handling, what is the difference between 'Eradication' and 'Recovery'?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 2,
+    "estimated_seconds": 50,
+    "status": "PUBLISHED",
+    "explanation": "Eradication involves identifying and completely eliminating all elements of the threat (removing malware, deleting webshells, closing compromised accounts, patching vulnerabilities). Recovery restores systems to normal production operations (restoring from clean backups, verifying functionality).",
+    "learning_objective": "Contrast incident Eradication and Recovery phases.",
+    "options": [
+      {
+        "option_text": "Eradication removes all malware, persistence, and vulnerabilities; Recovery restores systems safely back to normal production operations",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Eradication purges the threat; Recovery brings sanitized systems back into operational service."
+      },
+      {
+        "option_text": "Eradication is done by the legal team; Recovery is done by marketing",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Both are technical phases executed by incident response and IT teams."
+      },
+      {
+        "option_text": "Eradication means deleting the company's website permanently",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Eradication eliminates the threat artifacts, not legitimate business assets."
+      },
+      {
+        "option_text": "There is zero difference; they are exact identical synonyms",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "They are distinct sequential phases in the NIST incident response lifecycle."
+      }
+    ],
+    "tags": [
+      "incident-response",
+      "eradication",
+      "recovery",
+      "nist-800-61",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-033",
+    "topic_slug": "network-investigation",
+    "question_text": "What Windows event log ID records the installation of a new Windows Service, a classic persistence mechanism used by adversaries?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "REMEMBER",
+    "points": 2,
+    "estimated_seconds": 45,
+    "status": "PUBLISHED",
+    "explanation": "Windows System Event ID 7045 ('A service was installed in the system') records service installations, detailing the service name, service type, and the exact binary image path executed, exposing persistence implants.",
+    "learning_objective": "Recall Event ID for Windows service installation.",
+    "options": [
+      {
+        "option_text": "System Event ID 7045 ('A service was installed in the system')",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "Event 7045 captures new service creation, exposing persistence implants and privilege escalation binaries."
+      },
+      {
+        "option_text": "Security Event ID 4624 ('An account was successfully logged on')",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "Event 4624 records logon sessions, not service installations."
+      },
+      {
+        "option_text": "Security Event ID 4625 ('An account failed to log on')",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Event 4625 records failed logon attempts."
+      },
+      {
+        "option_text": "System Event ID 6005 ('The Event log service was started')",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "Event 6005 records system boot/eventlog startup."
+      }
+    ],
+    "tags": [
+      "windows-events",
+      "event-id-7045",
+      "persistence",
+      "forensics",
+      "soc"
+    ]
+  },
+  {
+    "code": "SOC-034",
+    "topic_slug": "alert-triage",
+    "question_text": "What is a 'True Negative' in cybersecurity detection evaluation?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "UNDERSTAND",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "A True Negative occurs when normal, benign network activity takes place and the security system correctly does NOT generate an alert (normal activity correctly recognized as benign).",
+    "learning_objective": "Define True Negative.",
+    "options": [
+      {
+        "option_text": "Benign, normal activity that correctly generates zero security alerts",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "True Negatives represent the vast majority of legitimate business traffic that passes without alert noise."
+      },
+      {
+        "option_text": "An attack that occurs with zero alerts generated",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is a dangerous False Negative."
+      },
+      {
+        "option_text": "A false alarm triggered by an authorized administrator",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "That is a False Positive."
+      },
+      {
+        "option_text": "An alert that correctly catches a real hacker",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is a True Positive."
+      }
+    ],
+    "tags": [
+      "soc",
+      "metrics",
+      "true-negative",
+      "detection-evaluation"
+    ]
+  },
+  {
+    "code": "SOC-035",
+    "topic_slug": "network-investigation",
+    "question_text": "An analyst discovers that a threat actor maintained persistence on a compromised Linux server via a malicious 'Cron' job. Where are user and system cron jobs standardly configured on Linux?",
+    "question_type": "SINGLE_CHOICE",
+    "difficulty": "ADVANCED",
+    "cognitive_level": "APPLY",
+    "points": 1,
+    "estimated_seconds": 40,
+    "status": "PUBLISHED",
+    "explanation": "Linux scheduled tasks are configured in '/etc/crontab', the directory '/etc/cron.d/', hourly/daily directories ('/etc/cron.daily/'), and per-user crontab spool files in '/var/spool/cron/crontabs/'.",
+    "learning_objective": "Recall Linux cron job persistence locations.",
+    "options": [
+      {
+        "option_text": "/etc/crontab, /etc/cron.d/, and /var/spool/cron/crontabs/",
+        "is_correct": true,
+        "order_index": 0,
+        "explanation": "These directories host system-wide and user-specific scheduled tasks in Linux environments."
+      },
+      {
+        "option_text": "C:\\Windows\\System32\\Tasks",
+        "is_correct": false,
+        "order_index": 1,
+        "explanation": "That is the Windows Task Scheduler directory."
+      },
+      {
+        "option_text": "/usr/share/fonts",
+        "is_correct": false,
+        "order_index": 2,
+        "explanation": "Fonts directories store graphical typography files."
+      },
+      {
+        "option_text": "/tmp/cache.dat",
+        "is_correct": false,
+        "order_index": 3,
+        "explanation": "That is a temporary file path, not standard crontab storage."
+      }
+    ],
+    "tags": [
+      "linux",
+      "cron",
+      "persistence",
+      "incident-investigation",
+      "soc"
+    ]
+  }
+]

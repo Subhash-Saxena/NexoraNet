@@ -1,0 +1,153 @@
+from app.models.enums import DifficultyLevel, MockTestStatus, MockTestType
+
+MOCK_TESTS_DATA = [
+    {
+        "title": "Beginner Networking Fundamentals Test",
+        "slug": "beginner-networking-fundamentals-test",
+        "description": "Comprehensive 30-question diagnostic exam covering core network architectures, OSI & TCP/IP models, IP addressing, basic protocols, and fundamental defensive concepts.",
+        "difficulty": DifficultyLevel.BEGINNER,
+        "test_type": MockTestType.COMPREHENSIVE,
+        "duration_minutes": 30,
+        "total_questions": 30,
+        "passing_percentage": 70.0,
+        "status": MockTestStatus.PUBLISHED,
+        "instructions": "Welcome to the Beginner Networking Fundamentals Exam. This comprehensive assessment consists of 30 questions with a 30-minute time limit. A passing score is 70%. You may navigate freely between questions, change answers, and mark items for review. All answers are saved automatically. Click 'Submit Test' when finished.",
+        # 30 distinct questions covering foundational networking
+        "question_indices": list(range(30)),
+    },
+    {
+        "title": "Beginner Networking Basics",
+        "slug": "beginner-networking-basics",
+        "description": "Timed practice examination testing foundational networking models, addressing, and protocols.",
+        "difficulty": DifficultyLevel.BEGINNER,
+        "test_type": MockTestType.TOPIC,
+        "duration_minutes": 30,
+        "total_questions": 10,
+        "passing_percentage": 70.0,
+        "status": MockTestStatus.PUBLISHED,
+        "instructions": "10 foundational questions covering basic network types, topologies, and basic addressing. Time limit: 30 minutes. Passing score: 70%.",
+        "question_indices": [0, 1, 5, 6, 7, 10, 11, 13, 14, 18],
+    },
+    {
+        "title": "Beginner OSI and TCP/IP Test",
+        "slug": "beginner-osi-and-tcpip-test",
+        "description": "Focused assessment examining layer responsibilities, protocol mapping, and encapsulation mechanics in the OSI and TCP/IP suites.",
+        "difficulty": DifficultyLevel.BEGINNER,
+        "test_type": MockTestType.TOPIC,
+        "duration_minutes": 15,
+        "total_questions": 10,
+        "passing_percentage": 70.0,
+        "status": MockTestStatus.PUBLISHED,
+        "instructions": "10 focused questions on the 7 OSI layers, TCP/IP protocol suite, and data encapsulation. Time limit: 15 minutes. Passing score: 70%.",
+        "question_indices": [0, 5, 6, 7, 12, 15, 16, 21, 26, 35],
+    },
+    {
+        "title": "Intermediate Networking and Subnetting",
+        "slug": "intermediate-networking-and-subnetting",
+        "description": "In-depth timed test assessing IPv4 subnet calculations, VLSM, TCP connection state flags, and switching operations.",
+        "difficulty": DifficultyLevel.INTERMEDIATE,
+        "test_type": MockTestType.DIFFICULTY,
+        "duration_minutes": 25,
+        "total_questions": 12,
+        "passing_percentage": 75.0,
+        "status": MockTestStatus.PUBLISHED,
+        "instructions": "12 intermediate questions on subnetting math, TCP mechanics, ARP, and switching. Passing score: 75%. Time limit: 25 minutes.",
+        "question_indices": [2, 3, 4, 8, 9, 20, 24, 28, 30, 32, 33, 34],
+    },
+    {
+        "title": "Intermediate Networking & Subnetting",
+        "slug": "intermediate-networking-subnetting",
+        "description": "Comprehensive timed test assessing IPv4 subnet calculations, TCP mechanics, and switching logic.",
+        "difficulty": DifficultyLevel.INTERMEDIATE,
+        "test_type": MockTestType.DIFFICULTY,
+        "duration_minutes": 25,
+        "total_questions": 12,
+        "passing_percentage": 75.0,
+        "status": MockTestStatus.PUBLISHED,
+        "instructions": "12 intermediate questions on subnetting math, TCP mechanics, ARP, and switching. Passing score: 75%. Time limit: 25 minutes.",
+        "question_indices": [2, 3, 4, 8, 9, 20, 24, 28, 30, 32, 33, 34],
+    },
+]
+
+SAMPLE_BLUEPRINTS = [
+    {
+        "title": "CCNA Network Fundamentals Blueprint",
+        "slug": "ccna-fundamentals-blueprint",
+        "description": "Authoritative distribution blueprint modeling Cisco CCNA Domain 1.0 (Network Fundamentals).",
+        "total_questions": 15,
+        "duration_minutes": 30,
+        "difficulty": DifficultyLevel.BEGINNER,
+        "topics": [
+            {
+                "topic_slug": "seven-osi-layers",
+                "count": 2,
+                "difficulty": DifficultyLevel.BEGINNER,
+            },
+            {
+                "topic_slug": "ipv4-address-structure",
+                "count": 2,
+                "difficulty": DifficultyLevel.BEGINNER,
+            },
+            {
+                "topic_slug": "subnetting",
+                "count": 3,
+                "difficulty": DifficultyLevel.INTERMEDIATE,
+            },
+            {
+                "topic_slug": "tcp-three-way-handshake",
+                "count": 2,
+                "difficulty": DifficultyLevel.INTERMEDIATE,
+            },
+            {
+                "topic_slug": "mac-address-table",
+                "count": 2,
+                "difficulty": DifficultyLevel.INTERMEDIATE,
+            },
+            {
+                "topic_slug": "firewall-basics",
+                "count": 2,
+                "difficulty": DifficultyLevel.BEGINNER,
+            },
+            {
+                "topic_slug": "network-topologies",
+                "count": 2,
+                "difficulty": DifficultyLevel.BEGINNER,
+            },
+        ],
+    },
+    {
+        "title": "Cyber Defense & Packet Forensics Blueprint",
+        "slug": "cyber-defense-packet-forensics-blueprint",
+        "description": "Specialized blueprint for evaluating defensive traffic analysis and intrusion detection competency.",
+        "total_questions": 8,
+        "duration_minutes": 25,
+        "difficulty": DifficultyLevel.INTERMEDIATE,
+        "topics": [
+            {
+                "topic_slug": "wireshark-filtering-concepts",
+                "count": 2,
+                "difficulty": DifficultyLevel.INTERMEDIATE,
+            },
+            {
+                "topic_slug": "stateful-vs-stateless-filtering",
+                "count": 2,
+                "difficulty": DifficultyLevel.INTERMEDIATE,
+            },
+            {
+                "topic_slug": "detection-rules",
+                "count": 1,
+                "difficulty": DifficultyLevel.ADVANCED,
+            },
+            {
+                "topic_slug": "arp",
+                "count": 2,
+                "difficulty": None,
+            },
+            {
+                "topic_slug": "firewall-basics",
+                "count": 1,
+                "difficulty": DifficultyLevel.BEGINNER,
+            },
+        ],
+    },
+]

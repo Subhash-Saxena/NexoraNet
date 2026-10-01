@@ -1,0 +1,994 @@
+/* ==========================================================================
+   NexoraNet — Hands-on Networking Lab Engine Stylesheet
+   ========================================================================== */
+
+/* Main Container */
+.labs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+/* Lab Hero Banner */
+.labs-hero {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(16, 185, 129, 0.08) 50%, rgba(139, 92, 246, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.labs-hero::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.labs-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.labs-hero-tagline {
+  color: var(--emerald-success);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.labs-hero-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.labs-hero-description {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.labs-hero-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Telemetry Bar */
+.labs-telemetry-bar {
+  background: rgba(14, 23, 42, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.labs-telemetry-stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+}
+
+.labs-telemetry-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.labs-telemetry-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.labs-telemetry-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-subtle);
+}
+
+/* Filters & Search */
+.labs-controls-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.labs-search-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.labs-search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.labs-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.labs-search-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px 10px 40px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast);
+}
+
+.labs-search-input:focus {
+  outline: none;
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 0 2px var(--cyan-glow);
+}
+
+.labs-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.labs-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.labs-filter-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.labs-filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.labs-filter-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.labs-filter-pill:hover {
+  color: var(--text-main);
+  border-color: var(--border-color);
+  background: var(--bg-card-hover);
+}
+
+.labs-filter-pill.active {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: var(--cyan-primary);
+  color: var(--cyan-primary);
+}
+
+.labs-select {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.labs-select:focus {
+  outline: none;
+  border-color: var(--cyan-primary);
+}
+
+/* Lab Cards Grid */
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.lab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.lab-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lab-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lab-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lab-badge-beginner {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--emerald-success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.lab-badge-intermediate {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--cyan-primary);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.lab-badge-advanced {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--purple-soc);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.lab-badge-env {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.lab-badge-status-completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--emerald-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  margin-left: auto;
+}
+
+.lab-badge-status-in-progress {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--amber-warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-left: auto;
+}
+
+.lab-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.lab-card-topic {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lab-card-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lab-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.lab-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lab-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.lab-card-score {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--emerald-success);
+}
+
+.btn-lab-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-lab-primary {
+  background: var(--cyan-primary);
+  color: var(--text-inverse);
+}
+
+.btn-lab-primary:hover {
+  background: #0891b2;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.btn-lab-secondary {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-lab-secondary:hover {
+  background: var(--bg-card-active);
+  border-color: var(--cyan-primary);
+}
+
+/* ==========================================================================
+   LAB WORKSPACE / DETAIL PAGE
+   ========================================================================== */
+
+.lab-workspace {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 120px);
+}
+
+@media (max-width: 992px) {
+  .lab-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Sidebar - Step Navigation */
+.lab-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+.lab-sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+}
+
+.lab-sidebar-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.lab-sidebar-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.lab-sidebar-score-val {
+  font-weight: 700;
+  color: var(--emerald-success);
+}
+
+.lab-progress-track {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-input);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.lab-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan-primary), var(--emerald-success));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Step List */
+.lab-steps-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lab-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+  width: 100%;
+}
+
+.lab-step-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-subtle);
+}
+
+.lab-step-item.active {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: var(--cyan-primary);
+}
+
+.lab-step-item.completed {
+  border-left: 3px solid var(--emerald-success);
+}
+
+.lab-step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.lab-step-item.active .lab-step-indicator {
+  background: var(--cyan-primary);
+  color: var(--text-inverse);
+}
+
+.lab-step-item.completed .lab-step-indicator {
+  background: var(--emerald-success);
+  color: var(--text-inverse);
+}
+
+.lab-step-item:not(.active):not(.completed) .lab-step-indicator {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.lab-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.lab-step-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-step-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Right Main - Active Step View */
+.lab-main-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lab-step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lab-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 18px;
+}
+
+.lab-step-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lab-step-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cyan-primary);
+  letter-spacing: 0.05em;
+}
+
+.lab-step-headline {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.lab-step-points-tag {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--emerald-success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Markdown instructions container */
+.lab-instruction-text {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.lab-instruction-text p {
+  margin-bottom: 12px;
+}
+
+.lab-instruction-text strong {
+  color: var(--text-main);
+}
+
+.lab-instruction-text code {
+  background: var(--bg-input);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--cyan-primary);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+/* Platform Command Switcher */
+.lab-command-box {
+  background: #070c18;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.lab-platform-tabs {
+  display: flex;
+  background: rgba(11, 19, 37, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 8px;
+}
+
+.lab-platform-tab {
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lab-platform-tab:hover {
+  color: var(--text-secondary);
+}
+
+.lab-platform-tab.active {
+  color: var(--cyan-primary);
+  border-bottom-color: var(--cyan-primary);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.lab-command-body {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: #38bdf8;
+  overflow-x: auto;
+}
+
+.lab-copy-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.lab-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+}
+
+.lab-copy-btn.copied {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--emerald-success);
+  border-color: var(--emerald-success);
+}
+
+/* Local System Notice Banner */
+.lab-safety-banner {
+  background: rgba(14, 23, 42, 0.9);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-left: 4px solid var(--cyan-primary);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Observation Guidance Box */
+.lab-observation-box {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lab-observation-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--emerald-success);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lab-observation-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Hint Accordion */
+.lab-hint-wrapper {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  overflow: hidden;
+}
+
+.lab-hint-toggle {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: transparent;
+  color: var(--amber-warning);
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.lab-hint-toggle:hover {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.lab-hint-content {
+  padding: 14px 16px;
+  background: rgba(245, 158, 11, 0.04);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Submission / Input Section */
+.lab-question-card {
+  background: rgba(16, 28, 51, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lab-question-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Feedback Alert */
+.lab-feedback-alert {
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lab-feedback-alert.correct {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--emerald-success);
+}
+
+.lab-feedback-alert.incorrect {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid var(--rose-danger);
+}
+
+.lab-feedback-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.lab-feedback-alert.correct .lab-feedback-head {
+  color: var(--emerald-success);
+}
+
+.lab-feedback-alert.incorrect .lab-feedback-head {
+  color: var(--rose-danger);
+}
+
+.lab-feedback-msg {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.lab-feedback-explanation {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Lab Navigation Bottom Bar */
+.lab-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+/* Completion Card */
+.lab-completion-card {
+  background: var(--bg-card);
+  border: 1px solid var(--emerald-success);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+}
+
+.lab-completion-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--emerald-success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-completion-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.lab-completion-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+.lab-completion-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 12px 0;
+}
+
+.lab-completion-stat-box {
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lab-completion-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--emerald-success);
+}
+
+.lab-completion-stat-lbl {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.lab-completion-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* History Attempts Page */
+.lab-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.lab-history-table th,
+.lab-history-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+}
+
+.lab-history-table th {
+  background: rgba(14, 23, 42, 0.9);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lab-history-table tr:hover {
+  background: var(--bg-card-hover);
+}

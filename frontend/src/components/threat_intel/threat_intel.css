@@ -1,0 +1,381 @@
+/**
+ * Styles for Step 13 Threat Intelligence & IOC Investigation.
+ * Dark Cyber/SOC Theme matching NexoraNet design system.
+ */
+
+.threat-intel-container {
+  padding: 1.5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: #e2e8f0;
+}
+
+.threat-intel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #334155;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.threat-intel-title-group h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.threat-intel-subtitle {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.threat-intel-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Metric Cards */
+.threat-intel-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.threat-stat-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.threat-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.threat-stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.threat-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.threat-stat-footer {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+/* Navigation Tabs */
+.threat-intel-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid #334155;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.threat-intel-tab {
+  padding: 0.75rem 1.25rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.threat-intel-tab:hover {
+  color: #f8fafc;
+}
+
+.threat-intel-tab.active {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.05);
+}
+
+/* Badges */
+.ioc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.ioc-badge-malicious {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.ioc-badge-suspicious {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.ioc-badge-benign {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.ioc-badge-false-positive {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.ioc-badge-unknown {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.ioc-badge-type {
+  background: #334155;
+  color: #cbd5e1;
+  font-family: monospace;
+}
+
+.confidence-pill {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.confidence-high {
+  background: rgba(14, 165, 233, 0.15);
+  color: #38bdf8;
+}
+
+.confidence-medium {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+}
+
+.confidence-low {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* Tables */
+.ioc-table-container {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.ioc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.ioc-table th {
+  background: #0f172a;
+  padding: 0.875rem 1rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #334155;
+}
+
+.ioc-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #334155;
+  color: #cbd5e1;
+}
+
+.ioc-table tr:hover td {
+  background: rgba(51, 65, 85, 0.3);
+}
+
+.ioc-value-cell {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Detail Page Layout */
+.ioc-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .ioc-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ioc-panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ioc-panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Graph Visualization */
+.threat-graph-wrapper {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Timeline */
+.ioc-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.ioc-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #334155;
+}
+
+.ioc-timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.ioc-timeline-node {
+  position: absolute;
+  left: -2rem;
+  top: 0.25rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: #38bdf8;
+  border: 2px solid #0f172a;
+}
+
+.ioc-timeline-title {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.ioc-timeline-meta {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.ioc-timeline-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* Challenge Cards */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.challenge-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.challenge-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+}
+
+.challenge-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0.5rem 0;
+}
+
+.challenge-desc {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.educational-callout {
+  background: rgba(14, 165, 233, 0.08);
+  border-left: 4px solid #0ea5e9;
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.educational-callout strong {
+  color: #38bdf8;
+}
