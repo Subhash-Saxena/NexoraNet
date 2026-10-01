@@ -45,6 +45,23 @@ async def lifespan(_: FastAPI) -> AsyncGenerator[None, None]:
     if settings.ENVIRONMENT == "production":
         settings.validate_production_configuration()
         logger.info("Production configuration validated successfully.")
+
+    # Auto-seed database if curriculum topics or default users are missing
+    try:
+        from app.db.session import SessionLocal
+        from app.models.curriculum import Topic
+        from app.seed.seed_db import seed_database
+        with SessionLocal() as db:
+            topic_count = db.query(Topic).count()
+            if topic_count == 0:
+                logger.info("Database topics table is empty. Running automatic seed...")
+                seed_database(db)
+                logger.info("Automatic database seeding completed successfully.")
+            else:
+                logger.info("Database curriculum already present (%d topics).", topic_count)
+    except Exception as exc:
+        logger.warning("Database seed check encountered an issue (non-fatal): %s", exc)
+
     yield
     logger.info("Shutting down NexoraNet API service.")
 

@@ -34,6 +34,7 @@ from app.models import (
     User,
     UserRole,
 )
+from app.core.security import hash_password
 from app.seed.data_curriculum import COURSE_DATA, MODULES_DATA, SAMPLE_LESSONS
 from app.seed.data_labs_advanced import ADVANCED_PLANNED_LABS
 from app.seed.data_labs_beginner import BEGINNER_LABS
@@ -73,12 +74,47 @@ def seed_database(db: Session) -> dict[str, int]:
     }
 
     # 1. Seed or retrieve demo users
+    admin_user = db.query(User).filter(User.username == "admin").first()
+    if not admin_user:
+        admin_user = User(
+            username="admin",
+            email="admin@nexoranet.com",
+            password_hash=hash_password("AdminPassword2026!"),
+            display_name="Security Administrator",
+            current_level="Commander Defend-IV",
+            role=UserRole.ADMIN,
+            is_active=True,
+        )
+        db.add(admin_user)
+        db.flush()
+        stats["users"] += 1
+        logger.info("Created admin user: admin")
+    elif admin_user.role != UserRole.ADMIN:
+        admin_user.role = UserRole.ADMIN
+        db.flush()
+
+    student_user = db.query(User).filter(User.username == "student1").first()
+    if not student_user:
+        student_user = User(
+            username="student1",
+            email="student@nexoranet.com",
+            password_hash=hash_password("ProductionPassword2026!"),
+            display_name="Pilot Student",
+            current_level="Cadet Defend-I",
+            role=UserRole.STUDENT,
+            is_active=True,
+        )
+        db.add(student_user)
+        db.flush()
+        stats["users"] += 1
+        logger.info("Created demo student user: student1")
+
     demo_user = db.query(User).filter(User.username == "cadet_student").first()
     if not demo_user:
         demo_user = User(
             username="cadet_student",
             email="cadet@nexoranet.internal",
-            password_hash="argon2id$v=19$m=65536,t=3,p=4$dummy_hash_placeholder_step2",
+            password_hash=hash_password("CadetPassword2026!"),
             display_name="Cadet Student",
             current_level="Cadet Defend-I",
             role=UserRole.STUDENT,
@@ -93,8 +129,8 @@ def seed_database(db: Session) -> dict[str, int]:
     if not dev_user:
         dev_user = User(
             username="student_dev",
-            email="student@nexoranet.internal",
-            password_hash="argon2id$v=19$m=65536,t=3,p=4$dev_student_hash",
+            email="dev@nexoranet.internal",
+            password_hash=hash_password("StudentPassword2026!"),
             display_name="Alex Rivera (Cadet)",
             current_level="Cadet Defend-I",
             role=UserRole.STUDENT,

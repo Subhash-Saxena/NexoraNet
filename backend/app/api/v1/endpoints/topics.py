@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Query, status
 from sqlalchemy.orm import selectinload
 
 from app.api.deps import CurrentUser, DbSession, OptionalUser
-from app.models.curriculum import Topic
+from app.models.curriculum import Module, Topic
 from app.models.enums import DifficultyLevel
 from app.schemas.curriculum import TopicBrief
 from app.schemas.learning import LessonBriefWithProgress, TopicDetailExtended
@@ -58,6 +58,16 @@ def get_topic_detail(
     else:
         topic = query.filter(Topic.slug == topic_id).first()
 
+    # Fallback: check if topic_id is actually a module slug (e.g. from learning roadmap or path banner)
+    if not topic:
+        module = db.query(Module).filter(Module.slug == topic_id).first()
+        if module:
+            topic = (
+                query.filter(Topic.module_id == module.id)
+                .order_by(Topic.order_index)
+                .first()
+            )
+
     if not topic:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -79,11 +89,22 @@ def get_topic_lessons(
     else:
         topic = query.filter(Topic.slug == topic_id).first()
 
+    # Fallback: check if topic_id is actually a module slug
+    if not topic:
+        module = db.query(Module).filter(Module.slug == topic_id).first()
+        if module:
+            topic = (
+                query.filter(Topic.module_id == module.id)
+                .order_by(Topic.order_index)
+                .first()
+            )
+
     if not topic:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Topic '{topic_id}' was not found.",
         )
 
-    detail = get_topic_detail_extended(db, current_user.id, topic)
+    user_id = current_user.id if current_user else None
+    detail = get_topic_detail_extended(db, user_id, topic)
     return detail.lessons
