@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Shield, Lock, User, Mail, AlertCircle, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
+import { Shield, Lock, User, Mail, AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
 interface LoginPageProps {
@@ -17,7 +17,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
   const [formError, setFormError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const { login, register, loginDemo, isAuthenticated, user, logout } = useAuth()
+  const { login, register, isAuthenticated, user, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -97,19 +97,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
     }
   }
 
-  const handleQuickDemo = async () => {
-    setIsSubmitting(true)
-    setFormError(null)
-    try {
-      await loginDemo()
-      navigate(from, { replace: true })
-    } catch (err: unknown) {
-      setFormError(err instanceof Error ? err.message : 'Demo login failed.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <div style={{ maxWidth: '460px', margin: '3rem auto', padding: '0 1rem' }}>
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -178,7 +165,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
                   type="text"
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
-                  placeholder="student1 or student@nexoranet.com"
+                  placeholder="username or email"
                   required
                   style={{
                     width: '100%',
@@ -378,38 +365,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
             </button>
           </form>
         )}
-
-        <div style={{ margin: '1.5rem 0', display: 'flex', alignItems: 'center', gap: '1rem', color: '#64748b', fontSize: '0.8rem' }}>
-          <div style={{ flex: 1, height: '1px', background: '#334155' }} />
-          <span>OR</span>
-          <div style={{ flex: 1, height: '1px', background: '#334155' }} />
-        </div>
-
-        {/* 1-Click Quick Demo Student Sign In */}
-        <button
-          type="button"
-          onClick={handleQuickDemo}
-          disabled={isSubmitting}
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-            padding: '0.75rem',
-            background: 'rgba(59, 130, 246, 0.12)',
-            color: '#60a5fa',
-            border: '1px solid rgba(59, 130, 246, 0.3)',
-            borderRadius: '8px',
-            fontWeight: 600,
-            fontSize: '0.88rem',
-            cursor: isSubmitting ? 'not-allowed' : 'pointer',
-            transition: 'all 0.2s',
-          }}
-        >
-          <Sparkles size={16} />
-          <span>1-Click Sign In as Pilot Student (student1)</span>
-        </button>
       </div>
 
       <p style={{ textAlign: 'center', marginTop: '1.5rem', color: '#64748b', fontSize: '0.8rem' }}>
