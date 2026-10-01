@@ -42,7 +42,7 @@ export const PortfolioPage: React.FC = () => {
     try {
       setLoading(true);
       const data = await analyticsApi.getMyPortfolio();
-      setPortfolio(data);
+      setPortfolio({ ...data, projects: data.projects || [] });
       setBioInput(data.bio || '');
       setFocusInput(data.learning_focus || '');
       setLoading(false);
@@ -60,7 +60,7 @@ export const PortfolioPage: React.FC = () => {
     if (!portfolio) return;
     try {
       const updated = await analyticsApi.updatePortfolio({ visibility: newVis });
-      setPortfolio(updated);
+      setPortfolio((prev) => (prev ? { ...updated, projects: updated.projects || prev.projects || [] } : updated));
     } catch (err) {
       console.error('Failed to update visibility:', err);
     }
@@ -74,7 +74,7 @@ export const PortfolioPage: React.FC = () => {
         bio: bioInput,
         learning_focus: focusInput,
       });
-      setPortfolio(updated);
+      setPortfolio((prev) => (prev ? { ...updated, projects: updated.projects || prev.projects || [] } : updated));
       setSavingBio(false);
     } catch (err) {
       console.error('Failed to save bio:', err);
@@ -341,13 +341,13 @@ export const PortfolioPage: React.FC = () => {
             </button>
           </div>
 
-          {portfolio.projects.length === 0 ? (
+          {(portfolio.projects || []).length === 0 ? (
             <div style={{ textAlign: 'center', padding: '2.5rem', color: '#9ca3af', background: '#111827', borderRadius: '0.75rem', border: '1px dashed #374151' }}>
               No projects added yet. Click &quot;Add Project&quot; to showcase your defensive tooling, forensics walkthroughs, or lab investigations.
             </div>
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.25rem' }}>
-              {portfolio.projects.map((proj) => (
+              {(portfolio.projects || []).map((proj) => (
                 <div key={proj.id} className="project-card">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#f9fafb', margin: 0 }}>{proj.title}</h3>
@@ -372,7 +372,7 @@ export const PortfolioPage: React.FC = () => {
 
                   {proj.technologies && proj.technologies.length > 0 && (
                     <div className="tag-list">
-                      {proj.technologies.map((t, idx) => (
+                      {(proj.technologies || []).map((t, idx) => (
                         <span key={idx} className="tech-tag">{t}</span>
                       ))}
                     </div>

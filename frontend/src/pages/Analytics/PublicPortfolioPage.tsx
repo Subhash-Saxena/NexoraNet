@@ -140,13 +140,13 @@ export const PublicPortfolioPage: React.FC = () => {
           <span>Showcased Cyber Defense Projects</span>
         </h2>
 
-        {data.projects.length === 0 ? (
+        {(data.projects || []).length === 0 ? (
           <div style={{ textAlign: 'center', padding: '2rem', color: '#9ca3af', background: '#111827', borderRadius: '0.75rem' }}>
             No public projects displayed.
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '1.25rem' }}>
-            {data.projects.map((proj) => (
+            {(data.projects || []).map((proj) => (
               <div key={proj.id} className="project-card">
                 <h3 style={{ fontSize: '1.15rem', color: '#f9fafb', margin: 0 }}>{proj.title}</h3>
                 <p style={{ fontSize: '0.85rem', color: '#9ca3af', lineHeight: 1.5, margin: '0.25rem 0' }}>
@@ -159,9 +159,9 @@ export const PublicPortfolioPage: React.FC = () => {
                   </div>
                 )}
 
-                {proj.technologies && proj.technologies.length > 0 && (
+                {proj.technologies && (proj.technologies || []).length > 0 && (
                   <div className="tag-list">
-                    {proj.technologies.map((t, idx) => (
+                    {(proj.technologies || []).map((t, idx) => (
                       <span key={idx} className="tech-tag">{t}</span>
                     ))}
                   </div>
@@ -198,7 +198,7 @@ export const PublicPortfolioPage: React.FC = () => {
       </div>
 
       {/* Verified Certificates */}
-      {data.certifications && data.certifications.length > 0 && (
+      {data.certifications && (data.certifications || []).length > 0 && (
         <div style={{ marginTop: '2.5rem' }}>
           <h2 style={{ fontSize: '1.35rem', color: '#f3f4f6', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Award size={20} className="text-yellow-400" />
@@ -206,7 +206,7 @@ export const PublicPortfolioPage: React.FC = () => {
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
-            {data.certifications.map((cert) => (
+            {(data.certifications || []).map((cert) => (
               <div key={cert.code} style={{ background: '#111827', border: '1px solid #1f2937', borderRadius: '0.5rem', padding: '1rem' }}>
                 <div style={{ fontSize: '0.75rem', color: '#fbbf24', fontWeight: 600 }}>{cert.track}</div>
                 <h4 style={{ fontSize: '1rem', color: '#f9fafb', margin: '0.25rem 0' }}>{cert.title}</h4>

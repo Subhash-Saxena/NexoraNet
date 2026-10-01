@@ -71,6 +71,21 @@ def update_my_portfolio(
         "show_skills": p.show_skills,
         "show_certifications": p.show_certifications,
         "no_index": p.no_index,
+        "projects": [
+            {
+                "id": proj.id,
+                "title": proj.title,
+                "description": proj.description,
+                "technologies": proj.technologies,
+                "skills": proj.skills,
+                "learning_outcome": proj.learning_outcome,
+                "repository_url": proj.repository_url,
+                "demo_url": proj.demo_url,
+                "completed_date": proj.completed_date,
+                "is_featured": proj.is_featured,
+            }
+            for proj in p.projects
+        ],
     }
 
 
