@@ -92,15 +92,27 @@ export const LessonPage: React.FC = () => {
   }
 
   if (error || !lesson) {
+    const isAuthError = error && (error.includes('401') || error.toLowerCase().includes('unauthorized'))
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
-        <h3 style={{ color: 'var(--rose-danger)', marginBottom: '8px' }}>Lesson Not Found</h3>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '16px' }}>
-          {error || 'Unable to load lesson.'}
+        <h3 style={{ color: isAuthError ? '#38bdf8' : 'var(--rose-danger)', marginBottom: '8px' }}>
+          {isAuthError ? 'Sign In Required' : 'Lesson Not Found'}
+        </h3>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '16px', maxWidth: '450px', margin: '0 auto 16px' }}>
+          {isAuthError
+            ? 'Sign in to access interactive curriculum lessons, track progress, and take hands-on lab challenges.'
+            : error || 'Unable to load lesson.'}
         </p>
-        <Link to="/learning" className="diagram-btn primary">
-          Back to Curriculum
-        </Link>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+          {isAuthError && (
+            <Link to="/login" className="diagram-btn primary">
+              Sign In to Continue
+            </Link>
+          )}
+          <Link to="/learning" className="diagram-btn secondary">
+            Back to Curriculum
+          </Link>
+        </div>
       </div>
     )
   }

@@ -12,6 +12,21 @@ import {
   setStoredUser,
 } from './apiConfig'
 
+function extractErrorMessage(err: any, fallback: string): string {
+  if (!err) return fallback
+  if (typeof err.detail === 'string') return err.detail
+  if (Array.isArray(err.detail)) {
+    return err.detail
+      .map((d: any) => {
+        const msg = d?.msg || String(d)
+        return msg.replace(/^Value error,\s*/i, '')
+      })
+      .join('. ')
+  }
+  if (typeof err.message === 'string') return err.message
+  return fallback
+}
+
 class AuthApiService {
   private getBaseUrl(): string {
     return getApiBaseUrl()
@@ -37,7 +52,7 @@ class AuthApiService {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}))
-      throw new Error(err.detail || `Login failed (HTTP ${response.status})`)
+      throw new Error(extractErrorMessage(err, `Login failed (HTTP ${response.status})`))
     }
 
     const data: AuthTokenResponse = await response.json()
@@ -68,7 +83,7 @@ class AuthApiService {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}))
-      throw new Error(err.detail || `Registration failed (HTTP ${response.status})`)
+      throw new Error(extractErrorMessage(err, `Registration failed (HTTP ${response.status})`))
     }
 
     const data: AuthTokenResponse = await response.json()

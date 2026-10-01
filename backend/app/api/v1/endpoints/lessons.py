@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, HTTPException, status
 from sqlalchemy.orm import Session, selectinload
 
-from app.api.deps import CurrentUser, DbSession
+from app.api.deps import CurrentUser, DbSession, OptionalUser
 from app.models.curriculum import Lesson, Topic
 from app.schemas.curriculum import LessonBrief
 from app.schemas.learning import LessonActionResponse, LessonDetailExtended
@@ -40,11 +40,12 @@ def _resolve_lesson(lesson_id: str, db: Session) -> Lesson:
 
 @router.get("/{lesson_id}", response_model=LessonDetailExtended)
 def get_lesson_detail(
-    lesson_id: str, db: DbSession, current_user: CurrentUser
+    lesson_id: str, db: DbSession, current_user: OptionalUser
 ) -> LessonDetailExtended:
     """Retrieve full lesson view with markdown content, breadcrumbs, and student progress."""
     lesson = _resolve_lesson(lesson_id, db)
-    return get_lesson_detail_extended(db, current_user.id, lesson)
+    user_id = current_user.id if current_user else None
+    return get_lesson_detail_extended(db, user_id, lesson)
 
 
 @router.get("/{lesson_id}/next", response_model=LessonBrief)

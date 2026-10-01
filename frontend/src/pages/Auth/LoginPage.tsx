@@ -80,6 +80,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
       setFormError('Password must be at least 8 characters long.')
       return
     }
+    if (/^\d+$/.test(password) || /^[a-zA-Z]+$/.test(password)) {
+      setFormError('Password must contain a mix of letters and numbers or symbols (e.g. Dope2026!).')
+      return
+    }
 
     setIsSubmitting(true)
     try {
@@ -315,7 +319,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login' }) =>
 
             <div>
               <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 500, color: '#cbd5e1', marginBottom: '0.5rem' }}>
-                Password (min 8 characters)
+                Password (min 8 chars, letters + numbers or symbols)
               </label>
               <div style={{ position: 'relative' }}>
                 <Lock size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />

@@ -521,7 +521,7 @@ def get_topic_detail_extended(
 
 
 def get_lesson_detail_extended(
-    db: Session, user_id: int, lesson: Lesson
+    db: Session, user_id: int | None, lesson: Lesson
 ) -> LessonDetailExtended:
     """Build full lesson view with navigation, progress, and metadata."""
     topic = lesson.topic
@@ -529,22 +529,24 @@ def get_lesson_detail_extended(
     course = module.course if module else None
 
     # User progress
-    progress = (
-        db.query(LessonProgress)
-        .filter(
-            LessonProgress.user_id == user_id, LessonProgress.lesson_id == lesson.id
+    progress = None
+    is_bookmarked = False
+    if user_id is not None:
+        progress = (
+            db.query(LessonProgress)
+            .filter(
+                LessonProgress.user_id == user_id, LessonProgress.lesson_id == lesson.id
+            )
+            .first()
         )
-        .first()
-    )
-
-    is_bookmarked = (
-        db.query(LessonBookmark)
-        .filter(
-            LessonBookmark.user_id == user_id, LessonBookmark.lesson_id == lesson.id
+        is_bookmarked = (
+            db.query(LessonBookmark)
+            .filter(
+                LessonBookmark.user_id == user_id, LessonBookmark.lesson_id == lesson.id
+            )
+            .first()
+            is not None
         )
-        .first()
-        is not None
-    )
 
     prev_lesson, next_lesson = get_next_and_previous_lesson(db, lesson)
 
