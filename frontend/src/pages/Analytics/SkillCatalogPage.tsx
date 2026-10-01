@@ -145,7 +145,7 @@ export const SkillCatalogPage: React.FC = () => {
               className={`tab-btn ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat)}
             >
-              {cat.replace('_', ' ')}
+              {(cat || '').replace(/_/g, ' ')}
             </button>
           ))}
         </div>
@@ -201,7 +201,7 @@ export const SkillCatalogPage: React.FC = () => {
               </div>
 
               <span className="skill-category-badge" style={{ alignSelf: 'flex-start' }}>
-                {skill.category.replace('_', ' ')}
+                {(skill.category || '').replace(/_/g, ' ')}
               </span>
 
               {skill.description && (

@@ -231,22 +231,30 @@ export interface PortfolioExportResponse {
 
 export interface AdminDashboardMetrics {
   total_users: number;
-  active_students_7d: number;
+  active_learners?: number;
+  active_students_7d?: number;
   catalog_counts: Record<string, number>;
   publication_status: {
-    published: number;
-    draft: number;
-    review: number;
-    archived: number;
+    published?: number;
+    draft?: number;
+    review?: number;
+    archived?: number;
+    published_questions?: number;
+    draft_questions?: number;
+    archived_questions?: number;
+    published_challenges?: number;
   };
-  audit_count: number;
+  audit_count?: number;
+  recent_audit_logs?: Array<Record<string, unknown>>;
 }
 
 export interface AdminContentItem {
-  type: string;
-  id: number;
+  type?: string;
+  content_type?: string;
+  id: number | string;
   title: string;
   slug?: string;
+  code_or_slug?: string;
   category?: string;
   status: string;
   updated_at?: string;

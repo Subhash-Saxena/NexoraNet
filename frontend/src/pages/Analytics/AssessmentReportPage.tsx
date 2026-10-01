@@ -189,7 +189,7 @@ export const AssessmentReportPage: React.FC = () => {
                 <tbody>
                   {report.skills_summary.slice(0, 8).map((sk) => (
                     <tr key={sk.code}>
-                      <td style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{sk.category.replace('_', ' ')}</td>
+                      <td style={{ color: '#94a3b8', fontSize: '0.8rem' }}>{(sk.category || '').replace(/_/g, ' ')}</td>
                       <td style={{ fontFamily: 'monospace', color: '#38bdf8' }}>{sk.code}</td>
                       <td style={{ fontWeight: 600 }}>{sk.name}</td>
                       <td>{sk.accuracy.toFixed(1)}%</td>

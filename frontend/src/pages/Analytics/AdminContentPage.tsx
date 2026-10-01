@@ -46,11 +46,14 @@ export const AdminContentPage: React.FC = () => {
   const handleUpdateStatus = async (item: AdminContentItem, newStatus: string) => {
     setActionMessage(null);
     try {
-      const res = await analyticsApi.updateContentStatus(item.type, item.id, newStatus);
+      const itemType = item.content_type || item.type || '';
+      const res = await analyticsApi.updateContentStatus(itemType, item.id, newStatus);
       setActionMessage({ text: res.message, error: false });
       // Update local item
       setItems((prev) =>
-        prev.map((i) => (i.type === item.type && i.id === item.id ? { ...i, status: newStatus } : i))
+        prev.map((i) =>
+          (i.content_type || i.type) === itemType && i.id === item.id ? { ...i, status: newStatus } : i
+        )
       );
     } catch (err: any) {
       setActionMessage({ text: err.message || 'Status update failed', error: true });
@@ -194,20 +197,24 @@ export const AdminContentPage: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredItems.map((item) => (
-                  <tr key={`${item.type}-${item.id}`}>
-                    <td style={{ textTransform: 'capitalize', color: '#93c5fd', fontWeight: 600 }}>
-                      {item.type.replace('_', ' ')}
-                    </td>
-                    <td style={{ fontFamily: 'monospace', color: '#6b7280' }}>#{item.id}</td>
-                    <td>
-                      <div style={{ fontWeight: 600, color: '#f3f4f6' }}>{item.title}</div>
-                      {item.slug && (
-                        <div style={{ fontSize: '0.75rem', color: '#6b7280', fontFamily: 'monospace' }}>
-                          {item.slug}
-                        </div>
-                      )}
-                    </td>
+                {filteredItems.map((item) => {
+                  const rawType = item.content_type || item.type || 'Asset';
+                  const displayType = rawType.replace(/_/g, ' ');
+                  const assetSlug = item.code_or_slug || item.slug;
+                  return (
+                    <tr key={`${rawType}-${item.id}`}>
+                      <td style={{ textTransform: 'capitalize', color: '#93c5fd', fontWeight: 600 }}>
+                        {displayType}
+                      </td>
+                      <td style={{ fontFamily: 'monospace', color: '#6b7280' }}>#{item.id}</td>
+                      <td>
+                        <div style={{ fontWeight: 600, color: '#f3f4f6' }}>{item.title}</div>
+                        {assetSlug && (
+                          <div style={{ fontSize: '0.75rem', color: '#6b7280', fontFamily: 'monospace' }}>
+                            {assetSlug}
+                          </div>
+                        )}
+                      </td>
                     <td style={{ color: '#9ca3af', fontSize: '0.8rem' }}>{item.category || '-'}</td>
                     <td>
                       <span
@@ -275,7 +282,8 @@ export const AdminContentPage: React.FC = () => {
                       </div>
                     </td>
                   </tr>
-                ))}
+                  )
+                })}
               </tbody>
             </table>
           </div>

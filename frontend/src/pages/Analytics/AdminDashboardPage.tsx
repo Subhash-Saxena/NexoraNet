@@ -146,27 +146,32 @@ export const AdminDashboardPage: React.FC = () => {
           <div className="analytics-metrics-grid">
             <div className="metric-card">
               <span className="metric-label">Registered Cadets</span>
-              <span className="metric-value">{metrics.total_users}</span>
-              <span className="metric-subtext">Active Users: {metrics.active_students_7d} (Last 7d)</span>
+              <span className="metric-value">{metrics.total_users ?? 0}</span>
+              <span className="metric-subtext">Active Users: {metrics.active_learners ?? metrics.active_students_7d ?? 0} (Recent)</span>
             </div>
 
             <div className="metric-card">
               <span className="metric-label">Published Assets</span>
-              <span className="metric-value" style={{ color: '#34d399' }}>{metrics.publication_status.published}</span>
+              <span className="metric-value" style={{ color: '#34d399' }}>
+                {metrics.publication_status?.published ?? metrics.publication_status?.published_questions ?? 0}
+              </span>
               <span className="metric-subtext">Live in Curriculum</span>
             </div>
 
             <div className="metric-card">
               <span className="metric-label">Draft / Review Items</span>
               <span className="metric-value" style={{ color: '#fbbf24' }}>
-                {metrics.publication_status.draft + metrics.publication_status.review}
+                {(metrics.publication_status?.draft ?? metrics.publication_status?.draft_questions ?? 0) +
+                  (metrics.publication_status?.review ?? 0)}
               </span>
               <span className="metric-subtext">Pending Validation</span>
             </div>
 
             <div className="metric-card">
               <span className="metric-label">Audit Ledger Records</span>
-              <span className="metric-value" style={{ color: '#38bdf8' }}>{metrics.audit_count}</span>
+              <span className="metric-value" style={{ color: '#38bdf8' }}>
+                {metrics.audit_count ?? (metrics.recent_audit_logs ? metrics.recent_audit_logs.length : 0)}
+              </span>
               <span className="metric-subtext">Immutable Logged Events</span>
             </div>
           </div>
@@ -179,16 +184,17 @@ export const AdminDashboardPage: React.FC = () => {
             </h3>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-              {Object.entries(metrics.catalog_counts).map(([type, count]) => (
-                <div key={type} style={{ background: '#1f2937', padding: '1rem', borderRadius: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#9ca3af', textTransform: 'capitalize' }}>
-                    {type.replace(/_/g, ' ')}
-                  </span>
-                  <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f9fafb' }}>
-                    {count}
-                  </span>
-                </div>
-              ))}
+              {metrics.catalog_counts &&
+                Object.entries(metrics.catalog_counts).map(([type, count]) => (
+                  <div key={type} style={{ background: '#1f2937', padding: '1rem', borderRadius: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#9ca3af', textTransform: 'capitalize' }}>
+                      {(type || '').replace(/_/g, ' ')}
+                    </span>
+                    <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f9fafb' }}>
+                      {count}
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
 

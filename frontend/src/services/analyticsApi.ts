@@ -180,9 +180,9 @@ class AnalyticsApiService {
 
   async updateContentStatus(
     contentType: string,
-    contentId: number,
+    contentId: number | string,
     newStatus: string
-  ): Promise<{ success: boolean; message: string; content_id: number; new_status: string }> {
+  ): Promise<{ success: boolean; message: string; content_id: number | string; new_status: string }> {
     return this.request<{ success: boolean; message: string; content_id: number; new_status: string }>(
       `/api/v1/admin/content/${contentType}/${contentId}/status`,
       {
