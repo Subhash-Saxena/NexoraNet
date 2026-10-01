@@ -30,7 +30,7 @@ def upgrade() -> None:
             sa.Column("points", sa.Integer(), server_default="10", nullable=False)
         )
         batch_op.add_column(
-            sa.Column("is_required", sa.Boolean(), server_default="1", nullable=False)
+            sa.Column("is_required", sa.Boolean(), server_default=sa.true(), nullable=False)
         )
 
     # 3. Update lab_questions table
@@ -70,9 +70,9 @@ def upgrade() -> None:
         sa.Column("question_id", sa.Integer(), nullable=True),
         sa.Column("attempt_number", sa.Integer(), server_default="1", nullable=False),
         sa.Column("submitted_answer", sa.Text(), nullable=False),
-        sa.Column("is_correct", sa.Boolean(), server_default="0", nullable=False),
+        sa.Column("is_correct", sa.Boolean(), server_default=sa.false(), nullable=False),
         sa.Column("points_earned", sa.Float(), server_default="0.0", nullable=False),
-        sa.Column("hint_used", sa.Boolean(), server_default="0", nullable=False),
+        sa.Column("hint_used", sa.Boolean(), server_default=sa.false(), nullable=False),
         sa.Column("feedback", sa.Text(), nullable=True),
         sa.Column("submitted_at", sa.DateTime(timezone=True), nullable=False),
         sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),

@@ -37,7 +37,7 @@ def upgrade() -> None:
         sa.Column("mitre_technique", sa.String(length=100), nullable=True),
         sa.Column("explanation_template", sa.Text(), nullable=False),
         sa.Column("investigation_guide", sa.Text(), nullable=False),
-        sa.Column("is_builtin", sa.Boolean(), nullable=False, server_default=sa.text("1")),
+        sa.Column("is_builtin", sa.Boolean(), nullable=False, server_default=sa.true()),
         sa.Column("author_id", sa.Integer(), nullable=True),
         sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), nullable=False),

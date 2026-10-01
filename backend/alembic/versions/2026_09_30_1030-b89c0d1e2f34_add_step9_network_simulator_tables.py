@@ -27,7 +27,7 @@ def upgrade() -> None:
         sa.Column("slug", sa.String(length=120), nullable=False),
         sa.Column("description", sa.Text(), nullable=True),
         sa.Column("difficulty", sa.String(length=20), nullable=False, server_default="BEGINNER"),
-        sa.Column("is_prebuilt", sa.Boolean(), nullable=False, server_default=sa.text("0")),
+        sa.Column("is_prebuilt", sa.Boolean(), nullable=False, server_default=sa.false()),
         sa.Column("topology_data", sa.Text(), nullable=True),
         sa.Column("created_at", sa.DateTime(timezone=True), nullable=False),
         sa.Column("updated_at", sa.DateTime(timezone=True), nullable=False),

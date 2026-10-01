@@ -34,7 +34,7 @@ def upgrade() -> None:
         sa.Column("duration", sa.Float(), nullable=False, server_default=sa.text("0.0")),
         sa.Column("status", sa.String(length=30), nullable=False, server_default="UPLOADED"),
         sa.Column("error_message", sa.Text(), nullable=True),
-        sa.Column("is_sample", sa.Boolean(), nullable=False, server_default=sa.text("0")),
+        sa.Column("is_sample", sa.Boolean(), nullable=False, server_default=sa.false()),
         sa.Column("sample_category", sa.String(length=50), nullable=True),
         sa.Column("description", sa.Text(), nullable=True),
         sa.Column("summary_metadata", sa.Text(), nullable=True),

@@ -43,7 +43,7 @@ def upgrade() -> None:
                 "is_marked_for_review",
                 sa.Boolean(),
                 nullable=False,
-                server_default=sa.text("0"),
+                server_default=sa.false(),
             )
         )
 
@@ -78,7 +78,7 @@ def upgrade() -> None:
                 "passed",
                 sa.Boolean(),
                 nullable=False,
-                server_default=sa.text("0"),
+                server_default=sa.false(),
             )
         )
 
