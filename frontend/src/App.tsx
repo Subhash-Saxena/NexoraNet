@@ -84,20 +84,25 @@ import { AdminDashboardPage } from './pages/Analytics/AdminDashboardPage'
 import { AdminContentPage } from './pages/Analytics/AdminContentPage'
 import { AdminAuditPage } from './pages/Analytics/AdminAuditPage'
 import { NotFoundPage } from './pages/NotFound/NotFoundPage'
+import { AuthProvider } from './context/AuthContext'
+import { LoginPage } from './pages/Auth/LoginPage'
 
 
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/learning" element={<LearningPage />} />
-          <Route path="/learning/topics/:topicSlug" element={<TopicPage />} />
-          <Route path="/learning/lessons/:lessonSlug" element={<LessonPage />} />
-          <Route path="/learning/bookmarks" element={<BookmarksPage />} />
-          <Route path="/labs" element={<LabsPage />} />
+      <AuthProvider>
+        <Routes>
+          <Route element={<MainLayout />}>
+            <Route path="/login" element={<LoginPage initialTab="login" />} />
+            <Route path="/register" element={<LoginPage initialTab="register" />} />
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/learning" element={<LearningPage />} />
+            <Route path="/learning/topics/:topicSlug" element={<TopicPage />} />
+            <Route path="/learning/lessons/:lessonSlug" element={<LessonPage />} />
+            <Route path="/learning/bookmarks" element={<BookmarksPage />} />
+            <Route path="/labs" element={<LabsPage />} />
           <Route path="/labs/history" element={<LabHistoryPage />} />
           <Route path="/labs/:labSlug" element={<LabDetailPage />} />
           <Route path="/mock-tests" element={<MockTestsPage />} />
@@ -202,7 +207,8 @@ export const App: React.FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </AuthProvider>
+  </BrowserRouter>
   )
 }
 

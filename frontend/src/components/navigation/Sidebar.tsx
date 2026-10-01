@@ -26,9 +26,12 @@ import {
   Award,
   FileText,
   Lock,
+  LogIn,
 } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 export const Sidebar: React.FC = () => {
+  const { user, isAuthenticated } = useAuth()
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -226,6 +229,26 @@ export const Sidebar: React.FC = () => {
           <Lock />
           <span>Admin Operations</span>
         </NavLink>
+
+        <div className="nav-section-title">Account</div>
+        {isAuthenticated && user ? (
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          >
+            <Shield />
+            <span>{user.display_name || user.username} ({user.role})</span>
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            style={{ color: '#60a5fa' }}
+          >
+            <LogIn />
+            <span>Sign In / Register</span>
+          </NavLink>
+        )}
       </nav>
     </aside>
   )

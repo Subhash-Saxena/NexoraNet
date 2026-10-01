@@ -22,7 +22,7 @@ import type {
   StudentOverview,
   TrendsResponse,
 } from '../types/analytics';
-import { getApiBaseUrl } from './apiConfig';
+import { getApiBaseUrl, getAuthHeaders } from './apiConfig';
 
 class AnalyticsApiService {
   private getBaseUrl(): string {
@@ -30,12 +30,7 @@ class AnalyticsApiService {
   }
 
   private getAuthHeaders(): Record<string, string> {
-    const role = localStorage.getItem('nexoranet_role') || 'STUDENT';
-    const userId = localStorage.getItem('nexoranet_user_id') || '2';
-    return {
-      'X-User-Role': role,
-      'X-User-Id': userId,
-    };
+    return getAuthHeaders();
   }
 
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
