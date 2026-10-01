@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Query, status
 from sqlalchemy.orm import selectinload
 
-from app.api.deps import CurrentUser, DbSession
+from app.api.deps import CurrentUser, DbSession, OptionalUser
 from app.models.curriculum import Topic
 from app.models.enums import DifficultyLevel
 from app.schemas.curriculum import TopicBrief
@@ -45,7 +45,7 @@ def list_topics(
 
 @router.get("/{topic_id}", response_model=TopicDetailExtended)
 def get_topic_detail(
-    topic_id: str, db: DbSession, current_user: CurrentUser
+    topic_id: str, db: DbSession, current_user: OptionalUser = None
 ) -> TopicDetailExtended:
     """Retrieve full topic detail view with lesson outline and student progress indicators."""
     query = (
@@ -64,12 +64,13 @@ def get_topic_detail(
             detail=f"Topic '{topic_id}' was not found.",
         )
 
-    return get_topic_detail_extended(db, current_user.id, topic)
+    user_id = current_user.id if current_user else None
+    return get_topic_detail_extended(db, user_id, topic)
 
 
 @router.get("/{topic_id}/lessons", response_model=list[LessonBriefWithProgress])
 def get_topic_lessons(
-    topic_id: str, db: DbSession, current_user: CurrentUser
+    topic_id: str, db: DbSession, current_user: OptionalUser = None
 ) -> list[LessonBriefWithProgress]:
     """Retrieve lessons within a specific topic including student completion status."""
     query = db.query(Topic).filter(Topic.is_published.is_(True))

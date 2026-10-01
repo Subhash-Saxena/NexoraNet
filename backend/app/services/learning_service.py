@@ -333,7 +333,7 @@ def get_user_bookmarks(db: Session, user_id: int) -> list[BookmarkItem]:
 
 
 def get_topic_detail_extended(
-    db: Session, user_id: int, topic: Topic
+    db: Session, user_id: int | None, topic: Topic
 ) -> TopicDetailExtended:
     """Build comprehensive Topic response including prerequisites, progress, and lessons."""
     module = topic.module
@@ -350,7 +350,7 @@ def get_topic_detail_extended(
     # User progress & bookmarks for lessons in this topic
     lesson_ids = [l.id for l in lessons]
     user_progress_map = {}
-    if lesson_ids:
+    if lesson_ids and user_id:
         records = (
             db.query(LessonProgress)
             .filter(
@@ -363,7 +363,7 @@ def get_topic_detail_extended(
             user_progress_map[r.lesson_id] = r.status
 
     bookmarked_ids = set()
-    if lesson_ids:
+    if lesson_ids and user_id:
         bms = (
             db.query(LessonBookmark.lesson_id)
             .filter(
@@ -415,7 +415,7 @@ def get_topic_detail_extended(
             )
             .scalar()
             or 0
-        )
+        ) if user_id else 0
         is_completed = (p_completed == p_lessons_count) if p_lessons_count > 0 else True
         prereq_payload.append(
             PrerequisiteTopicBrief(

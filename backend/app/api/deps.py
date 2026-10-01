@@ -92,6 +92,23 @@ def get_current_user(
 CurrentUser = Annotated[User, Depends(get_current_user)]
 
 
+def get_optional_current_user(
+    db: DbSession,
+    authorization: Annotated[str | None, Header(alias="Authorization")] = None,
+    x_user_role: Annotated[str | None, Header(alias="X-User-Role")] = None,
+    x_user_id: Annotated[int | None, Header(alias="X-User-Id")] = None,
+) -> User | None:
+    """Resolve current user if credentials provided, or return None for public/preview requests."""
+    try:
+        return get_current_user(db, authorization, x_user_role, x_user_id)
+    except HTTPException:
+        return None
+
+
+OptionalUser = Annotated[User | None, Depends(get_optional_current_user)]
+
+
+
 def require_admin_user(current_user: CurrentUser) -> User:
     """Enforce strict server-side administrator authorization."""
     if current_user.role != UserRole.ADMIN:

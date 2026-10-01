@@ -40,6 +40,7 @@ class RegisterRequest(BaseModel):
     email: str = Field(..., min_length=5, max_length=255, description="Valid student email address")
     password: str = Field(..., min_length=8, max_length=128, description="Strong account password (min 8 characters)")
     display_name: str | None = Field(default=None, max_length=128, description="Optional public display name")
+    role: UserRole | None = Field(default=UserRole.STUDENT, description="Account role")
 
     @field_validator("email")
     @classmethod

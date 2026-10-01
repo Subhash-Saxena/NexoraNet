@@ -138,8 +138,8 @@ def register(
         email=clean_email,
         password_hash=hashed_pw,
         display_name=req.display_name or req.username,
-        role=UserRole.STUDENT,
-        current_level="Cadet Defend-I",
+        role=req.role or UserRole.STUDENT,
+        current_level="Cadet Defend-I" if (req.role or UserRole.STUDENT) == UserRole.STUDENT else "Staff Command",
         is_active=True,
     )
     db.add(new_user)
