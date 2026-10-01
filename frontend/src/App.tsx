@@ -86,13 +86,15 @@ import { AdminAuditPage } from './pages/Analytics/AdminAuditPage'
 import { NotFoundPage } from './pages/NotFound/NotFoundPage'
 import { AuthProvider } from './context/AuthContext'
 import { LoginPage } from './pages/Auth/LoginPage'
+import { ErrorBoundary } from './components/common/ErrorBoundary'
 
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
+    <ErrorBoundary label="NexoraNet Application">
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
           <Route element={<MainLayout />}>
             <Route path="/login" element={<LoginPage initialTab="login" />} />
             <Route path="/register" element={<LoginPage initialTab="register" />} />
@@ -209,6 +211,7 @@ export const App: React.FC = () => {
       </Routes>
     </AuthProvider>
   </BrowserRouter>
+  </ErrorBoundary>
   )
 }
 

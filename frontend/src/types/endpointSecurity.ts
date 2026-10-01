@@ -106,11 +106,23 @@ export interface EndpointHost {
 
 export interface EndpointHostSummary {
   total_hosts: number
-  platforms: Record<string, number>
-  risk_levels: Record<string, number>
-  environments: Record<string, number>
+  /** Backend returns risk_distribution, not risk_levels */
+  risk_distribution: Record<string, number>
+  /** Backend returns platform_distribution, not platforms */
+  platform_distribution: Record<string, number>
+  /** Backend returns category_distribution, not environments */
+  category_distribution: Record<string, number>
+  severity_distribution: Record<string, number>
   total_events: number
   active_investigations: number
+  high_severity_alerts: number
+  top_active_hosts: EndpointHost[]
+  /** @deprecated Use risk_distribution */
+  risk_levels?: Record<string, number>
+  /** @deprecated Use platform_distribution */
+  platforms?: Record<string, number>
+  /** @deprecated Use category_distribution */
+  environments?: Record<string, number>
 }
 
 export interface EndpointHostOverview {
