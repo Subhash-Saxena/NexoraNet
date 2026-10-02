@@ -55,6 +55,24 @@ function getRouteLabel(pathname: string): string {
 
 export const MainLayout: React.FC = () => {
   const location = useLocation()
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+
+  // Automatically close mobile menu when navigating to another route
+  React.useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [location.pathname])
+
+  // Close mobile drawer on Escape key press
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [mobileMenuOpen])
+
   let currentInfo = routeTitles[location.pathname]
   if (!currentInfo) {
     const prefix = '/' + location.pathname.split('/')[1]
@@ -68,9 +86,26 @@ export const MainLayout: React.FC = () => {
 
   return (
     <div className="app-container">
-      <Sidebar />
+      {/* Mobile Drawer Backdrop */}
+      {mobileMenuOpen && (
+        <div
+          className="mobile-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-label="Close navigation menu"
+        />
+      )}
+
+      <Sidebar
+        mobileOpen={mobileMenuOpen}
+        onCloseMobile={() => setMobileMenuOpen(false)}
+      />
+
       <div className="main-content-wrapper">
-        <Navbar title={currentInfo.title} subtitle={currentInfo.subtitle} />
+        <Navbar
+          title={currentInfo.title}
+          subtitle={currentInfo.subtitle}
+          onToggleMobileMenu={() => setMobileMenuOpen((prev) => !prev)}
+        />
         <main className="page-body">
           <ErrorBoundary key={location.pathname} label={pageLabel}>
             <Outlet />

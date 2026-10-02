@@ -9,17 +9,20 @@ import {
   LogOut,
   User,
   ExternalLink,
+  Menu,
 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
 interface NavbarProps {
   title?: string
   subtitle?: string
+  onToggleMobileMenu?: () => void
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   title = 'Dashboard',
   subtitle = 'Overview of your learning journey',
+  onToggleMobileMenu,
 }) => {
   const { status, checkNow } = useHealthCheck(15000)
   const { user, isAuthenticated, logout } = useAuth()
@@ -35,13 +38,23 @@ export const Navbar: React.FC<NavbarProps> = ({
   }
 
   return (
-    <header className="top-navbar" style={{ padding: '0 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>
-      {/* Page Title & Breadcrumb */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{ color: '#94a3b8', display: 'flex', alignItems: 'center' }}>
+    <header className="top-navbar">
+      {/* Page Title & Breadcrumb & Mobile Hamburger */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
+        <button
+          type="button"
+          className="mobile-hamburger-btn"
+          onClick={onToggleMobileMenu}
+          title="Toggle Navigation Menu"
+          aria-label="Toggle Navigation Menu"
+        >
+          <Menu size={20} />
+        </button>
+
+        <div className="navbar-home-icon" style={{ color: '#94a3b8', display: 'flex', alignItems: 'center' }}>
           <Home size={18} />
         </div>
-        <div className="page-title-group">
+        <div className="page-title-group" style={{ minWidth: 0 }}>
           <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
             {title}
           </h2>
@@ -53,6 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Global Search Bar with Ctrl K shortcut */}
       <form
+        className="navbar-search-bar"
         onSubmit={handleSearchSubmit}
         style={{
           flex: '1',
@@ -97,6 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           }}
         />
         <div
+          className="navbar-search-shortcut"
           style={{
             position: 'absolute',
             right: '8px',
@@ -115,9 +130,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       </form>
 
       {/* Right Controls: Backend Connected badge, Notifications, User Avatar */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+      <div className="navbar-right-controls" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexShrink: 0 }}>
         {/* Backend Connected Status Pill */}
         <div
+          className="status-pill-btn"
           onClick={checkNow}
           title="Click to re-verify backend telemetry connection"
           style={{
@@ -142,9 +158,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               borderRadius: '50%',
               background: status === 'connected' ? '#10b981' : '#ef4444',
               boxShadow: status === 'connected' ? '0 0 8px #10b981' : 'none',
+              flexShrink: 0,
             }}
           />
-          <span>{status === 'connected' ? 'Backend connected' : 'Connecting...'}</span>
+          <span className="status-pill-text">{status === 'connected' ? 'Backend connected' : 'Connecting...'}</span>
         </div>
 
         {/* Notification Bell with Badge */}

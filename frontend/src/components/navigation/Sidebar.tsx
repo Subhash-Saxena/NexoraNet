@@ -28,25 +28,33 @@ import {
   LogIn,
   ChevronsLeft,
   ChevronsRight,
+  X,
 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  mobileOpen?: boolean
+  onCloseMobile?: () => void
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMobile }) => {
   const { user, isAuthenticated } = useAuth()
   const [collapsed, setCollapsed] = useState(false)
 
+  const handleNavClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest('a') && onCloseMobile) {
+      onCloseMobile()
+    }
+  }
+
   return (
     <aside
-      className={`sidebar ${collapsed ? 'collapsed' : ''}`}
+      className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}
       style={{
         width: collapsed ? '72px' : '260px',
-        transition: 'width 0.2s ease',
+        transition: 'width 0.2s ease, transform 0.28s ease',
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
-        position: 'sticky',
-        top: 0,
-        zIndex: 100,
       }}
     >
       {/* Brand Header */}
@@ -71,27 +79,39 @@ export const Sidebar: React.FC = () => {
             </div>
           )}
         </div>
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: '#64748b',
-            cursor: 'pointer',
-            padding: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: '4px',
-          }}
-        >
-          {collapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="sidebar-collapse-desktop-btn"
+            title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#64748b',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              borderRadius: '4px',
+            }}
+          >
+            {collapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
+          </button>
+          <button
+            onClick={onCloseMobile}
+            className="sidebar-mobile-close-btn"
+            title="Close sidebar"
+            aria-label="Close sidebar"
+          >
+            <X size={18} />
+          </button>
+        </div>
       </div>
 
       {/* Navigation Sections */}
       <nav
         className="sidebar-nav"
+        onClick={handleNavClick}
         style={{
           flex: 1,
           overflowY: 'auto',
