@@ -294,15 +294,15 @@ export const DashboardPage: React.FC = () => {
       </div>
 
       {/* 3. YOUR LEARNING PATH ROADMAP */}
-      <div className="roadmap-card">
-        <div className="roadmap-header">
-          <div className="roadmap-header-left">
-            <div className="roadmap-icon-box">
+      <div className="dash-path-card">
+        <div className="dash-path-header">
+          <div className="dash-path-header-left">
+            <div className="dash-path-icon-box">
               <Route size={18} />
             </div>
             <div>
-              <div className="roadmap-header-title">Your Learning Path</div>
-              <p className="roadmap-header-desc">
+              <div className="dash-path-header-title">Your Learning Path</div>
+              <p className="dash-path-header-desc">
                 Step-by-step journey from fundamentals to real-world defense.
               </p>
             </div>
@@ -315,53 +315,53 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* 6 Connected Steps */}
-        <div className="roadmap-timeline">
+        <div className="dash-path-timeline">
           {/* Step 1 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node active">1</div>
-            <div className="roadmap-step-title">Foundations</div>
-            <span className="roadmap-status-badge in-progress">In Progress</span>
-            <p className="roadmap-step-desc">Networking, OS, protocols</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node active">1</div>
+            <div className="dash-path-step-title">Foundations</div>
+            <span className="dash-path-status-badge in-progress">In Progress</span>
+            <p className="dash-path-step-desc">Networking, OS, protocols</p>
           </div>
 
           {/* Step 2 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node">2</div>
-            <div className="roadmap-step-title">System & Linux</div>
-            <span className="roadmap-status-badge not-started">Not Started</span>
-            <p className="roadmap-step-desc">Linux, command line, system internals</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node">2</div>
+            <div className="dash-path-step-title">System & Linux</div>
+            <span className="dash-path-status-badge not-started">Not Started</span>
+            <p className="dash-path-step-desc">Linux, command line, system internals</p>
           </div>
 
           {/* Step 3 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node">3</div>
-            <div className="roadmap-step-title">Cybersecurity Core</div>
-            <span className="roadmap-status-badge not-started">Not Started</span>
-            <p className="roadmap-step-desc">Threats, vulnerabilities, defence</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node">3</div>
+            <div className="dash-path-step-title">Cybersecurity Core</div>
+            <span className="dash-path-status-badge not-started">Not Started</span>
+            <p className="dash-path-step-desc">Threats, vulnerabilities, defence</p>
           </div>
 
           {/* Step 4 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node">4</div>
-            <div className="roadmap-step-title">Hands-on Labs</div>
-            <span className="roadmap-status-badge not-started">Not Started</span>
-            <p className="roadmap-step-desc">Guided and open-ended labs</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node">4</div>
+            <div className="dash-path-step-title">Hands-on Labs</div>
+            <span className="dash-path-status-badge not-started">Not Started</span>
+            <p className="dash-path-step-desc">Guided and open-ended labs</p>
           </div>
 
           {/* Step 5 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node">5</div>
-            <div className="roadmap-step-title">SOC & Detection</div>
-            <span className="roadmap-status-badge not-started">Not Started</span>
-            <p className="roadmap-step-desc">SIEM, analysis, incident response</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node">5</div>
+            <div className="dash-path-step-title">SOC & Detection</div>
+            <span className="dash-path-status-badge not-started">Not Started</span>
+            <p className="dash-path-step-desc">SIEM, analysis, incident response</p>
           </div>
 
           {/* Step 6 */}
-          <div className="roadmap-step">
-            <div className="roadmap-node">6</div>
-            <div className="roadmap-step-title">Advanced & Specialization</div>
-            <span className="roadmap-status-badge not-started">Not Started</span>
-            <p className="roadmap-step-desc">Cloud, malware analysis, red/blue team</p>
+          <div className="dash-path-step">
+            <div className="dash-path-node">6</div>
+            <div className="dash-path-step-title">Advanced & Specialization</div>
+            <span className="dash-path-status-badge not-started">Not Started</span>
+            <p className="dash-path-step-desc">Cloud, malware analysis, red/blue team</p>
           </div>
         </div>
       </div>
