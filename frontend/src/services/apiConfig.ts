@@ -70,10 +70,10 @@ export const getAuthHeaders = (extraHeaders: Record<string, string> = {}): Recor
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
   }
-  const role = localStorage.getItem('nexoranet_role') || 'STUDENT'
-  const userId = localStorage.getItem('nexoranet_user_id') || '1'
-  if (!headers['X-User-Role']) headers['X-User-Role'] = role
-  if (!headers['X-User-Id']) headers['X-User-Id'] = userId
+  const role = localStorage.getItem('nexoranet_role')
+  const userId = localStorage.getItem('nexoranet_user_id')
+  if (role && !headers['X-User-Role']) headers['X-User-Role'] = role
+  if (userId && !headers['X-User-Id']) headers['X-User-Id'] = userId
   return headers
 }
 
@@ -114,10 +114,10 @@ export const installFetchInterceptor = (): void => {
         headers.set('Authorization', `Bearer ${token}`)
       }
 
-      const role = localStorage.getItem('nexoranet_role') || 'STUDENT'
-      const userId = localStorage.getItem('nexoranet_user_id') || '1'
-      if (!headers.has('X-User-Role')) headers.set('X-User-Role', role)
-      if (!headers.has('X-User-Id')) headers.set('X-User-Id', userId)
+      const role = localStorage.getItem('nexoranet_role')
+      const userId = localStorage.getItem('nexoranet_user_id')
+      if (role && !headers.has('X-User-Role')) headers.set('X-User-Role', role)
+      if (userId && !headers.has('X-User-Id')) headers.set('X-User-Id', userId)
 
       modifiedInit.headers = headers
       const response = await originalFetch(input, modifiedInit)
