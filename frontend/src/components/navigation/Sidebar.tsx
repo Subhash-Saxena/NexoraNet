@@ -35,11 +35,27 @@ import { useAuth } from '../../context/AuthContext'
 interface SidebarProps {
   mobileOpen?: boolean
   onCloseMobile?: () => void
+  collapsed?: boolean
+  onToggleCollapse?: () => void
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMobile }) => {
+export const Sidebar: React.FC<SidebarProps> = ({
+  mobileOpen = false,
+  onCloseMobile,
+  collapsed: controlledCollapsed,
+  onToggleCollapse,
+}) => {
   const { user, isAuthenticated } = useAuth()
-  const [collapsed, setCollapsed] = useState(false)
+  const [internalCollapsed, setInternalCollapsed] = useState(false)
+  const isCollapsed = controlledCollapsed !== undefined ? controlledCollapsed : internalCollapsed
+
+  const handleToggle = () => {
+    if (onToggleCollapse) {
+      onToggleCollapse()
+    } else {
+      setInternalCollapsed(!internalCollapsed)
+    }
+  }
 
   const handleNavClick = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('a') && onCloseMobile) {
@@ -49,9 +65,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
 
   return (
     <aside
-      className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}
+      className={`sidebar ${isCollapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}
       style={{
-        width: collapsed ? '72px' : '260px',
+        width: isCollapsed ? '72px' : '260px',
         transition: 'width 0.2s ease, transform 0.28s ease',
         display: 'flex',
         flexDirection: 'column',
@@ -64,7 +80,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: collapsed ? '16px 12px' : '20px 20px',
+          padding: isCollapsed ? '16px 12px' : '20px 20px',
           borderBottom: '1px solid #14223d',
         }}
       >
@@ -72,7 +88,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           <div className="brand-icon" style={{ flexShrink: 0 }}>
             <Shield size={20} />
           </div>
-          {!collapsed && (
+          {!isCollapsed && (
             <div className="brand-text">
               <h1 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#f8fafc' }}>NexoraNet</h1>
               <p style={{ fontSize: '0.68rem', color: '#38bdf8', letterSpacing: '0.08em', margin: 0, textTransform: 'uppercase', fontWeight: 600 }}>Cybersecurity Lab</p>
@@ -81,9 +97,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <button
-            onClick={() => setCollapsed(!collapsed)}
+            onClick={handleToggle}
             className="sidebar-collapse-desktop-btn"
-            title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             style={{
               background: 'transparent',
               border: 'none',
@@ -95,7 +111,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
               borderRadius: '4px',
             }}
           >
-            {collapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
+            {isCollapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
           </button>
           <button
             onClick={onCloseMobile}
@@ -115,15 +131,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
         style={{
           flex: 1,
           overflowY: 'auto',
-          padding: collapsed ? '12px 6px' : '14px 12px',
+          padding: isCollapsed ? '12px 6px' : '14px 12px',
           display: 'flex',
           flexDirection: 'column',
           gap: '2px',
         }}
       >
         {/* OVERVIEW */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '8px 4px 4px' : '10px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'Overview'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '8px 4px 4px' : '10px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'Overview'}
         </div>
         <NavLink
           to="/dashboard"
@@ -131,12 +147,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Dashboard"
         >
           <LayoutDashboard size={18} />
-          {!collapsed && <span>Dashboard</span>}
+          {!isCollapsed && <span>Dashboard</span>}
         </NavLink>
 
         {/* CORE CURRICULUM */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'Core Curriculum'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'Core Curriculum'}
         </div>
         <NavLink
           to="/learning"
@@ -144,7 +160,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Networking Track"
         >
           <BookOpen size={18} />
-          {!collapsed && <span>Networking Track</span>}
+          {!isCollapsed && <span>Networking Track</span>}
         </NavLink>
         <NavLink
           to="/labs"
@@ -152,7 +168,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Hands-on Labs"
         >
           <Terminal size={18} />
-          {!collapsed && <span>Hands-on Labs</span>}
+          {!isCollapsed && <span>Hands-on Labs</span>}
         </NavLink>
         <NavLink
           to="/mock-tests"
@@ -160,7 +176,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Mock Tests"
         >
           <FileCheck2 size={18} />
-          {!collapsed && <span>Mock Tests</span>}
+          {!isCollapsed && <span>Mock Tests</span>}
         </NavLink>
         <NavLink
           to="/adaptive-test"
@@ -168,7 +184,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Adaptive Practice"
         >
           <Compass size={18} />
-          {!collapsed && <span>Adaptive Practice</span>}
+          {!isCollapsed && <span>Adaptive Practice</span>}
         </NavLink>
         <NavLink
           to="/challenges"
@@ -176,12 +192,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Challenges"
         >
           <Trophy size={18} />
-          {!collapsed && <span>Challenges</span>}
+          {!isCollapsed && <span>Challenges</span>}
         </NavLink>
 
         {/* INTERACTIVE SANDBOXES */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'Interactive Sandboxes'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'Interactive Sandboxes'}
         </div>
         <NavLink
           to="/network-simulator"
@@ -189,7 +205,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Network Simulator"
         >
           <Network size={18} />
-          {!collapsed && <span>Network Simulator</span>}
+          {!isCollapsed && <span>Network Simulator</span>}
         </NavLink>
         <NavLink
           to="/packet-analysis"
@@ -197,7 +213,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Packet Analysis"
         >
           <Binary size={18} />
-          {!collapsed && <span>Packet Analysis</span>}
+          {!isCollapsed && <span>Packet Analysis</span>}
         </NavLink>
         <NavLink
           to="/detection"
@@ -205,7 +221,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Detection Engine"
         >
           <ShieldAlert size={18} />
-          {!collapsed && <span>Detection Engine</span>}
+          {!isCollapsed && <span>Detection Engine</span>}
         </NavLink>
         <NavLink
           to="/soc"
@@ -213,7 +229,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Mini SOC"
         >
           <Radio size={18} />
-          {!collapsed && <span>Mini SOC</span>}
+          {!isCollapsed && <span>Mini SOC</span>}
         </NavLink>
         <NavLink
           to="/threat-intelligence"
@@ -221,7 +237,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Threat Intelligence"
         >
           <Target size={18} />
-          {!collapsed && <span>Threat Intelligence</span>}
+          {!isCollapsed && <span>Threat Intelligence</span>}
         </NavLink>
         <NavLink
           to="/threat-hunting"
@@ -229,7 +245,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Threat Hunting"
         >
           <Crosshair size={18} />
-          {!collapsed && <span>Threat Hunting</span>}
+          {!isCollapsed && <span>Threat Hunting</span>}
         </NavLink>
         <NavLink
           to="/siem"
@@ -237,7 +253,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="SIEM Log Engine"
         >
           <Database size={18} />
-          {!collapsed && <span>SIEM Log Engine</span>}
+          {!isCollapsed && <span>SIEM Log Engine</span>}
         </NavLink>
         <NavLink
           to="/endpoint-security"
@@ -245,12 +261,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Endpoint Security"
         >
           <Monitor size={18} />
-          {!collapsed && <span>Endpoint Security</span>}
+          {!isCollapsed && <span>Endpoint Security</span>}
         </NavLink>
 
         {/* SOC OPERATIONS */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'SOC Operations'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'SOC Operations'}
         </div>
         <NavLink
           to="/soc/incidents"
@@ -258,7 +274,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Incident Response"
         >
           <Flame size={18} />
-          {!collapsed && <span>Incident Response</span>}
+          {!isCollapsed && <span>Incident Response</span>}
         </NavLink>
         <NavLink
           to="/soc/mitre"
@@ -266,7 +282,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="MITRE ATT&CK"
         >
           <Grid3X3 size={18} />
-          {!collapsed && <span>MITRE ATT&CK</span>}
+          {!isCollapsed && <span>MITRE ATT&CK</span>}
         </NavLink>
         <NavLink
           to="/soc/playbooks"
@@ -274,7 +290,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="IR Playbooks"
         >
           <BookMarked size={18} />
-          {!collapsed && <span>IR Playbooks</span>}
+          {!isCollapsed && <span>IR Playbooks</span>}
         </NavLink>
         <NavLink
           to="/soc/automation"
@@ -282,7 +298,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="SOAR Automation"
         >
           <Zap size={18} />
-          {!collapsed && <span>SOAR Automation</span>}
+          {!isCollapsed && <span>SOAR Automation</span>}
         </NavLink>
         <NavLink
           to="/soc/scenarios"
@@ -290,12 +306,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="SOC Scenarios"
         >
           <Workflow size={18} />
-          {!collapsed && <span>SOC Scenarios</span>}
+          {!isCollapsed && <span>SOC Scenarios</span>}
         </NavLink>
 
         {/* STUDENT PROFILE */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'Profile & Settings'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'Profile & Settings'}
         </div>
         <NavLink
           to="/progress"
@@ -303,7 +319,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Progress Matrix"
         >
           <BarChart3 size={18} />
-          {!collapsed && <span>Progress Matrix</span>}
+          {!isCollapsed && <span>Progress Matrix</span>}
         </NavLink>
         <NavLink
           to="/portfolio"
@@ -311,7 +327,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Showcase Portfolio"
         >
           <Award size={18} />
-          {!collapsed && <span>Showcase Portfolio</span>}
+          {!isCollapsed && <span>Showcase Portfolio</span>}
         </NavLink>
         <NavLink
           to="/settings"
@@ -319,14 +335,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
           title="Settings"
         >
           <Settings size={18} />
-          {!collapsed && <span>Settings</span>}
+          {!isCollapsed && <span>Settings</span>}
         </NavLink>
 
         {/* ADMINISTRATION (Admins Only) */}
         {isAuthenticated && user?.role === 'ADMIN' && (
           <>
-            <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-              {!collapsed && 'Administration'}
+            <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+              {!isCollapsed && 'Administration'}
             </div>
             <NavLink
               to="/admin"
@@ -334,14 +350,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
               title="Admin Operations"
             >
               <Lock size={18} />
-              {!collapsed && <span>Admin Operations</span>}
+              {!isCollapsed && <span>Admin Operations</span>}
             </NavLink>
           </>
         )}
 
         {/* ACCOUNT */}
-        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
-          {!collapsed && 'Account'}
+        <div className="nav-section-title" style={{ padding: isCollapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!isCollapsed && 'Account'}
         </div>
         {isAuthenticated && user ? (
           <NavLink
@@ -350,7 +366,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
             title="Account Profile"
           >
             <Shield size={18} />
-            {!collapsed && <span>{user.display_name || user.username} ({user.role})</span>}
+            {!isCollapsed && <span>{user.display_name || user.username} ({user.role})</span>}
           </NavLink>
         ) : (
           <NavLink
@@ -360,7 +376,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen = false, onCloseMob
             title="Sign In / Register"
           >
             <LogIn size={18} />
-            {!collapsed && <span>Sign In / Register</span>}
+            {!isCollapsed && <span>Sign In / Register</span>}
           </NavLink>
         )}
       </nav>

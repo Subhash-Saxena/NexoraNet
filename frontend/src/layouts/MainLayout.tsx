@@ -56,6 +56,7 @@ function getRouteLabel(pathname: string): string {
 export const MainLayout: React.FC = () => {
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false)
 
   // Automatically close mobile menu when navigating to another route
   React.useEffect(() => {
@@ -85,7 +86,7 @@ export const MainLayout: React.FC = () => {
   const pageLabel = getRouteLabel(location.pathname)
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
       {/* Mobile Drawer Backdrop */}
       {mobileMenuOpen && (
         <div
@@ -98,6 +99,8 @@ export const MainLayout: React.FC = () => {
       <Sidebar
         mobileOpen={mobileMenuOpen}
         onCloseMobile={() => setMobileMenuOpen(false)}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed((prev) => !prev)}
       />
 
       <div className="main-content-wrapper">

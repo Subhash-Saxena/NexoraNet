@@ -169,13 +169,19 @@ button {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  bottom: 0;
   height: 100vh;
   height: 100dvh;
-  align-self: flex-start;
   z-index: 40;
   overflow: hidden;
+  transition: width 0.2s ease;
+}
+
+.sidebar.collapsed {
+  width: 72px;
 }
 
 .sidebar-header {
@@ -270,7 +276,14 @@ button {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  transition: margin-left 0.2s ease;
   overflow-x: hidden;
+}
+
+.sidebar-collapsed .main-content-wrapper {
+  margin-left: 72px;
 }
 
 .top-navbar {
@@ -789,6 +802,11 @@ button {
 
 /* Tablet & Mobile Drawer Navigation (< 1024px) */
 @media (max-width: 1023px) {
+  .main-content-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
   .mobile-hamburger-btn {
     display: flex;
   }
