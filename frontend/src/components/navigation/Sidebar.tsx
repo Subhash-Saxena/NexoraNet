@@ -4,20 +4,30 @@ import {
   Shield,
   LayoutDashboard,
   BookOpen,
-  FlaskConical,
+  Terminal,
   FileCheck2,
   Compass,
   Trophy,
   Network,
   Binary,
-  ShieldAlert,
   Radio,
+  ShieldAlert,
   Target,
-  Crown,
-  ArrowRight,
+  Crosshair,
+  BarChart3,
+  Settings,
+  Database,
+  Monitor,
+  Flame,
+  Grid3X3,
+  BookMarked,
+  Zap,
+  Workflow,
+  Award,
+  Lock,
+  LogIn,
   ChevronsLeft,
   ChevronsRight,
-  Lock,
 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 
@@ -26,77 +36,110 @@ export const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
 
   return (
-    <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`} style={{ width: collapsed ? '72px' : '260px', transition: 'width 0.2s ease' }}>
+    <aside
+      className={`sidebar ${collapsed ? 'collapsed' : ''}`}
+      style={{
+        width: collapsed ? '72px' : '260px',
+        transition: 'width 0.2s ease',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+      }}
+    >
       {/* Brand Header */}
-      <div className="sidebar-header" style={{ justifyContent: 'space-between', padding: collapsed ? '16px 12px' : '20px 20px' }}>
+      <div
+        className="sidebar-header"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: collapsed ? '16px 12px' : '20px 20px',
+          borderBottom: '1px solid #14223d',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div className="brand-icon" style={{ flexShrink: 0 }}>
             <Shield size={20} />
           </div>
           {!collapsed && (
             <div className="brand-text">
-              <h1>NexoraNet</h1>
-              <p>Cybersecurity Lab</p>
+              <h1 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#f8fafc' }}>NexoraNet</h1>
+              <p style={{ fontSize: '0.68rem', color: '#38bdf8', letterSpacing: '0.08em', margin: 0, textTransform: 'uppercase', fontWeight: 600 }}>Cybersecurity Lab</p>
             </div>
           )}
         </div>
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="sidebar-collapse-btn"
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           style={{
+            background: 'transparent',
+            border: 'none',
             color: '#64748b',
+            cursor: 'pointer',
             padding: '4px',
-            borderRadius: '6px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'color 0.2s',
+            borderRadius: '4px',
           }}
         >
           {collapsed ? <ChevronsRight size={16} /> : <ChevronsLeft size={16} />}
         </button>
       </div>
 
-      <nav className="sidebar-nav">
+      {/* Navigation Sections */}
+      <nav
+        className="sidebar-nav"
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          padding: collapsed ? '12px 6px' : '14px 12px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '2px',
+        }}
+      >
         {/* OVERVIEW */}
-        {!collapsed && <div className="nav-section-title">OVERVIEW</div>}
+        <div className="nav-section-title" style={{ padding: collapsed ? '8px 4px 4px' : '10px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'Overview'}
+        </div>
         <NavLink
           to="/dashboard"
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Dashboard"
         >
-          <LayoutDashboard />
+          <LayoutDashboard size={18} />
           {!collapsed && <span>Dashboard</span>}
         </NavLink>
 
-        {/* LEARNING */}
-        {!collapsed && <div className="nav-section-title">LEARNING</div>}
+        {/* CORE CURRICULUM */}
+        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'Core Curriculum'}
+        </div>
         <NavLink
           to="/learning"
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-          title="Learning Track"
+          title="Networking Track"
         >
-          <BookOpen />
-          {!collapsed && <span>Learning Track</span>}
+          <BookOpen size={18} />
+          {!collapsed && <span>Networking Track</span>}
         </NavLink>
         <NavLink
           to="/labs"
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Hands-on Labs"
         >
-          <FlaskConical />
+          <Terminal size={18} />
           {!collapsed && <span>Hands-on Labs</span>}
         </NavLink>
-
-        {/* ASSESSMENTS */}
-        {!collapsed && <div className="nav-section-title">ASSESSMENTS</div>}
         <NavLink
           to="/mock-tests"
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Mock Tests"
         >
-          <FileCheck2 />
+          <FileCheck2 size={18} />
           {!collapsed && <span>Mock Tests</span>}
         </NavLink>
         <NavLink
@@ -104,7 +147,7 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Adaptive Practice"
         >
-          <Compass />
+          <Compass size={18} />
           {!collapsed && <span>Adaptive Practice</span>}
         </NavLink>
         <NavLink
@@ -112,18 +155,20 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Challenges"
         >
-          <Trophy />
+          <Trophy size={18} />
           {!collapsed && <span>Challenges</span>}
         </NavLink>
 
-        {/* SANDBOX & TOOLS */}
-        {!collapsed && <div className="nav-section-title">SANDBOX & TOOLS</div>}
+        {/* INTERACTIVE SANDBOXES */}
+        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'Interactive Sandboxes'}
+        </div>
         <NavLink
           to="/network-simulator"
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Network Simulator"
         >
-          <Network />
+          <Network size={18} />
           {!collapsed && <span>Network Simulator</span>}
         </NavLink>
         <NavLink
@@ -131,7 +176,7 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Packet Analysis"
         >
-          <Binary />
+          <Binary size={18} />
           {!collapsed && <span>Packet Analysis</span>}
         </NavLink>
         <NavLink
@@ -139,7 +184,7 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Detection Engine"
         >
-          <ShieldAlert />
+          <ShieldAlert size={18} />
           {!collapsed && <span>Detection Engine</span>}
         </NavLink>
         <NavLink
@@ -147,7 +192,7 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Mini SOC"
         >
-          <Radio />
+          <Radio size={18} />
           {!collapsed && <span>Mini SOC</span>}
         </NavLink>
         <NavLink
@@ -155,83 +200,150 @@ export const Sidebar: React.FC = () => {
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
           title="Threat Intelligence"
         >
-          <Target />
+          <Target size={18} />
           {!collapsed && <span>Threat Intelligence</span>}
         </NavLink>
+        <NavLink
+          to="/threat-hunting"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Threat Hunting"
+        >
+          <Crosshair size={18} />
+          {!collapsed && <span>Threat Hunting</span>}
+        </NavLink>
+        <NavLink
+          to="/siem"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="SIEM Log Engine"
+        >
+          <Database size={18} />
+          {!collapsed && <span>SIEM Log Engine</span>}
+        </NavLink>
+        <NavLink
+          to="/endpoint-security"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Endpoint Security"
+        >
+          <Monitor size={18} />
+          {!collapsed && <span>Endpoint Security</span>}
+        </NavLink>
 
-        {/* Compact Admin / Settings Link if User is Admin or logged in */}
+        {/* SOC OPERATIONS */}
+        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'SOC Operations'}
+        </div>
+        <NavLink
+          to="/soc/incidents"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Incident Response"
+        >
+          <Flame size={18} />
+          {!collapsed && <span>Incident Response</span>}
+        </NavLink>
+        <NavLink
+          to="/soc/mitre"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="MITRE ATT&CK"
+        >
+          <Grid3X3 size={18} />
+          {!collapsed && <span>MITRE ATT&CK</span>}
+        </NavLink>
+        <NavLink
+          to="/soc/playbooks"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="IR Playbooks"
+        >
+          <BookMarked size={18} />
+          {!collapsed && <span>IR Playbooks</span>}
+        </NavLink>
+        <NavLink
+          to="/soc/automation"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="SOAR Automation"
+        >
+          <Zap size={18} />
+          {!collapsed && <span>SOAR Automation</span>}
+        </NavLink>
+        <NavLink
+          to="/soc/scenarios"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="SOC Scenarios"
+        >
+          <Workflow size={18} />
+          {!collapsed && <span>SOC Scenarios</span>}
+        </NavLink>
+
+        {/* STUDENT PROFILE */}
+        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'Profile & Settings'}
+        </div>
+        <NavLink
+          to="/progress"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Progress Matrix"
+        >
+          <BarChart3 size={18} />
+          {!collapsed && <span>Progress Matrix</span>}
+        </NavLink>
+        <NavLink
+          to="/portfolio"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Showcase Portfolio"
+        >
+          <Award size={18} />
+          {!collapsed && <span>Showcase Portfolio</span>}
+        </NavLink>
+        <NavLink
+          to="/settings"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+          title="Settings"
+        >
+          <Settings size={18} />
+          {!collapsed && <span>Settings</span>}
+        </NavLink>
+
+        {/* ADMINISTRATION (Admins Only) */}
         {isAuthenticated && user?.role === 'ADMIN' && (
+          <>
+            <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+              {!collapsed && 'Administration'}
+            </div>
+            <NavLink
+              to="/admin"
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              title="Admin Operations"
+            >
+              <Lock size={18} />
+              {!collapsed && <span>Admin Operations</span>}
+            </NavLink>
+          </>
+        )}
+
+        {/* ACCOUNT */}
+        <div className="nav-section-title" style={{ padding: collapsed ? '12px 4px 4px' : '14px 12px 4px', fontSize: '0.68rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#64748b', fontWeight: 700 }}>
+          {!collapsed && 'Account'}
+        </div>
+        {isAuthenticated && user ? (
           <NavLink
-            to="/admin"
+            to="/portfolio"
             className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-            title="Admin Operations"
-            style={{ marginTop: '8px' }}
+            title="Account Profile"
           >
-            <Lock />
-            {!collapsed && <span>Admin Operations</span>}
+            <Shield size={18} />
+            {!collapsed && <span>{user.display_name || user.username} ({user.role})</span>}
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            style={{ color: '#60a5fa' }}
+            title="Sign In / Register"
+          >
+            <LogIn size={18} />
+            {!collapsed && <span>Sign In / Register</span>}
           </NavLink>
         )}
       </nav>
-
-      {/* Upgrade Your Skills Bottom Promo Card */}
-      {!collapsed && (
-        <div style={{ padding: '16px', borderTop: '1px solid #14223d' }}>
-          <div
-            style={{
-              background: 'linear-gradient(180deg, #0e1930 0%, #0a1122 100%)',
-              border: '1px solid #1b2c4e',
-              borderRadius: '12px',
-              padding: '16px',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <div
-                style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '6px',
-                  background: 'rgba(245, 158, 11, 0.12)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fbbf24',
-                }}
-              >
-                <Crown size={16} />
-              </div>
-              <h4 style={{ fontSize: '0.88rem', fontWeight: 700, color: '#f8fafc', margin: 0 }}>
-                Upgrade Your Skills
-              </h4>
-            </div>
-            <p style={{ fontSize: '0.74rem', color: '#94a3b8', lineHeight: 1.4, margin: '0 0 12px' }}>
-              Unlock advanced labs, certifications and more.
-            </p>
-            <NavLink
-              to="/portfolio"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '6px',
-                width: '100%',
-                padding: '7px',
-                borderRadius: '6px',
-                background: 'rgba(14, 165, 233, 0.1)',
-                border: '1px solid rgba(14, 165, 233, 0.3)',
-                color: '#38bdf8',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-              }}
-            >
-              <span>View Plans</span>
-              <ArrowRight size={13} />
-            </NavLink>
-          </div>
-        </div>
-      )}
     </aside>
   )
 }
