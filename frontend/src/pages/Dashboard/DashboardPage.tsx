@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  GraduationCap,
-  Terminal,
-  FileCheck,
+  BookOpen,
+  FlaskConical,
+  FileCheck2,
   Network,
-  ShieldAlert,
-  Award,
+  Shield,
   ArrowRight,
-  ShieldCheck,
-  Binary,
-  Radio,
-  Sliders,
+  Clock,
+  Zap,
+  Play,
+  Trophy,
+  ChevronRight,
+  Route,
+  Sparkles,
 } from 'lucide-react'
-import { MetricCard } from '../../components/common/MetricCard'
-import { LearningPathFlow } from './LearningPathFlow'
 import { apiService } from '../../services/api'
-import type { LearningProgressResponse, StudentDashboardMetrics, LabTelemetry } from '../../types'
+import type { LearningProgressResponse, LabTelemetry, StudentDashboardMetrics } from '../../types'
+import '../../components/dashboard/dashboard.css'
 
 const DEFAULT_METRICS: StudentDashboardMetrics = {
   learningProgress: 0,
@@ -61,232 +62,492 @@ export const DashboardPage: React.FC = () => {
 
   return (
     <div>
-      {/* Platform Welcome Banner */}
-      <div
-        style={{
-          background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
-          border: '1px solid rgba(6, 182, 212, 0.2)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '24px 28px',
-          marginBottom: '28px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '16px',
-        }}
-      >
-        <div>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>
-            Welcome to NexoraNet
-          </h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            Interactive Computer Networking & Cybersecurity Platform &bull;{' '}
-            <strong style={{ color: 'var(--cyan-primary)' }}>Learn. Simulate. Analyze. Defend.</strong>
+      {/* 1. HERO BANNER SECTION */}
+      <div className="dashboard-hero">
+        {/* Background Cyber Mountain & Highway SVG Scenery */}
+        <div className="dashboard-hero-bg" aria-hidden="true">
+          <svg viewBox="0 0 700 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+            <defs>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.25" />
+                <stop offset="60%" stopColor="#080d1a" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#080d1a" stopOpacity="1" />
+              </linearGradient>
+              <linearGradient id="roadGlow" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.85" />
+              </linearGradient>
+              <linearGradient id="mountainGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#1e293b" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#0b1329" stopOpacity="0.95" />
+              </linearGradient>
+              <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            {/* Stars */}
+            <circle cx="120" cy="40" r="1.5" fill="#38bdf8" opacity="0.6" />
+            <circle cx="280" cy="25" r="1.2" fill="#ffffff" opacity="0.8" />
+            <circle cx="450" cy="60" r="1.8" fill="#38bdf8" opacity="0.7" />
+            <circle cx="580" cy="35" r="1.4" fill="#ffffff" opacity="0.5" />
+            <circle cx="340" cy="80" r="1.2" fill="#ffffff" opacity="0.4" />
+
+            {/* Distant Mountain Silhouettes */}
+            <path d="M100 240 L280 110 L410 210 L560 90 L700 220 L700 320 L100 320 Z" fill="url(#mountainGrad)" />
+            <path d="M300 240 L450 140 L580 230 L700 130 L700 320 L300 320 Z" fill="#0f1b34" opacity="0.8" />
+
+            {/* Futuristic Lighthouse / Citadel Tower */}
+            <path d="M510 88 L525 88 L522 55 L513 55 Z" fill="#38bdf8" opacity="0.9" />
+            <circle cx="517" cy="50" r="12" fill="#38bdf8" opacity="0.3" filter="url(#cyanGlow)" />
+            <circle cx="517" cy="50" r="4" fill="#ffffff" />
+            <line x1="517" y1="50" x2="400" y2="20" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" />
+            <line x1="517" y1="50" x2="650" y2="25" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" />
+
+            {/* Glowing Winding Cyber Highway */}
+            <path
+              d="M700 320 Q540 310 490 270 T480 200 T510 160 T517 90"
+              fill="none"
+              stroke="url(#roadGlow)"
+              strokeWidth="6"
+              strokeLinecap="round"
+              filter="url(#cyanGlow)"
+            />
+            <path
+              d="M700 320 Q540 310 490 270 T480 200 T510 160 T517 90"
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="2"
+              strokeDasharray="6 8"
+            />
+          </svg>
+        </div>
+
+        {/* Hero Left Content */}
+        <div className="dashboard-hero-content">
+          <span className="dashboard-tag">WELCOME TO NEXORANET</span>
+          <h1 className="dashboard-hero-title">
+            Learn. Simulate. Analyze. <span className="glow-cyan">Defend.</span>
+          </h1>
+          <p className="dashboard-hero-desc">
+            An interactive cybersecurity platform to build real-world skills through guided learning, hands-on labs and realistic simulations.
           </p>
+          <div className="dashboard-hero-actions">
+            <Link to="/learning" className="btn-hero-primary">
+              <span>Continue learning</span>
+              <ArrowRight size={15} />
+            </Link>
+            <Link to="/labs" className="btn-hero-secondary">
+              <FlaskConical size={15} />
+              <span>Explore labs</span>
+            </Link>
+          </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <Link
-            to="/learning"
-            style={{
-              background: 'var(--cyan-primary)',
-              color: '#020617',
-              fontWeight: 600,
-              padding: '8px 18px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.85rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-          >
-            Start Learning <ArrowRight size={14} />
-          </Link>
-          <Link
-            to="/labs"
-            style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid var(--border-color)',
-              color: 'var(--text-main)',
-              fontWeight: 500,
-              padding: '8px 18px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.85rem',
-            }}
-          >
-            Explore Labs
-          </Link>
+        {/* Hero Right: Circular Streak Gauge Card */}
+        <div className="dashboard-streak-card">
+          <div className="streak-circle-wrap">
+            <svg viewBox="0 0 86 86">
+              <circle
+                cx="43"
+                cy="43"
+                r="36"
+                stroke="#1e293b"
+                strokeWidth="7"
+                fill="none"
+              />
+              <circle
+                cx="43"
+                cy="43"
+                r="36"
+                stroke="url(#streakGradient)"
+                strokeWidth="7"
+                strokeDasharray="226"
+                strokeDashoffset="60"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <defs>
+                <linearGradient id="streakGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#06b6d4" />
+                  <stop offset="100%" stopColor="#38bdf8" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div className="streak-inner-content">
+              <span className="streak-fire-icon">🔥</span>
+              <span className="streak-number">0</span>
+              <span className="streak-sub">Day Streak</span>
+            </div>
+          </div>
+
+          <div className="streak-text-wrap">
+            <h4>Consistency builds mastery.</h4>
+            <p>Keep learning to grow your skills and streak!</p>
+          </div>
         </div>
       </div>
 
-      {/* Required Placeholder KPI Metric Cards */}
-      <div className="metrics-grid">
-        <MetricCard
-          label="Learning Progress"
-          value={`${metrics.learningProgress}%`}
-          hint={progress ? `${progress.completed_lessons} of ${progress.total_lessons} lessons completed` : '38 curated curriculum lessons'}
-          icon={<GraduationCap size={18} />}
-        />
-        <MetricCard
-          label="Labs Completed"
-          value={metrics.labsCompleted}
-          hint={labTelemetry ? `${labTelemetry.completed_labs} of ${labTelemetry.total_labs} labs completed` : 'Target: 22 interactive exercises'}
-          icon={<Terminal size={18} />}
-        />
-        <MetricCard
-          label="Mock Tests"
-          value={metrics.mockTests}
-          hint="Avg Score: 85% (Passing)"
-          icon={<FileCheck size={18} />}
-        />
-        <MetricCard
-          label="Networking Skills"
-          value={`${metrics.networkingSkills}%`}
-          hint="Layer 2 & Layer 3 mastery"
-          icon={<Network size={18} />}
-        />
-        <MetricCard
-          label="Security Skills"
-          value={`${metrics.securitySkills}%`}
-          hint="Boundary & defense drills"
-          icon={<ShieldAlert size={18} />}
-        />
-        <MetricCard
-          label="Current Level"
-          value={metrics.currentLevel}
-          hint="Tier 1 Foundation Candidate"
-          icon={<Award size={18} />}
-        />
+      {/* 2. 5-COLUMN KPI METRICS ROW */}
+      <div className="kpi-metrics-row">
+        {/* Metric 1 */}
+        <Link to="/learning" className="kpi-card">
+          <div className="kpi-card-header">
+            <div className="kpi-card-header-left">
+              <div className="kpi-icon" style={{ color: '#38bdf8' }}>
+                <BookOpen size={16} />
+              </div>
+              <span className="kpi-title">Learning Progress</span>
+            </div>
+            <ChevronRight size={14} className="kpi-chevron" />
+          </div>
+          <div>
+            <div className="kpi-value">{metrics.learningProgress}%</div>
+            <div className="kpi-subtext">38 curated curriculum lessons</div>
+            <div className="kpi-progress-track">
+              <div className="kpi-progress-fill" style={{ width: `${Math.max(metrics.learningProgress, 6)}%` }} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Metric 2 */}
+        <Link to="/labs" className="kpi-card">
+          <div className="kpi-card-header">
+            <div className="kpi-card-header-left">
+              <div className="kpi-icon" style={{ color: '#06b6d4' }}>
+                <FlaskConical size={16} />
+              </div>
+              <span className="kpi-title">Labs Completed</span>
+            </div>
+            <ChevronRight size={14} className="kpi-chevron" />
+          </div>
+          <div>
+            <div className="kpi-value">{metrics.labsCompleted}</div>
+            <div className="kpi-subtext">Target: 22 interactive exercises</div>
+            <div className="kpi-progress-track">
+              <div className="kpi-progress-fill" style={{ width: `${Math.max((metrics.labsCompleted / 22) * 100, 4)}%` }} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Metric 3 */}
+        <Link to="/mock-tests" className="kpi-card">
+          <div className="kpi-card-header">
+            <div className="kpi-card-header-left">
+              <div className="kpi-icon" style={{ color: '#60a5fa' }}>
+                <FileCheck2 size={16} />
+              </div>
+              <span className="kpi-title">Mock Tests</span>
+            </div>
+            <ChevronRight size={14} className="kpi-chevron" />
+          </div>
+          <div>
+            <div className="kpi-value">{metrics.mockTests}</div>
+            <div className="kpi-subtext">Avg Score: 83% (Passing)</div>
+            <div className="kpi-progress-track">
+              <div className="kpi-progress-fill" style={{ width: '83%' }} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Metric 4 */}
+        <Link to="/progress/skills" className="kpi-card">
+          <div className="kpi-card-header">
+            <div className="kpi-card-header-left">
+              <div className="kpi-icon" style={{ color: '#2dd4bf' }}>
+                <Network size={16} />
+              </div>
+              <span className="kpi-title">Networking Skills</span>
+            </div>
+            <ChevronRight size={14} className="kpi-chevron" />
+          </div>
+          <div>
+            <div className="kpi-value">{metrics.networkingSkills}%</div>
+            <div className="kpi-subtext">Layer 2 & Layer 3 mastery</div>
+            <div className="kpi-progress-track">
+              <div className="kpi-progress-fill" style={{ width: `${metrics.networkingSkills}%` }} />
+            </div>
+          </div>
+        </Link>
+
+        {/* Metric 5 */}
+        <Link to="/progress/skills" className="kpi-card">
+          <div className="kpi-card-header">
+            <div className="kpi-card-header-left">
+              <div className="kpi-icon" style={{ color: '#38bdf8' }}>
+                <Shield size={16} />
+              </div>
+              <span className="kpi-title">Security Skills</span>
+            </div>
+            <ChevronRight size={14} className="kpi-chevron" />
+          </div>
+          <div>
+            <div className="kpi-value">{metrics.securitySkills}%</div>
+            <div className="kpi-subtext">Boundary & defence drills</div>
+            <div className="kpi-progress-track">
+              <div className="kpi-progress-fill" style={{ width: `${metrics.securitySkills}%` }} />
+            </div>
+          </div>
+        </Link>
       </div>
 
-      {/* Required Learning Path Section: Beginner -> Intermediate -> Advanced -> Cyber Defense -> Mini SOC */}
-      <LearningPathFlow />
+      {/* 3. YOUR LEARNING PATH ROADMAP */}
+      <div className="roadmap-card">
+        <div className="roadmap-header">
+          <div className="roadmap-header-left">
+            <div className="roadmap-icon-box">
+              <Route size={18} />
+            </div>
+            <div>
+              <div className="roadmap-header-title">Your Learning Path</div>
+              <p className="roadmap-header-desc">
+                Step-by-step journey from fundamentals to real-world defense.
+              </p>
+            </div>
+          </div>
 
-      {/* Platform Exploration Grid */}
-      <div style={{ marginTop: '36px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: 'var(--text-main)' }}>
-            NexoraNet Platform Modules
-          </h3>
-          <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            Step 1 Architecture Foundation Active
-          </span>
+          <Link to="/learning" className="btn-view-curriculum">
+            <span>View Full Curriculum</span>
+            <ArrowRight size={14} />
+          </Link>
         </div>
 
-        <div className="modules-grid">
-          {/* Networking Curriculum */}
-          <div className="module-card">
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap">
-                  <Network size={20} />
-                </div>
-                <span className="badge badge-phase">Phase 2</span>
-              </div>
-              <div className="module-title">Structured Curriculum</div>
-              <p className="module-desc">
-                Interactive breakdowns of OSI, TCP/IP, IP subnetting, routing protocols (OSPF/BGP), and transport layer semantics.
-              </p>
+        {/* 6 Connected Steps */}
+        <div className="roadmap-timeline">
+          {/* Step 1 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node active">1</div>
+            <div className="roadmap-step-title">Foundations</div>
+            <span className="roadmap-status-badge in-progress">In Progress</span>
+            <p className="roadmap-step-desc">Networking, OS, protocols</p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node">2</div>
+            <div className="roadmap-step-title">System & Linux</div>
+            <span className="roadmap-status-badge not-started">Not Started</span>
+            <p className="roadmap-step-desc">Linux, command line, system internals</p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node">3</div>
+            <div className="roadmap-step-title">Cybersecurity Core</div>
+            <span className="roadmap-status-badge not-started">Not Started</span>
+            <p className="roadmap-step-desc">Threats, vulnerabilities, defence</p>
+          </div>
+
+          {/* Step 4 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node">4</div>
+            <div className="roadmap-step-title">Hands-on Labs</div>
+            <span className="roadmap-status-badge not-started">Not Started</span>
+            <p className="roadmap-step-desc">Guided and open-ended labs</p>
+          </div>
+
+          {/* Step 5 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node">5</div>
+            <div className="roadmap-step-title">SOC & Detection</div>
+            <span className="roadmap-status-badge not-started">Not Started</span>
+            <p className="roadmap-step-desc">SIEM, analysis, incident response</p>
+          </div>
+
+          {/* Step 6 */}
+          <div className="roadmap-step">
+            <div className="roadmap-node">6</div>
+            <div className="roadmap-step-title">Advanced & Specialization</div>
+            <span className="roadmap-status-badge not-started">Not Started</span>
+            <p className="roadmap-step-desc">Cloud, malware analysis, red/blue team</p>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. LOWER TWO-COLUMN SECTION */}
+      <div className="dashboard-lower-grid">
+        {/* Left Column: Recent Activity */}
+        <div className="dashboard-panel">
+          <div className="panel-header">
+            <div className="panel-header-left">
+              <Clock size={18} style={{ color: '#38bdf8' }} />
+              <h3>Recent Activity</h3>
             </div>
-            <Link to="/learning" className="nav-link" style={{ padding: '8px 0', color: 'var(--cyan-primary)' }}>
-              Inspect Curriculum <ArrowRight size={14} style={{ marginLeft: '4px' }} />
+            <Link to="/progress" className="panel-header-link">
+              <span>View All</span>
+              <ArrowRight size={13} />
             </Link>
           </div>
 
-          {/* Hands-on Labs */}
-          <div className="module-card">
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap">
-                  <Terminal size={20} />
+          <div className="activity-list">
+            {/* Activity 1 */}
+            <div className="activity-item">
+              <div className="activity-item-left">
+                <div className="activity-icon-box" style={{ background: 'rgba(16, 185, 129, 0.12)', color: '#34d399' }}>
+                  <Play size={15} />
                 </div>
-                <span className="badge badge-phase">Phase 3</span>
+                <div>
+                  <div className="activity-title">Attempted Mock Test</div>
+                  <div className="activity-sub">Network Fundamentals - Test 1</div>
+                </div>
               </div>
-              <div className="module-title">Hands-on Labs</div>
-              <p className="module-desc">
-                Container-isolated virtual networking topologies with strict localhost and lab subnet target containment.
-              </p>
+              <span className="activity-time">2 hours ago</span>
             </div>
-            <Link to="/labs" className="nav-link" style={{ padding: '8px 0', color: 'var(--cyan-primary)' }}>
-              Inspect Labs <ArrowRight size={14} style={{ marginLeft: '4px' }} />
+
+            {/* Activity 2 */}
+            <div className="activity-item">
+              <div className="activity-item-left">
+                <div className="activity-icon-box" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#c084fc' }}>
+                  <FlaskConical size={15} />
+                </div>
+                <div>
+                  <div className="activity-title">Explored Lab</div>
+                  <div className="activity-sub">Subnetting and IP Addressing</div>
+                </div>
+              </div>
+              <span className="activity-time">5 hours ago</span>
+            </div>
+
+            {/* Activity 3 */}
+            <div className="activity-item">
+              <div className="activity-item-left">
+                <div className="activity-icon-box" style={{ background: 'rgba(56, 189, 248, 0.12)', color: '#38bdf8' }}>
+                  <BookOpen size={15} />
+                </div>
+                <div>
+                  <div className="activity-title">Started Learning</div>
+                  <div className="activity-sub">OSI Model and Network Layers</div>
+                </div>
+              </div>
+              <span className="activity-time">1 day ago</span>
+            </div>
+
+            {/* Activity 4 */}
+            <div className="activity-item">
+              <div className="activity-item-left">
+                <div className="activity-icon-box" style={{ background: 'rgba(245, 158, 11, 0.12)', color: '#fbbf24' }}>
+                  <Trophy size={15} />
+                </div>
+                <div>
+                  <div className="activity-title">Viewed Challenge</div>
+                  <div className="activity-sub">Packet Analysis Challenge</div>
+                </div>
+              </div>
+              <span className="activity-time">2 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Up Next */}
+        <div className="dashboard-panel">
+          <div className="panel-header">
+            <div className="panel-header-left">
+              <Zap size={18} style={{ color: '#38bdf8' }} />
+              <h3>Up Next</h3>
+            </div>
+            <Link to="/learning/lessons/what-is-computer-networking-intro" className="panel-header-link">
+              <span>Continue</span>
+              <ArrowRight size={13} />
             </Link>
           </div>
 
-          {/* Network Simulator */}
-          <div className="module-card">
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap">
-                  <Sliders size={20} />
-                </div>
-                <span className="badge badge-phase">Phase 3</span>
+          {/* Featured Module Card */}
+          <div className="featured-module-card">
+            <div className="featured-module-left">
+              <div className="module-type-badge">
+                <BookOpen size={12} />
+                <span>Learning Module</span>
               </div>
-              <div className="module-title">Network Simulator</div>
-              <p className="module-desc">
-                Interactive canvas for building topologies, configuring IP interfaces, and watching packet frames traverse routers.
+              <div className="featured-module-title">Introduction to Computer Networks</div>
+              <div className="featured-module-meta">
+                <span>⏱ 45 min</span>
+                <span>🎯 Beginner</span>
+              </div>
+              <p className="featured-module-desc">
+                Learn the fundamentals of networks, protocols, and how data flows across the internet.
               </p>
             </div>
-            <Link to="/network-simulator" className="nav-link" style={{ padding: '8px 0', color: 'var(--cyan-primary)' }}>
-              Inspect Simulator <ArrowRight size={14} style={{ marginLeft: '4px' }} />
-            </Link>
+
+            {/* Isometric 3D Cyber Server Illustration */}
+            <div className="featured-graphic" aria-hidden="true">
+              <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="serverGrad1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#0284c7" />
+                    <stop offset="100%" stopColor="#1e3a8a" />
+                  </linearGradient>
+                  <linearGradient id="serverGrad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#38bdf8" />
+                    <stop offset="100%" stopColor="#0369a1" />
+                  </linearGradient>
+                </defs>
+                {/* Isometric Server Block 1 */}
+                <path d="M80 30 L125 55 L80 80 L35 55 Z" fill="url(#serverGrad2)" />
+                <path d="M35 55 L80 80 L80 100 L35 75 Z" fill="#0369a1" />
+                <path d="M80 80 L125 55 L125 75 L80 100 Z" fill="#0c4a6e" />
+
+                {/* Glowing Nodes on Server */}
+                <circle cx="55" cy="67" r="2.5" fill="#38bdf8" />
+                <circle cx="65" cy="73" r="2.5" fill="#34d399" />
+                <circle cx="95" cy="73" r="2.5" fill="#38bdf8" />
+
+                {/* Isometric Server Block 2 */}
+                <path d="M80 80 L125 105 L80 130 L35 105 Z" fill="url(#serverGrad1)" />
+                <path d="M35 105 L80 130 L80 145 L35 120 Z" fill="#1e3a8a" />
+                <path d="M80 130 L125 105 L125 120 L80 145 Z" fill="#0f172a" />
+
+                {/* Hologram Light Rays */}
+                <line x1="80" y1="20" x2="80" y2="30" stroke="#38bdf8" strokeWidth="2" strokeDasharray="3 3" />
+                <circle cx="80" cy="18" r="4" fill="#38bdf8" opacity="0.8" />
+              </svg>
+            </div>
           </div>
 
-          {/* PCAP Packet Analysis */}
-          <div className="module-card">
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap">
-                  <Binary size={20} />
-                </div>
-                <span className="badge badge-phase">Phase 4</span>
+          {/* Sub-section: Recommended for You */}
+          <div>
+            <div className="recommended-section-title">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Sparkles size={14} style={{ color: '#fbbf24' }} />
+                <span>Recommended for You</span>
               </div>
-              <div className="module-title">Packet Analysis</div>
-              <p className="module-desc">
-                Wireshark-grade browser packet dissector for inspecting TCP handshakes, DNS exfiltration, and attack signatures.
-              </p>
+              <Link to="/learning" style={{ fontSize: '0.78rem', color: '#38bdf8', textDecoration: 'none' }}>
+                See All →
+              </Link>
             </div>
-            <Link to="/packet-analysis" className="nav-link" style={{ padding: '8px 0', color: 'var(--cyan-primary)' }}>
-              Inspect Analyzer <ArrowRight size={14} style={{ marginLeft: '4px' }} />
-            </Link>
-          </div>
 
-          {/* Mini SOC */}
-          <div className="module-card">
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap">
-                  <Radio size={20} />
+            <div className="recommended-cards-row">
+              {/* Rec 1 */}
+              <Link to="/labs" className="recommended-card">
+                <div className="recommended-card-left">
+                  <div className="recommended-icon-box" style={{ background: 'rgba(14, 165, 233, 0.12)', color: '#38bdf8' }}>
+                    <FlaskConical size={16} />
+                  </div>
+                  <div>
+                    <span className="rec-type-label">Hands-on Lab</span>
+                    <div className="rec-card-title">Wireshark Packet Analysis</div>
+                    <div className="rec-card-sub">+ Intermediate</div>
+                  </div>
                 </div>
-                <span className="badge badge-phase">Phase 5</span>
-              </div>
-              <div className="module-title">Mini SOC Center</div>
-              <p className="module-desc">
-                Realistic security operations center with simulated SIEM alert queues, triage workflows, and incident reports.
-              </p>
-            </div>
-            <Link to="/soc" className="nav-link" style={{ padding: '8px 0', color: 'var(--cyan-primary)' }}>
-              Inspect SOC <ArrowRight size={14} style={{ marginLeft: '4px' }} />
-            </Link>
-          </div>
+                <ChevronRight size={14} style={{ color: '#64748b' }} />
+              </Link>
 
-          {/* Security Safeguards */}
-          <div className="module-card" style={{ background: 'rgba(16, 185, 129, 0.04)', borderColor: 'rgba(16, 185, 129, 0.2)' }}>
-            <div>
-              <div className="module-card-header">
-                <div className="module-icon-wrap" style={{ background: 'rgba(16, 185, 129, 0.1)', color: 'var(--emerald-success)' }}>
-                  <ShieldCheck size={20} />
+              {/* Rec 2 */}
+              <Link to="/mock-tests" className="recommended-card">
+                <div className="recommended-card-left">
+                  <div className="recommended-icon-box" style={{ background: 'rgba(56, 189, 248, 0.12)', color: '#38bdf8' }}>
+                    <FileCheck2 size={16} />
+                  </div>
+                  <div>
+                    <span className="rec-type-label">Mock Test</span>
+                    <div className="rec-card-title">Network Fundamentals</div>
+                    <div className="rec-card-sub">20 Questions</div>
+                  </div>
                 </div>
-                <span className="badge badge-ready">Enforced</span>
-              </div>
-              <div className="module-title">Lab Isolation Boundary</div>
-              <p className="module-desc">
-                All platform commands and simulator tools are strictly restricted to localhost (127.0.0.1) and safe virtual lab CIDR (10.99.0.0/16).
-              </p>
+                <ChevronRight size={14} style={{ color: '#64748b' }} />
+              </Link>
             </div>
-            <Link to="/settings" className="nav-link" style={{ padding: '8px 0', color: 'var(--emerald-success)' }}>
-              View Security Rules <ArrowRight size={14} style={{ marginLeft: '4px' }} />
-            </Link>
           </div>
         </div>
       </div>
